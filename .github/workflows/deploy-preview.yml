@@ -1,8 +1,6 @@
 name: Deploy to Preview Channel on PR
 on:
-  push:
-    branches:
-      - staging
+  pull_request:
 jobs:
   build_and_preview:
     runs-on: ubuntu-latest
@@ -14,4 +12,4 @@ jobs:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_AV2_LINKED_UP }}'
           projectId: av2-linked-up
-          expires: 30d
+          expires: 7d
