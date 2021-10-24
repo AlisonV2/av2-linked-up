@@ -1,0 +1,15 @@
+module.exports = {
+    chainWebpack: (config) => {
+      config.plugin('html').tap((args) => {
+        args[0].title = 'Linked Up';
+        return args;
+      });
+    },
+    pluginOptions: {
+      'style-resources-loader': {
+        preProcessor: 'scss',
+        patterns: ['./assets/styles/globals/globals.scss'],
+      },
+    },
+  };
+  

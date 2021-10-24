@@ -1,4 +1,13 @@
-# av2-linked-up
+<img src="./public/lkd-banner.png" />
+
+# Alison Vandromme - Ynov M1 Majeure - Coordination Front/Back
+
+
+## GH Actions
+
+- Open PR for every feature/* or fix/* branch
+- Deploy to preview url on PR
+- Deploy to live url on master merge
 
 ## Project setup
 ```
