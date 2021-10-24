@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <img alt="Vue logo" src="../assets/logo.png">
-    GH actions -- Test
+    GH actions -- Test Preview URL
   </div>
 </template>
 

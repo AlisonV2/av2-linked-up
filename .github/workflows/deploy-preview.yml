@@ -1,11 +1,10 @@
 name: Deploy to Preview Channel on PR
 on:
-  pull_request:
+  push:
     branches:
       - staging
 jobs:
   build_and_preview:
-    if: '${{ github.event.pull_request.head.repo.full_name == github.repository }}'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
