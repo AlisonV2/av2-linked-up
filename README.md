@@ -6,7 +6,7 @@
 ## GH Actions
 
 - Open PR for every feature/* or fix/* branch
-- Deploy to preview url on master PR
+- Deploy to preview url on PR
 - Deploy to live url on master merge
 
 ## Project setup
