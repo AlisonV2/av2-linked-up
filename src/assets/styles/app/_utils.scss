@@ -31,6 +31,29 @@
   align-items: center;
 }
 
+/* Images Position */
+
+.img-right {
+  display: flex;
+  justify-content: flex-end;
+  padding: 0;
+}
+
+.img-left {
+  display: flex;
+  justify-content: flex-start;
+  padding: 0;
+}
+
+.img-center {
+  display: flex;
+  justify-content: center;
+  padding: 0;
+  margin-bottom: 2rem;
+}
+
+/* Form styles */
+
 .auth-form {
   width: 95vw;
   padding: 3rem;

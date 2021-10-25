@@ -1,6 +1,6 @@
 <template>
   <div class="row">
-    <app-title>Search by style</app-title>
+    <app-title mode="title-img">Search by style</app-title>
     <div class="col-12 col-md-6 col-lg-3">
       <div class="card">
         <img src="/img/blackwork.jpg" class="card-img-top" alt="blackwork" />

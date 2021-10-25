@@ -1,22 +1,18 @@
 <template>
-  <div class="card mb-3">
-    <div class="row g-0">
-      <div class="col-7">
-        <img
-          :src="`/img/${artist.id}.jpg`"
-          class="img-fluid"
-          :alt="artist.alias"
-        />
-      </div>
-      <div class="col-5">
-        <div class="card-body text-center">
-          <h5 class="card-title">{{ artist.alias }}</h5>
-          <p class="card-text">{{ artist.style }}</p>
-          <p class="card-text">
-            <small class="text-muted">{{ artist.location }}</small>
-          </p>
-        </div>
-      </div>
+  <div class="card artist-card">
+    <div class="card-overlay"></div>
+    <div class="card-details fade-in-top text-center">
+      <h5 class="card-title">{{ artist.alias }}</h5>
+      <p class="card-text">{{ artist.shop }}</p>
+      <p class="card-text">{{ artist.location }}</p>
+    </div>
+    <img
+      :src="`/img/${artist.id}.jpg`"
+      class="card-img-top"
+      :alt="artist.alias"
+    />
+    <div class="card-body">
+      <h5 class="card-title">{{ artist.alias }}</h5>
     </div>
   </div>
 </template>
@@ -29,23 +25,57 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
-.card {
-  min-width: 100%!important;
-}
-.card-title {
-  font-family: $accent-font;
-  color: $primary;
-  font-size: 1.2rem;
-}
-
-.card-body {
-  padding-left: 0;
-}
-
-@include bp-up(md) {
+.artist-card {
   .card-title {
-    margin-bottom: 1.5rem;
+    font-family: $accent-font;
+    color: $primary;
+    font-size: 1.2rem;
+  }
+  .card-text {
+    color: $light;
+  }
+  .card-details {
+    position: absolute;
+    text-align: center;
+    padding-left: 1em;
+    padding-right: 1em;
+    width: 100%;
+    top: 50%;
+    left: 50%;
+    opacity: 0;
+    transform: translate(-50%, -50%);
+    transition: all 0.3s ease-in-out 0s;
+    .card-title {
+      margin-bottom: 2rem;
+    }
+  }
+  .card-overlay {
+    background: rgba(0, 0, 0, 0.8);
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    opacity: 0;
+    transition: all 0.4s ease-in-out 0s;
   }
 }
+
+.artist-card:hover {
+  .card-details {
+    display: block;
+  }
+  .card-overlay {
+    opacity: 1;
+  }
+  .card-details {
+    top: 50%;
+    left: 50%;
+    opacity: 1;
+  }
+}
+
+.fade-in-top {top: 20%};
 </style>

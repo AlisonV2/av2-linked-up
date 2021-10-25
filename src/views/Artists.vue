@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <div class="row">
-      <app-title>Find your artist</app-title>
+      <app-title mode="title-img">Find your artist</app-title>
     </div>
       <ArtistList />
   </div>

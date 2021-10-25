@@ -1,7 +1,7 @@
 <template>
   <div class="row">
     <div
-      class="col-12 col-lg-6 col-xl-4 artists-list"
+      class="col-8 col-md-6 col-lg-4 col-xl-3 artists-list"
       v-for="artist in artists"
       :key="artist.alias"
     >

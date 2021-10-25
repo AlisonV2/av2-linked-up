@@ -1,7 +1,7 @@
 <template>
   <form class="auth-form">
       <div class="row">
-      <app-title>Glad you join us!</app-title>
+      <app-title mode="title-img">Glad you join us!</app-title>
   </div>
     <div class="form-floating mb-3">
       <input
