@@ -1,6 +1,8 @@
 <template>
   <AppNavbar />
-  <router-view />
+  <main>
+    <router-view />
+  </main>
   <AppFooter />
 </template>
 
@@ -12,7 +14,12 @@ export default {
   name: 'App',
   components: {
     AppNavbar,
-    AppFooter
+    AppFooter,
   },
 };
 </script>
+<style lang="scss">
+main {
+  min-height: 55vh;
+}
+</style>

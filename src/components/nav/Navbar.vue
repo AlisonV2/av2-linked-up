@@ -17,7 +17,7 @@
             </router-link>
           </li>
           <li class="navbar-item">
-            <router-link :to="{ name: 'Home' }">
+            <router-link :to="{ name: 'Artists' }">
               Connexion
             </router-link>
           </li>
@@ -54,7 +54,6 @@ export default {
 
 <style lang="scss" scoped>
 .header {
-  border-bottom: 1px solid $primary;
   margin-bottom: 2rem;
 }
 

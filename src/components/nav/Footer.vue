@@ -1,5 +1,5 @@
 <template>
-  <footer class="container-fluid light-bg">
+  <footer class="container">
     <div class="row">
       <div class="col-12">
         <div class="footer-copyright">
@@ -35,7 +35,6 @@ footer {
   font-family: $accent-font;
   font-size: 0.75rem;
   font-weight: 500;
-  border-top: 1px solid $primary;
   padding: 1.5rem 0;
   position: relative;
   bottom: 0;
