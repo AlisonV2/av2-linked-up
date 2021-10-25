@@ -34,7 +34,7 @@
       </div>
     </div>
     <div class="col-12 text-end">
-      <router-link :to="{ name: Artists }"><p>See all styles</p></router-link>
+      <router-link :to="{ name: 'Categories' }"><p>See all styles</p></router-link>
     </div>
   </div>
 </template>
