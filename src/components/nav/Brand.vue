@@ -1,5 +1,5 @@
 <template>
-  <img src="logo.png" class="navbar-brand"/>
+  <img src="/img/logo.png" class="navbar-brand"/>
 </template>
 
 <script>

@@ -19,10 +19,10 @@ export default {
     color: $primary;
     font-family: $accent-font;
     // box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-    transition: 0.25s;
+    transition: 0.5s;
     &:hover {
         color: white;
-        box-shadow: inset 10em 0 0 0 $primary;
+        box-shadow: inset 18em 0 0 0 $primary;
     }
 }
 </style>

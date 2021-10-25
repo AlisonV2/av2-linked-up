@@ -1,8 +1,14 @@
+/* Typo utils */
+
 .title {
   font-family: $accent-font;
   margin-bottom: 2rem;
   font-size: 1.2rem;
   color: $primary;
+}
+
+.accent-text {
+  font-family: $accent-font;
 }
 
 /* Button wrappers */
@@ -24,6 +30,29 @@
   justify-content: center;
   align-items: center;
 }
+
+/* Images Position */
+
+.img-right {
+  display: flex;
+  justify-content: flex-end;
+  padding: 0;
+}
+
+.img-left {
+  display: flex;
+  justify-content: flex-start;
+  padding: 0;
+}
+
+.img-center {
+  display: flex;
+  justify-content: center;
+  padding: 0;
+  margin-bottom: 2rem;
+}
+
+/* Form styles */
 
 .auth-form {
   width: 95vw;

@@ -1,6 +1,6 @@
 <template>
   <div class="row">
-      <app-title>Upcoming events</app-title>
+      <app-title mode="title-img">Upcoming events</app-title>
   </div>
 </template>
 

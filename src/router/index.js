@@ -4,6 +4,7 @@ import Artists from '../views/Artists';
 import Conventions from '../views/Conventions';
 import Categories from '../views/Categories';
 import Login from '../views/Login';
+import ArtistProfile from '../views/ArtistProfile';
 
 const routes = [
   {
@@ -15,6 +16,11 @@ const routes = [
     path: '/artists',
     name: 'Artists',
     component: Artists
+  },
+  {
+    path: '/artist/:id',
+    name: 'Profile',
+    component: ArtistProfile
   },
   {
     path: '/conventions',
