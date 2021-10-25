@@ -11,9 +11,28 @@
   align-items: center;
 }
 
-.title-img {
-    width: 25rem;
-    position: absolute;
-    z-index: -1;
-    transform: translate(-2.8rem, -3.8rem);
+.auth-form {
+  width: 95vw;
+  padding: 3rem;
+  backdrop-filter: blur(5px);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  background-image: linear-gradient(
+    155deg,
+    rgba(255, 255, 255, 0.2),
+    rgba(255, 255, 255, 0.1)
+  );
+  border-top: 1px solid rgba(255, 255, 255, 0.5);
+  border-left: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+@include bp-between(md, xl) {
+  .auth-form {
+    width: 80vw;
+  }
+}
+
+@include bp-up(xl) {
+  .auth-form {
+    width: 50vw;
+  }
 }

@@ -17,8 +17,8 @@
             </router-link>
           </li>
           <li class="navbar-item">
-            <router-link :to="{ name: 'Artists' }">
-              Connexion
+            <router-link :to="{ name: 'Login' }">
+              Login
             </router-link>
           </li>
         </ul>

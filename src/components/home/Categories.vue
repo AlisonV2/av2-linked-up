@@ -1,6 +1,6 @@
 <template>
   <div class="row">
-    <app-title>Recherche par style</app-title>
+    <app-title>Search by style</app-title>
     <div class="col-12 col-md-6 col-lg-3">
       <div class="card">
         <img src="blackwork.jpg" class="card-img-top" alt="..." />
@@ -21,7 +21,7 @@
       <div class="card">
         <img src="newschool.jpg" class="card-img-top" alt="..." />
         <div class="card-body">
-          <h5 class="card-title">Surréalisme</h5>
+          <h5 class="card-title">Surrealism</h5>
         </div>
       </div>
     </div>

@@ -10,3 +10,12 @@ export default {
 
 }
 </script>
+
+<style lang="scss">
+.title-img {
+    width: 22rem;
+    position: absolute;
+    z-index: -1;
+    transform: translate(-2.7rem, -3.2rem);
+}
+</style>

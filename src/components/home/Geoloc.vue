@@ -5,12 +5,12 @@
         <input
           type="text"
           class="form-control"
-          placeholder="Saisissez votre ville"
+          placeholder="Enter your location"
         />
         <span class="input-group-text material-icons">place</span>
       </div>
       <div class="mb-3 btn-center">
-        <app-button>Recherche</app-button>
+        <app-button>Search</app-button>
       </div>
     </form>
   </div>
