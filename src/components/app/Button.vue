@@ -15,7 +15,10 @@ export default {
     background-color: white;
     padding: .75rem 1.5rem;
     border-radius: 0;
+    border: 1px solid $primary;
+    color: $primary;
     font-family: $accent-font;
+    // box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
     transition: 0.25s;
     &:hover {
         color: white;

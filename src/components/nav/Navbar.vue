@@ -1,6 +1,6 @@
 <template>
   <header class="header">
-    <div class="container">
+    <div class="container-fluid">
       <nav class="navbar-container">
         <router-link :to="{ name: 'Home' }" class="navbar-logo">
           <Brand />
@@ -55,6 +55,8 @@ export default {
 <style lang="scss" scoped>
 .header {
   margin-bottom: 2rem;
+  padding-right: 1rem;
+  padding-left: 1rem;
 }
 
 .navbar-container {

@@ -1,11 +1,8 @@
 <template>
   <div class="row geoloc-row">
-    <div class="col-12 text-center">
-      <h2 class="title">Recherche aux alentours</h2>
-    </div>
     <form class="col-12 geoloc">
       <div class="mb-3">
-        <input type="text" class="form-control" />
+        <input type="text" class="form-control" placeholder="Saisissez votre ville"/>
       </div>
       <div class="mb-3 btn-center">
         <app-button>Recherche</app-button>
