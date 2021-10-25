@@ -1,13 +1,19 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    I'm a Preview Test
+  <div class="container">
+    <HomeGeoloc />
+    <HomeCategories />
   </div>
 </template>
 
 <script>
+import HomeGeoloc from '@/components/home/Geoloc';
+import HomeCategories from '@/components/home/Categories';
 
 export default {
-  name: 'Home'
-}
+  name: 'Home',
+  components: {
+    HomeCategories,
+    HomeGeoloc
+  },
+};
 </script>

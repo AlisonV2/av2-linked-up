@@ -8,7 +8,7 @@ module.exports = {
     pluginOptions: {
       'style-resources-loader': {
         preProcessor: 'scss',
-        patterns: ['./assets/styles/globals/globals.scss'],
+        patterns: ['./src/assets/styles/globals/globals.scss'],
       },
     },
   };

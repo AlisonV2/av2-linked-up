@@ -1,0 +1,81 @@
+/* Typo utils */
+
+.title {
+  font-family: $accent-font;
+  margin-bottom: 2rem;
+  font-size: 1.2rem;
+  color: $primary;
+}
+
+.accent-text {
+  font-family: $accent-font;
+}
+
+/* Button wrappers */
+
+.btn-right  {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.btn-left {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.btn-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Images Position */
+
+.img-right {
+  display: flex;
+  justify-content: flex-end;
+  padding: 0;
+}
+
+.img-left {
+  display: flex;
+  justify-content: flex-start;
+  padding: 0;
+}
+
+.img-center {
+  display: flex;
+  justify-content: center;
+  padding: 0;
+  margin-bottom: 2rem;
+}
+
+/* Form styles */
+
+.auth-form {
+  width: 95vw;
+  padding: 3rem;
+  backdrop-filter: blur(5px);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  background-image: linear-gradient(
+    155deg,
+    rgba(255, 255, 255, 0.2),
+    rgba(255, 255, 255, 0.1)
+  );
+  border-top: 1px solid rgba(255, 255, 255, 0.5);
+  border-left: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+@include bp-between(md, xl) {
+  .auth-form {
+    width: 80vw;
+  }
+}
+
+@include bp-up(xl) {
+  .auth-form {
+    width: 50vw;
+  }
+}

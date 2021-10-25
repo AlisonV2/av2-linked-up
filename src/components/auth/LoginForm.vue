@@ -1,0 +1,58 @@
+<template>
+  <form class="auth-form">
+      <div class="row">
+      <app-title mode="title-img">Welcome back!</app-title>
+  </div>
+    <div class="form-floating mb-3">
+      <input
+        type="email"
+        class="form-control"
+        placeholder="name@example.com"
+        v-model="email"
+        required
+      />
+      <label>Email</label>
+    </div>
+    <div class="form-floating mb-3">
+      <input
+        type="password"
+        class="form-control"
+        placeholder="Password"
+        v-model="password"
+        required
+      />
+      <label>Password</label>
+    </div>
+    <div class="error mb-3 mt-3">{{ error }}</div>
+    <div class="btn-center">
+      <app-button>Log in</app-button>
+    </div>
+  </form>
+</template>
+
+<script>
+export default {
+  data() {
+    return {
+      email: '',
+      password: '',
+      error: null,
+    };
+  },
+  // methods: {
+  //   async login() {
+  //     const userData = {
+  //       email: this.email,
+  //       password: this.password,
+  //     };
+  //     try {
+  //       await this.$store.dispatch('login', userData);
+  //     } catch (err) {
+  //       this.error = err.message;
+  //       return;
+  //     }
+  //     this.$router.push({ name: 'admin' });
+  //   },
+  // },
+};
+</script>
