@@ -1,6 +1,8 @@
 <template>
   <form class="auth-form">
-    <h2 class="title text-center">Login</h2>
+      <div class="row">
+      <app-title>Welcome back!</app-title>
+  </div>
     <div class="form-floating mb-3">
       <input
         type="email"

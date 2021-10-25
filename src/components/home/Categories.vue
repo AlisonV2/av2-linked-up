@@ -21,7 +21,7 @@
       <div class="card">
         <img src="newschool.jpg" class="card-img-top" alt="..." />
         <div class="card-body">
-          <h5 class="card-title">Surrealism</h5>
+          <h5 class="card-title">New School</h5>
         </div>
       </div>
     </div>
@@ -29,9 +29,12 @@
       <div class="card">
         <img src="surrealism.jpg" class="card-img-top" alt="..." />
         <div class="card-body">
-          <h5 class="card-title">New School</h5>
+          <h5 class="card-title">Surrealism</h5>
         </div>
       </div>
+    </div>
+    <div class="col-12 text-end">
+      <router-link :to="{ name: Artists }"><p>See all styles</p></router-link>
     </div>
   </div>
 </template>

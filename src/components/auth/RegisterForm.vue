@@ -1,6 +1,8 @@
 <template>
   <form class="auth-form">
-    <h2 class="title text-center">Inscription</h2>
+      <div class="row">
+      <app-title>Glad you join us!</app-title>
+  </div>
     <div class="form-floating mb-3">
       <input
         type="text"
