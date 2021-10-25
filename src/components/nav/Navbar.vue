@@ -54,7 +54,6 @@ export default {
 
 <style lang="scss" scoped>
 .header {
-  margin-bottom: 1rem;
   padding-right: 1rem;
   padding-left: 1rem;
 }

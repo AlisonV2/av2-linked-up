@@ -1,7 +1,7 @@
 <template>
-      <div class="col-12 text-center mb-4">
+    <div class="col-12 text-center mb-4 app-title">
       <h2 class="title">
-        <img class="title-img" src="title-bg.png"><span><slot /></span></h2>
+        <img class="title-img" src="/img/title-bg.png"><span><slot /></span></h2>
     </div>
 </template>
 
@@ -17,5 +17,15 @@ export default {
     position: absolute;
     z-index: -1;
     transform: translate(-2.7rem, -3.2rem);
+}
+
+@include bp-up(md) {
+    .app-title {
+        margin-top: 1rem;
+    }
+}
+
+.app-title {
+    margin-top: 2rem;
 }
 </style>

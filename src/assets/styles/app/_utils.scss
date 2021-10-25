@@ -1,8 +1,14 @@
+/* Typo utils */
+
 .title {
   font-family: $accent-font;
   margin-bottom: 2rem;
   font-size: 1.2rem;
   color: $primary;
+}
+
+.accent-text {
+  font-family: $accent-font;
 }
 
 /* Button wrappers */
