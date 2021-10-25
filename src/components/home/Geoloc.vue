@@ -1,8 +1,13 @@
 <template>
   <div class="row geoloc-row">
     <form class="col-12 geoloc">
-      <div class="mb-3">
-        <input type="text" class="form-control" placeholder="Saisissez votre ville"/>
+      <div class="input-group mb-3">
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Saisissez votre ville"
+        />
+        <span class="input-group-text material-icons">place</span>
       </div>
       <div class="mb-3 btn-center">
         <app-button>Recherche</app-button>
@@ -21,8 +26,13 @@ export default {};
     max-width: 80% !important;
     margin: 0 auto;
   }
-  .geoloc-row {
-    margin-bottom: 3rem;
-  }
+}
+.geoloc-row {
+  margin-bottom: 3rem;
+}
+
+.material-icons {
+  font-size: 1.5rem!important;
+  cursor: pointer;
 }
 </style>

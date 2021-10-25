@@ -52,6 +52,7 @@ export default {};
   transition: 0.3s transform cubic-bezier(0.155, 1.105, 0.295, 1.12),
     0.3s box-shadow;
   cursor: pointer;
+  margin-bottom: 1rem;
   img {
     height: 12rem;
   }
