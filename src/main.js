@@ -4,6 +4,7 @@ import router from './router';
 import store from './store';
 import './utils/styles';
 import GlobalComponents from './utils/globals';
+import 'bootstrap';
 
 const app = createApp(App);
 app

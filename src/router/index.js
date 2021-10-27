@@ -5,6 +5,7 @@ import Conventions from '../views/Conventions';
 import Categories from '../views/Categories';
 import Login from '../views/Login';
 import ArtistProfile from '../views/ArtistProfile';
+import Admin from '../views/Admin';
 
 const routes = [
   {
@@ -37,6 +38,11 @@ const routes = [
     name: 'Login',
     component: Login
   },
+  {
+    path: '/admin',
+    name: 'Admin',
+    component: Admin
+  }
 ];
 
 const router = createRouter({
