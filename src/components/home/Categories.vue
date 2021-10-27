@@ -34,7 +34,7 @@
       </div>
     </div>
     <div class="col-12 text-end">
-      <router-link :to="{ name: 'Categories' }"><p>See all styles</p></router-link>
+      <router-link :to="{ name: 'Categories' }"><p class="link-text">See all styles</p></router-link>
     </div>
   </div>
 </template>
@@ -47,6 +47,7 @@ export default {};
 .card-title {
   text-align: center;
   font-size: 1rem;
+  font-family: $default-font;
 }
 
 .card {
@@ -64,5 +65,10 @@ export default {};
 .card:hover {
   transform: scale(1.05);
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12), 0 4px 8px rgba(0, 0, 0, 0.06);
+}
+
+.link-text {
+  font-size: 1rem;
+  font-family: $accent-font;
 }
 </style>

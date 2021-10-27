@@ -1,6 +1,6 @@
 <template>
-  <AppNavbar v-if="$route.name !== 'Admin'"/>
-  <AdminNav v-else />
+  <AdminNav v-if="$route.path === '/admin/*' ||'/admin'" />
+  <AppNavbar v-else/>
    <main>
     <router-view />
   </main>

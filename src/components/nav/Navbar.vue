@@ -92,6 +92,7 @@ export default {
     color: $dark;
     text-decoration: none;
     font-family: $accent-font;
+    font-size: 1.2rem;
   }
   a:hover,
   .router-link-active,
