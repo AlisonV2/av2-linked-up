@@ -1,0 +1,17 @@
+name: Open PR to Prod Branch on push
+on:
+  push:
+    branches:
+      - 'staging'
+jobs:
+  pull-request:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: pull-request
+        uses: repo-sync/pull-request@v2
+        with:
+          destination_branch: 'staging'
+          pr_title: '${{ github.ref }}'
+          pr_body: 'Pulling ${{ github.ref }} into prod -- ${{ github.actor }}'
+          github_token: ${{ secrets.GITHUB_TOKEN }}

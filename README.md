@@ -1,4 +1,4 @@
-<img src="./public/lkd-banner.png" />
+<img src="./public/img/lkd-banner.png" />
 
 # Alison Vandromme - Ynov M1 Majeure - Coordination Front/Back
 
