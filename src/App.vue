@@ -1,6 +1,7 @@
 <template>
-  <AppNavbar />
-  <main>
+  <AppNavbar v-if="$route.name !== 'Admin'"/>
+  <AdminNav v-else />
+   <main>
     <router-view />
   </main>
   <AppFooter />
@@ -9,12 +10,14 @@
 <script>
 import AppNavbar from '@/components/nav/Navbar';
 import AppFooter from '@/components/nav/Footer';
+import AdminNav from '@/components/admin/AdminNav';
 
 export default {
   name: 'App',
   components: {
     AppNavbar,
     AppFooter,
+    AdminNav
   },
 };
 </script>
