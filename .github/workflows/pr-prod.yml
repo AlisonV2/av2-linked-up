@@ -11,7 +11,7 @@ jobs:
       - name: pull-request
         uses: repo-sync/pull-request@v2
         with:
-          destination_branch: 'staging'
+          destination_branch: 'prod'
           pr_title: '${{ github.ref }}'
           pr_body: 'Pulling ${{ github.ref }} into prod -- ${{ github.actor }}'
           github_token: ${{ secrets.GITHUB_TOKEN }}
