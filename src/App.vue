@@ -1,6 +1,6 @@
 <template>
-  <AdminNav v-if="$route.path === '/admin/*' ||'/admin'" />
-  <AppNavbar v-else/>
+  <AdminNav v-if="isUser"/>
+  <AppNavbar v-if="!isUser"/>
    <main>
     <router-view />
   </main>
@@ -19,6 +19,14 @@ export default {
     AppFooter,
     AdminNav
   },
+  computed: {
+    isUser() {
+      if (this.$route.meta.isUser) {
+        return true;
+      }
+      return false;
+    }
+  }
 };
 </script>
 <style lang="scss">

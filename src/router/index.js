@@ -13,41 +13,62 @@ const routes = [
     path: '/',
     name: 'Home',
     component: Home,
+    meta: {
+      isUser: false
+    }
   },
   {
     path: '/artists',
     name: 'Artists',
-    component: Artists
+    component: Artists,
+    meta: {
+      isUser: false
+    }
   },
   {
     path: '/artist/:id',
     name: 'Profile',
-    component: ArtistProfile
+    component: ArtistProfile,
+    meta: {
+      isUser: false
+    }
   },
   {
     path: '/conventions',
     name: 'Conventions',
-    component: Conventions
+    component: Conventions,
+    meta: {
+      isUser: false
+    }
   },
   {
     path: '/categories',
     name: 'Categories',
-    component: Categories
+    component: Categories,
+    meta: {
+      isUser: false
+    }
   },
   {
     path: '/login',
     name: 'Login',
-    component: Login
+    component: Login,
+    meta: {
+      isUser: false
+    }
   },
   {
     path: '/admin',
     name: 'Admin',
     component: Admin,
+    meta: {
+      isUser: true
+    },
     children: [
       {
         path: 'profile',
         name: 'AdminProfile',
-        component: AdminProfile
+        component: AdminProfile,
       }
     ]
   }
