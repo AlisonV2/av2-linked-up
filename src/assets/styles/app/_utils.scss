@@ -11,6 +11,12 @@
   font-family: $accent-font;
 }
 
+.error {
+  color: var(--warning);
+  font-size: 14px;
+  margin: 16px 0;
+}
+
 /* Button wrappers */
 
 .btn-right  {

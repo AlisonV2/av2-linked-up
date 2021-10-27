@@ -7,6 +7,7 @@
 
 - Open PR for every feature/* or fix/* branch
 - Deploy to preview url on PR
+- Open PR on merge from staging to prod
 - Deploy to live url on master merge
 
 ## Project setup
