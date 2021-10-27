@@ -18,17 +18,10 @@
         </li>
         <hr class="dropdown-divider" />
         <li>
-          <a href="#submenu1" class="nav-link align-middle px-0">
-            <i class="fs-4 bi-speedometer2"></i>
-            <span class="ms-3 d-none d-sm-inline">Dashboard</span>
-          </a>
-        </li>
-        <hr class="dropdown-divider" />
-        <li>
-          <a class="nav-link align-middle px-0">
+          <router-link :to="{ name: 'AdminProfile' }" class="nav-link align-middle px-0">
             <i class="fs-4 bi-gear"></i>
             <span class="ms-3 d-none d-sm-inline">Profile</span>
-          </a>
+          </router-link>
         </li>
         <hr class="dropdown-divider" />
         <li>
@@ -71,6 +64,7 @@ a:hover,
 a:active,
 .bi:active {
   color: $primary;
+  cursor: pointer;
 }
 
 .admin-brand {

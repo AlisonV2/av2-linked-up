@@ -3,7 +3,9 @@
     <div class="row flex-nowrap">
         <Sidenav />
         <div class="col py-3">
-            Content area...
+          <div class="container">
+            <router-view></router-view>
+          </div>
         </div>
     </div>
 </div>

@@ -9,7 +9,7 @@
         />
         <span class="input-group-text material-icons">place</span>
       </div>
-      <div class="mb-3 btn-center">
+      <div class="btn-center">
         <app-button>Search</app-button>
       </div>
     </form>
