@@ -16,6 +16,7 @@
         width="250"
         height="250"
         @click="selectImage"
+        class="img-fluid"
       />
       <div class="mt-3">
         <input type="file" @input="pickFile" ref="fileInput" />
