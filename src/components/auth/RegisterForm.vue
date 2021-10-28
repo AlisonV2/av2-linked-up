@@ -34,7 +34,7 @@
       <label>Password</label>
     </div>
     <div>
-      <select class="form-select" v-model="role">
+      <select class="form-select" v-model="role" required>
         <option disabled value="">You are...</option>
         <option value="artist">An artist</option>
         <option value="client">A (future) client</option>
@@ -75,6 +75,7 @@ export default {
         return;
       }
       this.$store.commit('toggleAuth');
+      this.$router.push({ name: 'AdminProfile' });
     },
   },
 };

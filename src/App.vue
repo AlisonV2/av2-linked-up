@@ -1,7 +1,7 @@
 <template>
-  <AdminNav v-if="isUser"/>
-  <AppNavbar v-if="!isUser"/>
-   <main>
+  <AdminNav v-if="requiresAuth" />
+  <AppNavbar v-if="!requiresAuth" />
+  <main>
     <router-view />
   </main>
   <AppFooter />
@@ -17,16 +17,19 @@ export default {
   components: {
     AppNavbar,
     AppFooter,
-    AdminNav
+    AdminNav,
   },
   computed: {
-    isUser() {
-      if (this.$route.meta.isUser) {
+    requiresAuth() {
+      if (this.$route.meta.requiresAuth) {
         return true;
       }
       return false;
-    }
-  }
+    },
+  },
+  created() {
+    this.$store.dispatch('init_login');
+  },
 };
 </script>
 <style lang="scss">
