@@ -16,11 +16,11 @@
         "
         width="250"
         height="250"
-        @click="selectImage"
         class="img-fluid"
       />
       <div class="mt-3">
-        <input type="file" @input="pickFile" ref="fileInput" />
+        <input type="file" @change="upload($event)" ref="fileInput" />
+        <div class="error">{{ fileErr }}</div>
       </div>
       <!-- <div class="error">{{ fileError }}</div> -->
     </div>
@@ -92,33 +92,45 @@ export default {
         zip: '',
         shop: '',
         style: '',
+        thumbnail: ''
       },
       showSuccessToast: false,
       showErrorToast: false,
+      fileSelected: null,
+      fileErr: null
     };
   },
   async created() {
-    await this.$store.dispatch('getArtistProfile').then(() => {
+    await this.$store.dispatch('getArtistProfile')
+    .then(() => {
       this.profile = this.$store.state.profile.artistProfile;
+    })
+    .then(() => {
+      this.previewImage = this.profile.thumbnail;
     });
   },
   methods: {
-    selectImage() {
-      this.$refs.fileInput.click();
-    },
-    pickFile() {
-      let input = this.$refs.fileInput;
-      let file = input.files;
-      if (file && file[0]) {
+    upload($event) {
+      this.profile.thumbnail = '';
+      const file = $event.target.files[0];
+      const types = ['image/png', 'image/jpeg'];
+      if (file && types.includes(file.type)) {
+        this.fileSelected = file;
+        this.fileErr = null;
         let reader = new FileReader();
         reader.onload = (e) => {
           this.previewImage = e.target.result;
         };
-        reader.readAsDataURL(file[0]);
-        this.$emit('input', file[0]);
+        reader.readAsDataURL(file);
+        this.$emit('input', file);
+        this.$store.dispatch('uploadThumbnail', file)
+      } else {
+        this.fileSelected = null;
+        this.fileErr = 'Please select an image file (png or jpeg).';
       }
     },
     async setArtistProfile() {
+      const file = this.$store.state.profile.thumbnailUrl;
       this.showToast = false;
       const profileData = {
         name: this.profile.name,
@@ -126,16 +138,16 @@ export default {
         zip: this.profile.zip,
         shop: this.profile.shop,
         style: this.profile.style,
+        thumbnail: file
       };
-
       try {
+        console.log(profileData)
         await this.$store.dispatch('setArtistProfile', profileData);
         this.showSuccessToast = true;
         this.showErrorToast = false;
         setTimeout(() => {
           this.showSuccessToast = false;
         }, 3000);
-        console.log('profile set!');
       } catch (err) {
         this.showErrorToast = true;
         this.showSuccessToast = false;
