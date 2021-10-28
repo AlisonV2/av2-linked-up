@@ -1,4 +1,10 @@
-import { auth, usersCollection } from '@/utils/firebase';
+import {
+  auth,
+  usersCollection,
+  artistsCollection,
+  clientsCollection,
+  organizersCollection,
+} from '@/utils/firebase';
 
 export default {
   state: {
@@ -16,6 +22,24 @@ export default {
         payload.password
       );
 
+      if (payload.role === 'artist') {
+        await artistsCollection.doc(userCred.user.uid).set({
+          name: payload.name,
+        });
+      }
+
+      if (payload.role === 'client') {
+        await clientsCollection.doc(userCred.user.uid).set({
+          name: payload.name,
+        });
+      }
+
+      if (payload.role === 'organizer') {
+        await organizersCollection.doc(userCred.user.uid).set({
+          name: payload.name,
+        });
+      }
+
       await usersCollection.doc(userCred.user.uid).set({
         name: payload.name,
         email: payload.email,
@@ -27,11 +51,11 @@ export default {
       });
 
       commit('toggleAuth');
-      console.log('User created!')
+      console.log('User created!');
     },
     async login({ commit }, payload) {
       await auth.signInWithEmailAndPassword(payload.email, payload.password);
-      console.log('Logged in!')
+      console.log('Logged in!');
 
       commit('toggleAuth');
     },
