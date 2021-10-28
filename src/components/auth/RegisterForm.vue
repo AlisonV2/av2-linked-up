@@ -1,8 +1,8 @@
 <template>
-  <form class="auth-form">
-      <div class="row">
+  <form class="auth-form" @submit.prevent="register">
+    <div class="row">
       <app-title mode="title-img">Glad you join us!</app-title>
-  </div>
+    </div>
     <div class="form-floating mb-3">
       <input
         type="text"
@@ -11,7 +11,7 @@
         v-model="name"
         required
       />
-      <label>Name</label>
+      <label>Public Name</label>
     </div>
     <div class="form-floating mb-3">
       <input
@@ -33,6 +33,14 @@
       />
       <label>Password</label>
     </div>
+    <div>
+      <select class="form-select" v-model="role">
+        <option disabled value="">You are...</option>
+        <option value="artist">An artist</option>
+        <option value="client">A (future) client</option>
+        <option value="organizer">An organizer</option>
+      </select>
+    </div>
     <div class="error mb-3 mt-3">{{ error }}</div>
     <div class="btn-center">
       <app-button>Sign up</app-button>
@@ -48,25 +56,26 @@ export default {
       name: '',
       email: '',
       password: '',
+      role: '',
       error: null,
     };
   },
-  // methods: {
-  //   async register() {
-  //     const userData = {
-  //       name: this.name,
-  //       email: this.email,
-  //       password: this.password
-  //     };
-  //     try {
-  //       await this.$store.dispatch('register', userData);
-  //     } catch (err) {
-  //       this.error = err.message;
-  //       return;
-  //     }
-  //     this.$store.commit('toggleAuth');
-  //     window.location.reload();
-  //   }
-  // }
+  methods: {
+    async register() {
+      const userData = {
+        name: this.name,
+        email: this.email,
+        password: this.password,
+        role: this.role,
+      };
+      try {
+        await this.$store.dispatch('register', userData);
+      } catch (err) {
+        this.error = err.message;
+        return;
+      }
+      this.$store.commit('toggleAuth');
+    },
+  },
 };
 </script>
