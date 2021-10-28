@@ -40,7 +40,7 @@
 import Brand from '@/components/nav/Brand';
 
 export default {
-  name: 'Navbar',
+  name: 'AppNavbar',
   components: {
     Brand,
   },
