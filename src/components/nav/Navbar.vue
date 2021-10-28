@@ -127,7 +127,7 @@ export default {
   }
 }
 
-@include bp-down(md) {
+@include bp-down(lg) {
   .navbar-menu {
     position: fixed;
     right: -100%;
