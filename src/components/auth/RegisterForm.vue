@@ -74,7 +74,6 @@ export default {
         this.error = err.message;
         return;
       }
-      this.$store.commit('toggleAuth');
       this.$router.push({ name: 'AdminProfile' });
     },
   },

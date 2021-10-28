@@ -25,6 +25,8 @@ const storage = firebase.storage();
 
 const usersCollection = db.collection('users');
 const artistsCollection = db.collection('artists');
+const clientsCollection = db.collection('clients');
+const organizersCollection = db.collection('organizers');
 
 export {
   auth,
@@ -32,4 +34,6 @@ export {
   storage,
   usersCollection,
   artistsCollection,
+  clientsCollection,
+  organizersCollection
 };
