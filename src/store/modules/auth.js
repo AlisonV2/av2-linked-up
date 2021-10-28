@@ -1,3 +1,5 @@
+import { auth, usersCollection } from '@/utils/firebase';
+
 export default {
   state: {
     userLoggedIn: false,
@@ -9,26 +11,40 @@ export default {
   },
   actions: {
     async register({ commit }, payload) {
-      //   const userCred = await auth.createUserWithEmailAndPassword(
-      //     payload.email,
-      //     payload.password
-      //   );
-      const userCred = {
+      const userCred = await auth.createUserWithEmailAndPassword(
+        payload.email,
+        payload.password
+      );
+
+      await usersCollection.doc(userCred.user.uid).set({
+        name: payload.name,
         email: payload.email,
-        password: payload.password,
-      };
-      console.log('User created', userCred.email);
+        role: payload.role,
+      });
 
-      //   await usersCollection.doc(userCred.user.id).set({
-      //     name: payload.name,
-      //     email: payload.email,
-      //   });
+      await userCred.user.updateProfile({
+        displayName: payload.name,
+      });
 
-      //   await userCred.user.updateProfile({
-      //     displayName: payload.name,
-      //   });
+      commit('toggleAuth');
+      console.log('User created!')
+    },
+    async login({ commit }, payload) {
+      await auth.signInWithEmailAndPassword(payload.email, payload.password);
+
+      commit('toggleAuth');
+    },
+    init_login({ commit }) {
+      const user = auth.currentUser;
+
+      if (user) {
+        commit('toggleAuth');
+      }
+    },
+    async signout({ commit }) {
+      await auth.signOut();
+
       commit('toggleAuth');
     },
   },
-  getters: {},
 };
