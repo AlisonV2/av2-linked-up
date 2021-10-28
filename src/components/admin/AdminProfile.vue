@@ -1,6 +1,10 @@
 <template>
   <div class="row">
     <app-title mode="title-img">Your profile</app-title>
+    <div id="toast-success" :class="{ 'show' : showToast }">
+      <div class="toast-img"><i class="bi bi-check-circle"></i></div>
+      <div class="toast-msg">Update successful</div>
+    </div>
     <div class="col-12 col-lg-4 mt-4">
       <img
         :src="
@@ -87,6 +91,7 @@ export default {
         shop: '',
         style: '',
       },
+      showToast: false,
     };
   },
   created() {
@@ -110,6 +115,7 @@ export default {
       }
     },
     async setArtistProfile() {
+      this.showToast = false;
       const profileData = {
         name: this.profile.name,
         city: this.profile.city,
@@ -120,6 +126,10 @@ export default {
 
       try {
         await this.$store.dispatch('setArtistProfile', profileData);
+        this.showToast = true;
+        setTimeout(() => {
+          this.showToast = false;
+        }, 5000);
         console.log('profile set!');
       } catch (err) {
         console.log(err.message);
@@ -129,4 +139,92 @@ export default {
 };
 </script>
 
-<style lang="scss"></style>
+<style lang="scss">
+#toast-success {
+  visibility: hidden;
+  width: 3rem;
+  height: 3rem;
+  margin: auto;
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  border-radius: 2px;
+
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  right: 0;
+  bottom: 30px;
+  font-size: 17px;
+  white-space: nowrap;
+  .toast-img {
+    width: 50px;
+    height: 50px;
+    float: left;
+    padding-top: 16px;
+    padding-bottom: 16px;
+    box-sizing: border-box;
+    color: #fff;
+  }
+  .toast-msg {
+    color: #fff;
+    padding: 16px;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+}
+
+#toast-success.show {
+    visibility: visible;
+    -webkit-animation: fadein 0.5s, expand 0.5s 0.5s,stay 3s 1s, shrink 0.5s 2s, fadeout 0.5s 2.5s;
+    animation: fadein 0.5s, expand 0.5s 0.5s,stay 3s 1s, shrink 0.5s 4s, fadeout 0.5s 4.5s;
+}
+
+@-webkit-keyframes fadein {
+    from {bottom: 0; opacity: 0;} 
+    to {bottom: 30px; opacity: 1;}
+}
+
+@keyframes fadein {
+    from {bottom: 0; opacity: 0;}
+    to {bottom: 30px; opacity: 1;}
+}
+
+@-webkit-keyframes expand {
+    from {min-width: 50px} 
+    to {min-width: 350px}
+}
+
+@keyframes expand {
+    from {min-width: 50px}
+    to {min-width: 350px}
+}
+@-webkit-keyframes stay {
+    from {min-width: 350px} 
+    to {min-width: 350px}
+}
+
+@keyframes stay {
+    from {min-width: 350px}
+    to {min-width: 350px}
+}
+@-webkit-keyframes shrink {
+    from {min-width: 350px;} 
+    to {min-width: 50px;}
+}
+
+@keyframes shrink {
+    from {min-width: 350px;} 
+    to {min-width: 50px;}
+}
+
+@-webkit-keyframes fadeout {
+    from {bottom: 30px; opacity: 1;} 
+    to {bottom: 60px; opacity: 0;}
+}
+
+@keyframes fadeout {
+    from {bottom: 30px; opacity: 1;}
+    to {bottom: 60px; opacity: 0;}
+}
+</style>
