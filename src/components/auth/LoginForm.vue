@@ -1,5 +1,5 @@
 <template>
-  <form class="auth-form">
+  <form class="auth-form" @submit.prevent="login">
       <div class="row">
       <app-title mode="title-img">Welcome back!</app-title>
   </div>
@@ -39,20 +39,20 @@ export default {
       error: null,
     };
   },
-  // methods: {
-  //   async login() {
-  //     const userData = {
-  //       email: this.email,
-  //       password: this.password,
-  //     };
-  //     try {
-  //       await this.$store.dispatch('login', userData);
-  //     } catch (err) {
-  //       this.error = err.message;
-  //       return;
-  //     }
-  //     this.$router.push({ name: 'admin' });
-  //   },
-  // },
+  methods: {
+    async login() {
+      const userData = {
+        email: this.email,
+        password: this.password,
+      };
+      try {
+        await this.$store.dispatch('login', userData);
+      } catch (err) {
+        this.error = err.message;
+        return;
+      }
+      this.$router.push({ name: 'Admin' });
+    },
+  },
 };
 </script>

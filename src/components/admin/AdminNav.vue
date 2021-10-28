@@ -3,9 +3,9 @@
     <div class="container-fluid">
       <nav class="navbar-container">
         <ul class="navbar-menu" :class="{ active: isActive }">
-          <li class="nav-link align-middle">
-            <span class="d-none d-sm-inline mx-3">Username</span>
-            <i class="bi bi-person-circle"></i>
+          <li class="nav-link">
+            <a class="logout-link"><span class="d-none d-sm-inline mx-3" @click.prevent="logout">Logout</span>
+            <i class=" fs-3 bi bi-box-arrow-right"></i></a>
           </li>
         </ul>
       </nav>
@@ -21,6 +21,14 @@ export default {
       isActive: false,
     };
   },
+  methods: {
+    logout() {
+      this.$store.dispatch('logout');
+      if (this.$route.meta.requiresAuth) {
+        this.$router.push({ name: 'Home' });
+      }
+    },
+  }
 };
 </script>
 <style lang="scss" scoped>
@@ -37,13 +45,10 @@ export default {
   span {
     color: $light;
   }
-  .bi.bi-person-circle {
-    font-size: 30px;
-    color: $light;
-    cursor: pointer;
-    &:hover {
-      color: $primary;
-    }
+  .logout-link {
+    display: flex;
+    align-items: center;
+
   }
 }
 </style>
