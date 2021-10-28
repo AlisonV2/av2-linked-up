@@ -1,0 +1,69 @@
+@mixin toast {
+  height: 75px;
+  width: 400px;
+  font-size: 20px;
+  color: white;
+  z-index: 1;
+  animation: fadein 0.5s, fadeout 0.5s 2.5s;
+  text-align: center;
+  padding: 25px;
+  margin-top: 100px;
+  position: fixed;
+  left: 40%;
+  bottom: 100px;
+  box-shadow: 0 0 10px 6px rgba(255, 255, 255, 0.5);
+}
+
+.toast-success {
+  @include toast;
+  background-color: $primary;
+}
+
+.toast-error {
+  @include toast;
+  background-color: $warning;
+}
+
+@-webkit-keyframes fadein {
+  from {
+    bottom: 0;
+    opacity: 0;
+  }
+  to {
+    bottom: 100px;
+    opacity: 1;
+  }
+}
+
+@keyframes fadein {
+  from {
+    bottom: 0;
+    opacity: 0;
+  }
+  to {
+    bottom: 100px;
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes fadeout {
+  from {
+    bottom: 100px;
+    opacity: 1;
+  }
+  to {
+    bottom: 0;
+    opacity: 0;
+  }
+}
+
+@keyframes fadeout {
+  from {
+    bottom: 100px;
+    opacity: 1;
+  }
+  to {
+    bottom: 0;
+    opacity: 0;
+  }
+}
