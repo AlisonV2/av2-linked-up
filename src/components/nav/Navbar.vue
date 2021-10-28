@@ -16,11 +16,23 @@
               Conventions
             </router-link>
           </li>
-          <li class="navbar-item">
+          <li class="navbar-item" v-if="!userLoggedIn">
             <router-link :to="{ name: 'Login' }">
               Login
             </router-link>
           </li>
+          <template v-else>
+            <li class="navbar-item">
+              <router-link :to="{ name: 'Admin' }">
+                Dashboard
+              </router-link>
+            </li>
+            <li class="navbar-item">
+              <a @click.prevent="logout">
+                Logout
+              </a>
+            </li>
+          </template>
         </ul>
         <div
           class="hamburger"
@@ -38,16 +50,30 @@
 
 <script>
 import Brand from '@/components/nav/Brand';
+import { mapState } from 'vuex';
 
 export default {
   name: 'AppNavbar',
   components: {
     Brand,
   },
+  computed: {
+    ...mapState({
+      userLoggedIn: (state) => state.auth.userLoggedIn,
+    }),
+  },
   data() {
     return {
       isActive: false,
     };
+  },
+  methods: {
+    logout() {
+      this.$store.dispatch('logout');
+      if (this.$route.meta.requiresAuth) {
+        this.$router.push({ name: 'Home' });
+      }
+    },
   },
 };
 </script>

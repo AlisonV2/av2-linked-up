@@ -31,6 +31,7 @@ export default {
     },
     async login({ commit }, payload) {
       await auth.signInWithEmailAndPassword(payload.email, payload.password);
+      console.log('Logged in!')
 
       commit('toggleAuth');
     },
@@ -41,7 +42,7 @@ export default {
         commit('toggleAuth');
       }
     },
-    async signout({ commit }) {
+    async logout({ commit }) {
       await auth.signOut();
 
       commit('toggleAuth');

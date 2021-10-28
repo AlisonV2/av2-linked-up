@@ -1,4 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router';
+import store from '@/store';
 import Home from '../views/Home';
 import Artists from '../views/Artists';
 import Conventions from '../views/Conventions';
@@ -13,56 +14,38 @@ const routes = [
     path: '/',
     name: 'Home',
     component: Home,
-    meta: {
-      isUser: false
-    }
   },
   {
     path: '/artists',
     name: 'Artists',
     component: Artists,
-    meta: {
-      isUser: false
-    }
   },
   {
     path: '/artist/:id',
     name: 'Profile',
     component: ArtistProfile,
-    meta: {
-      isUser: false
-    }
   },
   {
     path: '/conventions',
     name: 'Conventions',
     component: Conventions,
-    meta: {
-      isUser: false
-    }
   },
   {
     path: '/categories',
     name: 'Categories',
     component: Categories,
-    meta: {
-      isUser: false
-    }
   },
   {
     path: '/login',
     name: 'Login',
     component: Login,
-    meta: {
-      isUser: false
-    }
   },
   {
     path: '/admin',
     name: 'Admin',
     component: Admin,
     meta: {
-      isUser: true
+      requiresAuth: true
     },
     children: [
       {
@@ -71,12 +54,29 @@ const routes = [
         component: AdminProfile,
       }
     ]
-  }
+  },
+  {
+    path: '/:catchAll(.*)*',
+    redirect: { name: 'home' },
+  },
 ];
 
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
   routes,
 });
+
+router.beforeEach((to, from, next) => {
+  if (!to.matched.some((record) => record.meta.requiresAuth)) {
+    next();
+    return;
+  }
+  if (store.state.auth.userLoggedIn) {
+    next();
+  } else {
+    next({ name: 'Home' });
+  }
+});
+
 
 export default router;
