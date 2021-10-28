@@ -42,7 +42,7 @@
         <input type="text" class="form-control" placeholder="Shop" />
         <label>Shop</label>
       </div>
-      <div class="">
+      <div>
         <select class="form-select">
           <option selected>Choose your style</option>
           <option>Black Work</option>
