@@ -3,7 +3,8 @@ import { auth, artistsCollection, storage } from '@/utils/firebase';
 export default {
   state: {
     artistProfile: {},
-    thumbnailUrl: ''
+    thumbnailUrl: '',
+    artistGallery: [],
   },
   mutations: {
     setArtistProfile(state, payload) {
@@ -11,7 +12,14 @@ export default {
     },
     setThumbnail(state, payload) {
       state.thumbnailUrl = payload;
-    }
+    },
+    setArtistGallery(state, payload) {
+      state.artistGallery.push(payload);
+    },
+    addToGallery(state, payload) {
+      state.artistGallery.push(payload);
+      console.log(state.artistGallery)
+    },
   },
   actions: {
     async setArtistProfile(_, payload) {
@@ -26,22 +34,58 @@ export default {
           shop: payload.shop,
           style: payload.style,
           thumbnail: payload.thumbnail,
+          gallery: [],
         });
       } catch (err) {
         console.log(err.message);
         return;
       }
     },
-    async setArtistThumbnail({commit}, payload) {
+    async setArtistThumbnail({ commit }, payload) {
       const user = auth.currentUser.uid;
       const file = payload;
       const storageRef = storage.ref();
       const artistsRef = storageRef.child(`artists/${user}/${file.name}`);
 
-        const task = await artistsRef.put(file);
-        task.ref.getDownloadURL().then((res) => {
-          commit('setThumbnail', res);
+      const task = await artistsRef.put(file);
+      task.ref.getDownloadURL().then((res) => {
+        commit('setThumbnail', res);
+      });
+    },
+    async setArtistGallery({ commit }, payload) {
+      const user = auth.currentUser.uid;
+      const file = payload;
+      const storageRef = storage.ref();
+      const artistsRef = storageRef.child(`artists/${user}/${file.name}`);
+
+      const task = await artistsRef.put(file);
+      task.ref.getDownloadURL().then((res) => {
+        commit('setArtistGallery', res);
+      });
+    },
+    async addGallery(_, payload) {
+        const user = auth.currentUser.uid;
+
+        try {
+          await artistsCollection.doc(user).update({
+            gallery: payload,
+          });
+        } catch (err) {
+          console.log(err.message);
+          return;
+        }
+    },
+    async setProfileGallery(_, payload) {
+      const user = auth.currentUser.uid;
+
+      try {
+        await artistsCollection.doc(user).update({
+          gallery: payload,
         });
+      } catch (err) {
+        console.log(err.message);
+        return;
+      }
     },
     async getArtistProfile({ commit }) {
       const user = auth.currentUser.uid;
