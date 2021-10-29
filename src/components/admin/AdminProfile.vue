@@ -150,15 +150,19 @@ export default {
       const file = this.fileSelected;
       this.showToast = false;
       let thumbnail;
+      let profileData;
 
       try {
         await this.$store
           .dispatch('setArtistThumbnail', file)
           .then(async () => {
-            thumbnail = await this.$store.state.profile.thumbnailUrl;
+
+              thumbnail = await this.$store.state.profile.thumbnailUrl;
+              console.log(thumbnail)
+            
           })
           .then(async () => {
-            const profileData = {
+            profileData = {
               name: this.profile.name,
               city: this.profile.city,
               zip: this.profile.zip,
@@ -166,6 +170,7 @@ export default {
               style: this.profile.style,
               thumbnail: thumbnail,
             };
+            console.log(profileData);
             await this.$store.dispatch('setArtistProfile', profileData);
             this.showSuccessToast = true;
             this.showErrorToast = false;
@@ -176,6 +181,7 @@ export default {
       } catch (err) {
         this.showErrorToast = true;
         this.showSuccessToast = false;
+        console.log(err)
         setTimeout(() => {
           this.showErrorToast = false;
         }, 3000);

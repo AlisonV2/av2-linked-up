@@ -34,6 +34,15 @@
         </div>
       </div>
     </div>
+    <div class="row">
+          <div
+      class="col-12 col-md-6 col-lg-4 col-xl-3"
+      v-for="gallery in profileGallery"
+      :key="gallery"
+    >
+      <img :src="gallery" class="card-img-top" />
+      </div>
+    </div>
   </div>
 </template>
 
@@ -45,7 +54,12 @@ export default {
   data() {
     return {
       artists,
+      gallery: []
     };
+  },
+  async created() {
+    const artistGallery = await this.$store.state.gallery.gallery;
+    this.gallery = artistGallery.gallery;
   },
   computed: {
     artist() {

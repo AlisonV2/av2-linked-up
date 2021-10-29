@@ -14,28 +14,29 @@
         accept="image/*"
         @change="handleChange($event)"
         multiple="true"
+        ref="inputFile"
       />
     </div>
   </div>
-  <div class="row mb-3" v-if="images.length">
+  <div class="row mb-3">
     <div
       class="col-12 col-md-6 col-lg-4 col-xl-3"
       v-for="image in images"
       :key="image"
     >
-      <GalleryItem :image="image" />
+      <PreviewItem :image="image" @removePreview="removePreview"/>
     </div>
   </div>
-  <div class="row" v-if="profileGallery.length">
+  <div class="row">
     <div
       class="col-12 col-md-6 col-lg-4 col-xl-3"
-      v-for="gallery in profileGallery"
+      v-for="(gallery, i) in profileGallery"
       :key="gallery"
     >
-      <GalleryItem :gallery="gallery" />
+      <GalleryItem :image="gallery" :index="i" @removeImg="removeImg"/>
     </div>
   </div>
-  <div class="row" v-else>
+  <div class="row" v-if="!images">
     <div class="col-12 col-md-6 col-lg-4 col-xl-3">
       <img :src="require('@/assets/img/default-placeholder.png')" />
     </div>
@@ -44,11 +45,13 @@
 
 <script>
 import GalleryItem from '@/components/admin/GalleryItem';
+import PreviewItem from '@/components/admin/PreviewItem';
 
 export default {
   name: 'AdminGallery',
   components: {
     GalleryItem,
+    PreviewItem
   },
   data() {
     return {
@@ -59,12 +62,10 @@ export default {
   },
   async created() {
     await this.$store
-      .dispatch('getArtistProfile')
+      .dispatch('getArtistGallery')
       .then(() => {
-        this.profile = this.$store.state.profile.artistProfile;
-      })
-      .then(() => {
-        this.profileGallery = this.profile.gallery;
+        const gallery = this.$store.state.gallery.gallery;
+        this.profileGallery = gallery.gallery;
       });
   },
   methods: {
@@ -89,27 +90,22 @@ export default {
         }
       }
     },
-    saveGallery() {
-      for (let i = 0; i < this.gallery.length; i++) {
-        this.$store.dispatch('setArtistGallery', this.gallery[i]);
-      }
-    },
     async setArtistGallery() {
-      this.saveGallery();
-      const gallery = this.$store.state.profile.artistGallery;
-      const globalGallery = [];
-      for (let i = 0; i < gallery.length; i++) {
-        globalGallery.push(gallery[i]);
+      if (this.profileGallery.gallery.length) {
+        this.$store.dispatch('updateArtistGallery', this.gallery);
+        window.location.reload();
+        return;
       }
-      for (let i = 0; i < this.profileGallery.length; i++) {
-        globalGallery.push(this.profileGallery[i]);
-        console.log(globalGallery)
-      }
-      this.profileGaller = globalGallery;
-      this.$store.dispatch('addGallery', globalGallery);
+      this.$store.dispatch('setArtistGallery', this.gallery);
+      window.location.reload();
     },
+    removeImg(i) {
+      this.profileGallery.splice(i, 1);
+      this.$store.dispatch('deleteImage', this.profileGallery);
+    },
+    removePreview(i) {
+      this.images.splice(i, 1);
+    }
   },
 };
 </script>
-
-<style lang="scss"></style>
