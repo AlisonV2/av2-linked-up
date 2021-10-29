@@ -19,7 +19,7 @@
         class="img-fluid"
       />
       <div class="mt-3">
-        <input type="file" @change="upload($event)" ref="fileInput" />
+        <input type="file" @change="setPreviewImage($event)" />
         <div class="error">{{ fileErr }}</div>
       </div>
       <!-- <div class="error">{{ fileError }}</div> -->
@@ -93,74 +93,86 @@ export default {
         zip: '',
         shop: '',
         style: '',
-        thumbnail: ''
+        thumbnail: '',
       },
       showSuccessToast: false,
       showErrorToast: false,
       fileSelected: null,
-      fileErr: null
+      fileErr: null,
     };
   },
   /* Get artistProfile
-  ** Set profile.thumbnail as previewUrl
-  */
+   ** Set profile.thumbnail as previewUrl
+   */
   async created() {
-    await this.$store.dispatch('getArtistProfile')
-    .then(() => {
-      this.profile = this.$store.state.profile.artistProfile;
-    })
-    .then(() => {
-      this.previewImage = this.profile.thumbnail;
-    });
+    await this.$store
+      .dispatch('getArtistProfile')
+      .then(() => {
+        this.profile = this.$store.state.profile.artistProfile;
+      })
+      .then(() => {
+        this.previewImage = this.profile.thumbnail;
+      });
   },
   methods: {
-  /* Reset profile.thumbnail
-  ** Check file type
-  ** Set fileSelected as previewImage
-  ** Send fileSelected to DB
-  */
-    upload($event) {
+    /* Reset profile.thumbnail
+     ** Clear cache
+     ** Check file type
+     ** Set fileSelected as previewImage
+     ** Send fileSelected to DB
+     */
+
+    setPreviewImage($event) {
       this.profile.thumbnail = '';
+
+      if (this.previewImage.startsWith('blob:')) {
+        URL.revokeObjectURL(this.previewImage);
+      }
+
       const file = $event.target.files[0];
       const types = ['image/png', 'image/jpeg'];
+
       if (file && types.includes(file.type)) {
         this.fileSelected = file;
         this.fileErr = null;
-        let reader = new FileReader();
-        reader.onload = (e) => {
-          this.previewImage = e.target.result;
-        };
-        reader.readAsDataURL(file);
-        this.$emit('input', file);
-        this.$store.dispatch('uploadThumbnail', file)
+        this.previewImage = URL.createObjectURL(file);
       } else {
         this.fileSelected = null;
         this.fileErr = 'Please select an image file (png or jpeg).';
       }
     },
-  /* Get thumbnailUrl from DB
-  ** Set profileData
-  ** Show success/error toast
-  */
+    /* Set thumbnailUrl
+     ** Get thumbnail Url from store
+     ** Set profileData
+     ** Show success/error toast
+     */
     async setArtistProfile() {
-      const file = this.$store.state.profile.thumbnailUrl;
+      const file = this.fileSelected;
       this.showToast = false;
-      const profileData = {
-        name: this.profile.name,
-        city: this.profile.city,
-        zip: this.profile.zip,
-        shop: this.profile.shop,
-        style: this.profile.style,
-        thumbnail: file
-      };
+      let thumbnail;
+
       try {
-        console.log(profileData)
-        await this.$store.dispatch('setArtistProfile', profileData);
-        this.showSuccessToast = true;
-        this.showErrorToast = false;
-        setTimeout(() => {
-          this.showSuccessToast = false;
-        }, 3000);
+        await this.$store
+          .dispatch('setArtistThumbnail', file)
+          .then(async () => {
+            thumbnail = await this.$store.state.profile.thumbnailUrl;
+          })
+          .then(async () => {
+            const profileData = {
+              name: this.profile.name,
+              city: this.profile.city,
+              zip: this.profile.zip,
+              shop: this.profile.shop,
+              style: this.profile.style,
+              thumbnail: thumbnail,
+            };
+            await this.$store.dispatch('setArtistProfile', profileData);
+            this.showSuccessToast = true;
+            this.showErrorToast = false;
+            setTimeout(() => {
+              this.showSuccessToast = false;
+            }, 3000);
+          });
       } catch (err) {
         this.showErrorToast = true;
         this.showSuccessToast = false;

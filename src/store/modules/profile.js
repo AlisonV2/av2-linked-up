@@ -32,7 +32,7 @@ export default {
         return;
       }
     },
-    async uploadThumbnail({commit}, payload) {
+    async setArtistThumbnail({commit}, payload) {
       const user = auth.currentUser.uid;
       const file = payload;
       const storageRef = storage.ref();
