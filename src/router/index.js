@@ -8,6 +8,7 @@ import Login from '../views/Login';
 import ArtistProfile from '../views/ArtistProfile';
 import Admin from '../views/Admin';
 import AdminProfile from '../components/admin/AdminProfile';
+import AdminGallery from '../components/admin/AdminGallery';
 
 const routes = [
   {
@@ -52,6 +53,11 @@ const routes = [
         path: 'profile',
         name: 'AdminProfile',
         component: AdminProfile,
+      },
+      {
+        path: 'gallery',
+        name: 'AdminGallery',
+        component: AdminGallery,
       }
     ]
   },
