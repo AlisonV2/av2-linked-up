@@ -83,6 +83,7 @@
 
 <script>
 export default {
+  name: 'AdminProfile',
   data() {
     return {
       previewImage: null,
@@ -100,6 +101,9 @@ export default {
       fileErr: null
     };
   },
+  /* Get artistProfile
+  ** Set profile.thumbnail as previewUrl
+  */
   async created() {
     await this.$store.dispatch('getArtistProfile')
     .then(() => {
@@ -110,6 +114,11 @@ export default {
     });
   },
   methods: {
+  /* Reset profile.thumbnail
+  ** Check file type
+  ** Set fileSelected as previewImage
+  ** Send fileSelected to DB
+  */
     upload($event) {
       this.profile.thumbnail = '';
       const file = $event.target.files[0];
@@ -129,6 +138,10 @@ export default {
         this.fileErr = 'Please select an image file (png or jpeg).';
       }
     },
+  /* Get thumbnailUrl from DB
+  ** Set profileData
+  ** Show success/error toast
+  */
     async setArtistProfile() {
       const file = this.$store.state.profile.thumbnailUrl;
       this.showToast = false;

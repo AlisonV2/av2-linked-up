@@ -10,17 +10,23 @@
         class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start"
         id="menu"
       >
-        <li class="nav-item">
-          <a href="#" class="nav-link align-middle px-0">
-            <i class="fs-4 bi-house"></i>
-            <span class="ms-3 d-none d-sm-inline">Home</span>
-          </a>
-        </li>
-        <hr class="dropdown-divider" />
         <li>
-          <router-link :to="{ name: 'AdminProfile' }" class="nav-link align-middle px-0">
+          <router-link
+            :to="{ name: 'AdminProfile' }"
+            class="nav-link align-middle px-0"
+          >
             <i class="fs-4 bi-gear"></i>
             <span class="ms-3 d-none d-sm-inline">Profile</span>
+          </router-link>
+        </li>
+        <hr class="dropdown-divider" />
+        <li class="nav-item">
+          <router-link
+            :to="{ name: 'AdminGallery' }"
+            class="nav-link align-middle px-0"
+          >
+            <i class="fs-4 bi-images"></i>
+            <span class="ms-3 d-none d-sm-inline">Gallery</span>
           </router-link>
         </li>
         <hr class="dropdown-divider" />
