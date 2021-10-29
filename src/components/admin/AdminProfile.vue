@@ -1,9 +1,11 @@
 <template>
   <div class="row">
     <app-title mode="title-img">Your profile</app-title>
-    <div id="toast-success" :class="{ 'show' : showToast }">
-      <div class="toast-img"><i class="bi bi-check-circle"></i></div>
-      <div class="toast-msg">Update successful</div>
+    <div class="toast-success" v-if="showSuccessToast">
+      Update successful
+    </div>
+    <div class="toast-error" v-if="showErrorToast">
+      Oops... Something went wrong :(
     </div>
     <div class="col-12 col-lg-4 mt-4">
       <img
@@ -14,11 +16,11 @@
         "
         width="250"
         height="250"
-        @click="selectImage"
         class="img-fluid"
       />
       <div class="mt-3">
-        <input type="file" @input="pickFile" ref="fileInput" />
+        <input type="file" @change="setPreviewImage($event)" />
+        <div class="error">{{ fileErr }}</div>
       </div>
       <!-- <div class="error">{{ fileError }}</div> -->
     </div>
@@ -81,6 +83,7 @@
 
 <script>
 export default {
+  name: 'AdminProfile',
   data() {
     return {
       previewImage: null,
@@ -90,141 +93,94 @@ export default {
         zip: '',
         shop: '',
         style: '',
+        thumbnail: '',
       },
-      showToast: false,
+      showSuccessToast: false,
+      showErrorToast: false,
+      fileSelected: null,
+      fileErr: null,
     };
   },
-  created() {
-    this.$store.dispatch('getArtistProfile');
-    this.profile = this.$store.state.profile.artistProfile;
+  /* Get artistProfile
+   ** Set profile.thumbnail as previewUrl
+   */
+  async created() {
+    await this.$store
+      .dispatch('getArtistProfile')
+      .then(() => {
+        this.profile = this.$store.state.profile.artistProfile;
+      })
+      .then(() => {
+        this.previewImage = this.profile.thumbnail;
+      });
   },
   methods: {
-    selectImage() {
-      this.$refs.fileInput.click();
-    },
-    pickFile() {
-      let input = this.$refs.fileInput;
-      let file = input.files;
-      if (file && file[0]) {
-        let reader = new FileReader();
-        reader.onload = (e) => {
-          this.previewImage = e.target.result;
-        };
-        reader.readAsDataURL(file[0]);
-        this.$emit('input', file[0]);
+    /* Reset profile.thumbnail
+     ** Clear cache
+     ** Check file type
+     ** Set fileSelected as previewImage
+     ** Send fileSelected to DB
+     */
+
+    setPreviewImage($event) {
+      this.profile.thumbnail = '';
+
+      if (this.previewImage.startsWith('blob:')) {
+        URL.revokeObjectURL(this.previewImage);
+      }
+
+      const file = $event.target.files[0];
+      const types = ['image/png', 'image/jpeg'];
+
+      if (file && types.includes(file.type)) {
+        this.fileSelected = file;
+        this.fileErr = null;
+        this.previewImage = URL.createObjectURL(file);
+      } else {
+        this.fileSelected = null;
+        this.fileErr = 'Please select an image file (png or jpeg).';
       }
     },
+    /* Set thumbnailUrl
+     ** Get thumbnail Url from store
+     ** Set profileData
+     ** Show success/error toast
+     */
     async setArtistProfile() {
+      const file = this.fileSelected;
       this.showToast = false;
-      const profileData = {
-        name: this.profile.name,
-        city: this.profile.city,
-        zip: this.profile.zip,
-        shop: this.profile.shop,
-        style: this.profile.style,
-      };
+      let thumbnail;
 
       try {
-        await this.$store.dispatch('setArtistProfile', profileData);
-        this.showToast = true;
-        setTimeout(() => {
-          this.showToast = false;
-        }, 5000);
-        console.log('profile set!');
+        await this.$store
+          .dispatch('setArtistThumbnail', file)
+          .then(async () => {
+            thumbnail = await this.$store.state.profile.thumbnailUrl;
+          })
+          .then(async () => {
+            const profileData = {
+              name: this.profile.name,
+              city: this.profile.city,
+              zip: this.profile.zip,
+              shop: this.profile.shop,
+              style: this.profile.style,
+              thumbnail: thumbnail,
+            };
+            await this.$store.dispatch('setArtistProfile', profileData);
+            this.showSuccessToast = true;
+            this.showErrorToast = false;
+            setTimeout(() => {
+              this.showSuccessToast = false;
+            }, 3000);
+          });
       } catch (err) {
-        console.log(err.message);
+        this.showErrorToast = true;
+        this.showSuccessToast = false;
+        setTimeout(() => {
+          this.showErrorToast = false;
+        }, 3000);
       }
     },
   },
 };
 </script>
-
-<style lang="scss">
-#toast-success {
-  visibility: hidden;
-  width: 3rem;
-  height: 3rem;
-  margin: auto;
-  background-color: #333;
-  color: #fff;
-  text-align: center;
-  border-radius: 2px;
-
-  position: fixed;
-  z-index: 1;
-  left: 0;
-  right: 0;
-  bottom: 30px;
-  font-size: 17px;
-  white-space: nowrap;
-  .toast-img {
-    width: 50px;
-    height: 50px;
-    float: left;
-    padding-top: 16px;
-    padding-bottom: 16px;
-    box-sizing: border-box;
-    color: #fff;
-  }
-  .toast-msg {
-    color: #fff;
-    padding: 16px;
-    overflow: hidden;
-    white-space: nowrap;
-  }
-}
-
-#toast-success.show {
-    visibility: visible;
-    -webkit-animation: fadein 0.5s, expand 0.5s 0.5s,stay 3s 1s, shrink 0.5s 2s, fadeout 0.5s 2.5s;
-    animation: fadein 0.5s, expand 0.5s 0.5s,stay 3s 1s, shrink 0.5s 4s, fadeout 0.5s 4.5s;
-}
-
-@-webkit-keyframes fadein {
-    from {bottom: 0; opacity: 0;} 
-    to {bottom: 30px; opacity: 1;}
-}
-
-@keyframes fadein {
-    from {bottom: 0; opacity: 0;}
-    to {bottom: 30px; opacity: 1;}
-}
-
-@-webkit-keyframes expand {
-    from {min-width: 50px} 
-    to {min-width: 350px}
-}
-
-@keyframes expand {
-    from {min-width: 50px}
-    to {min-width: 350px}
-}
-@-webkit-keyframes stay {
-    from {min-width: 350px} 
-    to {min-width: 350px}
-}
-
-@keyframes stay {
-    from {min-width: 350px}
-    to {min-width: 350px}
-}
-@-webkit-keyframes shrink {
-    from {min-width: 350px;} 
-    to {min-width: 50px;}
-}
-
-@keyframes shrink {
-    from {min-width: 350px;} 
-    to {min-width: 50px;}
-}
-
-@-webkit-keyframes fadeout {
-    from {bottom: 30px; opacity: 1;} 
-    to {bottom: 60px; opacity: 0;}
-}
-
-@keyframes fadeout {
-    from {bottom: 30px; opacity: 1;}
-    to {bottom: 60px; opacity: 0;}
-}
-</style>
