@@ -6,16 +6,46 @@ import {
   organizersCollection,
 } from '@/utils/firebase';
 
+/**
+ * Vuex module for artists' gallery
+ * @module Authentication
+ * @requires FirebaseConfig
+ */
 export default {
+  /**
+   * @name State
+   * @type {object}
+   * @property {boolean} userLoggedIn
+   */
   state: {
     userLoggedIn: false,
   },
+  /**
+   * @name Mutations
+   * @type {object}
+   * @mutator {boolean} toggleAuth=userLoggedIn
+   */
   mutations: {
     toggleAuth(state) {
       state.userLoggedIn = !state.userLoggedIn;
     },
   },
+  /**
+   * @name Actions
+   * @type {object}
+   * @getter {boolean} register=userLoggedIn
+   * @getter {boolean} login=userLoggedIn
+   * @getter {boolean} initLogin=userLoggedIn
+   * @getter {boolean} logout=userLoggedIn
+   */
   actions: {
+    /**
+     * @description Create user with email and password
+     * @method register
+     * @param {object} payload
+     * @returns {boolean}
+     * @async
+     */
     async register({ commit }, payload) {
       const userCred = await auth.createUserWithEmailAndPassword(
         payload.email,
@@ -51,21 +81,37 @@ export default {
       });
 
       commit('toggleAuth');
-      console.log('User created!');
     },
+    /**
+     * @description Sign in with email and password
+     * @method login
+     * @param {object} payload
+     * @returns {boolean}
+     * @async
+     */
     async login({ commit }, payload) {
       await auth.signInWithEmailAndPassword(payload.email, payload.password);
-      console.log('Logged in!');
 
       commit('toggleAuth');
     },
-    init_login({ commit }) {
+    /**
+     * @description Create user with email and password
+     * @method initLogin
+     * @returns {boolean}
+     */
+    initLogin({ commit }) {
       const user = auth.currentUser;
 
       if (user) {
         commit('toggleAuth');
       }
     },
+    /**
+     * @description Logout user
+     * @method logout
+     * @returns {boolean}
+     * @async
+     */
     async logout({ commit }) {
       await auth.signOut();
 

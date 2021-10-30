@@ -49,6 +49,16 @@
 </template>
 
 <script>
+/**
+ * @type Component
+ * @name RegisterForm
+ * @vue-data {string} name - v-model
+ * @vue-data {string} email - v-model
+ * @vue-data {string} password - v-model
+ * @vue-data {string} role - v-model
+ * @vue-data {string} error
+ * @vue-event register
+ */
 export default {
   name: 'RegisterForm',
   data() {
@@ -61,6 +71,13 @@ export default {
     };
   },
   methods: {
+    /**
+     * @description Dispatch register store action with form data
+     * Redirect to AdminProfile on success
+     * @method register
+     * @param {object} userData
+     * @async
+     */
     async register() {
       const userData = {
         name: this.name,

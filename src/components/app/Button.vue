@@ -5,6 +5,11 @@
 </template>
 
 <script>
+/**
+ * @type GlobalComponent
+ * @name AppButton
+ * @vue-prop {string} mode
+ */
 export default {
   props: ['mode'],
 };

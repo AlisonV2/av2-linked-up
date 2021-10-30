@@ -6,6 +6,11 @@
 </template>
 
 <script>
+/**
+ * @type GlobalComponent
+ * @name AppTitle
+ * @vue-prop {string} mode
+ */
 export default {
   props: ['mode'],
 };

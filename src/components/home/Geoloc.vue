@@ -17,6 +17,10 @@
 </template>
 
 <script>
+/**
+ * @type Component
+ * @name HomeGeoloc
+ */
 export default {};
 </script>
 

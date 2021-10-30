@@ -9,6 +9,13 @@
 </template>
 
 <script>
+/**
+ * @type Component
+ * @name PreviewItem
+ * @vue-prop {string} image
+ * @vue-prop {number} index
+ * @vue-event {number} removePreview
+ */
 export default {
   props: ['image', 'index'],
   methods: {

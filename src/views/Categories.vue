@@ -39,9 +39,22 @@
 </template>
 
 <script>
+/**
+ * @type Page
+ * @name Categories
+ * @vue-data {array} artists - Artists accessed from store categories module
+ * @vue-event setCategory - Dispatch store action
+ */
 export default {
   name: 'Categories',
   methods: {
+    /**
+     * @description Get category choice and redirect to CategoriesResults
+     * Dispatch store action to get artists based on category selected
+     * @method setCategory
+     * @param {string} payload
+     * @async
+     */
     async setCategory(data) {
       await this.$store
         .dispatch('getArtistsByStyle', data)
@@ -51,4 +64,3 @@ export default {
 };
 </script>
 
-<style lang="scss"></style>

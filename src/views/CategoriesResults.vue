@@ -17,6 +17,12 @@
 <script>
 import ArtistItem from '@/components/artists/ArtistItem';
 
+/**
+ * @type Page
+ * @name CategoriesResults
+ * @vue-data {array} artists - Artists accessed from store categories module
+ * @vue-event created - Access store categories modules
+ */
 export default {
   name: 'CategoriesResults',
   components: {

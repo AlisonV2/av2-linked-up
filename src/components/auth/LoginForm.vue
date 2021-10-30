@@ -1,8 +1,8 @@
 <template>
   <form class="auth-form" @submit.prevent="login">
-      <div class="row">
+    <div class="row">
       <app-title mode="title-img">Welcome back!</app-title>
-  </div>
+    </div>
     <div class="form-floating mb-3">
       <input
         type="email"
@@ -31,6 +31,14 @@
 </template>
 
 <script>
+/**
+ * @type Component
+ * @name LoginForm
+ * @vue-data {string} email - v-model
+ * @vue-data {string} password - v-model
+ * @vue-data {string} error
+ * @vue-event login
+ */
 export default {
   data() {
     return {
@@ -40,6 +48,13 @@ export default {
     };
   },
   methods: {
+    /**
+     * @description Dispatch login store action with form data
+     * Redirect to AdminProfile on success
+     * @method login
+     * @param {object} userData
+     * @async
+     */
     async login() {
       const userData = {
         email: this.email,
@@ -51,7 +66,7 @@ export default {
         this.error = err.message;
         return;
       }
-      this.$router.push({ name: 'Admin' });
+      this.$router.push({ name: 'AdminProfile' });
     },
   },
 };

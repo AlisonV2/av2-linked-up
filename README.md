@@ -12,6 +12,7 @@
 
 Each feature/fix branch has Jira's ticket issue as a reference. 
 As such, Jira can automatically update issue's status depending on push/PRs.
+
 ### GH Actions
 
 - Open PR for every feature/* or fix/* branch
@@ -20,35 +21,35 @@ As such, Jira can automatically update issue's status depending on push/PRs.
 - Deploy to live url on master merge
 - Run tests on push on test branch (will be integrated in preview build)
 
+### jsDocs
+
+Generates documentation from jsDocs annotations.
+To see the documentation, open docs/index.html
+
+To generate docs, run : 
+
+```sh 
+npm run docs 
+```
+
 ## Project setup
-```
+
+```sh
+# Install dependencies
 npm install
-```
 
-### Compiles and hot-reloads for development
-```
+# Compiles and hot-reloads for development
 npm run serve
-```
 
-### Compiles and minifies for production
-```
+# Compiles and minifies for production
 npm run build
-```
 
-### Run your unit tests
-```
+# Run unit tests
 npm run test:unit
-```
 
-### Run your end-to-end tests
-```
+# Run your end-to-end tests
 npm run test:e2e
-```
 
-### Lints and fixes files
-```
+# Lints and fixes files
 npm run lint
 ```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).

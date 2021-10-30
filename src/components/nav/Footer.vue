@@ -19,9 +19,19 @@
 </template>
 
 <script>
+/**
+ * @type Component
+ * @name AppFooter
+ * @vue-event getDate - get current year
+ */
 export default {
   name: 'AppFooter',
   methods: {
+      /**
+   * @description Get current year
+   * @method getDate
+   * @returns {string} payload
+   */
     getDate() {
       return new Date().getFullYear();
     },

@@ -18,6 +18,11 @@
 </template>
 
 <script>
+/**
+ * @type Component
+ * @name ArtistItem
+ * @vue-prop {object} artists
+ */
 export default {
   name: 'ArtistItem',
   props: ['artist'],

@@ -23,7 +23,7 @@
           </li>
           <template v-else>
             <li class="navbar-item">
-              <router-link :to="{ name: 'Admin' }">
+              <router-link :to="{ name: 'AdminProfile' }">
                 Dashboard
               </router-link>
             </li>
@@ -52,6 +52,13 @@
 import Brand from '@/components/nav/Brand';
 import { mapState } from 'vuex';
 
+/**
+ * @type Component
+ * @name AppNavbar
+ * @vue-computed {boolean} userLoggedIn - Access userLoggedIn state from store
+ * @vue-data {boolean} isActive - Toggles hamburger menu
+ * @vue-event logout - Dispatch logout store action
+ */
 export default {
   name: 'AppNavbar',
   components: {
@@ -67,6 +74,11 @@ export default {
       isActive: false,
     };
   },
+  /**
+   * @description Dispatch logout store action
+   * Redirect to Home page if the current route requires authentication
+   * @method logout
+   */
   methods: {
     logout() {
       this.$store.dispatch('logout');
