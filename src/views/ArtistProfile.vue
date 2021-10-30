@@ -1,28 +1,26 @@
 <template>
   <div class="container">
-    <div class="row">
-      <app-title mode="profile-title-img">{{ artist.alias }}</app-title>
+    <div class="row mb-3">
+      <app-title mode="profile-title-img">{{ artist.name }}</app-title>
     </div>
     <div class="row">
       <div class="col-12 col-lg-5 img-center">
         <a target="blank" :href="artist.socialLink"
-          ><img class="img-fluid" :src="`/img/${artist.id}-profile.jpg`"
+          ><img class="img-fluid" :src="artist.thumbnail"
         /></a>
       </div>
       <div class="col-12 col-lg-7 text-center">
         <p class="accent-text">About</p>
-        <p>{{ artist.about }}</p>
+        <p>{{ artist.description }}</p>
         <p>
           <span class="accent-text">Shop:</span> {{ artist.shop }} -
-          {{ artist.location }}
+          {{ artist.city }} ({{ artist.zip }})
         </p>
         <div class="row">
           <div class="col-6">
             <p class="accent-text">
               Insta:
-              <a target="blank" :href="artist.socialLink">
-                {{ artist.insta }}</a
-              >
+              <a target="blank" :href="artist.insta"> {{ artist.insta }}</a>
             </p>
           </div>
           <div class="col-6">
@@ -30,7 +28,21 @@
           </div>
         </div>
         <div class="mt-4 btn-center">
-          <app-button>Contact {{ artist.alias }}</app-button>
+          <app-button>Contact {{ artist.name }}</app-button>
+        </div>
+      </div>
+    </div>
+        <div class="row mb-3">
+      <app-title mode="profile-title-img">Gallery</app-title>
+    </div>
+    <div class="row">
+      <div
+        class="col-auto"
+        v-for="img in gallery"
+        :key="img"
+      >
+        <div class="card gallery-card">
+        <img :src="img" class="card-img-top" />
         </div>
       </div>
     </div>
@@ -38,19 +50,24 @@
 </template>
 
 <script>
-import artists from '@/data/artists';
-
 export default {
   name: 'ArtistProfile',
   data() {
     return {
-      artists,
+      gallery: [],
+      artist: {},
     };
   },
-  computed: {
-    artist() {
-      return this.artists.find((artist) => artist.id === this.$route.params.id);
-    },
+  async created() {
+    await this.$store
+      .dispatch('getArtistById', this.$route.params.id)
+      .then(() =>
+        this.$store.dispatch('getGalleryFromId', this.$route.params.id)
+      )
+      .then(() => {
+        this.artist = this.$store.getters.getProfile;
+        this.gallery = this.$store.getters.getGalleryFromId;
+      });
   },
 };
 </script>

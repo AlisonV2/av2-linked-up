@@ -34,6 +34,15 @@
         />
         <label>Public Name</label>
       </div>
+      <div class="form-floating mb-3">
+        <input
+          type="textarea"
+          class="form-control"
+          placeholder="Description "
+          v-model="profile.description"
+        />
+        <label>Description</label>
+      </div>
       <div class="input-group">
         <div class="form-floating mb-3 col-lg-6">
           <input
@@ -63,13 +72,31 @@
         />
         <label>Shop</label>
       </div>
+      <div class="form-floating mb-3">
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Social Media Link"
+          v-model="profile.socialLink"
+        />
+        <label>Social Media Link</label>
+      </div>
+      <div class="form-floating mb-3">
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Instagram Name"
+          v-model="profile.insta"
+        />
+        <label>Instagram Name</label>
+      </div>
       <div>
         <select class="form-select" v-model="profile.style">
           <option disabled value="">Choose your style</option>
-          <option value="black-work">Black Work</option>
-          <option value="new-school">New School</option>
-          <option value="old-school">Old School</option>
-          <option value="surrealism">Surrealism</option>
+          <option value="Black Work">Black Work</option>
+          <option value="New School">New School</option>
+          <option value="Old School">Old School</option>
+          <option value="Surrealism">Surrealism</option>
         </select>
       </div>
       <div class="col-12 btn-right mt-3">
@@ -94,6 +121,9 @@ export default {
         shop: '',
         style: '',
         thumbnail: '',
+        socialLink: '',
+        insta: '',
+        description: '',
       },
       showSuccessToast: false,
       showErrorToast: false,
@@ -123,11 +153,11 @@ export default {
      */
 
     setPreviewImage($event) {
-      this.profile.thumbnail = '';
+      // this.profile.thumbnail = '';
 
-      if (this.previewImage.startsWith('blob:')) {
-        URL.revokeObjectURL(this.previewImage);
-      }
+      // if (this.previewImage.startsWith('blob:')) {
+      //   URL.revokeObjectURL(this.previewImage);
+      // }
 
       const file = $event.target.files[0];
       const types = ['image/png', 'image/jpeg'];
@@ -150,22 +180,28 @@ export default {
       const file = this.fileSelected;
       this.showToast = false;
       let thumbnail;
+      let profileData;
 
       try {
         await this.$store
           .dispatch('setArtistThumbnail', file)
           .then(async () => {
             thumbnail = await this.$store.state.profile.thumbnailUrl;
+            console.log(thumbnail);
           })
           .then(async () => {
-            const profileData = {
+            profileData = {
               name: this.profile.name,
               city: this.profile.city,
               zip: this.profile.zip,
               shop: this.profile.shop,
               style: this.profile.style,
               thumbnail: thumbnail,
+              socialLink: this.profile.socialLink,
+              insta: this.profile.insta,
+              description: this.profile.description,
             };
+            console.log(profileData);
             await this.$store.dispatch('setArtistProfile', profileData);
             this.showSuccessToast = true;
             this.showErrorToast = false;
@@ -176,6 +212,7 @@ export default {
       } catch (err) {
         this.showErrorToast = true;
         this.showSuccessToast = false;
+        console.log(err);
         setTimeout(() => {
           this.showErrorToast = false;
         }, 3000);

@@ -3,9 +3,8 @@ import App from './App.vue';
 import router from './router';
 import store from './store';
 import { auth } from './utils/firebase';
-import './utils/styles';
 import GlobalComponents from './utils/globals';
-import 'bootstrap';
+import './utils/styles';
 
 let app;
 
