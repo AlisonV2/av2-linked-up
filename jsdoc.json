@@ -1,5 +1,5 @@
 {
-  "plugins": ["node_modules/jsdoc-vuejs", "node_modules/jsdoc-vuex-plugin"],
+  "plugins": ["node_modules/jsdoc-vuejs", "node_modules/jsdoc-vuex-plugin", "plugins/markdown"],
   "source": {
     "include": "src",
     "includePattern": "\\.(vue|js)$"
@@ -11,6 +11,11 @@
   "opts": {
     "recurse": true,
     "destination": "./docs/",
-    "template": "node_modules/minami"
+    "template": "node_modules/minami",
+    "readme": "./src/README.md"
+  },
+  "templates": {
+    "cleverLinks": false,
+    "monospaceLinks": false
   }
 }
