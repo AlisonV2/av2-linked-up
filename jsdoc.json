@@ -4,8 +4,13 @@
     "include": "src",
     "includePattern": "\\.(vue|js)$"
   },
+  "tags": {
+    "allowUnknownTags": true,
+    "dictionaries": ["jsdoc", "closure"]
+  },
   "opts": {
     "recurse": true,
-    "destination": "./docs/"
+    "destination": "./docs/",
+    "template": "node_modules/minami"
   }
 }
