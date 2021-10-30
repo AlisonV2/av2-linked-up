@@ -27,6 +27,7 @@ const usersCollection = db.collection('users');
 const artistsCollection = db.collection('artists');
 const clientsCollection = db.collection('clients');
 const organizersCollection = db.collection('organizers');
+const galleriesCollection = db.collection('galleries');
 
 export {
   auth,
@@ -35,5 +36,6 @@ export {
   usersCollection,
   artistsCollection,
   clientsCollection,
-  organizersCollection
+  organizersCollection,
+  galleriesCollection
 };

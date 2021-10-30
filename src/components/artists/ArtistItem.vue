@@ -2,17 +2,17 @@
   <div class="card artist-card">
     <div class="card-overlay"></div>
     <div class="card-details fade-in-top text-center">
-      <h5 class="card-title">{{ artist.alias }}</h5>
+      <h5 class="card-title">{{ artist.name }}</h5>
       <p class="card-text">{{ artist.shop }}</p>
-      <p class="card-text">{{ artist.location }}</p>
+      <p class="card-text">{{ artist.city }} ({{ artist.zip }})</p>
     </div>
     <img
-      :src="`/img/${artist.id}.jpg`"
+      :src="artist.thumbnail"
       class="card-img-top"
-      :alt="artist.alias"
+      :alt="artist.name"
     />
     <div class="card-body">
-      <h5 class="card-title">{{ artist.alias }}</h5>
+      <h5 class="card-title">{{ artist.name }}</h5>
     </div>
   </div>
 </template>

@@ -1,5 +1,5 @@
 <template>
-  <div class="card gallery-card" @click="deleteImg">
+  <div class="card gallery-card" @click="deletePreview">
     <div class="card-overlay"></div>
     <div class="card-details fade-in-top text-center">
       <i class="bi bi-trash img-icon" ></i>
@@ -12,9 +12,9 @@
 export default {
   props: ['image', 'index'],
   methods: {
-    deleteImg() {
-      this.$emit('removeImg', this.index);
-    }
+      deletePreview() {
+          this.$emit('removePreview', this.index);
+      }
   }
 };
 </script>

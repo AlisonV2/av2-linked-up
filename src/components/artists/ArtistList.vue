@@ -3,7 +3,7 @@
     <div
       class="col-8 col-md-6 col-lg-4 col-xl-3 artists-list"
       v-for="artist in artists"
-      :key="artist.alias"
+      :key="artist.name"
     >
       <router-link :to="{ name: 'Profile', params: { id: artist.id } }">
         <ArtistItem :artist="artist" />
@@ -14,7 +14,6 @@
 
 <script>
 import ArtistItem from '@/components/artists/ArtistItem';
-import artists from '@/data/artists';
 
 export default {
   name: 'ArtistList',
@@ -23,8 +22,13 @@ export default {
   },
   data() {
     return {
-      artists
+      artists: []
     };
   },
+  async created() {
+    await this.$store.dispatch('getAllArtists').then(() => {
+      this.artists = this.$store.getters.getAllArtists;
+    })
+  }
 };
 </script>
