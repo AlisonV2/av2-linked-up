@@ -4,6 +4,7 @@ import Home from '../views/Home';
 import Artists from '../views/Artists';
 import Conventions from '../views/Conventions';
 import Categories from '../views/Categories';
+import CategoriesResults from '../views/CategoriesResults';
 import Login from '../views/Login';
 import ArtistProfile from '../views/ArtistProfile';
 import Admin from '../views/Admin';
@@ -35,6 +36,11 @@ const routes = [
     path: '/categories',
     name: 'Categories',
     component: Categories,
+  },
+  {
+    path: '/categories/results',
+    name: 'CategoriesResults',
+    component: CategoriesResults,
   },
   {
     path: '/login',
