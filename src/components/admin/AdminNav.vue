@@ -14,6 +14,12 @@
 </template>
 
 <script>
+/**
+ * @type Component
+ * @name AdminNavbar
+ * @vue-data {boolean} isActive
+ * @vue-event logout
+ */
 export default {
   name: 'Navbar',
   data() {
@@ -22,6 +28,11 @@ export default {
     };
   },
   methods: {
+      /**
+   * @description Dispatch logout store action
+   * Redirect to Home page if the current route requires authentication
+   * @method logout
+   */
     logout() {
       this.$store.dispatch('logout');
       if (this.$route.meta.requiresAuth) {

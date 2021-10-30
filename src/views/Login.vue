@@ -19,6 +19,11 @@
 import RegisterForm from '@/components/auth/RegisterForm.vue';
 import LoginForm from '@/components/auth/LoginForm.vue';
 
+/**
+ * @type Page
+ * @name Login
+ * @vue-data {boolean} showLogin - Toggles Login/Register form
+ */
 export default {
   name: 'Home',
   components: {

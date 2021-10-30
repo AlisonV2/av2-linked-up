@@ -50,6 +50,13 @@
 </template>
 
 <script>
+/**
+ * @type Page
+ * @name ArtistProfile
+ * @vue-data {array} gallery - Returned from store
+ * @vue-data {object} artist - Returned from store
+ * @vue-event created - Dispatch store action
+ */
 export default {
   name: 'ArtistProfile',
   data() {
@@ -58,6 +65,15 @@ export default {
       artist: {},
     };
   },
+      /**
+     * @description Dispatch store action : Get artist by id based on route params
+     * Dispatch store action to get artist's gallery based on route params
+     * Set gallery to results returned from store
+     * Set artist to results returned from store
+     * @method setCategory
+     * @param {string} id
+     * @async
+     */
   async created() {
     await this.$store
       .dispatch('getArtistById', this.$route.params.id)

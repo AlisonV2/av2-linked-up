@@ -13,7 +13,10 @@
 
 <script>
 import Sidenav from '@/components/admin/Sidenav';
-
+/**
+ * @type Page
+ * @name Admin
+ */
 export default {
   name: 'Admin',
   components: {

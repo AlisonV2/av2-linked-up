@@ -12,6 +12,12 @@ import AppNavbar from '@/components/nav/Navbar';
 import AppFooter from '@/components/nav/Footer';
 import AdminNav from '@/components/admin/AdminNav';
 
+/**
+ * @type Component
+ * @name App
+ * @vue-computed {boolean} requireAuth - Route guards
+ * @vue-event {boolean} initLogin - Dispatch initLogin to store
+ */
 export default {
   name: 'App',
   components: {
@@ -28,7 +34,7 @@ export default {
     },
   },
   created() {
-    this.$store.dispatch('init_login');
+    this.$store.dispatch('initLogin');
   },
 };
 </script>
