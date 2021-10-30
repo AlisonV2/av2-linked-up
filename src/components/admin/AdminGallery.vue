@@ -91,13 +91,11 @@ export default {
       }
     },
     async setArtistGallery() {
-      if (this.profileGallery.gallery.length) {
+      if (this.profileGallery.length) {
         this.$store.dispatch('updateArtistGallery', this.gallery);
-        window.location.reload();
         return;
       }
       this.$store.dispatch('setArtistGallery', this.gallery);
-      window.location.reload();
     },
     removeImg(i) {
       this.profileGallery.splice(i, 1);

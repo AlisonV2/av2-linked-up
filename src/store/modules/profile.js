@@ -4,24 +4,27 @@ export default {
   state: {
     artistProfile: {},
     thumbnailUrl: '',
-    // artistGallery: [],
+    profile: {},
+    artists: [],
   },
   mutations: {
+    // Used for admin part
     setArtistProfile(state, payload) {
       state.artistProfile = payload;
     },
     setThumbnail(state, payload) {
       state.thumbnailUrl = payload;
     },
-    // setArtistGallery(state, payload) {
-    //   state.artistGallery.push(payload);
-    // },
-    // addToGallery(state, payload) {
-    //   state.artistGallery.push(payload);
-    //   console.log(state.artistGallery)
-    // },
+    // Used for public part
+    setProfile(state, payload) {
+      state.profile = payload;
+    },
+    setAllArtists(state, payload) {
+      state.artists = payload;
+    },
   },
   actions: {
+    // Used for admin part
     async setArtistProfile(_, payload) {
       const user = auth.currentUser.uid;
 
@@ -34,6 +37,9 @@ export default {
           shop: payload.shop,
           style: payload.style,
           thumbnail: payload.thumbnail,
+          socialLink: payload.socialLink,
+          insta: payload.insta,
+          description: payload.description
         });
       } catch (err) {
         console.log(err.message);
@@ -59,10 +65,36 @@ export default {
       }
       commit('setArtistProfile', doc.data());
     },
+    // Used for public part
+    async getArtistById({ commit }, payload) {
+      const user = payload;
+      const doc = await artistsCollection.doc(user).get();
+      if (!doc.exists) {
+        return;
+      }
+      commit('setProfile', doc.data());
+    },
+    async getAllArtists({ commit }) {
+      const snap = await artistsCollection.get();
+      const artists = [];
+      snap.forEach((doc) => [
+        artists.push({
+          id: doc.id,
+          ...doc.data(),
+        }),
+      ]);
+      commit('setAllArtists', artists);
+    },
   },
   getters: {
     getArtistProfile(state) {
       return state.artistProfile;
+    },
+    getProfile(state) {
+      return state.profile;
+    },
+    getAllArtists(state) {
+      return state.artists;
     },
   },
 };

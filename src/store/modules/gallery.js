@@ -4,6 +4,7 @@ export default {
   state: {
     artistGallery: [],
     gallery: [],
+    galleryFromId: []
   },
   mutations: {
     setArtistGallery(state, payload) {
@@ -12,6 +13,9 @@ export default {
     setGallery(state, payload) {
       state.gallery = payload;
     },
+    setGalleryFromId(state, payload) {
+      state.galleryFromId = payload;
+    }
   },
   actions: {
     async setArtistGallery(_, payload) {
@@ -92,6 +96,21 @@ export default {
         console.log(err.message);
         return;
       }
+    },
+    async getGalleryFromId({ commit }, payload) {
+      const user = payload;
+      await galleriesCollection.doc(user).get();
+      const doc = await galleriesCollection.doc(user).get();
+      if (!doc.exists) {
+        return;
+      }
+      const gallery = doc.data().gallery;
+      commit('setGalleryFromId', gallery);
     }
   },
+  getters: {
+    getGalleryFromId(state) {
+      return state.galleryFromId;
+    }
+  }
 };
