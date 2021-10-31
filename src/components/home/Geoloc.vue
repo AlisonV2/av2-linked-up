@@ -7,8 +7,12 @@
           class="form-control"
           placeholder="Enter your location"
           id="autocomplete"
+          v-model="location"
+          @change="getPlace"
         />
-        <span class="input-group-text material-icons">place</span>
+        <span class="input-group-text material-icons" @click="getGeoloc"
+          >place</span
+        >
       </div>
       <div class="btn-center">
         <app-button>Search</app-button>
@@ -18,29 +22,40 @@
 </template>
 
 <script>
-import { Loader } from '@googlemaps/js-api-loader';
-/**
- * @exports HomeGeoloc
- * @type {Component}
- */
 export default {
-  setup() {
-    return {};
-  },
-  async mounted() {
-    const loader = new Loader({
-      apiKey: process.env.VUE_APP_MAPS_API_KEY,
-      libraries: ['places'],
-    });
-    const google = await loader.load();
-    new google.maps.places.Autocomplete(
-      document.getElementById('autocomplete')
-    );
+  data() {
+    return {
+      coords: {
+        lat: '',
+        lng: '',
+      },
+      location: ''
+    };
   },
   methods: {
-  useGeoloc() {
-  }
-  }
+    getGeoloc() {
+      navigator.geolocation.getCurrentPosition((position) => {
+        this.coords = {
+          lat: position.coords.latitude,
+          lng: position.coords.longitude
+      }
+        this.setGeoloc(this.coords);
+      });
+    },
+    async setGeoloc(coords) {
+      let response;
+      await fetch(process.env.VUE_APP_MAPQUEST_API + coords.lat + ',' + coords.lng)
+      .then((res) => res.json())
+      .then((data) => response = data)
+      .catch((err) => console.log(err.message));
+
+      const location = response.results[0].locations[0];
+      const street = location.street;
+      const city = location.adminArea5;
+      const country = location.adminArea1;
+      this.location = `${street}, ${city}, ${country}`;
+    },
+  },
 };
 </script>
 
