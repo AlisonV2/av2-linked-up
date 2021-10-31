@@ -11,6 +11,7 @@
     "docs": "jsdoc -c jsdoc.json"
   },
   "dependencies": {
+    "@googlemaps/js-api-loader": "^1.12.7",
     "bootstrap-icons": "^1.6.1",
     "core-js": "^3.6.5",
     "firebase": "^8.9.1",

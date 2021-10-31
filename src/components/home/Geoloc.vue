@@ -6,6 +6,7 @@
           type="text"
           class="form-control"
           placeholder="Enter your location"
+          id="autocomplete"
         />
         <span class="input-group-text material-icons">place</span>
       </div>
@@ -17,11 +18,30 @@
 </template>
 
 <script>
+import { Loader } from '@googlemaps/js-api-loader';
 /**
  * @exports HomeGeoloc
  * @type {Component}
  */
-export default {};
+export default {
+  setup() {
+    return {};
+  },
+  async mounted() {
+    const loader = new Loader({
+      apiKey: process.env.VUE_APP_MAPS_API_KEY,
+      libraries: ['places'],
+    });
+    const google = await loader.load();
+    new google.maps.places.Autocomplete(
+      document.getElementById('autocomplete')
+    );
+  },
+  methods: {
+  useGeoloc() {
+  }
+  }
+};
 </script>
 
 <style lang="scss">
@@ -36,7 +56,7 @@ export default {};
 }
 
 .material-icons {
-  font-size: 1.5rem!important;
+  font-size: 1.5rem !important;
   cursor: pointer;
 }
 </style>
