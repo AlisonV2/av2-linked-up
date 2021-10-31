@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>components/home/Categories.vue - Documentation</title>
+    <title>GeoResults - Documentation</title>
 
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
@@ -29,102 +29,162 @@
 
 <div id="main">
     
-    <h1 class="page-title">components/home/Categories.vue</h1>
+    <h1 class="page-title">GeoResults</h1>
     
 
     
 
 
 
+
+<section>
+
+<header>
     
-    <section>
-        <article>
-            <pre class="prettyprint source linenums"><code>&lt;template>
-  &lt;div class="row">
-    &lt;app-title mode="title-img">Search by style&lt;/app-title>
-    &lt;div class="col-12 col-md-6 col-lg-3">
-      &lt;div class="card" @click="setCategory('Black Work')">
-        &lt;img src="/img/blackwork.jpg" class="card-img-top" alt="blackwork" />
-        &lt;div class="card-body">
-          &lt;h5 class="card-title">Black Work&lt;/h5>
-        &lt;/div>
-      &lt;/div>
-    &lt;/div>
-    &lt;div class="col-12 col-md-6 col-lg-3">
-      &lt;div class="card" @click="setCategory('Old School')">
-        &lt;img src="/img/oldschool.jpg" class="card-img-top" alt="oldschool" />
-        &lt;div class="card-body">
-          &lt;h5 class="card-title">Old School&lt;/h5>
-        &lt;/div>
-      &lt;/div>
-    &lt;/div>
-    &lt;div class="col-12 col-md-6 col-lg-3">
-      &lt;div class="card" @click="setCategory('New School')">
-        &lt;img src="/img/newschool.jpg" class="card-img-top" alt="newschool" />
-        &lt;div class="card-body">
-          &lt;h5 class="card-title">New School&lt;/h5>
-        &lt;/div>
-      &lt;/div>
-    &lt;/div>
-    &lt;div class="col-12 col-md-6 col-lg-3">
-      &lt;div class="card" @click="setCategory('Surrealism')">
-        &lt;img src="/img/surrealism.jpg" class="card-img-top" alt="surrealism" />
-        &lt;div class="card-body">
-          &lt;h5 class="card-title">Surrealism&lt;/h5>
-        &lt;/div>
-      &lt;/div>
-    &lt;/div>
-    &lt;div class="col-12 text-end">
-      &lt;router-link :to="{ name: 'Categories' }"
-        >&lt;p class="link-text">See all styles&lt;/p>&lt;/router-link
-      >
-    &lt;/div>
-  &lt;/div>
-&lt;/template>
+        
+            
+        
+    
+</header>
 
-&lt;script>
-/**
- * @exports HomeCategories
- * @type {Component}
- * @vue-event setCategory - Dispatch getArtistsByStyle store action
- */
-export default {
-  methods: {
-    /**
-     * @description Dispatch getArtistsByStyle action
-     * Redirect to CategoriesResults Page
-     * @method setCategory
-     * @param {string} payload
-     * @async
-     */
-    async setCategory(data) {
-      await this.$store
-        .dispatch('getArtistsByStyle', data)
-        .then(() => this.$router.push({ name: 'CategoriesResults' }));
-    },
-  },
-};
-&lt;/script>
+<article>
+    <div class="container-overview">
+    
+        
+            <div class="description"></p></div></div> 
+<h3 class="subsection-title" style="margin-top: 1em" data-jsdoc-vuejs="section-data">Data</h3>
+<table class="params" data-jsdoc-vuejs="table-data">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Default value</th>
+        <th>Description</th>
+    </tr>
+    </thead>
+    <tbody><tr>
+        <td class="name"><code>artists</code></td>
+        <td><code>array</code></td>
+        <td><code>[]</code></td>
+        <td>artists - Artists accessed from store categories module</td>
+    </tr></tbody>
+</table>
+<h3 class="subsection-title" style="margin-top: 1em" data-jsdoc-vuejs="section-event">Events</h3>
+<table class="params" data-jsdoc-vuejs="table-event">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Payload Type</th>
+        <th>Description</th>
+    </tr>
+    </thead>
+    <tbody><tr>
+        <td><code>created</code></td>
+        <td></td>
+        <td>Access store categories modules and assign it to artists array on created hook</td>
+    </tr></tbody>
+</table>
+<div class="container-overview"><div><p></div>
+        
 
-&lt;style lang="scss" scoped>
-.card-title {
-  font-size: 1rem;
-  font-family: $default-font;
-}
+        
+            
+<div class="section-method">
 
-.card:hover {
-  transform: scale(1.05);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12), 0 4px 8px rgba(0, 0, 0, 0.06);
-}
 
-.link-text {
-  font-size: 1rem;
-  font-family: $accent-font;
-}
-&lt;/style>
-</code></pre>
-        </article>
-    </section>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+        
+    
+    </div>
+
+    
+
+    
+        <h3 class="subsection-title">Requires</h3>
+
+        <ul>
+            <li><a href="module-ArtistItem.html">module:ArtistItem</a></li>
+        </ul>
+    
+
+    
+
+     
+
+    
+
+    
+
+    
+
+    
+
+    
+</article>
+
+</section>
 
 
 

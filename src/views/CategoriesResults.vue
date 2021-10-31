@@ -35,7 +35,7 @@ export default {
     };
   },
   created() {
-      this.artists = this.$store.state.categories.artists;
+      this.artists = this.$store.state.search.artists;
   }
 };
 </script>
