@@ -40,18 +40,18 @@
 
 <script>
 /**
- * @type Page
- * @name Categories
+ * @exports Categories
+ * @type {Page}
  * @vue-data {array} artists - Artists accessed from store categories module
- * @vue-event setCategory - Dispatch store action
+ * @vue-event setCategory - VuexAction - Dispatch store action
  */
 export default {
   name: 'Categories',
   methods: {
     /**
-     * @description Get category choice and redirect to CategoriesResults
+     * Get category choice and redirect to CategoriesResults
      * Dispatch store action to get artists based on category selected
-     * @method setCategory
+     * @function setCategory
      * @param {string} payload
      * @async
      */

@@ -7,8 +7,8 @@
 
 <script>
 /**
- * @type GlobalComponent
- * @name AppTitle
+ * @exports AppTitle
+ * @type {GlobalComponent}
  * @vue-prop {string} mode
  */
 export default {

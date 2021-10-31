@@ -43,8 +43,8 @@
 
 <script>
 /**
- * @type Component
- * @name HomeCategories
+ * @exports HomeCategories
+ * @type {Component}
  * @vue-event setCategory - Dispatch getArtistsByStyle store action
  */
 export default {

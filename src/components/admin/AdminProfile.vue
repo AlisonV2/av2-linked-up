@@ -110,8 +110,8 @@
 
 <script>
 /**
- * @type Component
- * @name AdminProfile
+ * @exports AdminProfile
+ * @type {Component}
  * @vue-data {array} previewImage
  * @vue-data {object} profile
  * @vue-data {boolean} showSuccessToast

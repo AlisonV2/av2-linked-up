@@ -5,6 +5,10 @@
 </template>
 
 <script>
+/**
+ * @exports Conventions
+ * @type {Page}
+ */
 export default {
 
 }

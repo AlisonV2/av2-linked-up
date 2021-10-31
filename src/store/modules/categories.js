@@ -2,8 +2,8 @@ import { artistsCollection } from '@/utils/firebase';
 
 /**
  * Vuex module for Search By Category
- * @module ArtistsCategories
- * @requires FirebaseConfig
+ * @module categories
+ * @requires firebase
  */
 export default {
   /**
@@ -17,7 +17,7 @@ export default {
   /**
    * @name Mutations
    * @type {object}
-   * @mutator {array} setArtistsByStyle=artists
+   * @property {array} setArtistsByStyle - Mutates artists
    */
   mutations: {
     setArtistsByStyle(state, payload) {
@@ -27,7 +27,7 @@ export default {
   /**
    * @name Actions
    * @type {object}
-   * @getter {void} getArtistsByStyle=artists
+   * @property {void} getArtistsByStyle - Get artists from firebase collection based on style choice
    */
   actions: {
     /**

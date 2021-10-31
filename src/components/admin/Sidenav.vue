@@ -57,8 +57,8 @@
 
 <script>
 /**
- * @type Component
- * @name Sidenav
+ * @exports Sidenav
+ * @type {Component}
  */
 export default {};
 </script>

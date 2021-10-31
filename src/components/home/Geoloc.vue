@@ -18,8 +18,8 @@
 
 <script>
 /**
- * @type Component
- * @name HomeGeoloc
+ * @exports HomeGeoloc
+ * @type {Component}
  */
 export default {};
 </script>

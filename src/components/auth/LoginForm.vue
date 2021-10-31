@@ -32,8 +32,8 @@
 
 <script>
 /**
- * @type Component
- * @name LoginForm
+ * @exports LoginForm
+ * @type {Component}
  * @vue-data {string} email - v-model
  * @vue-data {string} password - v-model
  * @vue-data {string} error

@@ -4,8 +4,12 @@
       <nav class="navbar-container">
         <ul class="navbar-menu" :class="{ active: isActive }">
           <li class="nav-link">
-            <a class="logout-link"><span class="d-none d-sm-inline mx-3" @click.prevent="logout">Logout</span>
-            <i class=" fs-3 bi bi-box-arrow-right"></i></a>
+            <a class="logout-link"
+              ><span class="d-none d-sm-inline mx-3" @click.prevent="logout"
+                >Logout</span
+              >
+              <i class=" fs-3 bi bi-box-arrow-right"></i
+            ></a>
           </li>
         </ul>
       </nav>
@@ -15,8 +19,8 @@
 
 <script>
 /**
- * @type Component
- * @name AdminNavbar
+ * @exports AdminNavbar
+ * @type {Component}
  * @vue-data {boolean} isActive
  * @vue-event logout
  */
@@ -28,18 +32,18 @@ export default {
     };
   },
   methods: {
-      /**
-   * @description Dispatch logout store action
-   * Redirect to Home page if the current route requires authentication
-   * @method logout
-   */
+    /**
+     * @description Dispatch logout store action
+     * Redirect to Home page if the current route requires authentication
+     * @method logout
+     */
     logout() {
       this.$store.dispatch('logout');
       if (this.$route.meta.requiresAuth) {
         this.$router.push({ name: 'Home' });
       }
     },
-  }
+  },
 };
 </script>
 <style lang="scss" scoped>
@@ -59,7 +63,6 @@ export default {
   .logout-link {
     display: flex;
     align-items: center;
-
   }
 }
 </style>

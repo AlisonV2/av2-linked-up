@@ -10,11 +10,11 @@
 
 <script>
 /**
- * @type Component
- * @name PreviewItem
+ * @exports PreviewItem
+ * @type {Component}
  * @vue-prop {string} image
  * @vue-prop {number} index
- * @vue-event {number} removePreview
+ * @vue-event {number} removePreview - Emits the removePreview event and passes index as data
  */
 export default {
   props: ['image', 'index'],

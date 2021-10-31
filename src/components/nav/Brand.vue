@@ -4,9 +4,9 @@
 
 <script>
 /**
- * @type Component
- * @name NavBrand
- * @description Wrapper component for the logo
+ * Wrapper component for the logo
+ * @exports NavBrand
+ * @type {Component}
  */
 export default {
     name: 'NavBrand'

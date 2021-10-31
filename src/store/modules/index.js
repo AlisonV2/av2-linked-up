@@ -3,7 +3,7 @@ import { camelCase } from 'lodash';
 /**
  * Script for autoloading modules from vuex store
  * @exports modules
- * @requires Lodash
+ * @requires lodash
  */
 const requireModule = require.context('.', false, /\.js$/);
 const modules = {};

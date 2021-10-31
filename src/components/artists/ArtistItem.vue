@@ -19,8 +19,8 @@
 
 <script>
 /**
- * @type Component
- * @name ArtistItem
+ * @exports ArtistItem
+ * @type {Component}
  * @vue-prop {object} artists
  */
 export default {
