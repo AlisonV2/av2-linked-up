@@ -15,6 +15,12 @@
 <script>
 import ArtistItem from '@/components/artists/ArtistItem';
 
+/**
+ * @exports ArtistList
+ * @type {Component}
+ * @vue-data {array} artists
+ * @vue-event created - Dispatch store action
+ */
 export default {
   name: 'ArtistList',
   components: {
@@ -22,13 +28,20 @@ export default {
   },
   data() {
     return {
-      artists: []
+      artists: [],
     };
   },
+  /**
+   * @description Dispatch getAllArtists action on created hook
+   * Get results from store
+   * @method created
+   * @returns {array}
+   * @async
+   */
   async created() {
     await this.$store.dispatch('getAllArtists').then(() => {
       this.artists = this.$store.getters.getAllArtists;
-    })
-  }
+    });
+  },
 };
 </script>

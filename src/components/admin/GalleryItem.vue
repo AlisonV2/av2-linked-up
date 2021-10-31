@@ -9,6 +9,13 @@
 </template>
 
 <script>
+/**
+ * @exports GalleryItem
+ * @type {Component}
+ * @vue-prop {string} image
+ * @vue-prop {number} index
+ * @vue-event {number} removeImg - Emits removeImg event and passes index as data
+ */
 export default {
   props: ['image', 'index'],
   methods: {

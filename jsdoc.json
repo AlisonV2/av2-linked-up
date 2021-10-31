@@ -1,0 +1,21 @@
+{
+  "plugins": ["node_modules/jsdoc-vuejs", "plugins/markdown"],
+  "source": {
+    "include": "src",
+    "includePattern": "\\.(vue|js)$"
+  },
+  "tags": {
+    "allowUnknownTags": true,
+    "dictionaries": ["jsdoc", "closure"]
+  },
+  "opts": {
+    "recurse": true,
+    "destination": "./docs/",
+    "template": "node_modules/minami",
+    "readme": "./src/README.md"
+  },
+  "templates": {
+    "cleverLinks": false,
+    "monospaceLinks": false
+  }
+}

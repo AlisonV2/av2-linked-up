@@ -56,6 +56,10 @@
 </template>
 
 <script>
+/**
+ * @exports Sidenav
+ * @type {Component}
+ */
 export default {};
 </script>
 

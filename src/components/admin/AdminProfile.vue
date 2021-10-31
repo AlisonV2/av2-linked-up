@@ -109,6 +109,19 @@
 </template>
 
 <script>
+/**
+ * @exports AdminProfile
+ * @type {Component}
+ * @vue-data {array} previewImage
+ * @vue-data {object} profile
+ * @vue-data {boolean} showSuccessToast
+ * @vue-data {boolean} showErrorToast
+ * @vue-data {array} fileSelected
+ * @vue-data {string} fileErr
+ * @vue-event {object} getArtistProfile
+ * @vue-event {string} setPreviewImage
+ * @vue-event {string} setArtistProfile
+ */
 export default {
   name: 'AdminProfile',
   data() {
@@ -131,8 +144,11 @@ export default {
       fileErr: null,
     };
   },
-  /* Get artistProfile
-   ** Set profile.thumbnail as previewUrl
+  /**
+   * @description Get artistProfile
+   * Set profile.thumbnail as previewUrl
+   * @method getArtistProfile
+   * @returns {object}
    */
   async created() {
     await this.$store
@@ -145,13 +161,15 @@ export default {
       });
   },
   methods: {
-    /* Reset profile.thumbnail
-     ** Clear cache
-     ** Check file type
-     ** Set fileSelected as previewImage
-     ** Send fileSelected to DB
+    /**
+     * @description Set preview image url
+     * Check file type
+     * Set fileSelected as previewImage
+     * Send fileSelected to DB
+     * @method setPreviewImage
+     * @param {object} $event
+     * @returns {string}
      */
-
     setPreviewImage($event) {
       // this.profile.thumbnail = '';
 
@@ -171,10 +189,17 @@ export default {
         this.fileErr = 'Please select an image file (png or jpeg).';
       }
     },
-    /* Set thumbnailUrl
-     ** Get thumbnail Url from store
-     ** Set profileData
-     ** Show success/error toast
+    /**
+     * @description Set thumbnailUrl
+     * Get thumbnail Url from store
+     * Dispatch store action with profile data
+     * Show success/error toast
+     * @method setArtistProfile
+     * @param {object} profileData
+     * @returns {string} thumbnail
+     * @returns {boolean} showSuccessToast
+     * @returns {boolean} showErrorToast
+     * @async
      */
     async setArtistProfile() {
       const file = this.fileSelected;
@@ -187,7 +212,6 @@ export default {
           .dispatch('setArtistThumbnail', file)
           .then(async () => {
             thumbnail = await this.$store.state.profile.thumbnailUrl;
-            console.log(thumbnail);
           })
           .then(async () => {
             profileData = {
@@ -201,7 +225,6 @@ export default {
               insta: this.profile.insta,
               description: this.profile.description,
             };
-            console.log(profileData);
             await this.$store.dispatch('setArtistProfile', profileData);
             this.showSuccessToast = true;
             this.showErrorToast = false;

@@ -17,6 +17,13 @@
 <script>
 import ArtistItem from '@/components/artists/ArtistItem';
 
+/**
+ * @exports CategoriesResults
+ * @requires ArtistItem
+ * @type {Page}
+ * @vue-data {array} [artists=[]] - artists - Artists accessed from store categories module
+ * @vue-event created - Access store categories modules and assign it to artists array on created hook
+ */
 export default {
   name: 'CategoriesResults',
   components: {
@@ -28,7 +35,7 @@ export default {
     };
   },
   created() {
-      this.artists = this.$store.state.categories.artists;
+      this.artists = this.$store.state.search.artists;
   }
 };
 </script>

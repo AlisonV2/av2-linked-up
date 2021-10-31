@@ -1,5 +1,11 @@
 import _ from 'lodash';
 
+/**
+ * Script for autoloading components in app folder as GlobalComponents
+ * @exports GlobalComponents 
+ * @requires lodash
+ * @type {object}
+ */
 export default {
   install(app) {
     const baseComponents = require.context(

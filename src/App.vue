@@ -12,6 +12,15 @@ import AppNavbar from '@/components/nav/Navbar';
 import AppFooter from '@/components/nav/Footer';
 import AdminNav from '@/components/admin/AdminNav';
 
+/**
+ * @exports App
+ * @requires AppNavbar
+ * @requires AppFooter
+ * @requires AdminNav
+ * @type {Component}
+ * @vue-computed {boolean} requireAuth - Checks if current route requires authentication
+ * @vue-event {boolean} initLogin - Dispatch initLogin to store on created() hook
+ */
 export default {
   name: 'App',
   components: {
@@ -28,7 +37,7 @@ export default {
     },
   },
   created() {
-    this.$store.dispatch('init_login');
+    this.$store.dispatch('initLogin');
   },
 };
 </script>

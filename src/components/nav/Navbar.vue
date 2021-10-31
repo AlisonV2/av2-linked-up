@@ -3,7 +3,7 @@
     <div class="container-fluid">
       <nav class="navbar-container">
         <router-link :to="{ name: 'Home' }" class="navbar-logo">
-          <Brand />
+          <NavBrand />
         </router-link>
         <ul class="navbar-menu" :class="{ active: isActive }">
           <li class="navbar-item">
@@ -23,7 +23,7 @@
           </li>
           <template v-else>
             <li class="navbar-item">
-              <router-link :to="{ name: 'Admin' }">
+              <router-link :to="{ name: 'AdminProfile' }">
                 Dashboard
               </router-link>
             </li>
@@ -49,13 +49,22 @@
 </template>
 
 <script>
-import Brand from '@/components/nav/Brand';
+import NavBrand from '@/components/nav/Brand';
 import { mapState } from 'vuex';
 
+/**
+ * @exports AppNavbar
+ * @requires Brand
+ * @requires mapState - From vuex
+ * @type {Component}
+ * @vue-computed {boolean} userLoggedIn - Access userLoggedIn state from store
+ * @vue-data {boolean} isActive - Toggles hamburger menu
+ * @vue-event logout - Dispatch logout store action
+ */
 export default {
   name: 'AppNavbar',
   components: {
-    Brand,
+    NavBrand,
   },
   computed: {
     ...mapState({
@@ -67,6 +76,11 @@ export default {
       isActive: false,
     };
   },
+  /**
+   * @description Dispatch logout store action
+   * Redirect to Home page if the current route requires authentication
+   * @method logout
+   */
   methods: {
     logout() {
       this.$store.dispatch('logout');

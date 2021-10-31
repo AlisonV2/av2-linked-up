@@ -1,3 +1,9 @@
+/**
+ * Bootstrap & stylesheets imports
+ * @file Styles 
+ * @requires Bootstrap
+ */
+
 // JS
 
 import 'bootstrap';

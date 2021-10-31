@@ -9,7 +9,11 @@
 
 <script>
 import ArtistList from '@/components/artists/ArtistList';
-
+/**
+ * @exports Artists
+ * @requires ArtistList
+ * @type {Page}
+ */
 export default {
   name: 'Artists',
   components: {

@@ -3,6 +3,11 @@
 </template>
 
 <script>
+/**
+ * Wrapper component for the logo
+ * @exports NavBrand
+ * @type {Component}
+ */
 export default {
     name: 'NavBrand'
 }
