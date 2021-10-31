@@ -49,13 +49,13 @@
  */
 export default {
   methods: {
-      /**
-   * @description Dispatch getArtistsByStyle action
-   * Redirect to CategoriesResults Page
-   * @method setCategory
-   * @param {string} payload
-   * @async
-   */
+    /**
+     * @description Dispatch getArtistsByStyle action
+     * Redirect to CategoriesResults Page
+     * @method setCategory
+     * @param {string} payload
+     * @async
+     */
     async setCategory(data) {
       await this.$store
         .dispatch('getArtistsByStyle', data)

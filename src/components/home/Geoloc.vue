@@ -21,6 +21,17 @@
 </template>
 
 <script>
+/**
+ * @exports HomeGeoloc
+ * @type {Component}
+ * @vue-data {object} coords - Stores current location
+ * @vue-data {string} location - v-model
+ * @vue-data {string} city - stores user's city from geoloc
+ * @vue-data {string} address - stores user's address from geoloc
+ * @vue-event {object} getGeoloc - get current location
+ * @vue-event {string} setGeoloc - sets current location as input value
+ * @vue-event handleSubmit - dispatches store action and redirects to results page
+ */
 export default {
   data() {
     return {
@@ -30,25 +41,40 @@ export default {
       },
       location: '',
       city: '',
-      address: ''
+      address: '',
     };
   },
   methods: {
+    /**
+     * @description Dispatch getArtistsByStyle action
+     * Redirect to CategoriesResults Page
+     * @method getGeoloc
+     * @returns {object}
+     */
     getGeoloc() {
       navigator.geolocation.getCurrentPosition((position) => {
         this.coords = {
           lat: position.coords.latitude,
-          lng: position.coords.longitude
-      }
+          lng: position.coords.longitude,
+        };
         this.setGeoloc(this.coords);
       });
     },
+    /**
+     * @description Set current location as input value
+     * @method setGeoloc
+     * @param {object} coords
+     * @returns {string}
+     * @async
+     */
     async setGeoloc(coords) {
       let response;
-      await fetch(process.env.VUE_APP_MAPQUEST_API + coords.lat + ',' + coords.lng)
-      .then((res) => res.json())
-      .then((data) => response = data)
-      .catch((err) => console.log(err.message));
+      await fetch(
+        process.env.VUE_APP_MAPQUEST_API + coords.lat + ',' + coords.lng
+      )
+        .then((res) => res.json())
+        .then((data) => (response = data))
+        .catch((err) => console.log(err.message));
 
       const location = response.results[0].locations[0];
       const street = location.street;
@@ -56,13 +82,17 @@ export default {
       const country = location.adminArea1;
       this.location = city;
       this.address = `${street}, ${city}, ${country}`;
-      console.log(this.location)
     },
+    /**
+     * @description Sent input's value to store and redirects to results page
+     * @method setGeoloc
+     * @async
+     */
     async handleSubmit() {
       await this.$store
         .dispatch('getArtistsByCity', this.location)
         .then(() => this.$router.push({ name: 'GeoResults' }));
-    }
+    },
   },
 };
 </script>
