@@ -1,16 +1,16 @@
 <template>
   <div class="container">
-  <div class="row">
-    <div
-      class="col-8 col-md-6 col-lg-4 col-xl-3 artists-list"
-      v-for="artist in artists"
-      :key="artist.name"
-    >
-      <router-link :to="{ name: 'Profile', params: { id: artist.id } }">
-        <ArtistItem :artist="artist" />
-      </router-link>
+    <div class="row">
+      <div
+        class="col-8 col-md-6 col-lg-4 col-xl-3 artists-list"
+        v-for="artist in artists"
+        :key="artist.name"
+      >
+        <router-link :to="{ name: 'Profile', params: { id: artist.id } }">
+          <ArtistItem :artist="artist" />
+        </router-link>
+      </div>
     </div>
-  </div>
   </div>
 </template>
 
@@ -18,24 +18,25 @@
 import ArtistItem from '@/components/artists/ArtistItem';
 
 /**
- * @exports CategoriesResults
+ * @exports GeoResults
  * @requires ArtistItem
  * @type {Page}
  * @vue-data {array} [artists=[]] - artists - Artists accessed from store categories module
  * @vue-event created - Access store categories modules and assign it to artists array on created hook
  */
 export default {
-  name: 'CategoriesResults',
+  name: 'GeoResults',
   components: {
     ArtistItem,
   },
   data() {
     return {
-      artists: []
+      artists: [],
     };
   },
   created() {
-      this.artists = this.$store.state.search.artists;
-  }
+    this.artists = this.$store.state.search.artistsByCity;
+    console.log(this.artists)
+  },
 };
 </script>

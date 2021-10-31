@@ -1,14 +1,13 @@
 <template>
   <div class="row geoloc-row">
-    <form class="col-12 geoloc">
+    <form class="col-12 geoloc" @submit.prevent="handleSubmit">
       <div class="input-group mb-3">
         <input
           type="text"
           class="form-control"
-          placeholder="Enter your location"
+          placeholder="Enter your city"
           id="autocomplete"
           v-model="location"
-          @change="getPlace"
         />
         <span class="input-group-text material-icons" @click="getGeoloc"
           >place</span
@@ -29,7 +28,9 @@ export default {
         lat: '',
         lng: '',
       },
-      location: ''
+      location: '',
+      city: '',
+      address: ''
     };
   },
   methods: {
@@ -53,8 +54,15 @@ export default {
       const street = location.street;
       const city = location.adminArea5;
       const country = location.adminArea1;
-      this.location = `${street}, ${city}, ${country}`;
+      this.location = city;
+      this.address = `${street}, ${city}, ${country}`;
+      console.log(this.location)
     },
+    async handleSubmit() {
+      await this.$store
+        .dispatch('getArtistsByCity', this.location)
+        .then(() => this.$router.push({ name: 'GeoResults' }));
+    }
   },
 };
 </script>
