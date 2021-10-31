@@ -32,6 +32,10 @@ To generate docs, run :
 npm run docs 
 ```
 
+## APIs
+
+- Reverse Geocode (MapQuest)
+
 ## Project setup
 
 ```sh
