@@ -50,8 +50,8 @@
 
 <script>
 /**
- * @type Component
- * @name RegisterForm
+ * @exports RegisterForm
+ * @type {Component}
  * @vue-data {string} name - v-model
  * @vue-data {string} email - v-model
  * @vue-data {string} password - v-model

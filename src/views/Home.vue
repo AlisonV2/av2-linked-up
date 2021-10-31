@@ -10,8 +10,10 @@ import HomeGeoloc from '@/components/home/Geoloc';
 import HomeCategories from '@/components/home/Categories';
 
 /**
- * @type Page
- * @name Home
+ * @exports Home
+ * @requires HomeGeoloc
+ * @requires HomeCategories
+ * @type {Page}
  */
 export default {
   name: 'Home',

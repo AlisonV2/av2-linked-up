@@ -16,8 +16,8 @@
 import ArtistItem from '@/components/artists/ArtistItem';
 
 /**
- * @type Component
- * @name ArtistList
+ * @exports ArtistList
+ * @type {Component}
  * @vue-data {array} artists
  * @vue-event created - Dispatch store action
  */

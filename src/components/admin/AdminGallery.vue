@@ -48,8 +48,8 @@ import GalleryItem from '@/components/admin/GalleryItem';
 import PreviewItem from '@/components/admin/PreviewItem';
 
 /**
- * @type Component
- * @name AdminGallery
+ * @exports AdminGallery
+ * @type {Component}
  * @vue-data {array} images - For previews
  * @vue-data {array} gallery - Current gallery in session
  * @vue-data {array} profileGallery - Current gallery in DB

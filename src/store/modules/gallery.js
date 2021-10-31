@@ -2,8 +2,8 @@ import { auth, galleriesCollection, storage } from '@/utils/firebase';
 
 /**
  * Vuex module for artists' gallery
- * @module ArtistGallery
- * @requires FirebaseConfig
+ * @module gallery
+ * @requires firebase
  */
 export default {
   /**
@@ -22,9 +22,9 @@ export default {
   /**
    * @name Mutations
    * @type {object}
-   * @mutator {array} setArtistGallery=artistGallery
-   * @mutator {array} setGallery=gallery
-   * @mutator {array} setGalleryFromId=galleryFromId
+   * @property {array} setArtistGallery - Mutates artistGallery
+   * @property {array} setGallery - Mutates gallery
+   * @property {array} setGalleryFromId - Mutates galleryFromId
    */
   mutations: {
     setArtistGallery(state, payload) {
@@ -40,12 +40,12 @@ export default {
   /**
    * @name Actions
    * @type {object}
-   * @getter {void} setArtistGallery
-   * @getter {array} getArtistGallery=gallery
-   * @getter {void} updateArtistGallery
-   * @getter {array} getAllArtists=artists
-   * @getter {void} deleteImage
-   * @getter {array} getGalleryFromId=galleryFromId
+   * @property {void} setArtistGallery
+   * @property {array} getArtistGallery=gallery
+   * @property {void} updateArtistGallery
+   * @property {array} getAllArtists=artists
+   * @property {void} deleteImage
+   * @property {array} getGalleryFromId=galleryFromId
    */
   actions: {
     /**
@@ -178,7 +178,7 @@ export default {
   /**
    * @name Getters
    * @type {object}
-   * @getter {object} getGalleryFromId=galleryFromId
+   * @property {object} getGalleryFromId - Access state galleryFromId
    */
   getters: {
     getGalleryFromId(state) {

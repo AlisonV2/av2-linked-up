@@ -8,8 +8,8 @@ import {
 
 /**
  * Vuex module for artists' gallery
- * @module Authentication
- * @requires FirebaseConfig
+ * @module auth
+ * @requires firebase
  */
 export default {
   /**
@@ -23,7 +23,7 @@ export default {
   /**
    * @name Mutations
    * @type {object}
-   * @mutator {boolean} toggleAuth=userLoggedIn
+   * @property {boolean} toggleAuth - Mutates userLoggedIn
    */
   mutations: {
     toggleAuth(state) {
@@ -33,10 +33,10 @@ export default {
   /**
    * @name Actions
    * @type {object}
-   * @getter {boolean} register=userLoggedIn
-   * @getter {boolean} login=userLoggedIn
-   * @getter {boolean} initLogin=userLoggedIn
-   * @getter {boolean} logout=userLoggedIn
+   * @property {boolean} register - Register a user with firebase authentication
+   * @property {boolean} login - Logs a user in with firebase authentication
+   * @property {boolean} initLogin - Checks if a user is already logged in
+   * @property {boolean} logout - Logs a user out
    */
   actions: {
     /**

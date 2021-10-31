@@ -13,10 +13,13 @@ import AppFooter from '@/components/nav/Footer';
 import AdminNav from '@/components/admin/AdminNav';
 
 /**
- * @type Component
- * @name App
- * @vue-computed {boolean} requireAuth - Route guards
- * @vue-event {boolean} initLogin - Dispatch initLogin to store
+ * @exports App
+ * @requires AppNavbar
+ * @requires AppFooter
+ * @requires AdminNav
+ * @type {Component}
+ * @vue-computed {boolean} requireAuth - Checks if current route requires authentication
+ * @vue-event {boolean} initLogin - Dispatch initLogin to store on created() hook
  */
 export default {
   name: 'App',

@@ -6,8 +6,8 @@
 
 <script>
 /**
- * @type GlobalComponent
- * @name AppButton
+ * @exports AppButton
+ * @type {GlobalComponent}
  * @vue-prop {string} mode
  */
 export default {

@@ -5,7 +5,8 @@ import 'firebase/storage';
 
 /**
  * Firebase configuration - Firestore, Storage, Authentication
- * @module FirebaseConfig
+ * @module firebase
+ * @type {object}
  * @requires Firebase
  */
 const firebaseConfig = {

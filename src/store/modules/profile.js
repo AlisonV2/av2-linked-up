@@ -2,8 +2,8 @@ import { auth, artistsCollection, storage } from '@/utils/firebase';
 
 /**
  * Vuex module for artists' profiles
- * @module ArtistProfile
- * @requires FirebaseConfig
+ * @module profile
+ * @requires firebase
  */
 export default {
   /**
@@ -23,10 +23,10 @@ export default {
   /**
    * @name Mutations
    * @type {object}
-   * @mutator {object} setArtistProfile=artistProfile
-   * @mutator {string} setThumbnail=thumbailUrl
-   * @mutator {object} setProfile=profile
-   * @mutator {array} setAllArtists=artists
+   * @property {object} setArtistProfile - Mutates artistProfile
+   * @property {string} setThumbnail - Mutates thumbailUrl
+   * @property {object} setProfile - Mutates profile
+   * @property {array} setAllArtists - Mutates artists
    */
   mutations: {
     // Used for admin part
@@ -47,15 +47,15 @@ export default {
   /**
    * @name Actions
    * @type {object}
-   * @getter {void} setArtistProfile
-   * @getter {string} setArtistThumbnail=thumbnailUrl
-   * @getter {object} getArtistProfile=artistProfile
-   * @getter {object} getProfile=profile
-   * @getter {array} getAllArtists=artists
+   * @property {function} setArtistProfile
+   * @property {function} setArtistThumbnail
+   * @property {function} getArtistProfile
+   * @property {function} getProfile
+   * @property {function} getAllArtists
    */
   actions: {
     /**
-     * @description Admin part - Sets artist's profile in firebase's artistsCollection
+     * Admin part - Sets artist's profile in firebase's artistsCollection
      * @method setArtistProfile
      * @param {object} payload
      * @returns {void}
@@ -83,7 +83,7 @@ export default {
     },
     /**
      * Admin part
-     * @description Sends thumbnail file to firebase storage, Get file URL from storage, Update thumbnail field with file url
+     * Sends thumbnail file to firebase storage, Get file URL from storage, Update thumbnail field with file url
      * @method setArtistThumnail
      * @param {object} payload
      * @returns {string}
@@ -147,9 +147,9 @@ export default {
   /**
    * @name Getters
    * @type {object}
-   * @getter {object} getArtistProfile=artistProfile
-   * @getter {object} getProfile=profile
-   * @getter {array} getAllArtists=artists
+   * @property {object} getArtistProfile - Gets artistProfile
+   * @property {object} getProfile -  Gets profile
+   * @property {array} getAllArtists - Gets artists
    */
   getters: {
     getArtistProfile(state) {
