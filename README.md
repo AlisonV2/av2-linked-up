@@ -10,6 +10,10 @@
 
 <img src="./public/img/app-schema.jpg">
 
+### Tests
+
+Tests coverage can be found in coverage/index.html
+
 ### Jira
 
 Each feature/fix branch has Jira's ticket issue as a reference. 
@@ -38,6 +42,11 @@ npm run docs
 
 Sentry is integrated in the app as well as in Github repo and Jira.
 A bidirectionnal flow is set between Sentry's issues and Jira's. 
+
+### Sider
+
+Automated Code Review on each PR.
+For now, test mode is enable so it doesn't block any PRs. 
 
 ## APIs
 
