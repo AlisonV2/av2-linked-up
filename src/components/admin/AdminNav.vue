@@ -5,7 +5,7 @@
         <ul class="navbar-menu" :class="{ active: isActive }">
           <li class="nav-link">
             <a class="logout-link"
-              ><span class="d-none d-sm-inline mx-3" @click.prevent="logout"
+              ><span class="d-none d-sm-inline mx-3 test-logout" @click.prevent="logout"
                 >Logout</span
               >
               <i class=" fs-3 bi bi-box-arrow-right"></i
