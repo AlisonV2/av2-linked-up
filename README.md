@@ -8,6 +8,8 @@
 
 ## Automation
 
+<img src="./public/img/app-schema.jpg">
+
 ### Jira
 
 Each feature/fix branch has Jira's ticket issue as a reference. 
@@ -31,6 +33,11 @@ To generate docs, run :
 ```sh 
 npm run docs 
 ```
+
+### Sentry
+
+Sentry is integrated in the app as well as in Github repo and Jira.
+A bidirectionnal flow is set between Sentry's issues and Jira's. 
 
 ## APIs
 
