@@ -22,30 +22,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/5</span>
+                <span class='fraction'>5/5</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/2</span>
+                <span class='fraction'>2/2</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/2</span>
+                <span class='fraction'>2/2</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>0/5</span>
+                <span class='fraction'>5/5</span>
             </div>
         
             
@@ -54,7 +54,7 @@
             Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
         </p>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line high'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -150,13 +150,10 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -164,9 +161,12 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -199,7 +199,7 @@
         &lt;ul class="navbar-menu" :class="{ active: isActive }"&gt;
           &lt;li class="nav-link"&gt;
             &lt;a class="logout-link"
-              &gt;&lt;span class="d-none d-sm-inline mx-3" @click.prevent="logout"
+              &gt;&lt;span class="d-none d-sm-inline mx-3 test-logout" @click.prevent="logout"
                 &gt;Logout&lt;/span
               &gt;
               &lt;i class=" fs-3 bi bi-box-arrow-right"&gt;&lt;/i
@@ -218,10 +218,10 @@
  * @vue-data {boolean} isActive
  * @vue-event logout
  */
-export default <span class="cstat-no" title="statement not covered" >{</span>
+export default {
   name: 'Navbar',
-<span class="fstat-no" title="function not covered" >  data(</span>) {
-<span class="cstat-no" title="statement not covered" >    return {</span>
+  data() {
+    return {
       isActive: false,
     };
   },
@@ -231,10 +231,10 @@ export default <span class="cstat-no" title="statement not covered" >{</span>
      * Redirect to Home page if the current route requires authentication
      * @method logout
      */
-<span class="fstat-no" title="function not covered" >    logout(</span>) {
-<span class="cstat-no" title="statement not covered" >      this.$</span>store.dispatch('logout');
-<span class="cstat-no" title="statement not covered" >      if (this.$route.meta.requiresAuth) {</span>
-<span class="cstat-no" title="statement not covered" >        this.$</span>router.push({ name: 'Home' });
+    logout() {
+      this.$store.dispatch('logout');
+      if (this.$route.meta.requiresAuth) {
+        this.$router.push({ name: 'Home' });
       }
     },
   },
@@ -267,7 +267,7 @@ export default <span class="cstat-no" title="statement not covered" >{</span>
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Mon Nov 01 2021 16:20:28 GMT+0100 (Central European Standard Time)
+                at Mon Nov 01 2021 19:48:54 GMT+0100 (Central European Standard Time)
             </div>
         </div>
         <script src="..\..\..\prettify.js"></script>

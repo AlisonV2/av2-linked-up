@@ -1,11 +1,14 @@
 import { shallowMount, RouterLinkStub } from '@vue/test-utils';
-import GeoResults from '@/views/GeoResults.vue';
+import CategoriesResults from '@/views/CategoriesResults.vue';
 import ArtistItem from '@/components/artists/ArtistItem';
 
 /**
- * @module GeoResultsTest
+ * @module CategoriesResultsTest
  */
-describe('GeoResults.vue', () => {
+describe('CategoriesResults.vue', () => {
+  /**
+   * Checks if profile link is rendered
+   */
   it('Profile link should be rendered', () => {
     const artists = [
       {
@@ -16,7 +19,7 @@ describe('GeoResults.vue', () => {
         zip: '33130',
       },
     ];
-    const component = shallowMount(GeoResults, {
+    const component = shallowMount(CategoriesResults, {
       data() {
         return { artists: artists };
       },
@@ -29,7 +32,7 @@ describe('GeoResults.vue', () => {
           $store: {
             state: {
               search: {
-                artistsByCity: artists,
+                artists: artists,
               },
             },
           },
@@ -42,8 +45,11 @@ describe('GeoResults.vue', () => {
     });
   });
 
+  /**
+   * Checks if back to home link is rendered
+   */
   it('Back to home link should be rendered', () => {
-    const component = shallowMount(GeoResults, {
+    const component = shallowMount(CategoriesResults, {
       data() {
         return { artists: [] };
       },
@@ -56,7 +62,7 @@ describe('GeoResults.vue', () => {
           $store: {
             state: {
               search: {
-                artistsByCity: [],
+                artists: [],
               },
             },
           },
