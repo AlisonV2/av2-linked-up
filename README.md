@@ -10,6 +10,10 @@
 
 <img src="./public/img/app-schema.jpg">
 
+### Tests
+
+Tests coverage can be found in coverage/index.html
+
 ### Jira
 
 Each feature/fix branch has Jira's ticket issue as a reference. 

@@ -4,8 +4,8 @@
       <div class="col-12">
         <div class="footer-copyright">
           <p class="copyright">
-            <span>
-              &copy; Copyright {{ getDate() }} -
+            <span data-test="copyright">
+              &copy; Copyright {{ year }} -
               <a target="_blank" href="https://alisonvandromme.com"
                 >Alison Vandromme</a
               >
@@ -22,10 +22,19 @@
 /**
  * @exports AppFooter
  * @type {Component}
+ * @vue-data {string} year='' current year
  * @vue-event getDate - get current year
  */
 export default {
   name: 'AppFooter',
+  data() {
+    return {
+      year: ''
+    }
+  },
+  created() {
+    this.getDate();
+  },
   methods: {
     /**
      * @description Get current year
@@ -33,7 +42,7 @@ export default {
      * @returns {string} payload
      */
     getDate() {
-      return new Date().getFullYear();
+      this.year = new Date().getFullYear();
     },
   },
 };

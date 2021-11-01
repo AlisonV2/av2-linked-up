@@ -14,6 +14,7 @@
 
 <script>
 import ArtistItem from '@/components/artists/ArtistItem';
+import * as Sentry from '@sentry/vue';
 
 /**
  * @exports ArtistList
@@ -39,9 +40,11 @@ export default {
    * @async
    */
   async created() {
-    await this.$store.dispatch('getAllArtists').then(() => {
+    await this.$store.dispatch('getAllArtists')
+    .then(() => {
       this.artists = this.$store.getters.getAllArtists;
-    });
+    })
+    .catch((err) => Sentry.captureException(err));
   },
 };
 </script>

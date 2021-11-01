@@ -16,19 +16,19 @@
               Conventions
             </router-link>
           </li>
-          <li class="navbar-item" v-if="!userLoggedIn">
-            <router-link :to="{ name: 'Login' }">
+          <li class="navbar-item" v-if="!userLoggedIn" >
+            <router-link :to="{ name: 'Login' }" id="login-link">
               Login
             </router-link>
           </li>
           <template v-else>
-            <li class="navbar-item">
-              <router-link :to="{ name: 'AdminProfile' }">
+            <li class="navbar-item" >
+              <router-link :to="{ name: 'AdminProfile' }" id="dashboard-link">
                 Dashboard
               </router-link>
             </li>
             <li class="navbar-item">
-              <a @click.prevent="logout">
+              <a @click.prevent="logout" id="logout-link">
                 Logout
               </a>
             </li>
@@ -38,6 +38,7 @@
           class="hamburger"
           @click="isActive = !isActive"
           :class="{ active: isActive }"
+          id="hamburger-menu"
         >
           <span class="bar"></span>
           <span class="bar"></span>
