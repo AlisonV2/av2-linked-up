@@ -1,9 +1,11 @@
 import { auth, artistsCollection, storage } from '@/utils/firebase';
+import * as Sentry from '@sentry/vue';
 
 /**
  * Vuex module for artists' profiles
  * @module profile
  * @requires firebase
+ * @requires Sentry
  */
 export default {
   /**
@@ -77,7 +79,7 @@ export default {
           description: payload.description,
         });
       } catch (err) {
-        console.log(err.message);
+        Sentry.captureException(err);
         return;
       }
     },

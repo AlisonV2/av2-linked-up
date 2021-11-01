@@ -49,9 +49,12 @@
 </template>
 
 <script>
+import * as Sentry from '@sentry/vue';
+
 /**
  * @exports RegisterForm
  * @type {Component}
+ * @requires Sentry
  * @vue-data {string} name - v-model
  * @vue-data {string} email - v-model
  * @vue-data {string} password - v-model
@@ -89,6 +92,7 @@ export default {
         await this.$store.dispatch('register', userData);
       } catch (err) {
         this.error = err.message;
+        Sentry.captureException(err);
         return;
       }
       this.$router.push({ name: 'AdminProfile' });

@@ -17,7 +17,8 @@ jobs:
           VUE_APP_FIREBASE_SENDER_ID: '${{ secrets.FIREBASE_SENDER_ID }}'
           VUE_APP_FIREBASE_APP_ID: '${{ secrets.FIREBASE_APP_ID }}'
           VUE_APP_FIREBASE_MEASUREMENT: '${{ secrets.FIREBASE_MEASUREMENT }}'
-          VUE_APP_MAPQUEST_API: '${{secrets.MAPQUEST_API}}'
+          VUE_APP_MAPQUEST_API: '${{ secrets.MAPQUEST_API }}'
+          VUE_APP_SENTRY_DSN: '${{ secrets.SENTRY_DSN }}'
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'

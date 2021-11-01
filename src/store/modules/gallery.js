@@ -1,9 +1,11 @@
 import { auth, galleriesCollection, storage } from '@/utils/firebase';
+import * as Sentry from '@sentry/vue';
 
 /**
  * Vuex module for artists' gallery
  * @module gallery
  * @requires firebase
+ * @requires Sentry
  */
 export default {
   /**
@@ -76,7 +78,7 @@ export default {
           gallery: gallery,
         });
       } catch (err) {
-        console.log(err.message);
+        Sentry.captureException(err);
         return;
       }
     },

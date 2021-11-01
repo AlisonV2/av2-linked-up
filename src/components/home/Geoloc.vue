@@ -21,9 +21,12 @@
 </template>
 
 <script>
+import * as Sentry from '@sentry/vue';
+
 /**
  * @exports HomeGeoloc
  * @type {Component}
+ * @requires Sentry
  * @vue-data {object} coords - Stores current location
  * @vue-data {string} location - v-model
  * @vue-data {string} city - stores user's city from geoloc
@@ -74,7 +77,7 @@ export default {
       )
         .then((res) => res.json())
         .then((data) => (response = data))
-        .catch((err) => console.log(err.message));
+        .catch((err) => Sentry.captureException(err));
 
       const location = response.results[0].locations[0];
       const street = location.street;
@@ -91,7 +94,8 @@ export default {
     async handleSubmit() {
       await this.$store
         .dispatch('getArtistsByCity', this.location)
-        .then(() => this.$router.push({ name: 'GeoResults' }));
+        .then(() => this.$router.push({ name: 'GeoResults' }))
+        .catch((err) => Sentry.captureException(err));
     },
   },
 };
