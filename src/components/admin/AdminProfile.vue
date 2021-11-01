@@ -109,9 +109,12 @@
 </template>
 
 <script>
+import * as Sentry from '@sentry/vue';
+
 /**
  * @exports AdminProfile
  * @type {Component}
+ * @requires Sentry
  * @vue-data {array} previewImage
  * @vue-data {object} profile
  * @vue-data {boolean} showSuccessToast
@@ -158,7 +161,8 @@ export default {
       })
       .then(() => {
         this.previewImage = this.profile.thumbnail;
-      });
+      })
+      .catch((err) => Sentry.captureException(err));
   },
   methods: {
     /**
@@ -235,7 +239,7 @@ export default {
       } catch (err) {
         this.showErrorToast = true;
         this.showSuccessToast = false;
-        console.log(err);
+        Sentry.captureException(err);
         setTimeout(() => {
           this.showErrorToast = false;
         }, 3000);

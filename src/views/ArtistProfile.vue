@@ -50,9 +50,11 @@
 </template>
 
 <script>
+import * as Sentry from "@sentry/vue";
 /**
  * @exports ArtistProfile
  * @type {Page}
+ * @requires Sentry
  * @vue-data {array} gallery - Returned from store
  * @vue-data {object} artist - Returned from store
  * @vue-event created - Dispatch store action on created hook
@@ -84,7 +86,8 @@ export default {
       .then(() => {
         this.artist = this.$store.getters.getProfile;
         this.gallery = this.$store.getters.getGalleryFromId;
-      });
+      })
+      .catch((err) => Sentry.captureException(err));
   },
 };
 </script>

@@ -11,6 +11,8 @@
     "docs": "jsdoc -c jsdoc.json"
   },
   "dependencies": {
+    "@sentry/tracing": "^6.13.3",
+    "@sentry/vue": "^6.13.3",
     "bootstrap-icons": "^1.6.1",
     "core-js": "^3.6.5",
     "firebase": "^8.9.1",

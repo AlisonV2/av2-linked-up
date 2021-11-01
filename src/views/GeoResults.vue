@@ -42,7 +42,6 @@ export default {
   },
   created() {
     this.artists = this.$store.state.search.artistsByCity;
-    console.log(this.artists);
   },
 };
 </script>
