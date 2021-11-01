@@ -30,6 +30,16 @@ To generate docs, run :
 npm run docs 
 ```
 
+### Sentry
+
+Sentry is integrated in the app as well as in Github repo and Jira.
+A bidirectionnal flow is set between Sentry's issues and Jira's. 
+
+### Sider
+
+Automated Code Review on each PR.
+For now, test mode is enable so it doesn't block any PRs. 
+
 ## Project setup
 
 ```sh
