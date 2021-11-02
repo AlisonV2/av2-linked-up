@@ -8,6 +8,7 @@
           placeholder="Enter your city"
           id="autocomplete"
           v-model="location"
+          autocomplete
         />
         <span class="input-group-text material-icons" @click="getGeoloc"
           >place</span
@@ -45,6 +46,8 @@ export default {
       location: '',
       city: '',
       address: '',
+      geoloc: false,
+      loc: '',
     };
   },
   methods: {
@@ -80,22 +83,43 @@ export default {
         .catch((err) => Sentry.captureException(err));
 
       const location = response.results[0].locations[0];
-      const street = location.street;
       const city = location.adminArea5;
-      const country = location.adminArea1;
+      const zip = location.postalCode;
       this.location = city;
-      this.address = `${street}, ${city}, ${country}`;
+      this.loc = zip.substring(0, 2);
+      this.geoloc = true;
     },
     /**
      * @description Sent input's value to store and redirects to results page
      * @method setGeoloc
      * @async
      */
-    async handleSubmit() {
+    handleSubmit() {
+      if (this.geoloc) {
+        this.searchByGeoloc();
+      } else {
+        this.searchByCity();
+      }
+    },
+    async searchByGeoloc() {
       await this.$store
-        .dispatch('getArtistsByCity', this.location)
+        .dispatch('getArtistsByCity', this.loc)
         .then(() => this.$router.push({ name: 'GeoResults' }))
         .catch((err) => Sentry.captureException(err));
+    },
+    async searchByCity() {
+      this.geoloc = false;
+      let code;
+      const city = this.location.toLowerCase();
+      await fetch(
+        `https://geo.api.gouv.fr/communes?nom=${city}&fields=departement&limit=1`
+      )
+        .then((res) => res.json())
+        .then((data) => (code = data[0].departement.code))
+        .catch((err) => Sentry.captureException(err));
+
+      await this.$store.dispatch('getArtistsByCity', code);
+      await this.$router.push({ name: 'GeoResults' });
     },
   },
 };

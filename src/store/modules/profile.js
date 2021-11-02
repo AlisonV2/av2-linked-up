@@ -51,6 +51,7 @@ export default {
      */
     async setArtistProfile(_, payload) {
       const user = auth.currentUser.uid;
+      const loc = payload.zip.substring(0, 2);
 
       try {
         await artistsCollection.doc(user).update({
@@ -63,6 +64,7 @@ export default {
           socialLink: payload.socialLink,
           insta: payload.insta,
           description: payload.description,
+          loc: loc
         });
       } catch (err) {
         Sentry.captureException(err);
