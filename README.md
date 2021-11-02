@@ -12,7 +12,8 @@
 
 ### Tests
 
-Tests coverage can be found in coverage/index.html
+- Jest : Tests coverage can be found in jest-cover/index.html
+- Cypress: Tests coverage can be found in coverage/index.html
 
 ### Jira
 

@@ -4,7 +4,7 @@ describe('Sign-up test & Logout', () => {
       cy.get('#login-link').click({ force: true });
       cy.get('.show-signup').click({ force: true });
       cy.get('input[type="text"]').type('Test');
-      cy.get('input[type="email"]').type('test@test.com');
+      cy.get('input[type="email"]').type('test5@test.com');
       cy.get('input[type="password"]').type('test123');
       cy.get('select').select('artist');
       cy.get('button').click();
