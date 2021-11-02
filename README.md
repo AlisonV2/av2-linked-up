@@ -10,10 +10,20 @@
 
 <img src="./public/img/app-schema.jpg">
 
+
+### Global
+
+To have direct access to the different test coverages and the documentation, open dev.html located in the root directory.
 ### Tests
 
 - Jest : Tests coverage can be found in jest-cover/index.html
-- Cypress: Tests coverage can be found in coverage/index.html
+- Cypress: Tests coverage can be found in cypress-cover/index.html
+
+To run cypress with coverage (using Instanbul), run : <code
+
+```sh
+npm run cover
+```
 
 ### Jira
 

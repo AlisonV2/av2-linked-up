@@ -10,7 +10,7 @@
     "lint": "vue-cli-service lint",
     "docs": "jsdoc -c jsdoc.json",
     "dev": "npm run docs && npm run lint && npm -s run test:unit",
-    "coverage": "cross-env NODE_ENV=e2e nyc --silent npm run test:e2e"
+    "cover": "cross-env NODE_ENV=e2e nyc --silent npm run test:e2e"
   },
   "dependencies": {
     "@sentry/tracing": "^6.13.3",
@@ -94,5 +94,8 @@
       "src/**/*.{js,vue}"
     ],
     "coverageDirectory": "./jest-cover/"
+  },
+  "nyc": {
+    "report-dir": "cypress-cover"
   }
 }
