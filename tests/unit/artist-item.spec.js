@@ -4,6 +4,7 @@ import ArtistItem from '@/components/artists/ArtistItem';
 describe('ArtistItem.vue', () => {
   it('Should render true', () => {
     const artist = {
+      id: "mR9w90C9fMQfVHJWjGo1TrBxPuk1",
       name: 'Dirty Jonz',
       shop: 'Le Dernier Rituel',
       city: 'Bègles',
@@ -14,7 +15,7 @@ describe('ArtistItem.vue', () => {
         artist: artist
       },
     });
-    const artistName = component.find('[data-test="artist-name"]');
+    const artistName = component.find('[data-test="mR9w90C9fMQfVHJWjGo1TrBxPuk1"]');
     expect(artistName.text()).toBe(artist.name);
   });
 });
