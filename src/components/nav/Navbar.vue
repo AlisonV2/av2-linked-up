@@ -5,7 +5,7 @@
         <router-link :to="{ name: 'Home' }" class="navbar-logo">
           <NavBrand />
         </router-link>
-        <ul class="navbar-menu" :class="{ active: isActive }">
+        <ul class="navbar-menu" :class="{ active: isActive }" @click="isActive = false">
           <li class="navbar-item">
             <router-link :to="{ name: 'Artists' }">
               Artists
@@ -23,7 +23,7 @@
           </li>
           <template v-else>
             <li class="navbar-item" >
-              <router-link :to="{ name: 'AdminProfile' }" id="dashboard-link">
+              <router-link :to="{ name: 'AdminProfile' }" id="dashboard-link" >
                 Dashboard
               </router-link>
             </li>
