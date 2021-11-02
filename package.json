@@ -87,6 +87,6 @@
     "collectCoverageFrom": [
       "src/**/*.{js,vue}"
     ],
-    "coverageDirectory": "./coverage/"
+    "coverageDirectory": "./jest-cover/"
   }
 }
