@@ -66,6 +66,7 @@ For now, test mode is enable so it doesn't block any PRs.
 ## APIs
 
 - Reverse Geocode (MapQuest)
+- Geo API Gouv
 
 ## Project setup
 

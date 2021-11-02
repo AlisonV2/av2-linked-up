@@ -63,7 +63,7 @@ export default {
      * @async
      */
     async getArtistsByCity({ commit }, payload) {
-      const snap = await artistsCollection.where('city', '==', payload).get();
+      const snap = await artistsCollection.where('loc', '==', payload).get();
       const artists = [];
       snap.forEach((doc) => [
         artists.push({
