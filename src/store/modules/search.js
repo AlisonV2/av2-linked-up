@@ -28,7 +28,6 @@ export default {
     },
     setArtistsByCity(state, payload) {
       state.artistsByCity = payload;
-      console.log(state.artistsByCity)
     },
   },
   /**
