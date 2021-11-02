@@ -8,7 +8,7 @@ describe('Login test, check gallery link & Logout', () => {
       cy.get('input[type="password"]').type('test123');
       cy.get('button').click();
       cy.wait(1000);
-      cy.get('button').should('have.text', 'Save');
+      cy.get('.save-btn').should('have.text', 'Save');
       cy.get('.bi-box-arrow-right').click();
       cy.get('#logout-link').should('not.exist');
     });  

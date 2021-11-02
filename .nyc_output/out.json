@@ -851,22 +851,22 @@
       "0": 9,
       "1": 9,
       "2": 9,
-      "3": 45,
+      "3": 54,
       "4": 9,
-      "5": 36,
-      "6": 36,
-      "7": 36
+      "5": 45,
+      "6": 45,
+      "7": 45
     },
     "f": {
-      "0": 45
+      "0": 54
     },
     "b": {
       "0": [
         9,
-        36
+        45
       ],
       "1": [
-        36,
+        45,
         0
       ]
     },
@@ -975,6 +975,16 @@
           "line": 36,
           "column": 54
         }
+      },
+      "10": {
+        "start": {
+          "line": 37,
+          "column": 29
+        },
+        "end": {
+          "line": 37,
+          "column": 56
+        }
       }
     },
     "fnMap": {},
@@ -989,12 +999,13 @@
       "6": 9,
       "7": 9,
       "8": 9,
-      "9": 9
+      "9": 9,
+      "10": 9
     },
     "f": {},
     "b": {},
     "_coverageSchema": "1a1c01bbd47fc00a2c39e90264f33305004495a9",
-    "hash": "53ec56af199a1b5d15758fe774e21e6c0be5c33c"
+    "hash": "d3a1e019c75ee3d8f693ce32404ca09b3d001cfe"
   },
   "C:\\xampp\\htdocs\\Ynov\\av2-linked-up\\src\\store\\modules\\auth.js": {
     "path": "C:\\xampp\\htdocs\\Ynov\\av2-linked-up\\src\\store\\modules\\auth.js",
@@ -1857,221 +1868,191 @@
       },
       "38": {
         "start": {
-          "line": 127,
+          "line": 128,
           "column": 6
         },
         "end": {
-          "line": 127,
-          "column": 34
+          "line": 130,
+          "column": 7
         }
       },
       "39": {
         "start": {
-          "line": 128,
-          "column": 6
+          "line": 129,
+          "column": 8
         },
         "end": {
-          "line": 128,
-          "column": 27
+          "line": 129,
+          "column": 40
         }
       },
       "40": {
         "start": {
-          "line": 130,
+          "line": 132,
           "column": 6
         },
         "end": {
-          "line": 133,
+          "line": 139,
           "column": 7
         }
       },
       "41": {
         "start": {
-          "line": 131,
+          "line": 133,
           "column": 8
         },
         "end": {
-          "line": 131,
-          "column": 40
+          "line": 135,
+          "column": 11
         }
       },
       "42": {
         "start": {
-          "line": 132,
+          "line": 137,
           "column": 8
         },
         "end": {
-          "line": 132,
-          "column": 36
+          "line": 137,
+          "column": 37
         }
       },
       "43": {
         "start": {
-          "line": 135,
-          "column": 6
-        },
-        "end": {
-          "line": 142,
-          "column": 7
-        }
-      },
-      "44": {
-        "start": {
-          "line": 136,
+          "line": 138,
           "column": 8
         },
         "end": {
           "line": 138,
-          "column": 11
+          "column": 15
+        }
+      },
+      "44": {
+        "start": {
+          "line": 149,
+          "column": 19
+        },
+        "end": {
+          "line": 149,
+          "column": 39
         }
       },
       "45": {
         "start": {
-          "line": 140,
-          "column": 8
+          "line": 150,
+          "column": 6
         },
         "end": {
-          "line": 140,
-          "column": 33
+          "line": 157,
+          "column": 7
         }
       },
       "46": {
         "start": {
-          "line": 141,
+          "line": 151,
           "column": 8
         },
         "end": {
-          "line": 141,
-          "column": 15
+          "line": 153,
+          "column": 11
         }
       },
       "47": {
         "start": {
-          "line": 152,
-          "column": 19
+          "line": 155,
+          "column": 8
         },
         "end": {
-          "line": 152,
-          "column": 39
+          "line": 155,
+          "column": 37
         }
       },
       "48": {
         "start": {
-          "line": 153,
-          "column": 6
-        },
-        "end": {
-          "line": 160,
-          "column": 7
-        }
-      },
-      "49": {
-        "start": {
-          "line": 154,
+          "line": 156,
           "column": 8
         },
         "end": {
           "line": 156,
-          "column": 11
+          "column": 15
+        }
+      },
+      "49": {
+        "start": {
+          "line": 167,
+          "column": 19
+        },
+        "end": {
+          "line": 167,
+          "column": 26
         }
       },
       "50": {
         "start": {
-          "line": 158,
-          "column": 8
+          "line": 168,
+          "column": 6
         },
         "end": {
-          "line": 158,
-          "column": 33
+          "line": 168,
+          "column": 48
         }
       },
       "51": {
         "start": {
-          "line": 159,
-          "column": 8
+          "line": 169,
+          "column": 18
         },
         "end": {
-          "line": 159,
-          "column": 15
+          "line": 169,
+          "column": 59
         }
       },
       "52": {
         "start": {
           "line": 170,
-          "column": 19
+          "column": 6
         },
         "end": {
-          "line": 170,
-          "column": 26
+          "line": 172,
+          "column": 7
         }
       },
       "53": {
         "start": {
           "line": 171,
-          "column": 6
+          "column": 8
         },
         "end": {
           "line": 171,
-          "column": 48
+          "column": 15
         }
       },
       "54": {
         "start": {
-          "line": 172,
-          "column": 18
+          "line": 173,
+          "column": 22
         },
         "end": {
-          "line": 172,
-          "column": 59
+          "line": 173,
+          "column": 40
         }
       },
       "55": {
         "start": {
-          "line": 173,
+          "line": 174,
           "column": 6
         },
         "end": {
-          "line": 175,
-          "column": 7
+          "line": 174,
+          "column": 42
         }
       },
       "56": {
         "start": {
-          "line": 174,
-          "column": 8
-        },
-        "end": {
-          "line": 174,
-          "column": 15
-        }
-      },
-      "57": {
-        "start": {
-          "line": 176,
-          "column": 22
-        },
-        "end": {
-          "line": 176,
-          "column": 40
-        }
-      },
-      "58": {
-        "start": {
-          "line": 177,
+          "line": 184,
           "column": 6
         },
         "end": {
-          "line": 177,
-          "column": 42
-        }
-      },
-      "59": {
-        "start": {
-          "line": 187,
-          "column": 6
-        },
-        "end": {
-          "line": 187,
+          "line": 184,
           "column": 33
         }
       }
@@ -2215,7 +2196,7 @@
             "column": 42
           },
           "end": {
-            "line": 143,
+            "line": 140,
             "column": 5
           }
         },
@@ -2225,73 +2206,73 @@
         "name": "(anonymous_6)",
         "decl": {
           "start": {
-            "line": 151,
+            "line": 148,
             "column": 4
           },
           "end": {
-            "line": 151,
+            "line": 148,
             "column": 5
           }
         },
         "loc": {
           "start": {
-            "line": 151,
+            "line": 148,
             "column": 34
           },
           "end": {
-            "line": 161,
+            "line": 158,
             "column": 5
           }
         },
-        "line": 151
+        "line": 148
       },
       "7": {
         "name": "(anonymous_7)",
         "decl": {
           "start": {
-            "line": 169,
+            "line": 166,
             "column": 4
           },
           "end": {
-            "line": 169,
+            "line": 166,
             "column": 5
           }
         },
         "loc": {
           "start": {
-            "line": 169,
+            "line": 166,
             "column": 48
           },
           "end": {
-            "line": 178,
+            "line": 175,
             "column": 5
           }
         },
-        "line": 169
+        "line": 166
       },
       "8": {
         "name": "(anonymous_8)",
         "decl": {
           "start": {
-            "line": 186,
+            "line": 183,
             "column": 4
           },
           "end": {
-            "line": 186,
+            "line": 183,
             "column": 5
           }
         },
         "loc": {
           "start": {
-            "line": 186,
+            "line": 183,
             "column": 28
           },
           "end": {
-            "line": 188,
+            "line": 185,
             "column": 5
           }
         },
-        "line": 186
+        "line": 183
       }
     },
     "branchMap": {
@@ -2358,11 +2339,11 @@
       "2": {
         "loc": {
           "start": {
-            "line": 173,
+            "line": 170,
             "column": 6
           },
           "end": {
-            "line": 175,
+            "line": 172,
             "column": 7
           }
         },
@@ -2370,11 +2351,11 @@
         "locations": [
           {
             "start": {
-              "line": 173,
+              "line": 170,
               "column": 6
             },
             "end": {
-              "line": 175,
+              "line": 172,
               "column": 7
             }
           },
@@ -2383,13 +2364,13 @@
             "end": {}
           }
         ],
-        "line": 173
+        "line": 170
       }
     },
     "s": {
       "0": 0,
       "1": 0,
-      "2": 4,
+      "2": 0,
       "3": 0,
       "4": 0,
       "5": 0,
@@ -2436,22 +2417,19 @@
       "46": 0,
       "47": 0,
       "48": 0,
-      "49": 0,
-      "50": 0,
-      "51": 0,
-      "52": 4,
-      "53": 4,
-      "54": 4,
-      "55": 4,
-      "56": 0,
-      "57": 4,
-      "58": 4,
-      "59": 4
+      "49": 4,
+      "50": 4,
+      "51": 2,
+      "52": 0,
+      "53": 0,
+      "54": 0,
+      "55": 0,
+      "56": 4
     },
     "f": {
       "0": 0,
       "1": 0,
-      "2": 4,
+      "2": 0,
       "3": 0,
       "4": 0,
       "5": 0,
@@ -2470,73 +2448,73 @@
       ],
       "2": [
         0,
-        4
+        0
       ]
     },
     "_coverageSchema": "1a1c01bbd47fc00a2c39e90264f33305004495a9",
-    "hash": "dbc29f94d1fbc88446d5c8a379b88db745f3eee3"
+    "hash": "e3a8f27ddbf22b530e2c28d185ac9ace442a30e2"
   },
   "C:\\xampp\\htdocs\\Ynov\\av2-linked-up\\src\\store\\modules\\profile.js": {
     "path": "C:\\xampp\\htdocs\\Ynov\\av2-linked-up\\src\\store\\modules\\profile.js",
     "statementMap": {
       "0": {
         "start": {
-          "line": 36,
+          "line": 31,
           "column": 6
         },
         "end": {
-          "line": 36,
+          "line": 31,
           "column": 36
         }
       },
       "1": {
         "start": {
-          "line": 39,
+          "line": 34,
           "column": 6
         },
         "end": {
-          "line": 39,
-          "column": 35
+          "line": 34,
+          "column": 30
         }
       },
       "2": {
         "start": {
-          "line": 43,
-          "column": 6
+          "line": 53,
+          "column": 19
         },
         "end": {
-          "line": 43,
-          "column": 30
+          "line": 53,
+          "column": 39
         }
       },
       "3": {
         "start": {
-          "line": 46,
+          "line": 55,
           "column": 6
         },
         "end": {
-          "line": 46,
-          "column": 30
+          "line": 70,
+          "column": 7
         }
       },
       "4": {
         "start": {
-          "line": 66,
-          "column": 19
+          "line": 56,
+          "column": 8
         },
         "end": {
           "line": 66,
-          "column": 39
+          "column": 11
         }
       },
       "5": {
         "start": {
           "line": 68,
-          "column": 6
+          "column": 8
         },
         "end": {
-          "line": 84,
-          "column": 7
+          "line": 68,
+          "column": 37
         }
       },
       "6": {
@@ -2545,277 +2523,177 @@
           "column": 8
         },
         "end": {
-          "line": 80,
-          "column": 11
+          "line": 69,
+          "column": 15
         }
       },
       "7": {
         "start": {
-          "line": 82,
-          "column": 8
+          "line": 79,
+          "column": 19
         },
         "end": {
-          "line": 82,
-          "column": 37
+          "line": 79,
+          "column": 39
         }
       },
       "8": {
         "start": {
-          "line": 83,
-          "column": 8
+          "line": 80,
+          "column": 18
         },
         "end": {
-          "line": 83,
-          "column": 15
+          "line": 80,
+          "column": 57
         }
       },
       "9": {
         "start": {
-          "line": 94,
-          "column": 19
+          "line": 81,
+          "column": 6
         },
         "end": {
-          "line": 94,
-          "column": 39
+          "line": 83,
+          "column": 7
         }
       },
       "10": {
         "start": {
-          "line": 95,
-          "column": 19
+          "line": 82,
+          "column": 8
         },
         "end": {
-          "line": 95,
-          "column": 26
+          "line": 82,
+          "column": 15
         }
       },
       "11": {
         "start": {
-          "line": 96,
-          "column": 25
+          "line": 84,
+          "column": 6
         },
         "end": {
-          "line": 96,
-          "column": 38
+          "line": 84,
+          "column": 45
         }
       },
       "12": {
         "start": {
-          "line": 97,
-          "column": 25
+          "line": 93,
+          "column": 19
         },
         "end": {
-          "line": 97,
-          "column": 73
+          "line": 93,
+          "column": 26
         }
       },
       "13": {
         "start": {
-          "line": 99,
-          "column": 19
+          "line": 94,
+          "column": 18
         },
         "end": {
-          "line": 99,
-          "column": 45
+          "line": 94,
+          "column": 57
         }
       },
       "14": {
         "start": {
-          "line": 100,
+          "line": 95,
           "column": 6
         },
         "end": {
-          "line": 102,
-          "column": 9
+          "line": 97,
+          "column": 7
         }
       },
       "15": {
         "start": {
-          "line": 101,
+          "line": 96,
           "column": 8
         },
         "end": {
-          "line": 101,
-          "column": 36
+          "line": 96,
+          "column": 15
         }
       },
       "16": {
         "start": {
-          "line": 111,
-          "column": 19
+          "line": 98,
+          "column": 6
         },
         "end": {
-          "line": 111,
-          "column": 39
+          "line": 98,
+          "column": 45
         }
       },
       "17": {
         "start": {
-          "line": 112,
-          "column": 18
+          "line": 106,
+          "column": 19
         },
         "end": {
-          "line": 112,
-          "column": 57
+          "line": 106,
+          "column": 48
         }
       },
       "18": {
         "start": {
-          "line": 113,
-          "column": 6
+          "line": 107,
+          "column": 22
         },
         "end": {
-          "line": 115,
-          "column": 7
+          "line": 107,
+          "column": 24
         }
       },
       "19": {
         "start": {
-          "line": 114,
-          "column": 8
+          "line": 108,
+          "column": 6
         },
         "end": {
-          "line": 114,
-          "column": 15
+          "line": 113,
+          "column": 9
         }
       },
       "20": {
         "start": {
-          "line": 116,
-          "column": 6
+          "line": 108,
+          "column": 28
         },
         "end": {
-          "line": 116,
-          "column": 45
+          "line": 113,
+          "column": 7
         }
       },
       "21": {
         "start": {
-          "line": 125,
-          "column": 19
+          "line": 114,
+          "column": 6
         },
         "end": {
-          "line": 125,
-          "column": 26
+          "line": 114,
+          "column": 39
         }
       },
       "22": {
         "start": {
-          "line": 126,
-          "column": 18
+          "line": 125,
+          "column": 6
         },
         "end": {
-          "line": 126,
-          "column": 57
+          "line": 125,
+          "column": 33
         }
       },
       "23": {
         "start": {
-          "line": 127,
-          "column": 6
-        },
-        "end": {
-          "line": 129,
-          "column": 7
-        }
-      },
-      "24": {
-        "start": {
           "line": 128,
-          "column": 8
+          "column": 6
         },
         "end": {
           "line": 128,
-          "column": 15
-        }
-      },
-      "25": {
-        "start": {
-          "line": 130,
-          "column": 6
-        },
-        "end": {
-          "line": 130,
-          "column": 39
-        }
-      },
-      "26": {
-        "start": {
-          "line": 138,
-          "column": 19
-        },
-        "end": {
-          "line": 138,
-          "column": 48
-        }
-      },
-      "27": {
-        "start": {
-          "line": 139,
-          "column": 22
-        },
-        "end": {
-          "line": 139,
-          "column": 24
-        }
-      },
-      "28": {
-        "start": {
-          "line": 140,
-          "column": 6
-        },
-        "end": {
-          "line": 145,
-          "column": 9
-        }
-      },
-      "29": {
-        "start": {
-          "line": 140,
-          "column": 28
-        },
-        "end": {
-          "line": 145,
-          "column": 7
-        }
-      },
-      "30": {
-        "start": {
-          "line": 146,
-          "column": 6
-        },
-        "end": {
-          "line": 146,
-          "column": 39
-        }
-      },
-      "31": {
-        "start": {
-          "line": 158,
-          "column": 6
-        },
-        "end": {
-          "line": 158,
-          "column": 33
-        }
-      },
-      "32": {
-        "start": {
-          "line": 161,
-          "column": 6
-        },
-        "end": {
-          "line": 161,
-          "column": 27
-        }
-      },
-      "33": {
-        "start": {
-          "line": 164,
-          "column": 6
-        },
-        "end": {
-          "line": 164,
           "column": 27
         }
       }
@@ -2825,113 +2703,89 @@
         "name": "(anonymous_0)",
         "decl": {
           "start": {
-            "line": 35,
+            "line": 30,
             "column": 4
           },
           "end": {
-            "line": 35,
+            "line": 30,
             "column": 5
           }
         },
         "loc": {
           "start": {
-            "line": 35,
+            "line": 30,
             "column": 37
           },
           "end": {
-            "line": 37,
+            "line": 32,
             "column": 5
           }
         },
-        "line": 35
+        "line": 30
       },
       "1": {
         "name": "(anonymous_1)",
         "decl": {
           "start": {
-            "line": 38,
+            "line": 33,
             "column": 4
           },
           "end": {
-            "line": 38,
+            "line": 33,
             "column": 5
           }
         },
         "loc": {
           "start": {
-            "line": 38,
-            "column": 33
+            "line": 33,
+            "column": 34
           },
           "end": {
-            "line": 40,
+            "line": 35,
             "column": 5
           }
         },
-        "line": 38
+        "line": 33
       },
       "2": {
         "name": "(anonymous_2)",
         "decl": {
           "start": {
-            "line": 42,
+            "line": 52,
             "column": 4
           },
           "end": {
-            "line": 42,
+            "line": 52,
             "column": 5
           }
         },
         "loc": {
           "start": {
-            "line": 42,
-            "column": 31
+            "line": 52,
+            "column": 39
           },
           "end": {
-            "line": 44,
+            "line": 71,
             "column": 5
           }
         },
-        "line": 42
+        "line": 52
       },
       "3": {
         "name": "(anonymous_3)",
         "decl": {
           "start": {
-            "line": 45,
+            "line": 78,
             "column": 4
           },
           "end": {
-            "line": 45,
+            "line": 78,
             "column": 5
           }
         },
         "loc": {
           "start": {
-            "line": 45,
-            "column": 34
-          },
-          "end": {
-            "line": 47,
-            "column": 5
-          }
-        },
-        "line": 45
-      },
-      "4": {
-        "name": "(anonymous_4)",
-        "decl": {
-          "start": {
-            "line": 65,
-            "column": 4
-          },
-          "end": {
-            "line": 65,
-            "column": 5
-          }
-        },
-        "loc": {
-          "start": {
-            "line": 65,
+            "line": 78,
             "column": 39
           },
           "end": {
@@ -2939,234 +2793,138 @@
             "column": 5
           }
         },
-        "line": 65
+        "line": 78
+      },
+      "4": {
+        "name": "(anonymous_4)",
+        "decl": {
+          "start": {
+            "line": 92,
+            "column": 4
+          },
+          "end": {
+            "line": 92,
+            "column": 5
+          }
+        },
+        "loc": {
+          "start": {
+            "line": 92,
+            "column": 45
+          },
+          "end": {
+            "line": 99,
+            "column": 5
+          }
+        },
+        "line": 92
       },
       "5": {
         "name": "(anonymous_5)",
         "decl": {
           "start": {
-            "line": 93,
+            "line": 105,
             "column": 4
           },
           "end": {
-            "line": 93,
+            "line": 105,
             "column": 5
           }
         },
         "loc": {
           "start": {
-            "line": 93,
-            "column": 50
+            "line": 105,
+            "column": 36
           },
           "end": {
-            "line": 103,
+            "line": 115,
             "column": 5
           }
         },
-        "line": 93
+        "line": 105
       },
       "6": {
         "name": "(anonymous_6)",
         "decl": {
           "start": {
-            "line": 100,
-            "column": 37
-          },
-          "end": {
-            "line": 100,
-            "column": 38
-          }
-        },
-        "loc": {
-          "start": {
-            "line": 100,
-            "column": 46
-          },
-          "end": {
-            "line": 102,
-            "column": 7
-          }
-        },
-        "line": 100
-      },
-      "7": {
-        "name": "(anonymous_7)",
-        "decl": {
-          "start": {
-            "line": 110,
-            "column": 4
-          },
-          "end": {
-            "line": 110,
-            "column": 5
-          }
-        },
-        "loc": {
-          "start": {
-            "line": 110,
-            "column": 39
-          },
-          "end": {
-            "line": 117,
-            "column": 5
-          }
-        },
-        "line": 110
-      },
-      "8": {
-        "name": "(anonymous_8)",
-        "decl": {
-          "start": {
-            "line": 124,
-            "column": 4
-          },
-          "end": {
-            "line": 124,
-            "column": 5
-          }
-        },
-        "loc": {
-          "start": {
-            "line": 124,
-            "column": 45
-          },
-          "end": {
-            "line": 131,
-            "column": 5
-          }
-        },
-        "line": 124
-      },
-      "9": {
-        "name": "(anonymous_9)",
-        "decl": {
-          "start": {
-            "line": 137,
-            "column": 4
-          },
-          "end": {
-            "line": 137,
-            "column": 5
-          }
-        },
-        "loc": {
-          "start": {
-            "line": 137,
-            "column": 36
-          },
-          "end": {
-            "line": 147,
-            "column": 5
-          }
-        },
-        "line": 137
-      },
-      "10": {
-        "name": "(anonymous_10)",
-        "decl": {
-          "start": {
-            "line": 140,
+            "line": 108,
             "column": 19
           },
           "end": {
-            "line": 140,
+            "line": 108,
             "column": 20
           }
         },
         "loc": {
           "start": {
-            "line": 140,
+            "line": 108,
             "column": 28
           },
           "end": {
-            "line": 145,
+            "line": 113,
             "column": 7
           }
         },
-        "line": 140
+        "line": 108
       },
-      "11": {
-        "name": "(anonymous_11)",
+      "7": {
+        "name": "(anonymous_7)",
         "decl": {
           "start": {
-            "line": 157,
+            "line": 124,
             "column": 4
           },
           "end": {
-            "line": 157,
+            "line": 124,
             "column": 5
           }
         },
         "loc": {
           "start": {
-            "line": 157,
+            "line": 124,
             "column": 28
           },
           "end": {
-            "line": 159,
+            "line": 126,
             "column": 5
           }
         },
-        "line": 157
+        "line": 124
       },
-      "12": {
-        "name": "(anonymous_12)",
+      "8": {
+        "name": "(anonymous_8)",
         "decl": {
           "start": {
-            "line": 160,
+            "line": 127,
             "column": 4
           },
           "end": {
-            "line": 160,
+            "line": 127,
             "column": 5
           }
         },
         "loc": {
           "start": {
-            "line": 160,
-            "column": 22
-          },
-          "end": {
-            "line": 162,
-            "column": 5
-          }
-        },
-        "line": 160
-      },
-      "13": {
-        "name": "(anonymous_13)",
-        "decl": {
-          "start": {
-            "line": 163,
-            "column": 4
-          },
-          "end": {
-            "line": 163,
-            "column": 5
-          }
-        },
-        "loc": {
-          "start": {
-            "line": 163,
+            "line": 127,
             "column": 25
           },
           "end": {
-            "line": 165,
+            "line": 129,
             "column": 5
           }
         },
-        "line": 163
+        "line": 127
       }
     },
     "branchMap": {
       "0": {
         "loc": {
           "start": {
-            "line": 113,
+            "line": 81,
             "column": 6
           },
           "end": {
-            "line": 115,
+            "line": 83,
             "column": 7
           }
         },
@@ -3174,11 +2932,11 @@
         "locations": [
           {
             "start": {
-              "line": 113,
+              "line": 81,
               "column": 6
             },
             "end": {
-              "line": 115,
+              "line": 83,
               "column": 7
             }
           },
@@ -3187,16 +2945,16 @@
             "end": {}
           }
         ],
-        "line": 113
+        "line": 81
       },
       "1": {
         "loc": {
           "start": {
-            "line": 127,
+            "line": 95,
             "column": 6
           },
           "end": {
-            "line": 129,
+            "line": 97,
             "column": 7
           }
         },
@@ -3204,11 +2962,11 @@
         "locations": [
           {
             "start": {
-              "line": 127,
+              "line": 95,
               "column": 6
             },
             "end": {
-              "line": 129,
+              "line": 97,
               "column": 7
             }
           },
@@ -3217,60 +2975,45 @@
             "end": {}
           }
         ],
-        "line": 127
+        "line": 95
       }
     },
     "s": {
-      "0": 0,
+      "0": 4,
       "1": 0,
-      "2": 4,
-      "3": 0,
-      "4": 0,
-      "5": 0,
-      "6": 0,
-      "7": 0,
-      "8": 0,
-      "9": 0,
-      "10": 0,
-      "11": 0,
-      "12": 0,
-      "13": 0,
-      "14": 0,
-      "15": 0,
-      "16": 3,
-      "17": 3,
-      "18": 0,
-      "19": 0,
-      "20": 0,
-      "21": 4,
-      "22": 4,
-      "23": 4,
-      "24": 0,
-      "25": 4,
-      "26": 0,
-      "27": 0,
-      "28": 0,
-      "29": 0,
-      "30": 0,
-      "31": 0,
-      "32": 4,
-      "33": 0
-    },
-    "f": {
-      "0": 0,
-      "1": 0,
-      "2": 4,
+      "2": 0,
       "3": 0,
       "4": 0,
       "5": 0,
       "6": 0,
       "7": 3,
-      "8": 4,
+      "8": 3,
       "9": 0,
       "10": 0,
       "11": 0,
       "12": 4,
-      "13": 0
+      "13": 4,
+      "14": 4,
+      "15": 0,
+      "16": 4,
+      "17": 0,
+      "18": 0,
+      "19": 0,
+      "20": 0,
+      "21": 0,
+      "22": 8,
+      "23": 0
+    },
+    "f": {
+      "0": 4,
+      "1": 0,
+      "2": 0,
+      "3": 3,
+      "4": 4,
+      "5": 0,
+      "6": 0,
+      "7": 8,
+      "8": 0
     },
     "b": {
       "0": [
@@ -3283,7 +3026,7 @@
       ]
     },
     "_coverageSchema": "1a1c01bbd47fc00a2c39e90264f33305004495a9",
-    "hash": "0bbf6c6667d4a3ce62eb67d5e14708673de960e6"
+    "hash": "df0f39f98cf55ff65b8e365baf0697933129d220"
   },
   "C:\\xampp\\htdocs\\Ynov\\av2-linked-up\\src\\store\\modules\\search.js": {
     "path": "C:\\xampp\\htdocs\\Ynov\\av2-linked-up\\src\\store\\modules\\search.js",
@@ -3310,111 +3053,101 @@
       },
       "2": {
         "start": {
-          "line": 31,
-          "column": 6
+          "line": 48,
+          "column": 19
         },
         "end": {
-          "line": 31,
-          "column": 38
+          "line": 48,
+          "column": 78
         }
       },
       "3": {
         "start": {
           "line": 49,
-          "column": 19
+          "column": 22
         },
         "end": {
           "line": 49,
-          "column": 78
+          "column": 24
         }
       },
       "4": {
         "start": {
           "line": 50,
-          "column": 22
+          "column": 6
         },
         "end": {
-          "line": 50,
-          "column": 24
+          "line": 55,
+          "column": 9
         }
       },
       "5": {
         "start": {
-          "line": 51,
-          "column": 6
+          "line": 50,
+          "column": 28
         },
         "end": {
-          "line": 56,
-          "column": 9
+          "line": 55,
+          "column": 7
         }
       },
       "6": {
         "start": {
-          "line": 51,
-          "column": 28
+          "line": 56,
+          "column": 6
         },
         "end": {
           "line": 56,
-          "column": 7
+          "column": 43
         }
       },
       "7": {
         "start": {
-          "line": 57,
-          "column": 6
+          "line": 66,
+          "column": 19
         },
         "end": {
-          "line": 57,
-          "column": 43
+          "line": 66,
+          "column": 77
         }
       },
       "8": {
         "start": {
           "line": 67,
-          "column": 19
+          "column": 22
         },
         "end": {
           "line": 67,
-          "column": 77
+          "column": 24
         }
       },
       "9": {
         "start": {
           "line": 68,
-          "column": 22
+          "column": 6
         },
         "end": {
-          "line": 68,
-          "column": 24
+          "line": 73,
+          "column": 9
         }
       },
       "10": {
         "start": {
-          "line": 69,
-          "column": 6
+          "line": 68,
+          "column": 28
         },
         "end": {
-          "line": 74,
-          "column": 9
+          "line": 73,
+          "column": 7
         }
       },
       "11": {
         "start": {
-          "line": 69,
-          "column": 28
-        },
-        "end": {
           "line": 74,
-          "column": 7
-        }
-      },
-      "12": {
-        "start": {
-          "line": 75,
           "column": 6
         },
         "end": {
-          "line": 75,
+          "line": 74,
           "column": 42
         }
       }
@@ -3462,7 +3195,7 @@
             "column": 37
           },
           "end": {
-            "line": 32,
+            "line": 31,
             "column": 5
           }
         },
@@ -3472,97 +3205,97 @@
         "name": "(anonymous_2)",
         "decl": {
           "start": {
-            "line": 48,
+            "line": 47,
             "column": 4
           },
           "end": {
-            "line": 48,
+            "line": 47,
             "column": 5
           }
         },
         "loc": {
           "start": {
-            "line": 48,
+            "line": 47,
             "column": 49
           },
           "end": {
-            "line": 58,
+            "line": 57,
             "column": 5
           }
         },
-        "line": 48
+        "line": 47
       },
       "3": {
         "name": "(anonymous_3)",
         "decl": {
           "start": {
-            "line": 51,
+            "line": 50,
             "column": 19
           },
           "end": {
-            "line": 51,
+            "line": 50,
             "column": 20
           }
         },
         "loc": {
           "start": {
-            "line": 51,
+            "line": 50,
             "column": 28
           },
           "end": {
-            "line": 56,
+            "line": 55,
             "column": 7
           }
         },
-        "line": 51
+        "line": 50
       },
       "4": {
         "name": "(anonymous_4)",
         "decl": {
           "start": {
-            "line": 66,
+            "line": 65,
             "column": 4
           },
           "end": {
-            "line": 66,
+            "line": 65,
             "column": 5
           }
         },
         "loc": {
           "start": {
-            "line": 66,
+            "line": 65,
             "column": 48
           },
           "end": {
-            "line": 76,
+            "line": 75,
             "column": 5
           }
         },
-        "line": 66
+        "line": 65
       },
       "5": {
         "name": "(anonymous_5)",
         "decl": {
           "start": {
-            "line": 69,
+            "line": 68,
             "column": 19
           },
           "end": {
-            "line": 69,
+            "line": 68,
             "column": 20
           }
         },
         "loc": {
           "start": {
-            "line": 69,
+            "line": 68,
             "column": 28
           },
           "end": {
-            "line": 74,
+            "line": 73,
             "column": 7
           }
         },
-        "line": 69
+        "line": 68
       }
     },
     "branchMap": {},
@@ -3577,9 +3310,8 @@
       "7": 2,
       "8": 2,
       "9": 2,
-      "10": 2,
-      "11": 2,
-      "12": 2
+      "10": 4,
+      "11": 2
     },
     "f": {
       "0": 2,
@@ -3587,11 +3319,244 @@
       "2": 2,
       "3": 2,
       "4": 2,
-      "5": 2
+      "5": 4
     },
     "b": {},
     "_coverageSchema": "1a1c01bbd47fc00a2c39e90264f33305004495a9",
-    "hash": "394d5c72250e8071c5f18208f278a23358b60f0a"
+    "hash": "6ddb8d3f9cb8b892b5e0a0fc2272bcb7aaa30743"
+  },
+  "C:\\xampp\\htdocs\\Ynov\\av2-linked-up\\src\\store\\modules\\thumbnail.js": {
+    "path": "C:\\xampp\\htdocs\\Ynov\\av2-linked-up\\src\\store\\modules\\thumbnail.js",
+    "statementMap": {
+      "0": {
+        "start": {
+          "line": 28,
+          "column": 6
+        },
+        "end": {
+          "line": 28,
+          "column": 38
+        }
+      },
+      "1": {
+        "start": {
+          "line": 45,
+          "column": 19
+        },
+        "end": {
+          "line": 45,
+          "column": 39
+        }
+      },
+      "2": {
+        "start": {
+          "line": 46,
+          "column": 19
+        },
+        "end": {
+          "line": 46,
+          "column": 26
+        }
+      },
+      "3": {
+        "start": {
+          "line": 47,
+          "column": 25
+        },
+        "end": {
+          "line": 47,
+          "column": 38
+        }
+      },
+      "4": {
+        "start": {
+          "line": 48,
+          "column": 25
+        },
+        "end": {
+          "line": 48,
+          "column": 73
+        }
+      },
+      "5": {
+        "start": {
+          "line": 50,
+          "column": 19
+        },
+        "end": {
+          "line": 50,
+          "column": 45
+        }
+      },
+      "6": {
+        "start": {
+          "line": 51,
+          "column": 19
+        },
+        "end": {
+          "line": 51,
+          "column": 50
+        }
+      },
+      "7": {
+        "start": {
+          "line": 52,
+          "column": 6
+        },
+        "end": {
+          "line": 60,
+          "column": 7
+        }
+      },
+      "8": {
+        "start": {
+          "line": 53,
+          "column": 8
+        },
+        "end": {
+          "line": 55,
+          "column": 11
+        }
+      },
+      "9": {
+        "start": {
+          "line": 56,
+          "column": 8
+        },
+        "end": {
+          "line": 56,
+          "column": 43
+        }
+      },
+      "10": {
+        "start": {
+          "line": 58,
+          "column": 8
+        },
+        "end": {
+          "line": 58,
+          "column": 37
+        }
+      },
+      "11": {
+        "start": {
+          "line": 59,
+          "column": 8
+        },
+        "end": {
+          "line": 59,
+          "column": 15
+        }
+      },
+      "12": {
+        "start": {
+          "line": 70,
+          "column": 6
+        },
+        "end": {
+          "line": 70,
+          "column": 35
+        }
+      }
+    },
+    "fnMap": {
+      "0": {
+        "name": "(anonymous_0)",
+        "decl": {
+          "start": {
+            "line": 27,
+            "column": 4
+          },
+          "end": {
+            "line": 27,
+            "column": 5
+          }
+        },
+        "loc": {
+          "start": {
+            "line": 27,
+            "column": 39
+          },
+          "end": {
+            "line": 29,
+            "column": 5
+          }
+        },
+        "line": 27
+      },
+      "1": {
+        "name": "(anonymous_1)",
+        "decl": {
+          "start": {
+            "line": 44,
+            "column": 4
+          },
+          "end": {
+            "line": 44,
+            "column": 5
+          }
+        },
+        "loc": {
+          "start": {
+            "line": 44,
+            "column": 50
+          },
+          "end": {
+            "line": 61,
+            "column": 5
+          }
+        },
+        "line": 44
+      },
+      "2": {
+        "name": "(anonymous_2)",
+        "decl": {
+          "start": {
+            "line": 69,
+            "column": 4
+          },
+          "end": {
+            "line": 69,
+            "column": 5
+          }
+        },
+        "loc": {
+          "start": {
+            "line": 69,
+            "column": 30
+          },
+          "end": {
+            "line": 71,
+            "column": 5
+          }
+        },
+        "line": 69
+      }
+    },
+    "branchMap": {},
+    "s": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0,
+      "4": 0,
+      "5": 0,
+      "6": 0,
+      "7": 0,
+      "8": 0,
+      "9": 0,
+      "10": 0,
+      "11": 0,
+      "12": 0
+    },
+    "f": {
+      "0": 0,
+      "1": 0,
+      "2": 0
+    },
+    "b": {},
+    "_coverageSchema": "1a1c01bbd47fc00a2c39e90264f33305004495a9",
+    "hash": "aa1a69b00c2ad32f749203e9942c054ed0be9f71"
   },
   "C:\\xampp\\htdocs\\Ynov\\av2-linked-up\\src\\store\\index.js": {
     "path": "C:\\xampp\\htdocs\\Ynov\\av2-linked-up\\src\\store\\index.js",
@@ -4443,11 +4408,11 @@
       "file": "C:/xampp/htdocs/Ynov/av2-linked-up/src/components/artists/ArtistItem.vue",
       "sourceRoot": "",
       "sourcesContent": [
-        "<template>\r\n  <div class=\"card artist-card\">\r\n    <div class=\"card-overlay\"></div>\r\n    <div class=\"card-details fade-in-top text-center\">\r\n      <h5 class=\"card-title\" data-test=\"artist-name\">{{ artist.name }}</h5>\r\n      <p class=\"card-text\">{{ artist.shop }}</p>\r\n      <p class=\"card-text\">{{ artist.city }} ({{ artist.zip }})</p>\r\n    </div>\r\n    <img\r\n      :src=\"artist.thumbnail\"\r\n      class=\"card-img-top\"\r\n      :alt=\"artist.name\"\r\n    />\r\n    <div class=\"card-body\">\r\n      <h5 class=\"card-title\">{{ artist.name }}</h5>\r\n    </div>\r\n  </div>\r\n</template>\r\n\r\n<script>\r\n/**\r\n * @exports ArtistItem\r\n * @type {Component}\r\n * @vue-prop {object} artists\r\n */\r\nexport default {\r\n  name: 'ArtistItem',\r\n  props: ['artist'],\r\n};\r\n</script>\r\n\r\n<style lang=\"scss\" scoped>\r\n.artist-card {\r\n  .card-title {\r\n    font-family: $accent-font;\r\n    color: $primary;\r\n    font-size: 1.2rem;\r\n  }\r\n  .card-text {\r\n    color: $light;\r\n  }\r\n  .card-details {\r\n    position: absolute;\r\n    text-align: center;\r\n    padding-left: 1em;\r\n    padding-right: 1em;\r\n    width: 100%;\r\n    top: 50%;\r\n    left: 50%;\r\n    opacity: 0;\r\n    transform: translate(-50%, -50%);\r\n    transition: all 0.3s ease-in-out 0s;\r\n    .card-title {\r\n      margin-bottom: 2rem;\r\n    }\r\n  }\r\n  .card-overlay {\r\n    background: rgba(0, 0, 0, 0.8);\r\n    position: absolute;\r\n    height: 100%;\r\n    width: 100%;\r\n    left: 0;\r\n    top: 0;\r\n    bottom: 0;\r\n    right: 0;\r\n    opacity: 0;\r\n    transition: all 0.4s ease-in-out 0s;\r\n  }\r\n}\r\n\r\n.artist-card:hover {\r\n  .card-details {\r\n    display: block;\r\n  }\r\n  .card-overlay {\r\n    opacity: 1;\r\n  }\r\n  .card-details {\r\n    top: 50%;\r\n    left: 50%;\r\n    opacity: 1;\r\n  }\r\n}\r\n\r\n.fade-in-top {top: 20%};\r\n</style>\r\n"
+        "<template>\r\n  <div class=\"card artist-card\">\r\n    <div class=\"card-overlay\"></div>\r\n    <div class=\"card-details fade-in-top text-center\">\r\n      <h5 class=\"card-title\" :data-test=\"artist.id\">{{ artist.name }}</h5>\r\n      <p class=\"card-text\">{{ artist.shop }}</p>\r\n      <p class=\"card-text\">{{ artist.city }} ({{ artist.zip }})</p>\r\n    </div>\r\n    <img\r\n      :src=\"artist.thumbnail\"\r\n      class=\"card-img-top\"\r\n      :alt=\"artist.name\"\r\n    />\r\n    <div class=\"card-body\">\r\n      <h5 class=\"card-title\">{{ artist.name }}</h5>\r\n    </div>\r\n  </div>\r\n</template>\r\n\r\n<script>\r\n/**\r\n * @exports ArtistItem\r\n * @type {Component}\r\n * @vue-prop {object} artists\r\n */\r\nexport default {\r\n  name: 'ArtistItem',\r\n  props: ['artist'],\r\n};\r\n</script>\r\n\r\n<style lang=\"scss\" scoped>\r\n.artist-card {\r\n  .card-title {\r\n    font-family: $accent-font;\r\n    color: $primary;\r\n    font-size: 1.2rem;\r\n  }\r\n  .card-text {\r\n    color: $light;\r\n  }\r\n  .card-details {\r\n    position: absolute;\r\n    text-align: center;\r\n    padding-left: 1em;\r\n    padding-right: 1em;\r\n    width: 100%;\r\n    top: 50%;\r\n    left: 50%;\r\n    opacity: 0;\r\n    transform: translate(-50%, -50%);\r\n    transition: all 0.3s ease-in-out 0s;\r\n    .card-title {\r\n      margin-bottom: 2rem;\r\n    }\r\n  }\r\n  .card-overlay {\r\n    background: rgba(0, 0, 0, 0.8);\r\n    position: absolute;\r\n    height: 100%;\r\n    width: 100%;\r\n    left: 0;\r\n    top: 0;\r\n    bottom: 0;\r\n    right: 0;\r\n    opacity: 0;\r\n    transition: all 0.4s ease-in-out 0s;\r\n  }\r\n}\r\n\r\n.artist-card:hover {\r\n  .card-details {\r\n    display: block;\r\n  }\r\n  .card-overlay {\r\n    opacity: 1;\r\n  }\r\n  .card-details {\r\n    top: 50%;\r\n    left: 50%;\r\n    opacity: 1;\r\n  }\r\n}\r\n\r\n.fade-in-top {top: 20%};\r\n</style>\r\n"
       ]
     },
     "_coverageSchema": "1a1c01bbd47fc00a2c39e90264f33305004495a9",
-    "hash": "fff287ee10f3289d589345af8ea6a4f27e62e95d"
+    "hash": "aa8393c3bdeac0ce3711c308bf813cdc449f7101"
   },
   "C:\\xampp\\htdocs\\Ynov\\av2-linked-up\\src\\views\\Conventions.vue": {
     "path": "C:\\xampp\\htdocs\\Ynov\\av2-linked-up\\src\\views\\Conventions.vue",
@@ -5210,61 +5175,41 @@
     "statementMap": {
       "0": {
         "start": {
-          "line": 14,
+          "line": 12,
           "column": 4
         },
         "end": {
-          "line": 17,
-          "column": 6
+          "line": 12,
+          "column": 71
         }
       },
       "1": {
         "start": {
-          "line": 30,
+          "line": 13,
           "column": 4
         },
         "end": {
-          "line": 39,
-          "column": 52
+          "line": 13,
+          "column": 74
         }
       },
       "2": {
         "start": {
-          "line": 33,
-          "column": 8
+          "line": 17,
+          "column": 6
         },
         "end": {
-          "line": 33,
-          "column": 71
+          "line": 17,
+          "column": 50
         }
       },
       "3": {
         "start": {
-          "line": 36,
-          "column": 8
+          "line": 20,
+          "column": 6
         },
         "end": {
-          "line": 36,
-          "column": 53
-        }
-      },
-      "4": {
-        "start": {
-          "line": 37,
-          "column": 8
-        },
-        "end": {
-          "line": 37,
-          "column": 60
-        }
-      },
-      "5": {
-        "start": {
-          "line": 39,
-          "column": 22
-        },
-        "end": {
-          "line": 39,
+          "line": 20,
           "column": 50
         }
       }
@@ -5274,121 +5219,73 @@
         "name": "(anonymous_0)",
         "decl": {
           "start": {
-            "line": 13,
+            "line": 11,
             "column": 2
           },
           "end": {
-            "line": 13,
+            "line": 11,
             "column": 3
           }
         },
         "loc": {
           "start": {
-            "line": 13,
-            "column": 9
+            "line": 11,
+            "column": 18
           },
           "end": {
-            "line": 18,
+            "line": 14,
             "column": 3
           }
         },
-        "line": 13
+        "line": 11
       },
       "1": {
         "name": "(anonymous_1)",
         "decl": {
           "start": {
-            "line": 29,
-            "column": 2
+            "line": 16,
+            "column": 4
           },
           "end": {
-            "line": 29,
-            "column": 3
+            "line": 16,
+            "column": 5
           }
         },
         "loc": {
           "start": {
-            "line": 29,
-            "column": 18
+            "line": 16,
+            "column": 14
           },
           "end": {
-            "line": 40,
-            "column": 3
+            "line": 18,
+            "column": 5
           }
         },
-        "line": 29
+        "line": 16
       },
       "2": {
         "name": "(anonymous_2)",
         "decl": {
           "start": {
-            "line": 32,
-            "column": 12
+            "line": 19,
+            "column": 4
           },
           "end": {
-            "line": 32,
-            "column": 13
+            "line": 19,
+            "column": 5
           }
         },
         "loc": {
           "start": {
-            "line": 33,
-            "column": 8
-          },
-          "end": {
-            "line": 33,
-            "column": 71
-          }
-        },
-        "line": 33
-      },
-      "3": {
-        "name": "(anonymous_3)",
-        "decl": {
-          "start": {
-            "line": 35,
-            "column": 12
-          },
-          "end": {
-            "line": 35,
-            "column": 13
-          }
-        },
-        "loc": {
-          "start": {
-            "line": 35,
-            "column": 18
-          },
-          "end": {
-            "line": 38,
-            "column": 7
-          }
-        },
-        "line": 35
-      },
-      "4": {
-        "name": "(anonymous_4)",
-        "decl": {
-          "start": {
-            "line": 39,
+            "line": 19,
             "column": 13
           },
           "end": {
-            "line": 39,
-            "column": 14
+            "line": 21,
+            "column": 5
           }
         },
-        "loc": {
-          "start": {
-            "line": 39,
-            "column": 22
-          },
-          "end": {
-            "line": 39,
-            "column": 50
-          }
-        },
-        "line": 39
+        "line": 19
       }
     },
     "branchMap": {},
@@ -5396,16 +5293,12 @@
       "0": 4,
       "1": 4,
       "2": 4,
-      "3": 4,
-      "4": 4,
-      "5": 0
+      "3": 8
     },
     "f": {
       "0": 4,
       "1": 4,
-      "2": 4,
-      "3": 4,
-      "4": 0
+      "2": 8
     },
     "b": {},
     "inputSourceMap": {
@@ -5414,15 +5307,15 @@
         "C:\\xampp\\htdocs\\Ynov\\av2-linked-up\\src\\views\\ArtistProfile.vue"
       ],
       "names": [],
-      "mappings": "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AE;QACV,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,EAAE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;QAC5C,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,EAAE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;MACrD,CAAC;MACD,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;EACjD,CAAC;AACH,CAAC",
+      "mappings": "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",
       "file": "C:/xampp/htdocs/Ynov/av2-linked-up/src/views/ArtistProfile.vue",
       "sourceRoot": "",
       "sourcesContent": [
-        "<template>\r\n  <div class=\"container\">\r\n    <div class=\"row mb-3\">\r\n      <app-title mode=\"profile-title-img\">{{ artist.name }}</app-title>\r\n    </div>\r\n    <div class=\"row\">\r\n      <div class=\"col-12 col-lg-5 img-center\">\r\n        <a target=\"blank\" :href=\"artist.socialLink\"\r\n          ><img class=\"img-fluid\" :src=\"artist.thumbnail\"\r\n        /></a>\r\n      </div>\r\n      <div class=\"col-12 col-lg-7 text-center\">\r\n        <p class=\"accent-text\">About</p>\r\n        <p>{{ artist.description }}</p>\r\n        <p>\r\n          <span class=\"accent-text\">Shop:</span> {{ artist.shop }} -\r\n          {{ artist.city }} ({{ artist.zip }})\r\n        </p>\r\n        <div class=\"row\">\r\n          <div class=\"col-6\">\r\n            <p class=\"accent-text\">\r\n              Insta:\r\n              <a target=\"blank\" :href=\"artist.insta\"> {{ artist.insta }}</a>\r\n            </p>\r\n          </div>\r\n          <div class=\"col-6\">\r\n            <p><span class=\"accent-text\">Style:</span> {{ artist.style }}</p>\r\n          </div>\r\n        </div>\r\n        <div class=\"mt-4 btn-center\">\r\n          <app-button>Contact {{ artist.name }}</app-button>\r\n        </div>\r\n      </div>\r\n    </div>\r\n        <div class=\"row mb-3\">\r\n      <app-title mode=\"profile-title-img\">Gallery</app-title>\r\n    </div>\r\n    <div class=\"row\">\r\n      <div\r\n        class=\"col-auto\"\r\n        v-for=\"img in gallery\"\r\n        :key=\"img\"\r\n      >\r\n        <div class=\"card gallery-card\">\r\n        <img :src=\"img\" class=\"card-img-top\" />\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</template>\r\n\r\n<script>\r\nimport * as Sentry from \"@sentry/vue\";\r\n/**\r\n * @exports ArtistProfile\r\n * @type {Page}\r\n * @requires Sentry\r\n * @vue-data {array} gallery - Returned from store\r\n * @vue-data {object} artist - Returned from store\r\n * @vue-event created - Dispatch store action on created hook\r\n */\r\nexport default {\r\n  name: 'ArtistProfile',\r\n  data() {\r\n    return {\r\n      gallery: [],\r\n      artist: {},\r\n    };\r\n  },\r\n      /**\r\n     * Dispatch store action : Get artist by id based on route params\r\n     * Dispatch store action to get artist's gallery based on route params\r\n     * Set gallery to results returned from store\r\n     * Set artist to results returned from store\r\n     * @param {string} id\r\n     * @returns {object} artist\r\n     * @return {array} gallery\r\n     * @async\r\n     */\r\n  async created() {\r\n    await this.$store\r\n      .dispatch('getArtistById', this.$route.params.id)\r\n      .then(() =>\r\n        this.$store.dispatch('getGalleryFromId', this.$route.params.id)\r\n      )\r\n      .then(() => {\r\n        this.artist = this.$store.getters.getProfile;\r\n        this.gallery = this.$store.getters.getGalleryFromId;\r\n      })\r\n      .catch((err) => Sentry.captureException(err));\r\n  },\r\n};\r\n</script>\r\n\r\n<style lang=\"scss\">\r\n.img-fluid {\r\n  max-height: 20rem;\r\n}\r\n</style>\r\n"
+        "<template>\r\n  <div class=\"container\">\r\n    <div class=\"row mb-3\">\r\n      <app-title mode=\"profile-title-img\">{{ artist.name }}</app-title>\r\n    </div>\r\n    <div class=\"row\">\r\n      <div class=\"col-12 col-lg-5 img-center\">\r\n        <a target=\"blank\" :href=\"artist.socialLink\"\r\n          ><img class=\"img-fluid\" :src=\"artist.thumbnail\"\r\n        /></a>\r\n      </div>\r\n      <div class=\"col-12 col-lg-7 text-center\">\r\n        <p class=\"accent-text\">About</p>\r\n        <p>{{ artist.description }}</p>\r\n        <p>\r\n          <span class=\"accent-text\">Shop:</span> {{ artist.shop }} -\r\n          {{ artist.city }} ({{ artist.zip }})\r\n        </p>\r\n        <div class=\"row\">\r\n          <div class=\"col-6\">\r\n            <p class=\"accent-text\">\r\n              Insta:\r\n              <a target=\"blank\" :href=\"artist.insta\"> {{ artist.insta }}</a>\r\n            </p>\r\n          </div>\r\n          <div class=\"col-6\">\r\n            <p><span class=\"accent-text\">Style:</span> {{ artist.style }}</p>\r\n          </div>\r\n        </div>\r\n        <div class=\"mt-4 btn-center\">\r\n          <app-button>Contact {{ artist.name }}</app-button>\r\n        </div>\r\n      </div>\r\n    </div>\r\n    <div class=\"row mb-3\" v-if=\"gallery.length\">\r\n      <app-title mode=\"profile-title-img\">Gallery</app-title>\r\n    </div>\r\n    <div class=\"row\">\r\n      <div class=\"col-auto\" v-for=\"img in gallery\" :key=\"img\">\r\n        <div class=\"card gallery-card\">\r\n          <img :src=\"img\" class=\"card-img-top\" />\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</template>\r\n\r\n<script>\r\n/**\r\n * @exports ArtistProfile\r\n * @type {Page}\r\n * @vue-computed {array} gallery - Returned from store\r\n * @vue-computed {object} artist - Returned from store\r\n * @vue-event created - Dispatch store action on created hook\r\n */\r\nexport default {\r\n  name: 'ArtistProfile',\r\n  async created() {\r\n    await this.$store.dispatch('getArtistById', this.$route.params.id);\r\n    await this.$store.dispatch('getGalleryFromId', this.$route.params.id);\r\n  },\r\n  computed: {\r\n    gallery() {\r\n      return this.$store.getters.getGalleryFromId;\r\n    },\r\n    artist() {\r\n      return this.$store.getters.getArtistProfile;\r\n    },\r\n  },\r\n};\r\n</script>\r\n\r\n<style lang=\"scss\">\r\n.img-fluid {\r\n  max-height: 20rem;\r\n}\r\n</style>\r\n"
       ]
     },
     "_coverageSchema": "1a1c01bbd47fc00a2c39e90264f33305004495a9",
-    "hash": "75dfda26c9c3e37ec426775c80ce181ecad8e8d6"
+    "hash": "4b946f8c97bc58092f2498081cf3a1778444898f"
   },
   "C:\\xampp\\htdocs\\Ynov\\av2-linked-up\\src\\views\\Admin.vue": {
     "path": "C:\\xampp\\htdocs\\Ynov\\av2-linked-up\\src\\views\\Admin.vue",
@@ -5477,7 +5370,7 @@
     "statementMap": {
       "0": {
         "start": {
-          "line": 21,
+          "line": 22,
           "column": 4
         },
         "end": {
@@ -5487,282 +5380,282 @@
       },
       "1": {
         "start": {
-          "line": 47,
+          "line": 41,
           "column": 4
         },
         "end": {
-          "line": 55,
+          "line": 49,
           "column": 52
         }
       },
       "2": {
         "start": {
-          "line": 50,
+          "line": 44,
           "column": 8
         },
         "end": {
-          "line": 50,
+          "line": 44,
           "column": 63
         }
       },
       "3": {
         "start": {
-          "line": 53,
+          "line": 47,
           "column": 8
         },
         "end": {
-          "line": 53,
+          "line": 47,
           "column": 51
         }
       },
       "4": {
         "start": {
-          "line": 55,
+          "line": 49,
           "column": 22
         },
         "end": {
-          "line": 55,
+          "line": 49,
           "column": 50
         }
       },
       "5": {
         "start": {
-          "line": 74,
+          "line": 53,
           "column": 19
         },
         "end": {
-          "line": 74,
+          "line": 53,
           "column": 41
         }
       },
       "6": {
         "start": {
-          "line": 75,
+          "line": 54,
           "column": 20
         },
         "end": {
-          "line": 75,
+          "line": 54,
           "column": 47
         }
       },
       "7": {
         "start": {
-          "line": 77,
+          "line": 56,
           "column": 6
         },
         "end": {
-          "line": 84,
+          "line": 63,
           "column": 7
         }
       },
       "8": {
         "start": {
-          "line": 78,
+          "line": 57,
           "column": 8
         },
         "end": {
-          "line": 78,
+          "line": 57,
           "column": 33
         }
       },
       "9": {
         "start": {
-          "line": 79,
+          "line": 58,
           "column": 8
         },
         "end": {
-          "line": 79,
+          "line": 58,
           "column": 28
         }
       },
       "10": {
         "start": {
-          "line": 80,
+          "line": 59,
           "column": 8
         },
         "end": {
-          "line": 80,
+          "line": 59,
           "column": 54
         }
       },
       "11": {
         "start": {
-          "line": 82,
+          "line": 61,
           "column": 8
         },
         "end": {
-          "line": 82,
+          "line": 61,
           "column": 33
         }
       },
       "12": {
         "start": {
-          "line": 83,
+          "line": 62,
           "column": 8
         },
         "end": {
-          "line": 83,
+          "line": 62,
           "column": 68
         }
       },
       "13": {
         "start": {
-          "line": 99,
-          "column": 19
+          "line": 66,
+          "column": 6
         },
         "end": {
-          "line": 99,
-          "column": 36
+          "line": 73,
+          "column": 11
         }
       },
       "14": {
         "start": {
-          "line": 100,
-          "column": 6
+          "line": 69,
+          "column": 10
         },
         "end": {
-          "line": 100,
+          "line": 69,
           "column": 29
         }
       },
       "15": {
         "start": {
-          "line": 104,
-          "column": 6
+          "line": 72,
+          "column": 10
         },
         "end": {
-          "line": 136,
-          "column": 7
+          "line": 72,
+          "column": 30
         }
       },
       "16": {
         "start": {
-          "line": 105,
-          "column": 8
+          "line": 76,
+          "column": 26
         },
         "end": {
-          "line": 128,
-          "column": 13
+          "line": 85,
+          "column": 7
         }
       },
       "17": {
         "start": {
-          "line": 108,
-          "column": 12
+          "line": 86,
+          "column": 6
         },
         "end": {
-          "line": 108,
-          "column": 69
+          "line": 93,
+          "column": 11
         }
       },
       "18": {
         "start": {
-          "line": 111,
-          "column": 12
+          "line": 89,
+          "column": 10
         },
         "end": {
-          "line": 121,
-          "column": 14
+          "line": 89,
+          "column": 29
         }
       },
       "19": {
         "start": {
-          "line": 122,
-          "column": 12
+          "line": 92,
+          "column": 10
         },
         "end": {
-          "line": 122,
-          "column": 72
+          "line": 92,
+          "column": 30
         }
       },
       "20": {
         "start": {
-          "line": 123,
-          "column": 12
+          "line": 96,
+          "column": 6
         },
         "end": {
-          "line": 123,
-          "column": 41
+          "line": 96,
+          "column": 35
         }
       },
       "21": {
         "start": {
-          "line": 124,
-          "column": 12
+          "line": 97,
+          "column": 6
         },
         "end": {
-          "line": 124,
-          "column": 40
+          "line": 97,
+          "column": 34
         }
       },
       "22": {
         "start": {
-          "line": 125,
-          "column": 12
+          "line": 98,
+          "column": 6
         },
         "end": {
-          "line": 127,
-          "column": 21
+          "line": 100,
+          "column": 15
         }
       },
       "23": {
         "start": {
-          "line": 126,
-          "column": 14
+          "line": 99,
+          "column": 8
         },
         "end": {
-          "line": 126,
-          "column": 44
+          "line": 99,
+          "column": 38
         }
       },
       "24": {
         "start": {
-          "line": 130,
-          "column": 8
+          "line": 103,
+          "column": 6
         },
         "end": {
-          "line": 130,
-          "column": 35
+          "line": 103,
+          "column": 33
         }
       },
       "25": {
         "start": {
-          "line": 131,
-          "column": 8
+          "line": 104,
+          "column": 6
         },
         "end": {
-          "line": 131,
-          "column": 38
+          "line": 104,
+          "column": 36
         }
       },
       "26": {
         "start": {
-          "line": 132,
-          "column": 8
+          "line": 105,
+          "column": 6
         },
         "end": {
-          "line": 132,
-          "column": 37
+          "line": 105,
+          "column": 35
         }
       },
       "27": {
         "start": {
-          "line": 133,
-          "column": 8
+          "line": 106,
+          "column": 6
         },
         "end": {
-          "line": 135,
-          "column": 17
+          "line": 108,
+          "column": 15
         }
       },
       "28": {
         "start": {
-          "line": 134,
-          "column": 10
+          "line": 107,
+          "column": 8
         },
         "end": {
-          "line": 134,
-          "column": 38
+          "line": 107,
+          "column": 36
         }
       }
     },
@@ -5771,17 +5664,17 @@
         "name": "(anonymous_0)",
         "decl": {
           "start": {
-            "line": 20,
+            "line": 21,
             "column": 2
           },
           "end": {
-            "line": 20,
+            "line": 21,
             "column": 3
           }
         },
         "loc": {
           "start": {
-            "line": 20,
+            "line": 21,
             "column": 9
           },
           "end": {
@@ -5789,258 +5682,378 @@
             "column": 3
           }
         },
-        "line": 20
+        "line": 21
       },
       "1": {
         "name": "(anonymous_1)",
         "decl": {
           "start": {
-            "line": 46,
+            "line": 40,
             "column": 2
           },
           "end": {
-            "line": 46,
+            "line": 40,
             "column": 3
           }
         },
         "loc": {
           "start": {
-            "line": 46,
+            "line": 40,
             "column": 18
           },
           "end": {
-            "line": 56,
+            "line": 50,
             "column": 3
           }
         },
-        "line": 46
+        "line": 40
       },
       "2": {
         "name": "(anonymous_2)",
         "decl": {
           "start": {
-            "line": 49,
+            "line": 43,
             "column": 12
           },
           "end": {
-            "line": 49,
+            "line": 43,
             "column": 13
           }
         },
         "loc": {
           "start": {
-            "line": 49,
+            "line": 43,
             "column": 18
           },
           "end": {
-            "line": 51,
+            "line": 45,
             "column": 7
           }
         },
-        "line": 49
+        "line": 43
       },
       "3": {
         "name": "(anonymous_3)",
         "decl": {
           "start": {
-            "line": 52,
+            "line": 46,
             "column": 12
           },
           "end": {
-            "line": 52,
+            "line": 46,
             "column": 13
           }
         },
         "loc": {
           "start": {
-            "line": 52,
+            "line": 46,
             "column": 18
           },
           "end": {
-            "line": 54,
+            "line": 48,
             "column": 7
           }
         },
-        "line": 52
+        "line": 46
       },
       "4": {
         "name": "(anonymous_4)",
         "decl": {
           "start": {
-            "line": 55,
+            "line": 49,
             "column": 13
           },
           "end": {
-            "line": 55,
+            "line": 49,
             "column": 14
           }
         },
         "loc": {
           "start": {
-            "line": 55,
+            "line": 49,
             "column": 22
           },
           "end": {
-            "line": 55,
+            "line": 49,
             "column": 50
           }
         },
-        "line": 55
+        "line": 49
       },
       "5": {
         "name": "(anonymous_5)",
         "decl": {
           "start": {
-            "line": 67,
+            "line": 52,
             "column": 4
           },
           "end": {
-            "line": 67,
+            "line": 52,
             "column": 5
           }
         },
         "loc": {
           "start": {
-            "line": 67,
+            "line": 52,
             "column": 28
           },
           "end": {
-            "line": 85,
+            "line": 64,
             "column": 5
           }
         },
-        "line": 67
+        "line": 52
       },
       "6": {
         "name": "(anonymous_6)",
         "decl": {
           "start": {
-            "line": 98,
+            "line": 65,
             "column": 4
           },
           "end": {
-            "line": 98,
+            "line": 65,
             "column": 5
           }
         },
         "loc": {
           "start": {
-            "line": 98,
-            "column": 29
+            "line": 65,
+            "column": 25
           },
           "end": {
-            "line": 137,
+            "line": 74,
             "column": 5
           }
         },
-        "line": 98
+        "line": 65
       },
       "7": {
         "name": "(anonymous_7)",
         "decl": {
           "start": {
-            "line": 107,
-            "column": 16
+            "line": 68,
+            "column": 14
           },
           "end": {
-            "line": 107,
-            "column": 17
+            "line": 68,
+            "column": 15
           }
         },
         "loc": {
           "start": {
-            "line": 107,
-            "column": 28
+            "line": 68,
+            "column": 20
           },
           "end": {
-            "line": 109,
-            "column": 11
+            "line": 70,
+            "column": 9
           }
         },
-        "line": 107
+        "line": 68
       },
       "8": {
         "name": "(anonymous_8)",
         "decl": {
           "start": {
-            "line": 110,
-            "column": 16
+            "line": 71,
+            "column": 15
           },
           "end": {
-            "line": 110,
-            "column": 17
+            "line": 71,
+            "column": 16
           }
         },
         "loc": {
           "start": {
-            "line": 110,
-            "column": 28
+            "line": 71,
+            "column": 24
           },
           "end": {
-            "line": 128,
-            "column": 11
+            "line": 73,
+            "column": 9
           }
         },
-        "line": 110
+        "line": 71
       },
       "9": {
         "name": "(anonymous_9)",
         "decl": {
           "start": {
-            "line": 125,
-            "column": 23
+            "line": 75,
+            "column": 4
           },
           "end": {
-            "line": 125,
-            "column": 24
+            "line": 75,
+            "column": 5
           }
         },
         "loc": {
           "start": {
-            "line": 125,
+            "line": 75,
             "column": 29
           },
           "end": {
-            "line": 127,
-            "column": 13
+            "line": 94,
+            "column": 5
           }
         },
-        "line": 125
+        "line": 75
       },
       "10": {
         "name": "(anonymous_10)",
         "decl": {
           "start": {
-            "line": 133,
-            "column": 19
+            "line": 88,
+            "column": 14
           },
           "end": {
-            "line": 133,
-            "column": 20
+            "line": 88,
+            "column": 15
           }
         },
         "loc": {
           "start": {
-            "line": 133,
-            "column": 25
+            "line": 88,
+            "column": 20
           },
           "end": {
-            "line": 135,
+            "line": 90,
             "column": 9
           }
         },
-        "line": 133
+        "line": 88
+      },
+      "11": {
+        "name": "(anonymous_11)",
+        "decl": {
+          "start": {
+            "line": 91,
+            "column": 15
+          },
+          "end": {
+            "line": 91,
+            "column": 16
+          }
+        },
+        "loc": {
+          "start": {
+            "line": 91,
+            "column": 24
+          },
+          "end": {
+            "line": 93,
+            "column": 9
+          }
+        },
+        "line": 91
+      },
+      "12": {
+        "name": "(anonymous_12)",
+        "decl": {
+          "start": {
+            "line": 95,
+            "column": 4
+          },
+          "end": {
+            "line": 95,
+            "column": 5
+          }
+        },
+        "loc": {
+          "start": {
+            "line": 95,
+            "column": 18
+          },
+          "end": {
+            "line": 101,
+            "column": 5
+          }
+        },
+        "line": 95
+      },
+      "13": {
+        "name": "(anonymous_13)",
+        "decl": {
+          "start": {
+            "line": 98,
+            "column": 17
+          },
+          "end": {
+            "line": 98,
+            "column": 18
+          }
+        },
+        "loc": {
+          "start": {
+            "line": 98,
+            "column": 23
+          },
+          "end": {
+            "line": 100,
+            "column": 7
+          }
+        },
+        "line": 98
+      },
+      "14": {
+        "name": "(anonymous_14)",
+        "decl": {
+          "start": {
+            "line": 102,
+            "column": 4
+          },
+          "end": {
+            "line": 102,
+            "column": 5
+          }
+        },
+        "loc": {
+          "start": {
+            "line": 102,
+            "column": 19
+          },
+          "end": {
+            "line": 109,
+            "column": 5
+          }
+        },
+        "line": 102
+      },
+      "15": {
+        "name": "(anonymous_15)",
+        "decl": {
+          "start": {
+            "line": 106,
+            "column": 17
+          },
+          "end": {
+            "line": 106,
+            "column": 18
+          }
+        },
+        "loc": {
+          "start": {
+            "line": 106,
+            "column": 23
+          },
+          "end": {
+            "line": 108,
+            "column": 7
+          }
+        },
+        "line": 106
       }
     },
     "branchMap": {
       "0": {
         "loc": {
           "start": {
-            "line": 77,
+            "line": 56,
             "column": 6
           },
           "end": {
-            "line": 84,
+            "line": 63,
             "column": 7
           }
         },
@@ -6048,35 +6061,35 @@
         "locations": [
           {
             "start": {
-              "line": 77,
+              "line": 56,
               "column": 6
             },
             "end": {
-              "line": 84,
+              "line": 63,
               "column": 7
             }
           },
           {
             "start": {
-              "line": 81,
+              "line": 60,
               "column": 13
             },
             "end": {
-              "line": 84,
+              "line": 63,
               "column": 7
             }
           }
         ],
-        "line": 77
+        "line": 56
       },
       "1": {
         "loc": {
           "start": {
-            "line": 77,
+            "line": 56,
             "column": 10
           },
           "end": {
-            "line": 77,
+            "line": 56,
             "column": 43
           }
         },
@@ -6084,26 +6097,26 @@
         "locations": [
           {
             "start": {
-              "line": 77,
+              "line": 56,
               "column": 10
             },
             "end": {
-              "line": 77,
+              "line": 56,
               "column": 14
             }
           },
           {
             "start": {
-              "line": 77,
+              "line": 56,
               "column": 18
             },
             "end": {
-              "line": 77,
+              "line": 56,
               "column": 43
             }
           }
         ],
-        "line": 77
+        "line": 56
       }
     },
     "s": {
@@ -6148,7 +6161,12 @@
       "7": 0,
       "8": 0,
       "9": 0,
-      "10": 0
+      "10": 0,
+      "11": 0,
+      "12": 0,
+      "13": 0,
+      "14": 0,
+      "15": 0
     },
     "b": {
       "0": [
@@ -6166,15 +6184,15 @@
         "C:\\xampp\\htdocs\\Ynov\\av2-linked-up\\src\\components\\admin\\AdminProfile.vue"
       ],
       "names": [],
-      "mappings": "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",
+      "mappings": "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",
       "file": "C:/xampp/htdocs/Ynov/av2-linked-up/src/components/admin/AdminProfile.vue",
       "sourceRoot": "",
       "sourcesContent": [
-        "<template>\r\n  <div class=\"row\">\r\n    <app-title mode=\"title-img\">Your profile</app-title>\r\n    <div class=\"toast-success\" v-if=\"showSuccessToast\">\r\n      Update successful\r\n    </div>\r\n    <div class=\"toast-error\" v-if=\"showErrorToast\">\r\n      Oops... Something went wrong :(\r\n    </div>\r\n    <div class=\"col-12 col-lg-4 mt-4\">\r\n      <img\r\n        :src=\"\r\n          previewImage\r\n            ? previewImage\r\n            : require('@/assets/img/default-placeholder.png')\r\n        \"\r\n        width=\"250\"\r\n        height=\"250\"\r\n        class=\"img-fluid\"\r\n      />\r\n      <div class=\"mt-3\">\r\n        <input type=\"file\" @change=\"setPreviewImage($event)\" />\r\n        <div class=\"error\">{{ fileErr }}</div>\r\n      </div>\r\n      <!-- <div class=\"error\">{{ fileError }}</div> -->\r\n    </div>\r\n    <form class=\"col-12 col-lg-8 mt-4\" @submit.prevent=\"setArtistProfile\">\r\n      <div class=\"form-floating mb-3\">\r\n        <input\r\n          type=\"text\"\r\n          class=\"form-control\"\r\n          placeholder=\"Public Name\"\r\n          v-model=\"profile.name\"\r\n        />\r\n        <label>Public Name</label>\r\n      </div>\r\n      <div class=\"form-floating mb-3\">\r\n        <input\r\n          type=\"textarea\"\r\n          class=\"form-control\"\r\n          placeholder=\"Description \"\r\n          v-model=\"profile.description\"\r\n        />\r\n        <label>Description</label>\r\n      </div>\r\n      <div class=\"input-group\">\r\n        <div class=\"form-floating mb-3 col-lg-6\">\r\n          <input\r\n            type=\"text\"\r\n            class=\"form-control\"\r\n            placeholder=\"City\"\r\n            v-model=\"profile.city\"\r\n          />\r\n          <label>City</label>\r\n        </div>\r\n        <div class=\"form-floating mb-3 col-lg-6\">\r\n          <input\r\n            type=\"text\"\r\n            class=\"form-control\"\r\n            placeholder=\"Zip Code\"\r\n            v-model=\"profile.zip\"\r\n          />\r\n          <label>Zip Code</label>\r\n        </div>\r\n      </div>\r\n      <div class=\"form-floating mb-3\">\r\n        <input\r\n          type=\"text\"\r\n          class=\"form-control\"\r\n          placeholder=\"Shop\"\r\n          v-model=\"profile.shop\"\r\n        />\r\n        <label>Shop</label>\r\n      </div>\r\n      <div class=\"form-floating mb-3\">\r\n        <input\r\n          type=\"text\"\r\n          class=\"form-control\"\r\n          placeholder=\"Social Media Link\"\r\n          v-model=\"profile.socialLink\"\r\n        />\r\n        <label>Social Media Link</label>\r\n      </div>\r\n      <div class=\"form-floating mb-3\">\r\n        <input\r\n          type=\"text\"\r\n          class=\"form-control\"\r\n          placeholder=\"Instagram Name\"\r\n          v-model=\"profile.insta\"\r\n        />\r\n        <label>Instagram Name</label>\r\n      </div>\r\n      <div>\r\n        <select class=\"form-select\" v-model=\"profile.style\">\r\n          <option disabled value=\"\">Choose your style</option>\r\n          <option value=\"Black Work\">Black Work</option>\r\n          <option value=\"New School\">New School</option>\r\n          <option value=\"Old School\">Old School</option>\r\n          <option value=\"Surrealism\">Surrealism</option>\r\n        </select>\r\n      </div>\r\n      <div class=\"col-12 btn-right mt-3\">\r\n        <div class=\"btn-group mb-3\">\r\n          <app-button>Save</app-button>\r\n        </div>\r\n      </div>\r\n    </form>\r\n  </div>\r\n</template>\r\n\r\n<script>\r\nimport * as Sentry from '@sentry/vue';\r\n\r\n/**\r\n * @exports AdminProfile\r\n * @type {Component}\r\n * @requires Sentry\r\n * @vue-data {array} previewImage\r\n * @vue-data {object} profile\r\n * @vue-data {boolean} showSuccessToast\r\n * @vue-data {boolean} showErrorToast\r\n * @vue-data {array} fileSelected\r\n * @vue-data {string} fileErr\r\n * @vue-event {object} getArtistProfile\r\n * @vue-event {string} setPreviewImage\r\n * @vue-event {string} setArtistProfile\r\n */\r\nexport default {\r\n  name: 'AdminProfile',\r\n  data() {\r\n    return {\r\n      previewImage: null,\r\n      profile: {\r\n        name: '',\r\n        city: '',\r\n        zip: '',\r\n        shop: '',\r\n        style: '',\r\n        thumbnail: '',\r\n        socialLink: '',\r\n        insta: '',\r\n        description: '',\r\n      },\r\n      showSuccessToast: false,\r\n      showErrorToast: false,\r\n      fileSelected: null,\r\n      fileErr: null,\r\n    };\r\n  },\r\n  /**\r\n   * @description Get artistProfile\r\n   * Set profile.thumbnail as previewUrl\r\n   * @method getArtistProfile\r\n   * @returns {object}\r\n   */\r\n  async created() {\r\n    await this.$store\r\n      .dispatch('getArtistProfile')\r\n      .then(() => {\r\n        this.profile = this.$store.state.profile.artistProfile;\r\n      })\r\n      .then(() => {\r\n        this.previewImage = this.profile.thumbnail;\r\n      })\r\n      .catch((err) => Sentry.captureException(err));\r\n  },\r\n  methods: {\r\n    /**\r\n     * @description Set preview image url\r\n     * Check file type\r\n     * Set fileSelected as previewImage\r\n     * Send fileSelected to DB\r\n     * @method setPreviewImage\r\n     * @param {object} $event\r\n     * @returns {string}\r\n     */\r\n    setPreviewImage($event) {\r\n      // this.profile.thumbnail = '';\r\n\r\n      // if (this.previewImage.startsWith('blob:')) {\r\n      //   URL.revokeObjectURL(this.previewImage);\r\n      // }\r\n\r\n      const file = $event.target.files[0];\r\n      const types = ['image/png', 'image/jpeg'];\r\n\r\n      if (file && types.includes(file.type)) {\r\n        this.fileSelected = file;\r\n        this.fileErr = null;\r\n        this.previewImage = URL.createObjectURL(file);\r\n      } else {\r\n        this.fileSelected = null;\r\n        this.fileErr = 'Please select an image file (png or jpeg).';\r\n      }\r\n    },\r\n    /**\r\n     * @description Set thumbnailUrl\r\n     * Get thumbnail Url from store\r\n     * Dispatch store action with profile data\r\n     * Show success/error toast\r\n     * @method setArtistProfile\r\n     * @param {object} profileData\r\n     * @returns {string} thumbnail\r\n     * @returns {boolean} showSuccessToast\r\n     * @returns {boolean} showErrorToast\r\n     * @async\r\n     */\r\n    async setArtistProfile() {\r\n      const file = this.fileSelected;\r\n      this.showToast = false;\r\n      let thumbnail;\r\n      let profileData;\r\n\r\n      try {\r\n        await this.$store\r\n          .dispatch('setArtistThumbnail', file)\r\n          .then(async () => {\r\n            thumbnail = await this.$store.state.profile.thumbnailUrl;\r\n          })\r\n          .then(async () => {\r\n            profileData = {\r\n              name: this.profile.name,\r\n              city: this.profile.city,\r\n              zip: this.profile.zip,\r\n              shop: this.profile.shop,\r\n              style: this.profile.style,\r\n              thumbnail: thumbnail,\r\n              socialLink: this.profile.socialLink,\r\n              insta: this.profile.insta,\r\n              description: this.profile.description,\r\n            };\r\n            await this.$store.dispatch('setArtistProfile', profileData);\r\n            this.showSuccessToast = true;\r\n            this.showErrorToast = false;\r\n            setTimeout(() => {\r\n              this.showSuccessToast = false;\r\n            }, 3000);\r\n          });\r\n      } catch (err) {\r\n        this.showErrorToast = true;\r\n        this.showSuccessToast = false;\r\n        Sentry.captureException(err);\r\n        setTimeout(() => {\r\n          this.showErrorToast = false;\r\n        }, 3000);\r\n      }\r\n    },\r\n  },\r\n};\r\n</script>\r\n"
+        "<template>\r\n  <div class=\"row\">\r\n    <app-title mode=\"title-img\">Your profile</app-title>\r\n    <div class=\"toast-success\" v-if=\"showSuccessToast\">Update successful</div>\r\n    <div class=\"toast-error\" v-if=\"showErrorToast\">\r\n      Oops... Something went wrong :(\r\n    </div>\r\n    <div class=\"col-12 col-lg-4 mt-4\">\r\n      <div class=\"mt-3\">\r\n        <input type=\"file\" @change=\"setPreviewImage($event)\" />\r\n        <div class=\"error\">{{ fileErr }}</div>\r\n      </div>\r\n      <img\r\n        :src=\"\r\n          previewImage\r\n            ? previewImage\r\n            : require('@/assets/img/default-placeholder.png')\r\n        \"\r\n        width=\"250\"\r\n        height=\"250\"\r\n        class=\"img-fluid\"\r\n      />\r\n      <div class=\"btn-center mt-3\" @click=\"setArtistThumbnail\">\r\n        <app-button mode=\"save-btn\">Save</app-button>\r\n      </div>\r\n      <!-- <div class=\"error\">{{ fileError }}</div> -->\r\n    </div>\r\n    <form class=\"col-12 col-lg-8 mt-4\" @submit.prevent=\"setArtistProfile\">\r\n      <div class=\"form-floating mb-3\">\r\n        <input\r\n          type=\"text\"\r\n          class=\"form-control\"\r\n          placeholder=\"Public Name\"\r\n          v-model=\"profile.name\"\r\n        />\r\n        <label>Public Name</label>\r\n      </div>\r\n      <div class=\"form-floating mb-3\">\r\n        <input\r\n          type=\"textarea\"\r\n          class=\"form-control\"\r\n          placeholder=\"Description \"\r\n          v-model=\"profile.description\"\r\n        />\r\n        <label>Description</label>\r\n      </div>\r\n      <div class=\"input-group\">\r\n        <div class=\"form-floating mb-3 col-lg-6\">\r\n          <input\r\n            type=\"text\"\r\n            class=\"form-control\"\r\n            placeholder=\"City\"\r\n            v-model=\"profile.city\"\r\n          />\r\n          <label>City</label>\r\n        </div>\r\n        <div class=\"form-floating mb-3 col-lg-6\">\r\n          <input\r\n            type=\"text\"\r\n            class=\"form-control\"\r\n            placeholder=\"Zip Code\"\r\n            v-model=\"profile.zip\"\r\n          />\r\n          <label>Zip Code</label>\r\n        </div>\r\n      </div>\r\n      <div class=\"form-floating mb-3\">\r\n        <input\r\n          type=\"text\"\r\n          class=\"form-control\"\r\n          placeholder=\"Shop\"\r\n          v-model=\"profile.shop\"\r\n        />\r\n        <label>Shop</label>\r\n      </div>\r\n      <div class=\"form-floating mb-3\">\r\n        <input\r\n          type=\"text\"\r\n          class=\"form-control\"\r\n          placeholder=\"Social Media Link\"\r\n          v-model=\"profile.socialLink\"\r\n        />\r\n        <label>Social Media Link</label>\r\n      </div>\r\n      <div class=\"form-floating mb-3\">\r\n        <input\r\n          type=\"text\"\r\n          class=\"form-control\"\r\n          placeholder=\"Instagram Name\"\r\n          v-model=\"profile.insta\"\r\n        />\r\n        <label>Instagram Name</label>\r\n      </div>\r\n      <div>\r\n        <select class=\"form-select\" v-model=\"profile.style\">\r\n          <option disabled value=\"\">Choose your style</option>\r\n          <option value=\"Black Work\">Black Work</option>\r\n          <option value=\"New School\">New School</option>\r\n          <option value=\"Old School\">Old School</option>\r\n          <option value=\"Surrealism\">Surrealism</option>\r\n        </select>\r\n      </div>\r\n      <div class=\"col-12 btn-right mt-3\">\r\n        <div class=\"btn-group mb-3\">\r\n          <app-button>Save</app-button>\r\n        </div>\r\n      </div>\r\n    </form>\r\n  </div>\r\n</template>\r\n\r\n<script>\r\nimport * as Sentry from '@sentry/vue';\r\n\r\n/**\r\n * @exports AdminProfile\r\n * @type {Component}\r\n * @requires Sentry\r\n * @vue-data {array} previewImage\r\n * @vue-data {object} profile\r\n * @vue-data {boolean} showSuccessToast\r\n * @vue-data {boolean} showErrorToast\r\n * @vue-data {array} fileSelected\r\n * @vue-data {string} fileErr\r\n * @vue-event {object} getArtistProfile\r\n * @vue-event {string} setPreviewImage\r\n * @vue-event {string} setArtistProfile\r\n * @vue-event {string} setArtistThumbnail\r\n */\r\nexport default {\r\n  name: 'AdminProfile',\r\n  data() {\r\n    return {\r\n      previewImage: null,\r\n      profile: {\r\n        name: '',\r\n        city: '',\r\n        zip: '',\r\n        shop: '',\r\n        style: '',\r\n        socialLink: '',\r\n        insta: '',\r\n        description: '',\r\n      },\r\n      showSuccessToast: false,\r\n      showErrorToast: false,\r\n      fileSelected: null,\r\n      fileErr: null,\r\n    };\r\n  },\r\n  async created() {\r\n    await this.$store\r\n      .dispatch('getArtistProfile')\r\n      .then(() => {\r\n        this.profile = this.$store.state.profile.artistProfile;\r\n      })\r\n      .then(() => {\r\n        this.previewImage = this.profile.thumbnail;\r\n      })\r\n      .catch((err) => Sentry.captureException(err));\r\n  },\r\n  methods: {\r\n    setPreviewImage($event) {\r\n      const file = $event.target.files[0];\r\n      const types = ['image/png', 'image/jpeg'];\r\n\r\n      if (file && types.includes(file.type)) {\r\n        this.fileSelected = file;\r\n        this.fileErr = null;\r\n        this.previewImage = URL.createObjectURL(file);\r\n      } else {\r\n        this.fileSelected = null;\r\n        this.fileErr = 'Please select an image file (png or jpeg).';\r\n      }\r\n    },\r\n    setArtistThumbnail() {\r\n      this.$store\r\n        .dispatch('setArtistThumbnail', this.fileSelected)\r\n        .then(() => {\r\n          this.showSuccess();\r\n        })\r\n        .catch((err) => {\r\n          this.showError(err);\r\n        });\r\n    },\r\n    async setArtistProfile() {\r\n      const profileData = {\r\n        name: this.profile.name,\r\n        city: this.profile.city,\r\n        zip: this.profile.zip,\r\n        shop: this.profile.shop,\r\n        style: this.profile.style,\r\n        socialLink: this.profile.socialLink,\r\n        insta: this.profile.insta,\r\n        description: this.profile.description,\r\n      };\r\n      await this.$store\r\n        .dispatch('setArtistProfile', profileData)\r\n        .then(() => {\r\n          this.showSuccess();\r\n        })\r\n        .catch((err) => {\r\n          this.showError(err);\r\n        });\r\n    },\r\n    showSuccess() {\r\n      this.showSuccessToast = true;\r\n      this.showErrorToast = false;\r\n      setTimeout(() => {\r\n        this.showSuccessToast = false;\r\n      }, 3000);\r\n    },\r\n    showError(err) {\r\n      this.showErrorToast = true;\r\n      this.showSuccessToast = false;\r\n      Sentry.captureException(err);\r\n      setTimeout(() => {\r\n        this.showErrorToast = false;\r\n      }, 3000);\r\n    },\r\n  },\r\n};\r\n</script>\r\n"
       ]
     },
     "_coverageSchema": "1a1c01bbd47fc00a2c39e90264f33305004495a9",
-    "hash": "fbeff1554ad2a22e60597fe55a4c7986def89d15"
+    "hash": "7561a119358334c9439b381fc26e8c1a0dbf4d9d"
   },
   "C:\\xampp\\htdocs\\Ynov\\av2-linked-up\\src\\components\\admin\\AdminGallery.vue": {
     "path": "C:\\xampp\\htdocs\\Ynov\\av2-linked-up\\src\\components\\admin\\AdminGallery.vue",
@@ -6191,241 +6209,221 @@
       },
       "1": {
         "start": {
-          "line": 39,
+          "line": 32,
           "column": 4
         },
         "end": {
-          "line": 42,
+          "line": 35,
           "column": 7
         }
       },
       "2": {
         "start": {
-          "line": 40,
+          "line": 33,
           "column": 22
         },
         "end": {
-          "line": 40,
+          "line": 33,
           "column": 55
         }
       },
       "3": {
         "start": {
-          "line": 41,
+          "line": 34,
           "column": 6
         },
         "end": {
-          "line": 41,
+          "line": 34,
           "column": 44
         }
       },
       "4": {
         "start": {
-          "line": 54,
+          "line": 39,
           "column": 6
         },
         "end": {
-          "line": 54,
+          "line": 39,
           "column": 24
         }
       },
       "5": {
         "start": {
-          "line": 55,
+          "line": 40,
           "column": 20
         },
         "end": {
-          "line": 55,
+          "line": 40,
           "column": 39
         }
       },
       "6": {
         "start": {
-          "line": 56,
+          "line": 41,
           "column": 6
         },
         "end": {
-          "line": 56,
+          "line": 41,
           "column": 27
         }
       },
       "7": {
         "start": {
-          "line": 57,
+          "line": 42,
           "column": 23
         },
         "end": {
-          "line": 57,
+          "line": 42,
           "column": 25
         }
       },
       "8": {
         "start": {
-          "line": 58,
+          "line": 43,
           "column": 6
         },
         "end": {
-          "line": 64,
+          "line": 49,
           "column": 7
         }
       },
       "9": {
         "start": {
-          "line": 59,
+          "line": 44,
           "column": 8
         },
         "end": {
-          "line": 62,
+          "line": 47,
           "column": 9
         }
       },
       "10": {
         "start": {
-          "line": 59,
+          "line": 44,
           "column": 21
         },
         "end": {
-          "line": 59,
+          "line": 44,
           "column": 22
         }
       },
       "11": {
         "start": {
-          "line": 60,
+          "line": 45,
           "column": 29
         },
         "end": {
-          "line": 60,
+          "line": 45,
           "column": 63
         }
       },
       "12": {
         "start": {
-          "line": 61,
+          "line": 46,
           "column": 10
         },
         "end": {
-          "line": 61,
+          "line": 46,
           "column": 36
         }
       },
       "13": {
         "start": {
-          "line": 63,
+          "line": 48,
           "column": 8
         },
         "end": {
-          "line": 63,
+          "line": 48,
           "column": 31
         }
       },
       "14": {
         "start": {
-          "line": 73,
+          "line": 52,
           "column": 23
         },
         "end": {
-          "line": 73,
+          "line": 52,
           "column": 34
         }
       },
       "15": {
         "start": {
-          "line": 74,
+          "line": 53,
           "column": 6
         },
         "end": {
-          "line": 78,
+          "line": 57,
           "column": 7
         }
       },
       "16": {
         "start": {
-          "line": 75,
+          "line": 54,
           "column": 8
         },
         "end": {
-          "line": 77,
+          "line": 56,
           "column": 9
         }
       },
       "17": {
         "start": {
-          "line": 76,
+          "line": 55,
           "column": 10
         },
         "end": {
-          "line": 76,
+          "line": 55,
           "column": 43
         }
       },
       "18": {
         "start": {
-          "line": 90,
+          "line": 60,
           "column": 6
         },
         "end": {
-          "line": 93,
-          "column": 7
+          "line": 60,
+          "column": 67
         }
       },
       "19": {
         "start": {
-          "line": 91,
-          "column": 8
+          "line": 63,
+          "column": 6
         },
         "end": {
-          "line": 91,
-          "column": 66
+          "line": 63,
+          "column": 70
         }
       },
       "20": {
         "start": {
-          "line": 92,
-          "column": 8
+          "line": 66,
+          "column": 6
         },
         "end": {
-          "line": 92,
-          "column": 15
+          "line": 66,
+          "column": 39
         }
       },
       "21": {
         "start": {
-          "line": 94,
+          "line": 67,
           "column": 6
         },
         "end": {
-          "line": 94,
-          "column": 61
+          "line": 67,
+          "column": 63
         }
       },
       "22": {
         "start": {
-          "line": 104,
+          "line": 70,
           "column": 6
         },
         "end": {
-          "line": 104,
-          "column": 39
-        }
-      },
-      "23": {
-        "start": {
-          "line": 105,
-          "column": 6
-        },
-        "end": {
-          "line": 105,
-          "column": 63
-        }
-      },
-      "24": {
-        "start": {
-          "line": 113,
-          "column": 6
-        },
-        "end": {
-          "line": 113,
+          "line": 70,
           "column": 31
         }
       }
@@ -6459,180 +6457,204 @@
         "name": "(anonymous_1)",
         "decl": {
           "start": {
-            "line": 38,
+            "line": 31,
             "column": 2
           },
           "end": {
-            "line": 38,
+            "line": 31,
             "column": 3
           }
         },
         "loc": {
           "start": {
-            "line": 38,
+            "line": 31,
             "column": 18
           },
           "end": {
-            "line": 43,
+            "line": 36,
             "column": 3
           }
         },
-        "line": 38
+        "line": 31
       },
       "2": {
         "name": "(anonymous_2)",
         "decl": {
           "start": {
-            "line": 39,
+            "line": 32,
             "column": 56
           },
           "end": {
-            "line": 39,
+            "line": 32,
             "column": 57
           }
         },
         "loc": {
           "start": {
-            "line": 39,
+            "line": 32,
             "column": 62
           },
           "end": {
-            "line": 42,
+            "line": 35,
             "column": 5
           }
         },
-        "line": 39
+        "line": 32
       },
       "3": {
         "name": "(anonymous_3)",
         "decl": {
           "start": {
-            "line": 53,
+            "line": 38,
             "column": 4
           },
           "end": {
-            "line": 53,
+            "line": 38,
             "column": 5
           }
         },
         "loc": {
           "start": {
-            "line": 53,
+            "line": 38,
             "column": 25
+          },
+          "end": {
+            "line": 50,
+            "column": 5
+          }
+        },
+        "line": 38
+      },
+      "4": {
+        "name": "(anonymous_4)",
+        "decl": {
+          "start": {
+            "line": 51,
+            "column": 4
+          },
+          "end": {
+            "line": 51,
+            "column": 5
+          }
+        },
+        "loc": {
+          "start": {
+            "line": 51,
+            "column": 17
+          },
+          "end": {
+            "line": 58,
+            "column": 5
+          }
+        },
+        "line": 51
+      },
+      "5": {
+        "name": "(anonymous_5)",
+        "decl": {
+          "start": {
+            "line": 59,
+            "column": 4
+          },
+          "end": {
+            "line": 59,
+            "column": 5
+          }
+        },
+        "loc": {
+          "start": {
+            "line": 59,
+            "column": 29
+          },
+          "end": {
+            "line": 61,
+            "column": 5
+          }
+        },
+        "line": 59
+      },
+      "6": {
+        "name": "(anonymous_6)",
+        "decl": {
+          "start": {
+            "line": 62,
+            "column": 4
+          },
+          "end": {
+            "line": 62,
+            "column": 5
+          }
+        },
+        "loc": {
+          "start": {
+            "line": 62,
+            "column": 32
+          },
+          "end": {
+            "line": 64,
+            "column": 5
+          }
+        },
+        "line": 62
+      },
+      "7": {
+        "name": "(anonymous_7)",
+        "decl": {
+          "start": {
+            "line": 65,
+            "column": 4
           },
           "end": {
             "line": 65,
             "column": 5
           }
         },
-        "line": 53
-      },
-      "4": {
-        "name": "(anonymous_4)",
-        "decl": {
-          "start": {
-            "line": 72,
-            "column": 4
-          },
-          "end": {
-            "line": 72,
-            "column": 5
-          }
-        },
         "loc": {
           "start": {
-            "line": 72,
+            "line": 65,
             "column": 17
           },
           "end": {
-            "line": 79,
+            "line": 68,
             "column": 5
           }
         },
-        "line": 72
+        "line": 65
       },
-      "5": {
-        "name": "(anonymous_5)",
+      "8": {
+        "name": "(anonymous_8)",
         "decl": {
           "start": {
-            "line": 89,
+            "line": 69,
             "column": 4
           },
           "end": {
-            "line": 89,
+            "line": 69,
             "column": 5
           }
         },
         "loc": {
           "start": {
-            "line": 89,
-            "column": 29
-          },
-          "end": {
-            "line": 95,
-            "column": 5
-          }
-        },
-        "line": 89
-      },
-      "6": {
-        "name": "(anonymous_6)",
-        "decl": {
-          "start": {
-            "line": 103,
-            "column": 4
-          },
-          "end": {
-            "line": 103,
-            "column": 5
-          }
-        },
-        "loc": {
-          "start": {
-            "line": 103,
-            "column": 17
-          },
-          "end": {
-            "line": 106,
-            "column": 5
-          }
-        },
-        "line": 103
-      },
-      "7": {
-        "name": "(anonymous_7)",
-        "decl": {
-          "start": {
-            "line": 112,
-            "column": 4
-          },
-          "end": {
-            "line": 112,
-            "column": 5
-          }
-        },
-        "loc": {
-          "start": {
-            "line": 112,
+            "line": 69,
             "column": 21
           },
           "end": {
-            "line": 114,
+            "line": 71,
             "column": 5
           }
         },
-        "line": 112
+        "line": 69
       }
     },
     "branchMap": {
       "0": {
         "loc": {
           "start": {
-            "line": 58,
+            "line": 43,
             "column": 6
           },
           "end": {
-            "line": 64,
+            "line": 49,
             "column": 7
           }
         },
@@ -6640,11 +6662,11 @@
         "locations": [
           {
             "start": {
-              "line": 58,
+              "line": 43,
               "column": 6
             },
             "end": {
-              "line": 64,
+              "line": 49,
               "column": 7
             }
           },
@@ -6653,16 +6675,16 @@
             "end": {}
           }
         ],
-        "line": 58
+        "line": 43
       },
       "1": {
         "loc": {
           "start": {
-            "line": 75,
+            "line": 54,
             "column": 8
           },
           "end": {
-            "line": 77,
+            "line": 56,
             "column": 9
           }
         },
@@ -6670,11 +6692,11 @@
         "locations": [
           {
             "start": {
-              "line": 75,
+              "line": 54,
               "column": 8
             },
             "end": {
-              "line": 77,
+              "line": 56,
               "column": 9
             }
           },
@@ -6683,37 +6705,7 @@
             "end": {}
           }
         ],
-        "line": 75
-      },
-      "2": {
-        "loc": {
-          "start": {
-            "line": 90,
-            "column": 6
-          },
-          "end": {
-            "line": 93,
-            "column": 7
-          }
-        },
-        "type": "if",
-        "locations": [
-          {
-            "start": {
-              "line": 90,
-              "column": 6
-            },
-            "end": {
-              "line": 93,
-              "column": 7
-            }
-          },
-          {
-            "start": {},
-            "end": {}
-          }
-        ],
-        "line": 90
+        "line": 54
       }
     },
     "s": {
@@ -6739,9 +6731,7 @@
       "19": 0,
       "20": 0,
       "21": 0,
-      "22": 0,
-      "23": 0,
-      "24": 0
+      "22": 0
     },
     "f": {
       "0": 0,
@@ -6751,7 +6741,8 @@
       "4": 0,
       "5": 0,
       "6": 0,
-      "7": 0
+      "7": 0,
+      "8": 0
     },
     "b": {
       "0": [
@@ -6759,10 +6750,6 @@
         0
       ],
       "1": [
-        0,
-        0
-      ],
-      "2": [
         0,
         0
       ]
@@ -6773,15 +6760,15 @@
         "C:\\xampp\\htdocs\\Ynov\\av2-linked-up\\src\\components\\admin\\AdminGallery.vue"
       ],
       "names": [],
-      "mappings": ";AA8CA,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACxD,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;;AAExD,CAAC,CAAC;CACD,EAAE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;CACtB,EAAE,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;CAClB,EAAE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,EAAE,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;CACxC,EAAE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,EAAE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;CACvD,EAAE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,EAAE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,EAAE,CAAC;CACzD,EAAE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;CACpC,EAAE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;CAChC,EAAE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;CAC7B,EAAE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;CACnC,EAAE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;CAC7B,EAAE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;CACjC,CAAC;AACF,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC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",
+      "mappings": ";AAmDA,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACxD,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;;AAExD,CAAC,CAAC;CACD,EAAE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;CACtB,EAAE,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;CAClB,EAAE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,EAAE,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;CACxC,EAAE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,EAAE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;CACvD,EAAE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,EAAE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,EAAE,CAAC;CACzD,EAAE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;CACpC,EAAE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;CAChC,EAAE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;CAC7B,EAAE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;CACnC,EAAE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;CAC7B,EAAE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;CACjC,CAAC;AACF,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC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",
       "file": "C:/xampp/htdocs/Ynov/av2-linked-up/src/components/admin/AdminGallery.vue",
       "sourceRoot": "",
       "sourcesContent": [
-        "<template>\r\n  <div class=\"row\">\r\n    <div class=\"col-12 mb-4\">\r\n      <app-title mode=\"title-img\">Your gallery</app-title>\r\n    </div>\r\n    <div class=\"col-12 btn-right mt-3\">\r\n      <div class=\"btn-group mb-3\" @click=\"setArtistGallery\">\r\n        <app-button>Save</app-button>\r\n      </div>\r\n    </div>\r\n    <div class=\"col-12 mb-4\">\r\n      <input\r\n        type=\"file\"\r\n        accept=\"image/*\"\r\n        @change=\"handleChange($event)\"\r\n        multiple=\"true\"\r\n        ref=\"inputFile\"\r\n      />\r\n    </div>\r\n  </div>\r\n  <div class=\"row mb-3\">\r\n    <div\r\n      class=\"col-12 col-md-6 col-lg-4 col-xl-3\"\r\n      v-for=\"image in images\"\r\n      :key=\"image\"\r\n    >\r\n      <PreviewItem :image=\"image\" @removePreview=\"removePreview\" />\r\n    </div>\r\n  </div>\r\n  <div class=\"row\">\r\n    <div\r\n      class=\"col-12 col-md-6 col-lg-4 col-xl-3\"\r\n      v-for=\"(gallery, i) in profileGallery\"\r\n      :key=\"gallery\"\r\n    >\r\n      <GalleryItem :image=\"gallery\" :index=\"i\" @removeImg=\"removeImg\" />\r\n    </div>\r\n  </div>\r\n  <div class=\"row\" v-if=\"!images\">\r\n    <div class=\"col-12 col-md-6 col-lg-4 col-xl-3\">\r\n      <img :src=\"require('@/assets/img/default-placeholder.png')\" />\r\n    </div>\r\n  </div>\r\n</template>\r\n\r\n<script>\r\nimport GalleryItem from '@/components/admin/GalleryItem';\r\nimport PreviewItem from '@/components/admin/PreviewItem';\r\n\r\n/**\r\n * @exports AdminGallery\r\n * @type {Component}\r\n * @vue-data {array} images - For previews\r\n * @vue-data {array} gallery - Current gallery in session\r\n * @vue-data {array} profileGallery - Current gallery in DB\r\n * @vue-event {array} getArtistGallery\r\n * @vue-event {array} handleChange\r\n * @vue-event {void} cleanCache\r\n * @vue-event {void} setArtistGallery\r\n * @vue-event {array} removeImg\r\n * @vue-event {array} removePreview\r\n */\r\nexport default {\r\n  name: 'AdminGallery',\r\n  components: {\r\n    GalleryItem,\r\n    PreviewItem,\r\n  },\r\n  data() {\r\n    return {\r\n      images: [],\r\n      gallery: [],\r\n      profileGallery: [],\r\n    };\r\n  },\r\n  /**\r\n   * @description Dispatch store action\r\n   * Get the resulting state and set it as profileGallery\r\n   * @method getArtistGallery\r\n   * @returns {array} thumbnail\r\n   * @async\r\n   */\r\n  async created() {\r\n    await this.$store.dispatch('getArtistGallery').then(() => {\r\n      const gallery = this.$store.state.gallery.gallery;\r\n      this.profileGallery = gallery.gallery;\r\n    });\r\n  },\r\n  methods: {\r\n    /**\r\n     * @description Call cleanCache\r\n     * Create preview URL for each image selected\r\n     * Set the resulting images to image array\r\n     * @method getArtistGallery\r\n     * @param {object} $event\r\n     * @returns {array} images\r\n     */\r\n    handleChange($event) {\r\n      this.cleanCache();\r\n      const files = $event.target.files;\r\n      this.gallery = files;\r\n      const previews = [];\r\n      if (files.length > 0) {\r\n        for (let i = 0; i < files.length; i++) {\r\n          const pictureUrl = URL.createObjectURL(files.item(i));\r\n          previews.push(pictureUrl);\r\n        }\r\n        this.images = previews;\r\n      }\r\n    },\r\n    /**\r\n     * @description Clean browser's image url cache for each URL created during the session\r\n     * @method getArtistGallery\r\n     * @param {object} $event\r\n     * @returns {void}\r\n     */\r\n    cleanCache() {\r\n      const previews = this.images;\r\n      for (const i in previews) {\r\n        if (previews[i].startsWith('blob:')) {\r\n          URL.revokeObjectURL(previews[i]);\r\n        }\r\n      }\r\n    },\r\n    /**\r\n     * @description Check if gallery already exists\r\n     * If it does, dispatch updateArtistGallery\r\n     * If it doesn't, dispatch setArtistGallery\r\n     * @method setArtistGallery\r\n     * @param {array} gallery\r\n     * @returns {void} images\r\n     * @async\r\n     */\r\n    async setArtistGallery() {\r\n      if (this.profileGallery.length) {\r\n        this.$store.dispatch('updateArtistGallery', this.gallery);\r\n        return;\r\n      }\r\n      this.$store.dispatch('setArtistGallery', this.gallery);\r\n    },\r\n    /**\r\n     * @description Remove item from current gallery array (to avoid window reload)\r\n     * Dispatch deleteImage action\r\n     * @method setArtistGallery\r\n     * @param {array} profileGallery\r\n     * @returns {array} profileGallery\r\n     */\r\n    removeImg(i) {\r\n      this.profileGallery.splice(i, 1);\r\n      this.$store.dispatch('deleteImage', this.profileGallery);\r\n    },\r\n    /**\r\n     * @description Remove item from current image preview array (to avoid window reload)\r\n     * @method setArtistGallery\r\n     * @returns {array} images\r\n     */\r\n    removePreview(i) {\r\n      this.images.splice(i, 1);\r\n    },\r\n  },\r\n};\r\n</script>\r\n"
+        "<template>\r\n  <div class=\"row\">\r\n    <div class=\"col-12 mb-4\">\r\n      <app-title mode=\"title-img\">Your gallery</app-title>\r\n    </div>\r\n    <div class=\"col-12 btn-right mt-3\" v-if=\"profileGallery\">\r\n      <div class=\"btn-group mb-3\" @click=\"updateArtistGallery\">\r\n        <app-button>Update</app-button>\r\n      </div>\r\n    </div>\r\n    <div class=\"col-12 btn-right mt-3\" v-else>\r\n      <div class=\"btn-group mb-3\" @click=\"setArtistGallery\">\r\n        <app-button>Save</app-button>\r\n      </div>\r\n    </div>\r\n    <div class=\"col-12 mb-4\">\r\n      <input\r\n        type=\"file\"\r\n        accept=\"image/*\"\r\n        @change=\"handleChange($event)\"\r\n        multiple=\"true\"\r\n        ref=\"inputFile\"\r\n      />\r\n    </div>\r\n  </div>\r\n  <div class=\"row mb-3\">\r\n    <div\r\n      class=\"col-12 col-md-6 col-lg-4 col-xl-3\"\r\n      v-for=\"image in images\"\r\n      :key=\"image\"\r\n    >\r\n      <PreviewItem :image=\"image\" @removePreview=\"removePreview\" />\r\n    </div>\r\n  </div>\r\n  <div class=\"row\">\r\n    <div\r\n      class=\"col-12 col-md-6 col-lg-4 col-xl-3\"\r\n      v-for=\"(gallery, i) in profileGallery\"\r\n      :key=\"gallery\"\r\n    >\r\n      <GalleryItem :image=\"gallery\" :index=\"i\" @removeImg=\"removeImg\" />\r\n    </div>\r\n  </div>\r\n  <div class=\"row\" v-if=\"!images\">\r\n    <div class=\"col-12 col-md-6 col-lg-4 col-xl-3\">\r\n      <img :src=\"require('@/assets/img/default-placeholder.png')\" />\r\n    </div>\r\n  </div>\r\n</template>\r\n\r\n<script>\r\nimport GalleryItem from '@/components/admin/GalleryItem';\r\nimport PreviewItem from '@/components/admin/PreviewItem';\r\n\r\n/**\r\n * @exports AdminGallery\r\n * @type {Component}\r\n * @vue-data {array} images - For previews\r\n * @vue-data {array} gallery - Current gallery in session\r\n * @vue-data {array} profileGallery - Current gallery in DB\r\n * @vue-event {array} getArtistGallery\r\n * @vue-event {array} handleChange\r\n * @vue-event {void} cleanCache\r\n * @vue-event {void} setArtistGallery\r\n * @vue-event {array} removeImg\r\n * @vue-event {array} removePreview\r\n */\r\nexport default {\r\n  name: 'AdminGallery',\r\n  components: {\r\n    GalleryItem,\r\n    PreviewItem,\r\n  },\r\n  data() {\r\n    return {\r\n      images: [],\r\n      gallery: [],\r\n      profileGallery: [],\r\n    };\r\n  },\r\n  async created() {\r\n    await this.$store.dispatch('getArtistGallery').then(() => {\r\n      const gallery = this.$store.state.gallery.gallery;\r\n      this.profileGallery = gallery.gallery;\r\n    });\r\n  },\r\n  methods: {\r\n    handleChange($event) {\r\n      this.cleanCache();\r\n      const files = $event.target.files;\r\n      this.gallery = files;\r\n      const previews = [];\r\n      if (files.length > 0) {\r\n        for (let i = 0; i < files.length; i++) {\r\n          const pictureUrl = URL.createObjectURL(files.item(i));\r\n          previews.push(pictureUrl);\r\n        }\r\n        this.images = previews;\r\n      }\r\n    },\r\n    cleanCache() {\r\n      const previews = this.images;\r\n      for (const i in previews) {\r\n        if (previews[i].startsWith('blob:')) {\r\n          URL.revokeObjectURL(previews[i]);\r\n        }\r\n      }\r\n    },\r\n    async setArtistGallery() {\r\n      await this.$store.dispatch('setArtistGallery', this.gallery);\r\n    },\r\n    async updateArtistGallery() {\r\n      await this.$store.dispatch('updateArtistGallery', this.gallery);\r\n    },\r\n    removeImg(i) {\r\n      this.profileGallery.splice(i, 1);\r\n      this.$store.dispatch('deleteImage', this.profileGallery);\r\n    },\r\n    removePreview(i) {\r\n      this.images.splice(i, 1);\r\n    },\r\n  },\r\n};\r\n</script>\r\n"
       ]
     },
     "_coverageSchema": "1a1c01bbd47fc00a2c39e90264f33305004495a9",
-    "hash": "0f3f31c010019f63601823c5ef4d55b6144e0fa9"
+    "hash": "4b57744725d12b7e9cbf7055d970bc3f736e70a9"
   },
   "C:\\xampp\\htdocs\\Ynov\\av2-linked-up\\src\\components\\admin\\GalleryItem.vue": {
     "path": "C:\\xampp\\htdocs\\Ynov\\av2-linked-up\\src\\components\\admin\\GalleryItem.vue",

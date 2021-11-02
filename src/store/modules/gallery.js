@@ -124,12 +124,9 @@ export default {
       }
 
       const updatedGallery = doc.data().gallery;
-      console.log(updatedGallery);
-      console.log(gallery);
 
       for (const i in gallery) {
         updatedGallery.push(gallery[i]);
-        console.log(updatedGallery);
       }
 
       try {
@@ -137,7 +134,7 @@ export default {
           gallery: updatedGallery,
         });
       } catch (err) {
-        console.log(err.message);
+        Sentry.captureException(err);
         return;
       }
     },
@@ -155,7 +152,7 @@ export default {
           gallery: payload,
         });
       } catch (err) {
-        console.log(err.message);
+        Sentry.captureException(err);
         return;
       }
     },

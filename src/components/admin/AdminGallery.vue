@@ -3,7 +3,12 @@
     <div class="col-12 mb-4">
       <app-title mode="title-img">Your gallery</app-title>
     </div>
-    <div class="col-12 btn-right mt-3">
+    <div class="col-12 btn-right mt-3" v-if="profileGallery">
+      <div class="btn-group mb-3" @click="updateArtistGallery">
+        <app-button>Update</app-button>
+      </div>
+    </div>
+    <div class="col-12 btn-right mt-3" v-else>
       <div class="btn-group mb-3" @click="setArtistGallery">
         <app-button>Save</app-button>
       </div>
@@ -73,13 +78,6 @@ export default {
       profileGallery: [],
     };
   },
-  /**
-   * @description Dispatch store action
-   * Get the resulting state and set it as profileGallery
-   * @method getArtistGallery
-   * @returns {array} thumbnail
-   * @async
-   */
   async created() {
     await this.$store.dispatch('getArtistGallery').then(() => {
       const gallery = this.$store.state.gallery.gallery;
@@ -87,14 +85,6 @@ export default {
     });
   },
   methods: {
-    /**
-     * @description Call cleanCache
-     * Create preview URL for each image selected
-     * Set the resulting images to image array
-     * @method getArtistGallery
-     * @param {object} $event
-     * @returns {array} images
-     */
     handleChange($event) {
       this.cleanCache();
       const files = $event.target.files;
@@ -108,12 +98,6 @@ export default {
         this.images = previews;
       }
     },
-    /**
-     * @description Clean browser's image url cache for each URL created during the session
-     * @method getArtistGallery
-     * @param {object} $event
-     * @returns {void}
-     */
     cleanCache() {
       const previews = this.images;
       for (const i in previews) {
@@ -122,38 +106,16 @@ export default {
         }
       }
     },
-    /**
-     * @description Check if gallery already exists
-     * If it does, dispatch updateArtistGallery
-     * If it doesn't, dispatch setArtistGallery
-     * @method setArtistGallery
-     * @param {array} gallery
-     * @returns {void} images
-     * @async
-     */
     async setArtistGallery() {
-      if (this.profileGallery.length) {
-        this.$store.dispatch('updateArtistGallery', this.gallery);
-        return;
-      }
-      this.$store.dispatch('setArtistGallery', this.gallery);
+      await this.$store.dispatch('setArtistGallery', this.gallery);
     },
-    /**
-     * @description Remove item from current gallery array (to avoid window reload)
-     * Dispatch deleteImage action
-     * @method setArtistGallery
-     * @param {array} profileGallery
-     * @returns {array} profileGallery
-     */
+    async updateArtistGallery() {
+      await this.$store.dispatch('updateArtistGallery', this.gallery);
+    },
     removeImg(i) {
       this.profileGallery.splice(i, 1);
       this.$store.dispatch('deleteImage', this.profileGallery);
     },
-    /**
-     * @description Remove item from current image preview array (to avoid window reload)
-     * @method setArtistGallery
-     * @returns {array} images
-     */
     removePreview(i) {
       this.images.splice(i, 1);
     },

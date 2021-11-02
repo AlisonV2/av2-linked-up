@@ -2,7 +2,7 @@
   <div class="card artist-card">
     <div class="card-overlay"></div>
     <div class="card-details fade-in-top text-center">
-      <h5 class="card-title" data-test="artist-name">{{ artist.name }}</h5>
+      <h5 class="card-title" :data-test="artist.id">{{ artist.name }}</h5>
       <p class="card-text">{{ artist.shop }}</p>
       <p class="card-text">{{ artist.city }} ({{ artist.zip }})</p>
     </div>
