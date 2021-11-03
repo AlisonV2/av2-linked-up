@@ -36,6 +36,7 @@
     "@vue/test-utils": "^2.0.0-rc.16",
     "babel-eslint": "^10.1.0",
     "babel-plugin-istanbul": "^6.1.1",
+    "babel-plugin-transform-require-context": "^0.1.1",
     "bootstrap": "^5.1.3",
     "cross-env": "^7.0.3",
     "eslint": "^6.7.2",
@@ -93,7 +94,15 @@
     "collectCoverageFrom": [
       "src/**/*.{js,vue}"
     ],
-    "coverageDirectory": "./jest-cover/"
+    "coverageDirectory": "./jest-cover/",
+    "coveragePathIgnorePatterns": [
+      "/node_modules/",
+      "/lib/",
+      "/test/",
+      "/utils/",
+      "/store/",
+      "/router/"
+    ]
   },
   "nyc": {
     "report-dir": "cypress-cover"

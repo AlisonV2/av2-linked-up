@@ -1,19 +1,21 @@
-const plugins = []
+const plugins = [];
 if (process.env.NODE_ENV === 'e2e') {
   plugins.push([
-    "babel-plugin-istanbul", {
+    'babel-plugin-istanbul',
+    {
       extension: ['.js', '.vue'],
       all: true,
-      include: [
-        "src",
-      ],
-    }
-  ])
+      include: ['src'],
+    },
+  ]);
 }
 
 module.exports = {
-  presets: [
-    '@vue/cli-plugin-babel/preset'
-  ],
-  plugins
-}
+  presets: ['@vue/cli-plugin-babel/preset'],
+  plugins,
+  env: {
+    test: {
+      plugins: ['transform-require-context']
+    }
+  }
+};

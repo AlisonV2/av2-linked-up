@@ -34,6 +34,8 @@ import * as Sentry from '@sentry/vue';
  * @vue-data {string} address - stores user's address from geoloc
  * @vue-event {object} getGeoloc - get current location
  * @vue-event {string} setGeoloc - sets current location as input value
+ * @vue-event {string} searchByGeoloc - dispatch store action
+ * @vue-event {string} setGeoloc - sets current location as input value
  * @vue-event handleSubmit - dispatches store action and redirects to results page
  */
 export default {
@@ -75,38 +77,31 @@ export default {
      */
     async setGeoloc(coords) {
       let response;
-      await fetch(
-        process.env.VUE_APP_MAPQUEST_API + coords.lat + ',' + coords.lng
-      )
+      fetch(process.env.VUE_APP_MAPQUEST_API + coords.lat + ',' + coords.lng)
         .then((res) => res.json())
         .then((data) => (response = data))
         .catch((err) => Sentry.captureException(err));
 
-      const location = response.results[0].locations[0];
-      const city = location.adminArea5;
-      const zip = location.postalCode;
-      this.location = city;
+      const res = response.results[0].locations[0];
+      this.location = res.adminArea5;
+      const zip = res.postalCode;
       this.loc = zip.substring(0, 2);
       this.geoloc = true;
     },
     /**
-     * @description Sent input's value to store and redirects to results page
-     * @method setGeoloc
+     * @description Dispatch store action
+     * @method searchByGeoloc
+     * @param {string} loc
      * @async
      */
-    handleSubmit() {
-      if (this.geoloc) {
-        this.searchByGeoloc();
-      } else {
-        this.searchByCity();
-      }
-    },
     async searchByGeoloc() {
-      await this.$store
-        .dispatch('getArtistsByCity', this.loc)
-        .then(() => this.$router.push({ name: 'GeoResults' }))
-        .catch((err) => Sentry.captureException(err));
+      await this.$store.dispatch('getArtistsByCity', this.loc);
     },
+    /**
+     * @description Dispatch store action
+     * @method searchByCity
+     * @async
+     */
     async searchByCity() {
       this.geoloc = false;
       let code;
@@ -117,9 +112,24 @@ export default {
         .then((res) => res.json())
         .then((data) => (code = data[0].departement.code))
         .catch((err) => Sentry.captureException(err));
-
       await this.$store.dispatch('getArtistsByCity', code);
-      await this.$router.push({ name: 'GeoResults' });
+    },
+    /**
+     * @description Checks if input value is from geoloc or manual input
+     * @method handleSubmit
+     * @param {boolean} geoloc
+     * @async
+     */
+    handleSubmit() {
+      if (this.geoloc) {
+        this.searchByGeoloc()
+          .then(() => this.$router.push({ name: 'GeoResults' }))
+          .catch((err) => Sentry.captureException(err));
+      } else {
+        this.searchByCity()
+          .then(() => this.$router.push({ name: 'GeoResults' }))
+          .catch((err) => Sentry.captureException(err));
+      }
     },
   },
 };

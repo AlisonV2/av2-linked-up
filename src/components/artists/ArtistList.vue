@@ -40,11 +40,12 @@ export default {
    * @async
    */
   async created() {
-    await this.$store.dispatch('getAllArtists')
-    .then(() => {
-      this.artists = this.$store.getters.getAllArtists;
-    })
-    .catch((err) => Sentry.captureException(err));
+    await this.$store
+      .dispatch('getAllArtists')
+      .then(() => {
+        this.artists = this.$store.getters.getAllArtists;
+      })
+      .catch((err) => Sentry.captureException(err));
   },
 };
 </script>
