@@ -13,6 +13,16 @@ Ynov M1 Majeure - Coordination Front/Back
 
 dev.html can be found in the root directory.
 This file links to documentation, e2e report and unit report.
+A build report can also be found.
+To be able to see it, run :
+
+```sh
+npm run build
+
+# Or
+npm run build-report
+```
+
 
 ## Automation
 
@@ -23,7 +33,7 @@ This file links to documentation, e2e report and unit report.
 - Jest : Tests coverage can be found in jest-cover/index.html
 - Cypress: Tests coverage can be found in cypress-cover/index.html
 
-To run cypress with coverage (using Instanbul), run : <code
+To run cypress with coverage (using Instanbul), run :
 
 ```sh
 npm run cover
@@ -67,6 +77,22 @@ For now, test mode is enable so it doesn't block any PRs.
 
 - Reverse Geocode (MapQuest)
 - Geo API Gouv
+
+## Performance
+
+Sentry is implemented for monitoring and includes performance data.
+A build report can also be viewed in dist/report.html.
+To generate a new report, run : 
+
+```sh
+npm run build-report
+```
+
+If you have Vue CLI globally installed, the data is also available with 
+
+```sh
+vue ui
+```
 
 ## Project setup
 
