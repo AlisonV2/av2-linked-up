@@ -17,6 +17,7 @@
  * @vue-event {number} removeImg - Emits removeImg event and passes index as data
  */
 export default {
+  name: 'GalleryItem',
   props: ['image', 'index'],
   methods: {
     deleteImg() {

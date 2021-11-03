@@ -22,30 +22,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/8</span>
+                <span class='fraction'>8/8</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/2</span>
+                <span class='fraction'>2/2</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/2</span>
+                <span class='fraction'>2/2</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>0/8</span>
+                <span class='fraction'>8/8</span>
             </div>
         
             
@@ -54,7 +54,7 @@
             Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
         </p>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line high'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -114,9 +114,9 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -127,7 +127,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -136,14 +136,14 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -162,9 +162,9 @@
 &lt;/template&gt;
 &nbsp;
 &lt;script&gt;
-<span class="cstat-no" title="statement not covered" >import AppNavbar from '@/components/nav/Navbar';</span>
-<span class="cstat-no" title="statement not covered" >import AppFooter from '@/components/nav/Footer';</span>
-<span class="cstat-no" title="statement not covered" >import AdminNav from '@/components/admin/AdminNav';</span>
+import AppNavbar from '@/components/nav/Navbar';
+import AppFooter from '@/components/nav/Footer';
+import AdminNav from '@/components/admin/AdminNav';
 &nbsp;
 /**
  * @exports App
@@ -175,7 +175,7 @@
  * @vue-computed {boolean} requireAuth - Checks if current route requires authentication
  * @vue-event {boolean} initLogin - Dispatch initLogin to store on created() hook
  */
-export default <span class="cstat-no" title="statement not covered" >{</span>
+export default {
   name: 'App',
   components: {
     AppNavbar,
@@ -183,15 +183,15 @@ export default <span class="cstat-no" title="statement not covered" >{</span>
     AdminNav,
   },
   computed: {
-<span class="fstat-no" title="function not covered" >    requiresAuth(</span>) {
-<span class="cstat-no" title="statement not covered" >      if (this.$route.meta.requiresAuth) {</span>
-<span class="cstat-no" title="statement not covered" >        return t</span>rue;
+    requiresAuth() {
+      if (this.$route.meta.requiresAuth) {
+        return true;
       }
-<span class="cstat-no" title="statement not covered" >      return f</span>alse;
+      return false;
     },
   },
-<span class="fstat-no" title="function not covered" >  created(</span>) {
-<span class="cstat-no" title="statement not covered" >    this.$</span>store.dispatch('initLogin');
+  created() {
+    this.$store.dispatch('initLogin');
   },
 };
 &lt;/script&gt;
@@ -207,7 +207,7 @@ main {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Tue Nov 02 2021 18:52:20 GMT+0100 (Central European Standard Time)
+                at Wed Nov 03 2021 17:00:45 GMT+0100 (Central European Standard Time)
             </div>
         </div>
         <script src="..\prettify.js"></script>
