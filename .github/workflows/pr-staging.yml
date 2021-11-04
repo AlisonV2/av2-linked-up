@@ -35,7 +35,3 @@ jobs:
         run: npm run lint
       - name: Run tests
         run: npm run test:unit
-      - name: Report to coverall
-        uses: coverallsapp/github-action@master
-        with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
