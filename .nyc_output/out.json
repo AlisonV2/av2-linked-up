@@ -126,19 +126,19 @@
       }
     },
     "s": {
-      "0": 39,
-      "1": 2,
-      "2": 37,
+      "0": 43,
+      "1": 3,
+      "2": 40,
       "3": 11
     },
     "f": {
-      "0": 39,
+      "0": 43,
       "1": 11
     },
     "b": {
       "0": [
-        2,
-        37
+        3,
+        40
       ]
     },
     "inputSourceMap": {
@@ -318,15 +318,15 @@
       }
     },
     "s": {
-      "0": 17,
-      "1": 13,
+      "0": 20,
+      "1": 14,
       "2": 0,
       "3": 0,
       "4": 0
     },
     "f": {
-      "0": 17,
-      "1": 13,
+      "0": 20,
+      "1": 14,
       "2": 0
     },
     "b": {
@@ -638,18 +638,18 @@
       }
     },
     "s": {
-      "0": 2,
-      "1": 2,
-      "2": 2,
-      "3": 2
+      "0": 3,
+      "1": 3,
+      "2": 3,
+      "3": 3
     },
     "f": {
-      "0": 2,
-      "1": 2
+      "0": 3,
+      "1": 3
     },
     "b": {
       "0": [
-        2,
+        3,
         0
       ]
     },
@@ -1436,44 +1436,44 @@
       }
     },
     "s": {
-      "0": 4,
+      "0": 6,
       "1": 1,
-      "2": 0,
-      "3": 0,
-      "4": 0,
+      "2": 1,
+      "3": 1,
+      "4": 1,
       "5": 0,
-      "6": 0,
+      "6": 1,
       "7": 0,
-      "8": 0,
-      "9": 0,
-      "10": 0,
+      "8": 1,
+      "9": 1,
+      "10": 1,
       "11": 2,
       "12": 2,
       "13": 11,
       "14": 11,
       "15": 0,
-      "16": 2,
-      "17": 2
+      "16": 3,
+      "17": 3
     },
     "f": {
-      "0": 4,
+      "0": 6,
       "1": 1,
       "2": 2,
       "3": 11,
-      "4": 2
+      "4": 3
     },
     "b": {
       "0": [
-        0,
+        1,
         0
       ],
       "1": [
         0,
-        0
+        1
       ],
       "2": [
         0,
-        0
+        1
       ],
       "3": [
         0,
@@ -2370,7 +2370,7 @@
     "s": {
       "0": 0,
       "1": 0,
-      "2": 1,
+      "2": 0,
       "3": 0,
       "4": 0,
       "5": 0,
@@ -2417,25 +2417,25 @@
       "46": 0,
       "47": 0,
       "48": 0,
-      "49": 4,
-      "50": 4,
+      "49": 6,
+      "50": 6,
       "51": 2,
-      "52": 1,
+      "52": 0,
       "53": 0,
-      "54": 1,
-      "55": 1,
-      "56": 5
+      "54": 0,
+      "55": 0,
+      "56": 6
     },
     "f": {
       "0": 0,
       "1": 0,
-      "2": 1,
+      "2": 0,
       "3": 0,
       "4": 0,
       "5": 0,
       "6": 0,
-      "7": 4,
-      "8": 5
+      "7": 6,
+      "8": 6
     },
     "b": {
       "0": [
@@ -2448,7 +2448,7 @@
       ],
       "2": [
         0,
-        1
+        0
       ]
     },
     "_coverageSchema": "1a1c01bbd47fc00a2c39e90264f33305004495a9",
@@ -2989,7 +2989,7 @@
       }
     },
     "s": {
-      "0": 4,
+      "0": 6,
       "1": 2,
       "2": 0,
       "3": 0,
@@ -2997,33 +2997,33 @@
       "5": 0,
       "6": 0,
       "7": 0,
-      "8": 2,
-      "9": 2,
+      "8": 3,
+      "9": 3,
       "10": 2,
       "11": 2,
       "12": 0,
-      "13": 4,
-      "14": 4,
-      "15": 4,
+      "13": 6,
+      "14": 6,
+      "15": 6,
       "16": 0,
-      "17": 4,
+      "17": 6,
       "18": 2,
       "19": 2,
       "20": 2,
-      "21": 8,
+      "21": 6,
       "22": 2,
-      "23": 8,
+      "23": 12,
       "24": 2
     },
     "f": {
-      "0": 4,
+      "0": 6,
       "1": 2,
       "2": 0,
-      "3": 2,
-      "4": 4,
+      "3": 3,
+      "4": 6,
       "5": 2,
-      "6": 8,
-      "7": 8,
+      "6": 6,
+      "7": 12,
       "8": 2
     },
     "b": {
@@ -3033,7 +3033,7 @@
       ],
       "1": [
         0,
-        4
+        6
       ]
     },
     "_coverageSchema": "1a1c01bbd47fc00a2c39e90264f33305004495a9",
@@ -4347,7 +4347,7 @@
       }
     },
     "s": {
-      "0": 13,
+      "0": 14,
       "1": 0,
       "2": 0,
       "3": 0,
@@ -4378,7 +4378,7 @@
       "28": 0
     },
     "f": {
-      "0": 13,
+      "0": 14,
       "1": 0,
       "2": 0,
       "3": 0,
@@ -5374,10 +5374,10 @@
       "1": 1,
       "2": 1,
       "3": 1,
-      "4": 1,
-      "5": 1,
-      "6": 1,
-      "7": 0
+      "4": 0,
+      "5": 0,
+      "6": 0,
+      "7": 1
     },
     "f": {
       "0": 3,
@@ -5394,11 +5394,11 @@
       "file": "C:/xampp/htdocs/Ynov/av2-linked-up/src/components/auth/RegisterForm.vue",
       "sourceRoot": "",
       "sourcesContent": [
-        "<template>\r\n  <form class=\"auth-form\" @submit.prevent=\"register\">\r\n    <div class=\"row\">\r\n      <app-title mode=\"title-img\">Glad you join us!</app-title>\r\n    </div>\r\n    <div class=\"form-floating mb-3\">\r\n      <input\r\n        type=\"text\"\r\n        class=\"form-control\"\r\n        placeholder=\"Your name\"\r\n        v-model=\"name\"\r\n        required\r\n      />\r\n      <label>Public Name</label>\r\n    </div>\r\n    <div class=\"form-floating mb-3\">\r\n      <input\r\n        type=\"email\"\r\n        class=\"form-control\"\r\n        placeholder=\"name@example.com\"\r\n        v-model=\"email\"\r\n        required\r\n      />\r\n      <label>Email</label>\r\n    </div>\r\n    <div class=\"form-floating mb-3\">\r\n      <input\r\n        type=\"password\"\r\n        class=\"form-control\"\r\n        placeholder=\"Password\"\r\n        v-model=\"password\"\r\n        required\r\n      />\r\n      <label>Password</label>\r\n    </div>\r\n    <div>\r\n      <select class=\"form-select\" v-model=\"role\" required>\r\n        <option disabled value=\"\">You are...</option>\r\n        <option value=\"artist\">An artist</option>\r\n        <option value=\"client\">A (future) client</option>\r\n        <option value=\"organizer\">An organizer</option>\r\n      </select>\r\n    </div>\r\n    <div class=\"error mb-3 mt-3\">{{ error }}</div>\r\n    <div class=\"btn-center\">\r\n      <app-button>Sign up</app-button>\r\n    </div>\r\n  </form>\r\n</template>\r\n\r\n<script>\r\nimport * as Sentry from '@sentry/vue';\r\n\r\n/**\r\n * @exports RegisterForm\r\n * @type {Component}\r\n * @requires Sentry\r\n * @vue-data {string} name - v-model\r\n * @vue-data {string} email - v-model\r\n * @vue-data {string} password - v-model\r\n * @vue-data {string} role - v-model\r\n * @vue-data {string} error\r\n * @vue-event register\r\n */\r\nexport default {\r\n  name: 'RegisterForm',\r\n  data() {\r\n    return {\r\n      name: '',\r\n      email: '',\r\n      password: '',\r\n      role: '',\r\n      error: null,\r\n    };\r\n  },\r\n  methods: {\r\n    /**\r\n     * @description Dispatch register store action with form data\r\n     * Redirect to AdminProfile on success\r\n     * @method register\r\n     * @param {object} userData\r\n     * @async\r\n     */\r\n    async register() {\r\n      const userData = {\r\n        name: this.name,\r\n        email: this.email,\r\n        password: this.password,\r\n        role: this.role,\r\n      };\r\n      try {\r\n        await this.$store.dispatch('register', userData);\r\n      } catch (err) {\r\n        this.error = err.message;\r\n        Sentry.captureException(err);\r\n        return;\r\n      }\r\n      this.$router.push({ name: 'AdminProfile' });\r\n    },\r\n  },\r\n};\r\n</script>\r\n"
+        "<template>\r\n  <form class=\"auth-form\" @submit.prevent=\"register\">\r\n    <div class=\"row\">\r\n      <app-title mode=\"title-img\">Glad you join us!</app-title>\r\n    </div>\r\n    <div class=\"form-floating mb-3\">\r\n      <input\r\n        type=\"text\"\r\n        class=\"form-control\"\r\n        placeholder=\"Your name\"\r\n        v-model=\"name\"\r\n        required\r\n      />\r\n      <label>Public Name</label>\r\n    </div>\r\n    <div class=\"form-floating mb-3\">\r\n      <input\r\n        type=\"email\"\r\n        class=\"form-control\"\r\n        placeholder=\"name@example.com\"\r\n        v-model=\"email\"\r\n        required\r\n      />\r\n      <label>Email</label>\r\n    </div>\r\n    <div class=\"form-floating mb-3\">\r\n      <input\r\n        type=\"password\"\r\n        class=\"form-control\"\r\n        placeholder=\"Password\"\r\n        v-model=\"password\"\r\n        required\r\n      />\r\n      <label>Password</label>\r\n    </div>\r\n    <div>\r\n      <select class=\"form-select\" v-model=\"role\" required>\r\n        <option disabled value=\"\">You are...</option>\r\n        <option value=\"artist\">An artist</option>\r\n        <option value=\"client\">A (future) client</option>\r\n        <option value=\"organizer\">An organizer</option>\r\n      </select>\r\n    </div>\r\n    <div class=\"error mb-3 mt-3\">{{ error }}</div>\r\n    <div class=\"btn-center\">\r\n      <app-button mode=\"signup-btn\">Sign up</app-button>\r\n    </div>\r\n  </form>\r\n</template>\r\n\r\n<script>\r\nimport * as Sentry from '@sentry/vue';\r\n\r\n/**\r\n * @exports RegisterForm\r\n * @type {Component}\r\n * @requires Sentry\r\n * @vue-data {string} name - v-model\r\n * @vue-data {string} email - v-model\r\n * @vue-data {string} password - v-model\r\n * @vue-data {string} role - v-model\r\n * @vue-data {string} error\r\n * @vue-event register\r\n */\r\nexport default {\r\n  name: 'RegisterForm',\r\n  data() {\r\n    return {\r\n      name: '',\r\n      email: '',\r\n      password: '',\r\n      role: '',\r\n      error: null,\r\n    };\r\n  },\r\n  methods: {\r\n    /**\r\n     * @description Dispatch register store action with form data\r\n     * Redirect to AdminProfile on success\r\n     * @method register\r\n     * @param {object} userData\r\n     * @async\r\n     */\r\n    async register() {\r\n      const userData = {\r\n        name: this.name,\r\n        email: this.email,\r\n        password: this.password,\r\n        role: this.role,\r\n      };\r\n      try {\r\n        await this.$store.dispatch('register', userData);\r\n      } catch (err) {\r\n        this.error = err.message;\r\n        Sentry.captureException(err);\r\n        return;\r\n      }\r\n      this.$router.push({ name: 'AdminProfile' });\r\n    },\r\n  },\r\n};\r\n</script>\r\n"
       ]
     },
     "_coverageSchema": "1a1c01bbd47fc00a2c39e90264f33305004495a9",
-    "hash": "c7cf0e3d41c2e5870def3140a51e7c3577b75b6b"
+    "hash": "47d82df73de047b093bb62f52ca447f8890f3703"
   },
   "C:\\xampp\\htdocs\\Ynov\\av2-linked-up\\src\\components\\auth\\LoginForm.vue": {
     "path": "C:\\xampp\\htdocs\\Ynov\\av2-linked-up\\src\\components\\auth\\LoginForm.vue",
@@ -5686,15 +5686,15 @@
     },
     "branchMap": {},
     "s": {
-      "0": 4,
-      "1": 4,
-      "2": 5,
-      "3": 8
+      "0": 6,
+      "1": 6,
+      "2": 6,
+      "3": 12
     },
     "f": {
-      "0": 4,
-      "1": 5,
-      "2": 8
+      "0": 6,
+      "1": 6,
+      "2": 12
     },
     "b": {},
     "inputSourceMap": {
@@ -6526,8 +6526,8 @@
       }
     },
     "s": {
-      "0": 2,
-      "1": 2,
+      "0": 3,
+      "1": 3,
       "2": 2,
       "3": 2,
       "4": 0,
@@ -6558,8 +6558,8 @@
       "29": 0
     },
     "f": {
-      "0": 2,
-      "1": 2,
+      "0": 3,
+      "1": 3,
       "2": 2,
       "3": 2,
       "4": 0,
@@ -7542,25 +7542,25 @@
       "0": 11,
       "1": 11,
       "2": 11,
-      "3": 28,
-      "4": 28,
-      "5": 26,
-      "6": 26,
-      "7": 2,
-      "8": 2,
+      "3": 32,
+      "4": 32,
+      "5": 29,
+      "6": 29,
+      "7": 3,
+      "8": 3,
       "9": 0
     },
     "f": {
-      "0": 28,
-      "1": 28
+      "0": 32,
+      "1": 32
     },
     "b": {
       "0": [
-        26,
-        2
+        29,
+        3
       ],
       "1": [
-        2,
+        3,
         0
       ]
     },
@@ -7884,7 +7884,7 @@
     },
     "s": {
       "0": 11,
-      "1": 15,
+      "1": 17,
       "2": 11,
       "3": 11,
       "4": 11,
@@ -7893,12 +7893,12 @@
       "7": 11
     },
     "f": {
-      "0": 15
+      "0": 17
     },
     "b": {
       "0": [
         11,
-        4
+        6
       ]
     },
     "_coverageSchema": "1a1c01bbd47fc00a2c39e90264f33305004495a9",

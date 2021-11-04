@@ -103,26 +103,10 @@
       "/lib/",
       "/test/",
       "/utils/",
-      "/store/",
-      "/router/",
       "main.js"
-    ],
-    "coverageReporters": [
-      "text",
-      "text-summary",
-      "lcov",
-      "json",
-      "html"
     ]
   },
   "nyc": {
-    "report-dir": "cypress-cover",
-    "reporter": [
-      "text",
-      "text-summary",
-      "lcov",
-      "json",
-      "html"
-    ]
+    "report-dir": "cypress-cover"
   }
 }

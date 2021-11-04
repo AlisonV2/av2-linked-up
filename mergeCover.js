@@ -20,10 +20,7 @@
  );
 
  fs.emptyDirSync('./coverage');
- // Run "nyc merge" inside the reports folder, merging the two coverage files into one,
- // then generate the final report on the coverage folder
+
  run([
-   // "nyc merge" will create a "coverage.json" file on the root, we move it to .nyc_output
-   'cross-env NODE_ENV=e2e npx nyc merge reports temp/coverage.json',
-   'cross-env NODE_ENV=e2e npx nyc report --temp-dir reports --reporter lcov --report-dir coverage'
+   'cross-env NODE_ENV=e2e npx nyc merge reports cover/coverage.json && cross-env NODE_ENV=e2e npx nyc report --temp-dir reports --reporter lcov --report-dir cover'
  ]);
