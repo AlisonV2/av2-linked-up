@@ -32,17 +32,13 @@
         </div>
       </div>
     </div>
-        <div class="row mb-3">
+    <div class="row mb-3" v-if="gallery.length">
       <app-title mode="profile-title-img">Gallery</app-title>
     </div>
     <div class="row">
-      <div
-        class="col-auto"
-        v-for="img in gallery"
-        :key="img"
-      >
+      <div class="col-12 col-md-6 col-lg-3 col-xl-2" v-for="img in gallery" :key="img">
         <div class="card gallery-card">
-        <img :src="img" class="card-img-top" />
+          <img :src="img" class="card-img-top" />
         </div>
       </div>
     </div>
@@ -53,38 +49,23 @@
 /**
  * @exports ArtistProfile
  * @type {Page}
- * @vue-data {array} gallery - Returned from store
- * @vue-data {object} artist - Returned from store
+ * @vue-computed {array} gallery - Returned from store
+ * @vue-computed {object} artist - Returned from store
  * @vue-event created - Dispatch store action on created hook
  */
 export default {
   name: 'ArtistProfile',
-  data() {
-    return {
-      gallery: [],
-      artist: {},
-    };
-  },
-      /**
-     * Dispatch store action : Get artist by id based on route params
-     * Dispatch store action to get artist's gallery based on route params
-     * Set gallery to results returned from store
-     * Set artist to results returned from store
-     * @param {string} id
-     * @returns {object} artist
-     * @return {array} gallery
-     * @async
-     */
   async created() {
-    await this.$store
-      .dispatch('getArtistById', this.$route.params.id)
-      .then(() =>
-        this.$store.dispatch('getGalleryFromId', this.$route.params.id)
-      )
-      .then(() => {
-        this.artist = this.$store.getters.getProfile;
-        this.gallery = this.$store.getters.getGalleryFromId;
-      });
+    await this.$store.dispatch('getArtistById', this.$route.params.id);
+    await this.$store.dispatch('getGalleryFromId', this.$route.params.id);
+  },
+  computed: {
+    gallery() {
+      return this.$store.getters.getGalleryFromId;
+    },
+    artist() {
+      return this.$store.getters.getArtistProfile;
+    },
   },
 };
 </script>

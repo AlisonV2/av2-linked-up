@@ -1,11 +1,5 @@
 <template>
   <div class="container">
-    <div class="row">
-      <div class="col-12 text-center">
-        <h2 class="accent-text mb-4">Sorry, no artist found.</h2>
-        <router-link :to="{ name: 'Home'}">Go back</router-link>
-      </div>
-    </div>
     <div class="row" v-if="artists.length">
       <div
         class="col-8 col-md-6 col-lg-4 col-xl-3 artists-list"
@@ -15,6 +9,12 @@
         <router-link :to="{ name: 'Profile', params: { id: artist.id } }">
           <ArtistItem :artist="artist" />
         </router-link>
+      </div>
+    </div>
+    <div class="row" v-else>
+      <div class="col-12 text-center">
+        <h2 class="accent-text mb-4">Sorry, no artist found.</h2>
+        <router-link :to="{ name: 'Home' }">Go back</router-link>
       </div>
     </div>
   </div>
@@ -42,7 +42,6 @@ export default {
   },
   created() {
     this.artists = this.$store.state.search.artistsByCity;
-    console.log(this.artists)
   },
 };
 </script>

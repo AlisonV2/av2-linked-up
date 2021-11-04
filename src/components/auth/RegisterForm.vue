@@ -43,15 +43,18 @@
     </div>
     <div class="error mb-3 mt-3">{{ error }}</div>
     <div class="btn-center">
-      <app-button>Sign up</app-button>
+      <app-button mode="signup-btn">Sign up</app-button>
     </div>
   </form>
 </template>
 
 <script>
+import * as Sentry from '@sentry/vue';
+
 /**
  * @exports RegisterForm
  * @type {Component}
+ * @requires Sentry
  * @vue-data {string} name - v-model
  * @vue-data {string} email - v-model
  * @vue-data {string} password - v-model
@@ -89,6 +92,7 @@ export default {
         await this.$store.dispatch('register', userData);
       } catch (err) {
         this.error = err.message;
+        Sentry.captureException(err);
         return;
       }
       this.$router.push({ name: 'AdminProfile' });

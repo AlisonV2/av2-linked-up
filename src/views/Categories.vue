@@ -39,28 +39,27 @@
 </template>
 
 <script>
+import * as Sentry from '@sentry/vue';
+
 /**
  * @exports Categories
  * @type {Page}
+ * @requires Sentry
  * @vue-data {array} artists - Artists accessed from store categories module
- * @vue-event setCategory - VuexAction - Dispatch store action
+ * @vue-event setCategory - Calls getArtists and redirects to CategoriesResults page
+ * @vue-event getArtists - VuexAction - Dispatch store action
  */
 export default {
   name: 'Categories',
   methods: {
-    /**
-     * Get category choice and redirect to CategoriesResults
-     * Dispatch store action to get artists based on category selected
-     * @function setCategory
-     * @param {string} payload
-     * @async
-     */
-    async setCategory(data) {
-      await this.$store
-        .dispatch('getArtistsByStyle', data)
-        .then(() => this.$router.push({ name: 'CategoriesResults' }));
+    async getArtists(data) {
+      await this.$store.dispatch('getArtistsByStyle', data);
+    },
+    setCategory(data) {
+      this.getArtists(data)
+        .then(() => this.$router.push({ name: 'CategoriesResults' }))
+        .catch((err) => Sentry.captureException(err));
     },
   },
 };
 </script>
-

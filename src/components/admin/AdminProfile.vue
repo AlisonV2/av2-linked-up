@@ -1,13 +1,15 @@
 <template>
   <div class="row">
     <app-title mode="title-img">Your profile</app-title>
-    <div class="toast-success" v-if="showSuccessToast">
-      Update successful
-    </div>
+    <div class="toast-success" v-if="showSuccessToast">Update successful</div>
     <div class="toast-error" v-if="showErrorToast">
       Oops... Something went wrong :(
     </div>
     <div class="col-12 col-lg-4 mt-4">
+      <div class="mt-3">
+        <input type="file" @change="setPreviewImage($event)" />
+        <div class="error">{{ fileErr }}</div>
+      </div>
       <img
         :src="
           previewImage
@@ -18,9 +20,8 @@
         height="250"
         class="img-fluid"
       />
-      <div class="mt-3">
-        <input type="file" @change="setPreviewImage($event)" />
-        <div class="error">{{ fileErr }}</div>
+      <div class="btn-center mt-3" @click="setArtistThumbnail">
+        <app-button mode="save-btn">Save</app-button>
       </div>
       <!-- <div class="error">{{ fileError }}</div> -->
     </div>
@@ -109,9 +110,12 @@
 </template>
 
 <script>
+import * as Sentry from '@sentry/vue';
+
 /**
  * @exports AdminProfile
  * @type {Component}
+ * @requires Sentry
  * @vue-data {array} previewImage
  * @vue-data {object} profile
  * @vue-data {boolean} showSuccessToast
@@ -121,6 +125,7 @@
  * @vue-event {object} getArtistProfile
  * @vue-event {string} setPreviewImage
  * @vue-event {string} setArtistProfile
+ * @vue-event {string} setArtistThumbnail
  */
 export default {
   name: 'AdminProfile',
@@ -133,7 +138,6 @@ export default {
         zip: '',
         shop: '',
         style: '',
-        thumbnail: '',
         socialLink: '',
         insta: '',
         description: '',
@@ -144,12 +148,6 @@ export default {
       fileErr: null,
     };
   },
-  /**
-   * @description Get artistProfile
-   * Set profile.thumbnail as previewUrl
-   * @method getArtistProfile
-   * @returns {object}
-   */
   async created() {
     await this.$store
       .dispatch('getArtistProfile')
@@ -158,25 +156,11 @@ export default {
       })
       .then(() => {
         this.previewImage = this.profile.thumbnail;
-      });
+      })
+      .catch((err) => Sentry.captureException(err));
   },
   methods: {
-    /**
-     * @description Set preview image url
-     * Check file type
-     * Set fileSelected as previewImage
-     * Send fileSelected to DB
-     * @method setPreviewImage
-     * @param {object} $event
-     * @returns {string}
-     */
     setPreviewImage($event) {
-      // this.profile.thumbnail = '';
-
-      // if (this.previewImage.startsWith('blob:')) {
-      //   URL.revokeObjectURL(this.previewImage);
-      // }
-
       const file = $event.target.files[0];
       const types = ['image/png', 'image/jpeg'];
 
@@ -189,57 +173,51 @@ export default {
         this.fileErr = 'Please select an image file (png or jpeg).';
       }
     },
-    /**
-     * @description Set thumbnailUrl
-     * Get thumbnail Url from store
-     * Dispatch store action with profile data
-     * Show success/error toast
-     * @method setArtistProfile
-     * @param {object} profileData
-     * @returns {string} thumbnail
-     * @returns {boolean} showSuccessToast
-     * @returns {boolean} showErrorToast
-     * @async
-     */
+    setArtistThumbnail() {
+      this.$store
+        .dispatch('setArtistThumbnail', this.fileSelected)
+        .then(() => {
+          this.showSuccess();
+        })
+        .catch((err) => {
+          this.showError(err);
+        });
+    },
     async setArtistProfile() {
-      const file = this.fileSelected;
-      this.showToast = false;
-      let thumbnail;
-      let profileData;
-
-      try {
-        await this.$store
-          .dispatch('setArtistThumbnail', file)
-          .then(async () => {
-            thumbnail = await this.$store.state.profile.thumbnailUrl;
-          })
-          .then(async () => {
-            profileData = {
-              name: this.profile.name,
-              city: this.profile.city,
-              zip: this.profile.zip,
-              shop: this.profile.shop,
-              style: this.profile.style,
-              thumbnail: thumbnail,
-              socialLink: this.profile.socialLink,
-              insta: this.profile.insta,
-              description: this.profile.description,
-            };
-            await this.$store.dispatch('setArtistProfile', profileData);
-            this.showSuccessToast = true;
-            this.showErrorToast = false;
-            setTimeout(() => {
-              this.showSuccessToast = false;
-            }, 3000);
-          });
-      } catch (err) {
-        this.showErrorToast = true;
+      const profileData = {
+        name: this.profile.name,
+        city: this.profile.city,
+        zip: this.profile.zip,
+        shop: this.profile.shop,
+        style: this.profile.style,
+        socialLink: this.profile.socialLink,
+        insta: this.profile.insta,
+        description: this.profile.description,
+      };
+      await this.$store
+        .dispatch('setArtistProfile', profileData)
+        .then(() => {
+          this.showSuccess();
+          window.location.reload();
+        })
+        .catch((err) => {
+          this.showError(err);
+        });
+    },
+    showSuccess() {
+      this.showSuccessToast = true;
+      this.showErrorToast = false;
+      setTimeout(() => {
         this.showSuccessToast = false;
-        console.log(err);
-        setTimeout(() => {
-          this.showErrorToast = false;
-        }, 3000);
-      }
+      }, 3000);
+    },
+    showError(err) {
+      this.showErrorToast = true;
+      this.showSuccessToast = false;
+      Sentry.captureException(err);
+      setTimeout(() => {
+        this.showErrorToast = false;
+      }, 3000);
     },
   },
 };

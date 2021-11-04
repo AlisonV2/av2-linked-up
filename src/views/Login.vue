@@ -3,13 +3,13 @@
     <div v-if="showLogin">
       <LoginForm />
       <p class="mt-3 text-center">
-        No account yet? <span class="toggle-form" @click="showLogin = false">Sign up</span> instead
+        No account yet? <span class="toggle-form show-signup" @click="showLogin = false">Sign up</span> instead
       </p>
     </div>
     <div v-else>
       <RegisterForm />
       <p class="mt-3 text-center">
-        Already registered? <span class="toggle-form" @click="showLogin = true">Log in</span> instead
+        Already registered? <span class="toggle-form show-login" @click="showLogin = true">Log in</span> instead
       </p>
     </div>
   </div>

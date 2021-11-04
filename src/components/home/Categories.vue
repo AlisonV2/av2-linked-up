@@ -42,9 +42,11 @@
 </template>
 
 <script>
+import * as Sentry from '@sentry/vue';
 /**
  * @exports HomeCategories
  * @type {Component}
+ * @requires Sentry
  * @vue-event setCategory - Dispatch getArtistsByStyle store action
  */
 export default {
@@ -59,7 +61,8 @@ export default {
     async setCategory(data) {
       await this.$store
         .dispatch('getArtistsByStyle', data)
-        .then(() => this.$router.push({ name: 'CategoriesResults' }));
+        .then(() => this.$router.push({ name: 'CategoriesResults' }))
+        .catch((err) => Sentry.captureException(err));
     },
   },
 };

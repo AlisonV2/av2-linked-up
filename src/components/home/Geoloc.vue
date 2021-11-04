@@ -8,6 +8,7 @@
           placeholder="Enter your city"
           id="autocomplete"
           v-model="location"
+          autocomplete
         />
         <span class="input-group-text material-icons" @click="getGeoloc"
           >place</span
@@ -21,14 +22,19 @@
 </template>
 
 <script>
+import * as Sentry from '@sentry/vue';
+
 /**
  * @exports HomeGeoloc
  * @type {Component}
+ * @requires Sentry
  * @vue-data {object} coords - Stores current location
  * @vue-data {string} location - v-model
  * @vue-data {string} city - stores user's city from geoloc
  * @vue-data {string} address - stores user's address from geoloc
  * @vue-event {object} getGeoloc - get current location
+ * @vue-event {string} setGeoloc - sets current location as input value
+ * @vue-event {string} searchByGeoloc - dispatch store action
  * @vue-event {string} setGeoloc - sets current location as input value
  * @vue-event handleSubmit - dispatches store action and redirects to results page
  */
@@ -42,6 +48,8 @@ export default {
       location: '',
       city: '',
       address: '',
+      geoloc: false,
+      loc: '',
     };
   },
   methods: {
@@ -58,6 +66,7 @@ export default {
           lng: position.coords.longitude,
         };
         this.setGeoloc(this.coords);
+        console.log('geoloc called')
       });
     },
     /**
@@ -69,29 +78,59 @@ export default {
      */
     async setGeoloc(coords) {
       let response;
-      await fetch(
-        process.env.VUE_APP_MAPQUEST_API + coords.lat + ',' + coords.lng
-      )
+      await fetch(process.env.VUE_APP_MAPQUEST_API + coords.lat + ',' + coords.lng)
         .then((res) => res.json())
         .then((data) => (response = data))
-        .catch((err) => console.log(err.message));
+        .catch((err) => Sentry.captureException(err));
 
-      const location = response.results[0].locations[0];
-      const street = location.street;
-      const city = location.adminArea5;
-      const country = location.adminArea1;
-      this.location = city;
-      this.address = `${street}, ${city}, ${country}`;
+      const res = response.results[0].locations[0];
+      this.location = res.adminArea5;
+      const zip = res.postalCode;
+      this.loc = zip.substring(0, 2);
+      this.geoloc = true;
     },
     /**
-     * @description Sent input's value to store and redirects to results page
-     * @method setGeoloc
+     * @description Dispatch store action
+     * @method searchByGeoloc
+     * @param {string} loc
      * @async
      */
-    async handleSubmit() {
-      await this.$store
-        .dispatch('getArtistsByCity', this.location)
-        .then(() => this.$router.push({ name: 'GeoResults' }));
+    async searchByGeoloc() {
+      await this.$store.dispatch('getArtistsByCity', this.loc);
+    },
+    /**
+     * @description Dispatch store action
+     * @method searchByCity
+     * @async
+     */
+    async searchByCity() {
+      this.geoloc = false;
+      let code;
+      const city = this.location.toLowerCase();
+      await fetch(
+        `https://geo.api.gouv.fr/communes?nom=${city}&fields=departement&limit=1`
+      )
+        .then((res) => res.json())
+        .then((data) => (code = data[0].departement.code))
+        .catch((err) => Sentry.captureException(err));
+      await this.$store.dispatch('getArtistsByCity', code);
+    },
+    /**
+     * @description Checks if input value is from geoloc or manual input
+     * @method handleSubmit
+     * @param {boolean} geoloc
+     * @async
+     */
+    handleSubmit() {
+      if (this.geoloc) {
+        this.searchByGeoloc()
+          .then(() => this.$router.push({ name: 'GeoResults' }))
+          .catch((err) => Sentry.captureException(err));
+      } else {
+        this.searchByCity()
+          .then(() => this.$router.push({ name: 'GeoResults' }))
+          .catch((err) => Sentry.captureException(err));
+      }
     },
   },
 };

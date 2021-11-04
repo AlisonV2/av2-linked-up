@@ -31,9 +31,12 @@
 </template>
 
 <script>
+import * as Sentry from '@sentry/vue';
+
 /**
  * @exports LoginForm
  * @type {Component}
+ * @requires Sentry
  * @vue-data {string} email - v-model
  * @vue-data {string} password - v-model
  * @vue-data {string} error
@@ -64,6 +67,7 @@ export default {
         await this.$store.dispatch('login', userData);
       } catch (err) {
         this.error = err.message;
+        Sentry.captureException(err);
         return;
       }
       this.$router.push({ name: 'AdminProfile' });
