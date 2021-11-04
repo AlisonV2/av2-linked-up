@@ -36,8 +36,14 @@ jobs:
       - name: Run tests
         run: npm run test:unit
       - name: Run cypress
+        uses: cypress-io/github-action@v2
         run: npm run cover
-      - name: Coveralls
+        with:
+          record: true
+          parallel: true
+        env:
+          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+      - name: Report to coverall
         uses: coverallsapp/github-action@master
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
