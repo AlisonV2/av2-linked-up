@@ -1,3 +1,19 @@
 {
-  "pluginsFile": "tests/e2e/plugins/index.js"
+  "pluginsFile": "tests/e2e/plugins/index.js",
+  "env": {
+    "e2e": {
+      "browserPermissions": {
+        "notifications": "allow",
+        "geolocation": "allow",
+        "camera": "block",
+        "microphone": "block",
+        "images": "allow",
+        "javascript": "allow",
+        "popups": "ask",
+        "plugins": "ask",
+        "cookies": "allow"
+      }
+    }
+  },
+  "projectId": "a7bq2k"
 }

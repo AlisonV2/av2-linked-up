@@ -198,6 +198,7 @@ export default {
         .dispatch('setArtistProfile', profileData)
         .then(() => {
           this.showSuccess();
+          window.location.reload();
         })
         .catch((err) => {
           this.showError(err);

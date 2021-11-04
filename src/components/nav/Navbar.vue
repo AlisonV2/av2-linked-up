@@ -7,7 +7,7 @@
         </router-link>
         <ul class="navbar-menu" :class="{ active: isActive }" @click="isActive = false">
           <li class="navbar-item">
-            <router-link :to="{ name: 'Artists' }">
+            <router-link :to="{ name: 'Artists' }" id="artists-link">
               Artists
             </router-link>
           </li>

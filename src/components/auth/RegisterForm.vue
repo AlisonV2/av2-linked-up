@@ -43,7 +43,7 @@
     </div>
     <div class="error mb-3 mt-3">{{ error }}</div>
     <div class="btn-center">
-      <app-button>Sign up</app-button>
+      <app-button mode="signup-btn">Sign up</app-button>
     </div>
   </form>
 </template>

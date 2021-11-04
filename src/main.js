@@ -19,7 +19,7 @@ auth.onAuthStateChanged(() => {
       integrations: [
         new Integrations.BrowserTracing({
           routingInstrumentation: Sentry.vueRouterInstrumentation(router),
-          tracingOrigins: ['localhost', 'av2-linked-up.web.app', /^\//],
+          tracingOrigins: ['av2-linked-up.web.app', /^\//],
         }),
       ],
       tracesSampleRate: 0.2,
