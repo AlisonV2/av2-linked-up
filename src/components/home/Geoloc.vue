@@ -66,6 +66,7 @@ export default {
           lng: position.coords.longitude,
         };
         this.setGeoloc(this.coords);
+        console.log('geoloc called')
       });
     },
     /**
@@ -77,7 +78,7 @@ export default {
      */
     async setGeoloc(coords) {
       let response;
-      fetch(process.env.VUE_APP_MAPQUEST_API + coords.lat + ',' + coords.lng)
+      await fetch(process.env.VUE_APP_MAPQUEST_API + coords.lat + ',' + coords.lng)
         .then((res) => res.json())
         .then((data) => (response = data))
         .catch((err) => Sentry.captureException(err));

@@ -9,7 +9,10 @@
 // /* eslint-disable import/no-extraneous-dependencies, global-require */
 // const webpack = require('@cypress/webpack-preprocessor')
 
+const { cypressBrowserPermissionsPlugin } = require('cypress-browser-permissions')
+
 module.exports = (on, config) => {
+  config = cypressBrowserPermissionsPlugin(on, config);
   require('@cypress/code-coverage/task')(on, config);
   return Object.assign({}, config, {
     fixturesFolder: 'tests/e2e/fixtures',

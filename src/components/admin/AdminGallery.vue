@@ -34,7 +34,7 @@
   </div>
   <div class="row">
     <div
-      class="col-12 col-md-6 col-lg-4 col-xl-3"
+      class="col-12 col-md-6 col-lg-3 col-xl-2"
       v-for="(gallery, i) in profileGallery"
       :key="gallery"
     >
@@ -111,6 +111,7 @@ export default {
     },
     async updateArtistGallery() {
       await this.$store.dispatch('updateArtistGallery', this.gallery);
+      window.location.reload();
     },
     removeImg(i) {
       this.profileGallery.splice(i, 1);

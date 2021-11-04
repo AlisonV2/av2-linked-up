@@ -36,7 +36,7 @@
       <app-title mode="profile-title-img">Gallery</app-title>
     </div>
     <div class="row">
-      <div class="col-auto" v-for="img in gallery" :key="img">
+      <div class="col-12 col-md-6 col-lg-3 col-xl-2" v-for="img in gallery" :key="img">
         <div class="card gallery-card">
           <img :src="img" class="card-img-top" />
         </div>
