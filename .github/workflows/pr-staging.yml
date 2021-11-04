@@ -16,3 +16,28 @@ jobs:
           pr_title: 'Pulling ${{ github.ref }} into staging'
           pr_body: 'Pulling ${{ github.ref }} into staging -- ${{ github.actor }}'
           github_token: ${{ secrets.GITHUB_TOKEN }}
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: npm install && npm run build
+        env: 
+          VUE_APP_FIREBASE_KEY: '${{ secrets.FIREBASE_KEY }}'
+          VUE_APP_FIREBASE_DOMAIN: '${{ secrets.FIREBASE_DOMAIN }}'
+          VUE_APP_FIREBASE_PROJECT_ID: '${{ secrets.FIREBASE_PROJECT_ID }}'
+          VUE_APP_FIREBASE_STORAGE: '${{ secrets.FIREBASE_STORAGE }}'
+          VUE_APP_FIREBASE_SENDER_ID: '${{ secrets.FIREBASE_SENDER_ID }}'
+          VUE_APP_FIREBASE_APP_ID: '${{ secrets.FIREBASE_APP_ID }}'
+          VUE_APP_FIREBASE_MEASUREMENT: '${{ secrets.FIREBASE_MEASUREMENT }}'
+          VUE_APP_MAPQUEST_API: '${{ secrets.MAPQUEST_API }}'
+          VUE_APP_SENTRY_DSN: '${{ secrets.SENTRY_DSN }}'
+      - name: Run linter
+        run: npm run lint
+      - name: Run tests
+        run: npm run test:unit
+      - name: Run cypress
+        run: npm run cover
+      - name: Coveralls
+        uses: coverallsapp/github-action@master
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}

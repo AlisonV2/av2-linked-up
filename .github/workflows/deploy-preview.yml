@@ -1,7 +1,7 @@
 name: Deploy to Preview Channel on PR
 on:
   pull_request:
-    branches: [ staging ]
+    branches: [ 'staging' ]
 jobs:
   build_and_preview:
     runs-on: ubuntu-latest
