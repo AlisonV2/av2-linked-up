@@ -1,13 +1,26 @@
-name: Deploy to Preview Channel on PR
+name: Open PR to Staging Branch on push
 on:
-  pull_request:
-    branches: [ 'staging' ]
+  push:
+    branches:
+      - 'feature/*'
+      - 'fix/*'
 jobs:
-  build_and_preview:
+  pull-request:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - run: npm ci && npm run build
+      - name: pull-request
+        uses: repo-sync/pull-request@v2
+        with:
+          destination_branch: 'staging'
+          pr_title: 'Pulling ${{ github.ref }} into staging'
+          pr_body: 'Pulling ${{ github.ref }} into staging -- ${{ github.actor }}'
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: npm install && npm run build
         env: 
           VUE_APP_FIREBASE_KEY: '${{ secrets.FIREBASE_KEY }}'
           VUE_APP_FIREBASE_DOMAIN: '${{ secrets.FIREBASE_DOMAIN }}'
@@ -22,6 +35,13 @@ jobs:
         run: npm run lint
       - name: Run tests
         run: npm run test:unit
+      - name: Report to coverall
+        uses: coverallsapp/github-action@master
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+  preview: 
+    runs-on: ubuntu-latest
+    steps:
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
