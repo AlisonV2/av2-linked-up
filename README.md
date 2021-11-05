@@ -100,6 +100,19 @@ npm run docs
 Unit tests are made with Jest.
 E2E tests are made with Cypress.
 
+To avoid requireContext errors with Jest, we can install the plugin and add this snippet to babel.config.js :
+
+```js
+module.exports = {
+  env: {
+    test: {
+      plugins: ['transform-require-context']
+    }
+  }
+};
+
+```
+
 ### Code coverage <a name="coverage"></a>
 
 - Jest : Tests coverage can be found in jest-cover/index.html
@@ -126,19 +139,6 @@ For Jest to be able to collect coverage, we must pass the --collectCoverage flag
       "main.js"
     ]
   },
-```
-
-To avoid requireContext errors, we can install the plugin and add this snippet to babel.config.js :
-
-```js
-module.exports = {
-  env: {
-    test: {
-      plugins: ['transform-require-context']
-    }
-  }
-};
-
 ```
 
 For Cypress to be able to collect coverage, Istanbul must be installed. We also need [@cypress/code-coverage](https://docs.cypress.io/guides/tooling/code-coverage).
