@@ -180,30 +180,30 @@ To run the linter:
 npm run lint
 ```
 
-## Automation
+## Automation <a name="automation"></a>
 
-### Schema
+### Schema <a name="schema"></a>
 
 <img src="./.img/app-schema.jpg">
 
-### Jira <a name="jira"></a
+### Jira <a name="jira"></a>
 
 Each feature/fix branch has Jira's ticket issue as a reference. 
 As such, Jira can automatically update issue's status depending on push/PRs.
 
-### Github Actions <a name="github-actions"></a
+### Github Actions <a name="github-actions"></a>
 
 - Open PR for every feature/* or fix/* branch
 - Build, test and deploy to preview url on PR
 - Open PR on merge from staging to prod
 - Build, test and deploy to live url on master merge
 
-### Sentry <a name="sentry"></a
+### Sentry <a name="sentry"></a>
 
 Sentry is integrated in the app as well as in Github repo and Jira.
 A bidirectionnal flow is set between Sentry's issues and Jira's. 
 
-### Sider <a name="sider"></a
+### Sider <a name="sider"></a>
 
 Automated Code Review on each PR.
 For now, test mode is enable so it doesn't block any PRs. 
@@ -213,7 +213,7 @@ For now, test mode is enable so it doesn't block any PRs.
 - Reverse Geocode (MapQuest)
 - Geo API Gouv
 
-## Performance <a name="performance"></a
+## Performance <a name="performance"></a>
 
 Sentry is implemented for monitoring and includes performance data.
 A build report can also be viewed in dist/report.html.
@@ -229,6 +229,6 @@ If you have Vue CLI globally installed, the data is also available with
 vue ui
 ```
 
-## Deployment
+## Deployment <a name="deployment"></a>
 
 The project is hosted on Firebase Hosting and deployed through Firebase-cli. 
