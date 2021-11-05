@@ -23,10 +23,10 @@ jobs:
       - name: Cypress run
         uses: cypress-io/github-action@v2
         with:
+          build: npm run build
           start: npm run serve
           wait-on: <http://localhost:8080/>
           config-file: cypress.json
-          working-directory: "tests/e2e/**/*"
           record: true
         env:
           CYPRESS_baseUrl: <http://localhost:8080/>
@@ -41,3 +41,4 @@ jobs:
           VUE_APP_SENTRY_DSN: '${{ secrets.SENTRY_DSN }}'
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+          CYPRESS_PROJECT_ID: ${{ secrets.PCYPRESS_PROJECT_ID }}
