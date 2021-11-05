@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">34.48% </span>
+                <span class="strong">3.44% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>10/29</span>
+                <span class='fraction'>1/29</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">50% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>1/2</span>
+                <span class='fraction'>0/2</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">35.29% </span>
+                <span class="strong">5.88% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>6/17</span>
+                <span class='fraction'>1/17</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">34.48% </span>
+                <span class="strong">3.44% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>10/29</span>
+                <span class='fraction'>1/29</span>
             </div>
         
             
@@ -253,7 +253,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">14x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -317,31 +317,31 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -470,17 +470,17 @@ export default {
      * @method searchByCity
      * @async
      */
-    async searchByCity() {
-      this.geoloc = false;
+<span class="fstat-no" title="function not covered" >    as</span>ync searchByCity() {
+<span class="cstat-no" title="statement not covered" >      this.geoloc = false;</span>
       let code;
-      const city = this.location.toLowerCase();
-      await fetch(
+      const city = <span class="cstat-no" title="statement not covered" >this.location.toLowerCase();</span>
+<span class="cstat-no" title="statement not covered" >      await fetch(</span>
         `https://geo.api.gouv.fr/communes?nom=${city}&amp;fields=departement&amp;limit=1`
       )
-        .then((res) =&gt; res.json())
-        .then((data) =&gt; (code = data[0].departement.code))
+        .then(<span class="fstat-no" title="function not covered" >(r</span>es) =&gt; <span class="cstat-no" title="statement not covered" >res.json())</span>
+        .then(<span class="fstat-no" title="function not covered" >(d</span>ata) =&gt; (<span class="cstat-no" title="statement not covered" >code = data[0].departement.code)</span>)
         .catch(<span class="fstat-no" title="function not covered" >(e</span>rr) =&gt; <span class="cstat-no" title="statement not covered" >Sentry.captureException(err))</span>;
-      await this.$store.dispatch('getArtistsByCity', code);
+<span class="cstat-no" title="statement not covered" >      await this.$store.dispatch('getArtistsByCity', code);</span>
     },
     /**
      * @description Checks if input value is from geoloc or manual input
@@ -488,14 +488,14 @@ export default {
      * @param {boolean} geoloc
      * @async
      */
-    handleSubmit() {
-      <span class="missing-if-branch" title="if path not taken" >I</span>if (this.geoloc) {
+<span class="fstat-no" title="function not covered" >    ha</span>ndleSubmit() {
+<span class="cstat-no" title="statement not covered" >      if (this.geoloc) {</span>
 <span class="cstat-no" title="statement not covered" >        this.searchByGeoloc()</span>
           .then(<span class="fstat-no" title="function not covered" >()</span> =&gt; <span class="cstat-no" title="statement not covered" >this.$router.push({ name: 'GeoResults' }))</span>
           .catch(<span class="fstat-no" title="function not covered" >(e</span>rr) =&gt; <span class="cstat-no" title="statement not covered" >Sentry.captureException(err))</span>;
       } else {
-        this.searchByCity()
-          .then(() =&gt; this.$router.push({ name: 'GeoResults' }))
+<span class="cstat-no" title="statement not covered" >        this.searchByCity()</span>
+          .then(<span class="fstat-no" title="function not covered" >()</span> =&gt; <span class="cstat-no" title="statement not covered" >this.$router.push({ name: 'GeoResults' }))</span>
           .catch(<span class="fstat-no" title="function not covered" >(e</span>rr) =&gt; <span class="cstat-no" title="statement not covered" >Sentry.captureException(err))</span>;
       }
     },
@@ -526,7 +526,7 @@ export default {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Thu Nov 04 2021 12:03:53 GMT+0100 (Central European Standard Time)
+                at Fri Nov 05 2021 14:00:39 GMT+0100 (Central European Standard Time)
             </div>
         </div>
         <script src="../../../prettify.js"></script>

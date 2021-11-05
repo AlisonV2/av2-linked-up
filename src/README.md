@@ -22,6 +22,7 @@ Ynov M1 Major - Front/Back Coordination
     3. [Github Actions](#github-actions)
     3. [Sentry](#sentry)
     5. [Sider](#sider)
+    6. [Better Uptime](#better-uptime)
 5. [API Used](#api-used)
 6. [Performance](#performance)
 7. [Deployment](#deployment)
@@ -99,6 +100,19 @@ npm run docs
 Unit tests are made with Jest.
 E2E tests are made with Cypress.
 
+To avoid requireContext errors with Jest, we can install the plugin and add this snippet to babel.config.js :
+
+```js
+module.exports = {
+  env: {
+    test: {
+      plugins: ['transform-require-context']
+    }
+  }
+};
+
+```
+
 ### Code coverage <a name="coverage"></a>
 
 - Jest : Tests coverage can be found in jest-cover/index.html
@@ -125,19 +139,6 @@ For Jest to be able to collect coverage, we must pass the --collectCoverage flag
       "main.js"
     ]
   },
-```
-
-To avoid requireContext errors, we can install the plugin and add this snippet to babel.config.js :
-
-```js
-module.exports = {
-  env: {
-    test: {
-      plugins: ['transform-require-context']
-    }
-  }
-};
-
 ```
 
 For Cypress to be able to collect coverage, Istanbul must be installed. We also need [@cypress/code-coverage](https://docs.cypress.io/guides/tooling/code-coverage).
@@ -180,40 +181,49 @@ To run the linter:
 npm run lint
 ```
 
-## Automation
+## Automation <a name="automation"></a>
 
-### Schema
+### Schema <a name="schema"></a>
 
-<img src="./.img/img/app-schema.jpg">
+<img src="./.img/app-schema.jpg">
 
-### Jira <a name="jira"></a
+### Jira <a name="jira"></a>
 
 Each feature/fix branch has Jira's ticket issue as a reference. 
 As such, Jira can automatically update issue's status depending on push/PRs.
 
-### Github Actions <a name="github-actions"></a
+### Github Actions <a name="github-actions"></a>
 
 - Open PR for every feature/* or fix/* branch
 - Build, test and deploy to preview url on PR
 - Open PR on merge from staging to prod
 - Build, test and deploy to live url on master merge
 
-### Sentry <a name="sentry"></a
+### Sentry <a name="sentry"></a>
 
 Sentry is integrated in the app as well as in Github repo and Jira.
 A bidirectionnal flow is set between Sentry's issues and Jira's. 
 
-### Sider <a name="sider"></a
+### Sider <a name="sider"></a>
 
 Automated Code Review on each PR.
 For now, test mode is enable so it doesn't block any PRs. 
+
+### Better Uptime <a name="better-uptime"></a>
+
+Better Uptime is configured to : 
+- Call
+- Send an SMS
+- Send an email
+
+On incident. An incident form is also automatically generated. 
 
 ## APIs used <a name="api-used"></a>
 
 - Reverse Geocode (MapQuest)
 - Geo API Gouv
 
-## Performance <a name="performance"></a
+## Performance <a name="performance"></a>
 
 Sentry is implemented for monitoring and includes performance data.
 A build report can also be viewed in dist/report.html.
@@ -229,6 +239,6 @@ If you have Vue CLI globally installed, the data is also available with
 vue ui
 ```
 
-## Deployment
+## Deployment <a name="deployment"></a>
 
 The project is hosted on Firebase Hosting and deployed through Firebase-cli. 
