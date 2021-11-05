@@ -22,6 +22,7 @@ Ynov M1 Majeure - Coordination Front/Back
     3. [Github Actions](#github-actions)
     3. [Sentry](#sentry)
     5. [Sider](#sider)
+    6. [Better Uptime](#better-uptime)
 5. [API Used](#api-used)
 6. [Performance](#performance)
 7. [Deployment](#deployment)
@@ -207,6 +208,15 @@ A bidirectionnal flow is set between Sentry's issues and Jira's.
 
 Automated Code Review on each PR.
 For now, test mode is enable so it doesn't block any PRs. 
+
+### Better Uptime <a name="better-uptime"></a>
+
+Better Uptime is configured to : 
+- Call
+- Send an SMS
+- Send an email
+
+On incident. An incident form is also automatically generated. 
 
 ## APIs used <a name="api-used"></a>
 
