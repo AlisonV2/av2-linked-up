@@ -1,4 +1,4 @@
-<img src="./public/img/lkd-banner.png" />
+<img src="./.img/img/lkd-banner.png" />
 
 # Linked Up - Alison Vandromme
 
@@ -17,16 +17,25 @@ A build report can also be found.
 To be able to see it, run :
 
 ```sh
-npm run build
-
-# Or
 npm run build-report
 ```
 
+## Docker
+
+- Uncomment the devServer config in vue.config.js
+- Create a .env.local with environment variables
+- Run:
+
+```sh
+docker-compose --env-file .env.local up --build
+
+# Or
+npm run docker
+```
 
 ## Automation
 
-<img src="./public/img/app-schema.jpg">
+<img src="./.img/img/app-schema.jpg">
 
 ### Tests
 

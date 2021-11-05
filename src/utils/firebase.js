@@ -2,6 +2,7 @@ import firebase from 'firebase/app';
 import 'firebase/auth';
 import 'firebase/firestore';
 import 'firebase/storage';
+import 'firebase/analytics';
 
 /**
  * Firebase configuration - Firestore, Storage, Authentication
@@ -24,10 +25,7 @@ firebase.initializeApp(firebaseConfig);
 const auth = firebase.auth();
 const db = firebase.firestore();
 const storage = firebase.storage();
-
-// db.enablePersistence().catch((error) => {
-//   console.log(`Firebase persistence error ${error.code}`);
-// });
+const analytics = firebase.analytics();
 
 const usersCollection = db.collection('users');
 const artistsCollection = db.collection('artists');
@@ -45,5 +43,6 @@ export {
   clientsCollection,
   organizersCollection,
   galleriesCollection,
-  thumbnailsCollection
+  thumbnailsCollection,
+  analytics
 };
