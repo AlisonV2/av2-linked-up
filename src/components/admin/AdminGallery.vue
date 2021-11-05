@@ -2,6 +2,10 @@
   <div class="row">
     <div class="col-12 mb-4">
       <app-title mode="title-img">Your gallery</app-title>
+      <div class="toast-success" v-if="showSuccessToast">Update successful</div>
+      <div class="toast-error" v-if="showErrorToast">
+        Oops... Something went wrong :(
+      </div>
     </div>
     <div class="col-12 btn-right mt-3" v-if="profileGallery">
       <div class="btn-group mb-3" @click="updateArtistGallery">
@@ -51,6 +55,7 @@
 <script>
 import GalleryItem from '@/components/admin/GalleryItem';
 import PreviewItem from '@/components/admin/PreviewItem';
+import * as Sentry from '@sentry/vue';
 
 /**
  * @exports AdminGallery
@@ -76,6 +81,8 @@ export default {
       images: [],
       gallery: [],
       profileGallery: [],
+      showSuccessToast: false,
+      showErrorToast: false,
     };
   },
   async created() {
@@ -108,9 +115,12 @@ export default {
     },
     async setArtistGallery() {
       await this.$store.dispatch('setArtistGallery', this.gallery);
+      this.showSuccess();
+      window.location.reload();
     },
     async updateArtistGallery() {
       await this.$store.dispatch('updateArtistGallery', this.gallery);
+      this.showSuccess();
       window.location.reload();
     },
     removeImg(i) {
@@ -119,6 +129,21 @@ export default {
     },
     removePreview(i) {
       this.images.splice(i, 1);
+    },
+    showSuccess() {
+      this.showSuccessToast = true;
+      this.showErrorToast = false;
+      setTimeout(() => {
+        this.showSuccessToast = false;
+      }, 3000);
+    },
+    showError(err) {
+      this.showErrorToast = true;
+      this.showSuccessToast = false;
+      Sentry.captureException(err);
+      setTimeout(() => {
+        this.showErrorToast = false;
+      }, 3000);
     },
   },
 };

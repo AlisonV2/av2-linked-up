@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "npm install && vue-cli-service build",
+    "build": "vue-cli-service build",
     "test:unit": "vue-cli-service test:unit",
     "test:e2e": "vue-cli-service test:e2e",
     "lint": "vue-cli-service lint",
@@ -12,7 +12,8 @@
     "dev": "npm run docs && npm run lint && npm -s run test:unit",
     "cover": "cross-env NODE_ENV=e2e nyc --silent npm run test:e2e",
     "build-report": "vue-cli-service build --report",
-    "cover:merge": "node mergeCover.js"
+    "cover:merge": "node mergeCover.js",
+    "docker": "docker-compose --env-file .env.local up --build"
   },
   "dependencies": {
     "@sentry/tracing": "^6.14.0",

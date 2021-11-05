@@ -178,6 +178,7 @@ export default {
         .dispatch('setArtistThumbnail', this.fileSelected)
         .then(() => {
           this.showSuccess();
+          window.location.reload();
         })
         .catch((err) => {
           this.showError(err);

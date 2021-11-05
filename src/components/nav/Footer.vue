@@ -6,7 +6,7 @@
           <p class="copyright">
             <span data-test="copyright">
               &copy; Copyright {{ year }} -
-              <a target="_blank" href="https://alisonvandromme.com"
+              <a target="_blank" rel="noopener" href="https://alisonvandromme.com"
                 >Alison Vandromme</a
               >
               - All rights reserved
