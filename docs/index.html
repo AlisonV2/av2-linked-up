@@ -48,58 +48,178 @@
 
 
     <section class="readme">
-        <article><h1>Alison Vandromme - Ynov M1 Majeure - Coordination Front/Back</h1>
+        <article><h1>Linked Up - Alison Vandromme</h1>
+<p>Ynov M1 Major - Front/Back Coordination</p>
 <p><a href="../dev.html"> Back to Dev Utils</a></p>
-<h2>Stack</h2>
+<h1>Table of contents</h1>
+<ol>
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#stack">Stack</a></li>
+<li><a href="#development">Development tools</a>
+<ol>
+<li><a href="#useful-resources">Useful Resources</a></li>
+<li><a href="#docker">Docker</a></li>
+<li><a href="#build-report">Build Report</a></li>
+<li><a href="#documentation">Documentation</a></li>
+<li><a href="#tests">Tests</a></li>
+<li><a href="#coverage">Coverage</a></li>
+<li><a href="#linter">Linter</a></li>
+</ol>
+</li>
+<li><a href="#automation">Automation</a>
+<ol>
+<li><a href="#schema">Schema</a></li>
+<li><a href="#jira">Jira</a></li>
+<li><a href="#github-actions">Github Actions</a></li>
+<li><a href="#sentry">Sentry</a></li>
+<li><a href="#sider">Sider</a></li>
+</ol>
+</li>
+<li><a href="#api-used">API Used</a></li>
+<li><a href="#performance">Performance</a></li>
+<li><a href="#deployment">Deployment</a></li>
+</ol>
+<h2>Introduction <a name="introduction"></a></h2>
+<p>This project was made for Bordeaux Ynov M1 Major Class - Front/Back Coordination.
+This course is organized around two main axes :</p>
+<ul>
+<li>Coordination/Methodology</li>
+<li>Technical: Versioning, CI/CD, Testing, Multi-stage deployment, Code quality metrics generation, Documentation,...</li>
+</ul>
+<p>What I've implemented:</p>
+<ul>
+<li>Jira project management</li>
+<li>Development environment with Docker</li>
+<li>Code review with Sider</li>
+<li>Automatic documentation generation with jsDocs</li>
+<li>Unit tests with Jest with coverage reports</li>
+<li>Build reports with webpack</li>
+<li>E2E tests with Cypress</li>
+<li>Cypress coverage generation with Istanbul</li>
+<li>Global html page for development purposes, with links to all the reports and documentation</li>
+<li>CI/CD pipeline with Github Actions</li>
+<li>Preview URL generation with firebase</li>
+<li>Sentry monitoring</li>
+<li>Better Uptime monitoring</li>
+<li>Google Analytics</li>
+</ul>
+<h2>Stack <a name="stack"></a></h2>
 <p><img src="https://img.shields.io/badge/Vue.js-35495E?style=for-the-badge&logo=vuedotjs&logoColor=4FC08D"/> <img src="https://img.shields.io/badge/firebase-ffca28?style=for-the-badge&logo=firebase&logoColor=black"/> <img src="https://img.shields.io/badge/Jest-C21325?style=for-the-badge&logo=jest&logoColor=white" /> <img src="https://img.shields.io/badge/Cypress-17202C?style=for-the-badge&logo=cypress&logoColor=white" /> <img src="https://img.shields.io/badge/Sass-CC6699?style=for-the-badge&logo=sass&logoColor=white"/> <img src="https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white"/> <img src="https://img.shields.io/badge/eslint-3A33D1?style=for-the-badge&logo=eslint&logoColor=white" /> <img src="https://img.shields.io/badge/prettier-1A2C34?style=for-the-badge&logo=prettier&logoColor=F7BA3E" /> <img src="https://img.shields.io/badge/Jira-0052CC?style=for-the-badge&logo=Jira&logoColor=white" /> <img src="https://img.shields.io/badge/GitHub_Actions-2088FF?style=for-the-badge&logo=github-actions&logoColor=white" /> <img src="https://img.shields.io/badge/Sentry-362D59?style=for-the-badge&logo=sentry&logoColor=white" /></p>
-<h2>Dev</h2>
+<h2>Development tools <a name="development"></a></h2>
+<h3>Useful resources <a name="useful-resources"></a></h3>
 <p>dev.html can be found in the root directory.
-This file links to documentation, e2e report and unit report.
-A build report can also be found.
-To be able to see it, run :</p>
-<pre class="prettyprint source lang-sh"><code>npm run build
+This file links to documentation, e2e report and unit report, as well as a build report.</p>
+<h3>Docker <a name="docker"></a></h3>
+<ul>
+<li>Uncomment the devServer config in vue.config.js</li>
+<li>Create a .env.local with environment variables</li>
+<li>Run:</li>
+</ul>
+<pre class="prettyprint source lang-sh"><code>docker-compose --env-file .env.local up --build
 
 # Or
-npm run build-report
+npm run docker
 </code></pre>
-<h2>Automation</h2>
-<h3>Tests</h3>
+<h3>Build report <a name="build-report"></a></h3>
+<p>To regenerate the build report, run:</p>
+<pre class="prettyprint source lang-sh"><code>npm run build-report
+</code></pre>
+<h3>Documentation <a name="documentation"></a></h3>
+<p>Documentation is generated from jsDocs annotations.
+To see the documentation, open docs/index.html.</p>
+<p>To generate or update docs, run :</p>
+<pre class="prettyprint source lang-sh"><code>npm run docs 
+</code></pre>
+<h3>Tests <a name="tests"></a></h3>
+<p>Unit tests are made with Jest.
+E2E tests are made with Cypress.</p>
+<h3>Code coverage <a name="coverage"></a></h3>
 <ul>
 <li>Jest : Tests coverage can be found in jest-cover/index.html</li>
 <li>Cypress: Tests coverage can be found in cypress-cover/index.html</li>
 </ul>
+<p>For Jest to be able to collect coverage, we must pass the --collectCoverage flag.</p>
+<pre class="prettyprint source lang-json"><code>  &quot;jest&quot;: {
+    &quot;preset&quot;: &quot;@vue/cli-plugin-unit-jest&quot;,
+    &quot;transform&quot;: {
+      &quot;^.+\\.vue$&quot;: &quot;vue-jest&quot;
+    },
+    &quot;collectCoverage&quot;: true,
+    &quot;collectCoverageFrom&quot;: [
+      &quot;src/**/*.{js,vue}&quot;
+    ],
+    &quot;coverageDirectory&quot;: &quot;./jest-cover/&quot;,
+    &quot;coveragePathIgnorePatterns&quot;: [
+      &quot;/node_modules/&quot;,
+      &quot;/lib/&quot;,
+      &quot;/test/&quot;,
+      &quot;/utils/&quot;,
+      &quot;main.js&quot;
+    ]
+  },
+</code></pre>
+<p>To avoid requireContext errors, we can install the plugin and add this snippet to babel.config.js :</p>
+<pre class="prettyprint source lang-js"><code>module.exports = {
+  env: {
+    test: {
+      plugins: ['transform-require-context']
+    }
+  }
+};
+
+</code></pre>
+<p>For Cypress to be able to collect coverage, Istanbul must be installed. We also need <a href="https://docs.cypress.io/guides/tooling/code-coverage">@cypress/code-coverage</a>.</p>
+<p>As Jest runs on the test environment, one workaround to avoid Jest and Cypress interaction is the following config in babel.config.js</p>
+<pre class="prettyprint source lang-js"><code>const plugins = [];
+if (process.env.NODE_ENV === 'e2e') {
+  plugins.push([
+    'babel-plugin-istanbul',
+    {
+      extension: ['.js', '.vue'],
+      all: true,
+      include: ['src'],
+    },
+  ]);
+}
+</code></pre>
+<p>As windows doesn't take NODE_ENV into account, we can install <a href="https://www.npmjs.com/package/cross-env">cross-env</a>.</p>
 <p>To run cypress with coverage (using Instanbul), run :</p>
 <pre class="prettyprint source lang-sh"><code>npm run cover
+
+# The full command : 
+cross-env NODE_ENV=e2e nyc --silent npm run test:e2e
 </code></pre>
-<h3>Jira</h3>
+<h3>Linter <a name="linter"></a></h3>
+<p>Eslint is used to lint the code.
+The eslint:recommended preset from vue-cli is applied.</p>
+<p>To run the linter:</p>
+<pre class="prettyprint source lang-sh"><code>npm run lint
+</code></pre>
+<h2>Automation</h2>
+<h3>Schema</h3>
+<img src="./.img/img/app-schema.jpg">
+<h3>Jira <a name="jira">&lt;/a</h3>
 <p>Each feature/fix branch has Jira's ticket issue as a reference.
 As such, Jira can automatically update issue's status depending on push/PRs.</p>
-<h3>GH Actions</h3>
+<h3>Github Actions <a name="github-actions">&lt;/a</h3>
 <ul>
 <li>Open PR for every feature/* or fix/* branch</li>
-<li>Deploy to preview url on PR</li>
+<li>Build, test and deploy to preview url on PR</li>
 <li>Open PR on merge from staging to prod</li>
-<li>Deploy to live url on master merge</li>
-<li>Run tests on push on test branch (will be integrated in preview build)</li>
+<li>Build, test and deploy to live url on master merge</li>
 </ul>
-<h3>jsDocs</h3>
-<p>Generates documentation from jsDocs annotations.
-To see the documentation, open docs/index.html</p>
-<p>To generate docs, run :</p>
-<pre class="prettyprint source lang-sh"><code>npm run docs 
-</code></pre>
-<h3>Sentry</h3>
+<h3>Sentry <a name="sentry">&lt;/a</h3>
 <p>Sentry is integrated in the app as well as in Github repo and Jira.
 A bidirectionnal flow is set between Sentry's issues and Jira's.</p>
-<h3>Sider</h3>
+<h3>Sider <a name="sider">&lt;/a</h3>
 <p>Automated Code Review on each PR.
 For now, test mode is enable so it doesn't block any PRs.</p>
-<h2>APIs</h2>
+<h2>APIs used <a name="api-used"></a></h2>
 <ul>
 <li>Reverse Geocode (MapQuest)</li>
 <li>Geo API Gouv</li>
 </ul>
-<h2>Performance</h2>
+<h2>Performance <a name="performance">&lt;/a</h2>
 <p>Sentry is implemented for monitoring and includes performance data.
 A build report can also be viewed in dist/report.html.
 To generate a new report, run :</p>
@@ -108,25 +228,8 @@ To generate a new report, run :</p>
 <p>If you have Vue CLI globally installed, the data is also available with</p>
 <pre class="prettyprint source lang-sh"><code>vue ui
 </code></pre>
-<h2>Project setup</h2>
-<pre class="prettyprint source lang-sh"><code># Install dependencies
-npm install
-
-# Compiles and hot-reloads for development
-npm run serve
-
-# Compiles and minifies for production
-npm run build
-
-# Run unit tests
-npm run test:unit
-
-# Run your end-to-end tests
-npm run test:e2e
-
-# Lints and fixes files
-npm run lint
-</code></pre></article>
+<h2>Deployment</h2>
+<p>The project is hosted on Firebase Hosting and deployed through Firebase-cli.</p></article>
     </section>
 
 
@@ -232,7 +335,7 @@ npm run lint
 <br class="clear">
 
 <footer>
-    Generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.7</a> on Wed Nov 03 2021 17:19:09 GMT+0100 (Central European Standard Time) using the Minami theme.
+    Generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.7</a> on Fri Nov 05 2021 13:22:46 GMT+0100 (Central European Standard Time) using the Minami theme.
 </footer>
 
 <script>prettyPrint();</script>
