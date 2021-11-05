@@ -1,8 +1,18 @@
-name: Deploy to Preview Channel on PR
+name: Lint, Test, Build & Deploy to Preview Channel on PR
 on:
   pull_request:
     branches: [ staging ]
 jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: npm install && npm run lint
+  unit_test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: npm install && npm run test:unit
   build_and_preview:
     runs-on: ubuntu-latest
     steps:
@@ -18,10 +28,6 @@ jobs:
           VUE_APP_FIREBASE_MEASUREMENT: '${{ secrets.FIREBASE_MEASUREMENT }}'
           VUE_APP_MAPQUEST_API: '${{ secrets.MAPQUEST_API }}'
           VUE_APP_SENTRY_DSN: '${{ secrets.SENTRY_DSN }}'
-      - name: Run linter
-        run: npm run lint
-      - name: Run tests
-        run: npm run test:unit
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
