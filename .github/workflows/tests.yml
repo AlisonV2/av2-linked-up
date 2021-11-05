@@ -5,16 +5,16 @@ on:
     branches: [ tests ]
 
 jobs:
-  lint:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - run: npm install && npm run lint
-  unit_test:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - run: npm install && npm run test:unit
+  # lint:
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - uses: actions/checkout@v2
+  #     - run: npm install && npm run lint
+  # unit_test:
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - uses: actions/checkout@v2
+  #     - run: npm install && npm run test:unit
   e2e_test:
     runs-on: ubuntu-20.04
     steps:
@@ -25,11 +25,11 @@ jobs:
         with:
           build: npm run build
           start: npm run serve
-          wait-on: <http://localhost:8080/>
+          wait-on: http://localhost:8080/
           config-file: cypress.json
           record: true
         env:
-          CYPRESS_baseUrl: <http://localhost:8080/>
+          CYPRESS_baseUrl: http://localhost:8080/
           VUE_APP_FIREBASE_KEY: '${{ secrets.FIREBASE_KEY }}'
           VUE_APP_FIREBASE_DOMAIN: '${{ secrets.FIREBASE_DOMAIN }}'
           VUE_APP_FIREBASE_PROJECT_ID: '${{ secrets.FIREBASE_PROJECT_ID }}'
