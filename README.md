@@ -184,7 +184,7 @@ npm run lint
 
 ### Schema
 
-<img src="./.img/img/app-schema.jpg">
+<img src="./.img/app-schema.jpg">
 
 ### Jira <a name="jira"></a
 
