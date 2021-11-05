@@ -1,4 +1,4 @@
-<img src="./.img/img/lkd-banner.png" />
+<img src="./.img/lkd-banner.png" />
 
 # Linked Up - Alison Vandromme
 
