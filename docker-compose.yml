@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+  client:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    volumes: 
+      - ./src:/app/src
+      - /app/node_modules
+    stdin_open: true
+    tty: true
+    env_file: 
+      - .env.local
+    environment: 
+      VUE_APP_FIREBASE_KEY: ${VUE_APP_FIREBASE_KEY}
+      VUE_APP_FIREBASE_DOMAIN: ${VUE_APP_FIREBASE_DOMAIN}
+      VUE_APP_FIREBASE_PROJECT_ID: ${VUE_APP_FIREBASE_PROJECT_ID}
+      VUE_APP_FIREBASE_STORAGE: ${VUE_APP_FIREBASE_STORAGE}
+      VUE_APP_FIREBASE_SENDER_ID: ${VUE_APP_FIREBASE_SENDER_ID}
+      VUE_APP_FIREBASE_APP_ID: ${VUE_APP_FIREBASE_APP_ID}
+      VUE_APP_FIREBASE_MEASUREMENT: ${VUE_APP_FIREBASE_MEASUREMENT}
+      VUE_APP_MAPQUEST_API: ${VUE_APP_MAPQUEST_API}
+      VUE_APP_SENTRY_DSN: ${VUE_APP_SENTRY_DSN}
+    ports:
+      - 8080:8080
