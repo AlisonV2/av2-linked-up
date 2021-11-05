@@ -1,4 +1,4 @@
-<img src="./public/img/lkd-banner.png" />
+<img src="./.img/img/lkd-banner.png" />
 
 # Linked Up - Alison Vandromme
 
@@ -35,7 +35,7 @@ npm run docker
 
 ## Automation
 
-<img src="./public/img/app-schema.jpg">
+<img src="./.img/img/app-schema.jpg">
 
 ### Tests
 
