@@ -26,6 +26,18 @@ jobs:
           start: npm run serve
           wait-on: <http://localhost:8080/>
           config-file: cypress.json
-          spec: "tests/e2e/**/*"
+          working-directory: "tests/e2e/**/*"
+          record: true
         env:
           CYPRESS_baseUrl: <http://localhost:8080/>
+          VUE_APP_FIREBASE_KEY: '${{ secrets.FIREBASE_KEY }}'
+          VUE_APP_FIREBASE_DOMAIN: '${{ secrets.FIREBASE_DOMAIN }}'
+          VUE_APP_FIREBASE_PROJECT_ID: '${{ secrets.FIREBASE_PROJECT_ID }}'
+          VUE_APP_FIREBASE_STORAGE: '${{ secrets.FIREBASE_STORAGE }}'
+          VUE_APP_FIREBASE_SENDER_ID: '${{ secrets.FIREBASE_SENDER_ID }}'
+          VUE_APP_FIREBASE_APP_ID: '${{ secrets.FIREBASE_APP_ID }}'
+          VUE_APP_FIREBASE_MEASUREMENT: '${{ secrets.FIREBASE_MEASUREMENT }}'
+          VUE_APP_MAPQUEST_API: '${{ secrets.MAPQUEST_API }}'
+          VUE_APP_SENTRY_DSN: '${{ secrets.SENTRY_DSN }}'
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
