@@ -25,11 +25,12 @@ jobs:
         with:
           build: npm run build
           start: npm run serve
-          wait-on: http://localhost:8080/
+          wait-on: 'http://localhost:8080'
           config-file: cypress.json
           record: true
+          command: npm run test:e2e
         env:
-          CYPRESS_baseUrl: http://localhost:8080/
+          CYPRESS_baseUrl: 'http://localhost:8080'
           VUE_APP_FIREBASE_KEY: '${{ secrets.FIREBASE_KEY }}'
           VUE_APP_FIREBASE_DOMAIN: '${{ secrets.FIREBASE_DOMAIN }}'
           VUE_APP_FIREBASE_PROJECT_ID: '${{ secrets.FIREBASE_PROJECT_ID }}'
