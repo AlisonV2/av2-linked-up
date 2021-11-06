@@ -4,7 +4,7 @@
     <div class="card-details fade-in-top text-center">
       <i class="bi bi-trash img-icon" ></i>
     </div>
-    <img :src="image" class="card-img-top" />
+    <img :src="image" class="card-img-top gallery-img-item"/>
   </div>
 </template>
 

@@ -15,6 +15,10 @@ const $router = {
   push: jest.fn(),
 };
 
+const $route = {
+  name: 'Home'
+}
+
 /**
  * @module HomeCategoriesTest
  */
@@ -29,7 +33,8 @@ describe('HomeCategories.vue', () => {
         },
         mocks: {
           $router,
-        },
+          $route,
+        }
       },
     });
     component.find('[data-test="black-work"]').trigger('click');
@@ -46,6 +51,7 @@ describe('HomeCategories.vue', () => {
         },
         mocks: {
           $router,
+          $route,
         },
       },
     });
@@ -62,6 +68,7 @@ describe('HomeCategories.vue', () => {
         },
         mocks: {
           $router,
+          $route,
         },
       },
     });

@@ -33,7 +33,7 @@
         </div>
       </div>
     </div>
-    <div class="col-12 text-end">
+    <div class="col-12 text-end" v-if="$route.name === 'Home'">
       <router-link :to="{ name: 'Categories' }"
         ><p class="link-text">See all styles</p></router-link
       >

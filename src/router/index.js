@@ -11,6 +11,7 @@ import ArtistProfile from '../views/ArtistProfile';
 import Admin from '../views/Admin';
 import AdminProfile from '../components/admin/AdminProfile';
 import AdminGallery from '../components/admin/AdminGallery';
+import ClientProfile from '../views/ClientProfile';
 
 const routes = [
   {
@@ -27,6 +28,11 @@ const routes = [
     path: '/artist/:id',
     name: 'Profile',
     component: ArtistProfile,
+  },
+  {
+    path: '/client/:id',
+    name: 'ClientProfile',
+    component: ClientProfile,
   },
   {
     path: '/conventions',

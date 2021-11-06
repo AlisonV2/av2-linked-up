@@ -36,7 +36,11 @@
       <app-title mode="profile-title-img">Gallery</app-title>
     </div>
     <div class="row">
-      <div class="col-12 col-md-6 col-lg-3 col-xl-2" v-for="img in gallery" :key="img">
+      <div
+        class="col-12 col-md-6 col-lg-3 col-xl-2"
+        v-for="img in gallery"
+        :key="img"
+      >
         <div class="card gallery-card">
           <img :src="img" class="card-img-top" />
         </div>
@@ -46,26 +50,39 @@
 </template>
 
 <script>
+import * as Sentry from '@sentry/vue';
+
 /**
  * @exports ArtistProfile
  * @type {Page}
+ * @requires Sentry
  * @vue-computed {array} gallery - Returned from store
  * @vue-computed {object} artist - Returned from store
  * @vue-event created - Dispatch store action on created hook
  */
 export default {
   name: 'ArtistProfile',
-  async created() {
-    await this.$store.dispatch('getArtistById', this.$route.params.id);
-    await this.$store.dispatch('getGalleryFromId', this.$route.params.id);
+  data() {
+    return {
+      gallery: [],
+      artist: {},
+    };
   },
-  computed: {
-    gallery() {
-      return this.$store.getters.getGalleryFromId;
-    },
-    artist() {
-      return this.$store.getters.getArtistProfile;
-    },
+  async created() {
+    await this.$store
+      .dispatch('getArtistById', this.$route.params.id)
+      .then(() => {
+        this.gallery = this.$store.getters.getGalleryFromId;
+        this.artist = this.$store.getters.getArtistProfile;
+      })
+      .catch((err) => Sentry.captureException(err));
+
+    await this.$store
+      .dispatch('getGalleryFromId', this.$route.params.id)
+      .then(() => {
+        this.gallery = this.$store.getters.getGalleryFromId;
+      })
+      .catch((err) => Sentry.captureException(err));
   },
 };
 </script>
