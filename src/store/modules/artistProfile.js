@@ -3,7 +3,7 @@ import * as Sentry from '@sentry/vue';
 
 /**
  * Vuex module for artists' profiles
- * @module profile
+ * @module artistProfile
  * @requires firebase
  * @requires Sentry
  */
@@ -12,7 +12,6 @@ export default {
    * @name State
    * @type {object}
    * @property {object} artistProfile - Used for admin part of the website.
-   * @property {object} profile - Used for the public parts of the website
    * @property {array} artists - Used for the public parts of the website
    */
   state: {

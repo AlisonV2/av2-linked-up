@@ -1,13 +1,26 @@
 <template>
   <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-dark">
     <div
-      class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100"
+      class="
+        d-flex
+        flex-column
+        align-items-center align-items-sm-start
+        px-3
+        pt-2
+        text-white
+        min-vh-100
+      "
     >
       <router-link :to="{ name: 'Home' }" class="navbar-logo">
         <img class="admin-brand" src="/img/logo-light.png" />
       </router-link>
       <ul
-        class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start"
+        class="
+          nav nav-pills
+          flex-column
+          mb-sm-auto mb-0
+          align-items-center align-items-sm-start
+        "
         id="menu"
       >
         <li>
@@ -20,7 +33,7 @@
           </router-link>
         </li>
         <hr class="dropdown-divider" />
-        <li class="nav-item">
+        <li class="nav-item" v-if="role === 'artist'">
           <router-link
             :to="{ name: 'AdminGallery' }"
             class="nav-link align-middle px-0"
@@ -29,7 +42,7 @@
             <span class="ms-3 d-none d-sm-inline">Gallery</span>
           </router-link>
         </li>
-        <hr class="dropdown-divider" />
+        <hr class="dropdown-divider" v-if="role === 'artist'"/>
         <li>
           <a href="#" class="nav-link align-middle px-0">
             <i class="fs-4 bi-envelope"></i>
@@ -60,7 +73,19 @@
  * @exports Sidenav
  * @type {Component}
  */
-export default {};
+export default {
+  name: 'Sidenav',
+  data() {
+    return {
+      role: '',
+    };
+  },
+  async created() {
+    await this.$store.dispatch('getUserRole').then(() => {
+      this.role = this.$store.getters.getUserRole;
+    });
+  },
+};
 </script>
 
 <style lang="scss" scoped>
