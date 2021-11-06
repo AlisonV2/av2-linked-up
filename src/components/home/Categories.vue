@@ -2,7 +2,7 @@
   <div class="row">
     <app-title mode="title-img">Search by style</app-title>
     <div class="col-12 col-md-6 col-lg-3">
-      <div class="card" @click="setCategory('Black Work')">
+      <div class="card" data-test="black-work" @click="setCategory('Black Work')">
         <img src="/img/blackwork.jpg" class="card-img-top" alt="blackwork" />
         <div class="card-body">
           <h5 class="card-title">Black Work</h5>
@@ -43,6 +43,7 @@
 
 <script>
 import * as Sentry from '@sentry/vue';
+
 /**
  * @exports HomeCategories
  * @type {Component}

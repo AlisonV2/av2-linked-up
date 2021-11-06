@@ -1,0 +1,97 @@
+<template>
+  <div class="modal" :style="{ display: show ? 'block': 'none' }">
+    <div class="modal-dialog" style="z-index: 2000;">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title"><slot name="title" /></h5>
+            <span class="close-btn" @click="close">&times;</span>
+        </div>
+        <div class="modal-body">
+          <p><slot name="content" /></p>
+        </div>
+      </div>
+    </div>
+    <div class="modal-backdrop show" @click="close"></div>
+  </div>
+</template>
+
+<script>
+/**
+ * @exports AppModal
+ * @type {Component}
+ * @vue-prop {boolean} show - Toggles modal visibility
+ * @vue-prop {boolean} scrollable - Decides if modal is scrollable
+ * @vue-event {boolean} close - Emits hide event
+ * @vue-event {boolean} onClickAway - Emits hide event
+ */
+export default {
+  name: 'AppModal',
+  props: {
+    show: {
+      required: true,
+    },
+    scrollable: {
+      default: false,
+    },
+  },
+  watch: {
+    show: {
+      immediate: true,
+      handler(newVal) {
+        if (newVal && !this.scrollable) {
+          document.body.style.setProperty('overflow', 'hidden');
+        } else {
+          document.body.style.removeProperty('overflow');
+        }
+      },
+    },
+  },
+  methods: {
+    close() {
+      this.$emit('hide');
+    },
+    handler(e) {
+      if (e.code === 'Escape' && this.show) {
+        this.close();
+      }
+    },
+    onClickAway() {
+      this.$emit('hide');
+    }
+  },
+  created() {
+    document.addEventListener('keydown', this.handler);
+  },
+  unmounted() {
+    document.removeEventListener('keydown', this.handler);
+  },
+};
+</script>
+
+<style lang="scss">
+.close-btn {
+    background-color: transparent;
+    color: $primary!important;
+    border: 1px solid $primary!important;
+    padding: 0rem .5rem;
+    cursor: pointer;
+    &:hover {
+        background-color: $primary!important;
+        color: $light!important;
+    }
+}
+
+.modal-content {
+  border-radius: 0;
+  border: 1px solid $primary;
+}
+
+.modal-dialog {
+    margin-top: 10%;
+}
+
+.modal-body p {
+    display: flex;
+    justify-content: center;
+}
+</style>

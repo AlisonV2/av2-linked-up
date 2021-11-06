@@ -8,7 +8,7 @@
       </div>
     </div>
     <div class="col-12 btn-right mt-3" v-if="profileGallery">
-      <div class="btn-group mb-3" @click="updateArtistGallery">
+      <div class="btn-group mb-3" data-test="update" @click="updateArtistGallery">
         <app-button>Update</app-button>
       </div>
     </div>
@@ -45,7 +45,7 @@
       <GalleryItem :image="gallery" :index="i" @removeImg="removeImg" />
     </div>
   </div>
-  <div class="row" v-if="!images">
+  <div class="row" v-if="!profileGallery">
     <div class="col-12 col-md-6 col-lg-4 col-xl-3">
       <img :src="require('@/assets/img/default-placeholder.png')" />
     </div>
@@ -86,9 +86,13 @@ export default {
     };
   },
   async created() {
-    await this.$store.dispatch('getArtistGallery').then(() => {
+    await this.$store.dispatch('getArtistGallery')
+    .then(() => {
       const gallery = this.$store.state.gallery.gallery;
       this.profileGallery = gallery.gallery;
+    })
+    .catch((err) => {
+      Sentry.captureException(err);
     });
   },
   methods: {
