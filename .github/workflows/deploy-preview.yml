@@ -3,16 +3,6 @@ on:
   pull_request:
     branches: [ staging ]
 jobs:
-  lint:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - run: npm install && npm run lint
-  unit_test:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - run: npm install && npm run test:unit
   build_and_preview:
     runs-on: ubuntu-latest
     steps:
