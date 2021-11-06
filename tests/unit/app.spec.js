@@ -4,6 +4,7 @@ import App from '@/App';
 import AppNavbar from '@/components/nav/Navbar';
 import AppFooter from '@/components/nav/Footer';
 import AdminNav from '@/components/admin/AdminNav';
+import AppModal from '@/components/app/Modal';
 import 'lodash';
 
 const actions = {
@@ -18,18 +19,50 @@ const $router = {
   push: jest.fn(),
 };
 
+const config = {
+  data() {
+    return {
+      open: false,
+    };
+  },
+  global: {
+    plugins: [store],
+    components: {
+      AppNavbar,
+      AppFooter,
+      AdminNav,
+      AppModal
+    },
+    stubs: ['router-view'],
+    mocks: {
+      $route: {
+        meta: {
+          requiresAuth: true,
+        },
+      },
+      $router,
+    },
+  },
+};
+
 /**
  * @module AppTest
  */
 describe('App.vue', () => {
   it('Renders child component via routing', () => {
     const component = shallowMount(App, {
+      data() {
+        return {
+          open: false,
+        };
+      },
       global: {
         plugins: [store],
         components: {
           AppNavbar,
           AppFooter,
           AdminNav,
+          AppModal
         },
         stubs: ['router-view'],
         mocks: {
@@ -39,6 +72,9 @@ describe('App.vue', () => {
             },
           },
           $router,
+          methods: {
+            getEgg: jest.fn()
+          }
         },
       },
     });
@@ -46,26 +82,20 @@ describe('App.vue', () => {
     expect(actions.initLogin).toHaveBeenCalled();
   });
   it('Renders child component via routing', () => {
-    const component = shallowMount(App, {
-      global: {
-        plugins: [store],
-        components: {
-          AppNavbar,
-          AppFooter,
-          AdminNav,
-        },
-        stubs: ['router-view'],
-        mocks: {
-          $route: {
-            meta: {
-              requiresAuth: true,
-            },
-          },
-          $router,
-        },
-      },
-    });
+    const component = shallowMount(App, config);
     const adminNav = component.findComponent(AdminNav);
     expect(adminNav.exists()).toBe(true);
+  });
+  it('Modal is not visible', () => {
+    const component = shallowMount(App, config);
+    const modal = component.findComponent(AppModal);
+    expect(modal).not.toBeVisible;
+  });
+  it('getEgg is triggered', () => {
+    const component = shallowMount(App, config);
+    component.get('.easter-egg').trigger('mouseover', {
+      ctrlKey: true
+    });
+    expect(component.vm.open).toBe(true);
   });
 });
