@@ -3,12 +3,13 @@
     <div class="row">
       <app-title mode="title-img">Find your artist</app-title>
     </div>
-      <ArtistList />
+    <ArtistList />
   </div>
 </template>
 
 <script>
 import ArtistList from '@/components/artists/ArtistList';
+
 /**
  * @exports Artists
  * @requires ArtistList
