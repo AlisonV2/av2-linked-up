@@ -19,6 +19,7 @@ export default {
    */
   state: {
     userLoggedIn: false,
+    userRole: ''
   },
   /**
    * @name Mutations
@@ -29,6 +30,9 @@ export default {
     toggleAuth(state) {
       state.userLoggedIn = !state.userLoggedIn;
     },
+    setUserRole(state, payload) {
+      state.userRole = payload;
+      },
   },
   /**
    * @name Actions
@@ -117,5 +121,30 @@ export default {
 
       commit('toggleAuth');
     },
+    /**
+     * @description Get userRole
+     * @method getUserRole
+     * @returns {string}
+     * @async
+     */
+    async getUserRole({ commit }) {
+      const user = auth.currentUser;
+
+      if (user) {
+        const userRole = await usersCollection.doc(user.uid).get();
+        const role = userRole.data().role;
+        commit('setUserRole', role);
+      }
+    },
   },
+    /**
+   * @name Getters
+   * @type {object}
+   * @property {string} getUserRole - Access state userRole
+   */
+     getters: {
+      getUserRole(state) {
+        return state.userRole;
+      },
+    },
 };

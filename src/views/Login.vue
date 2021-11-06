@@ -34,9 +34,9 @@ export default {
   },
   data() {
     return {
-      showLogin: true
+      showLogin: true,
     }
-  }
+  },
 }
 </script>
 
