@@ -1,9 +1,4 @@
-import {
-  auth,
-  projectsCollection,
-  clientsCollection,
-  artistsCollection,
-} from '@/utils/firebase';
+import { auth, projectsCollection } from '@/utils/firebase';
 import * as Sentry from '@sentry/vue';
 
 /**
@@ -55,7 +50,7 @@ export default {
           ...payload,
           createdAt: new Date(),
         });
-        console.log(id)
+        console.log(id);
 
         commit('setNewProject', payload);
         dispatch('updateProject', id);
@@ -101,12 +96,12 @@ export default {
     async updateProject(_, payload) {
       console.log(payload);
       try {
-        await projectsCollection.doc(payload).update({ id: payload});
+        await projectsCollection.doc(payload).update({ id: payload });
       } catch (err) {
         Sentry.captureException(err);
         return;
       }
-    }
+    },
   },
   /**
    * @name Getters
