@@ -1,16 +1,17 @@
 <template>
-  <div class="row">
-    <div class="col-12 col-lg-6" v-if="projects.length">
-      <div v-for="project in projects" :key="project.createdAt">
-        {{ project.clientId }}
-        {{ project.artistId }}
-        {{ project.description }}
-      </div>
+  <div class="row" v-if="projects.length">
+    <div
+      class="col-12 col-lg-4"
+      v-for="project in projects"
+      :key="project"
+    >
+      <ProjectItem :project="project"/>
     </div>
   </div>
 </template>
 
 <script>
+import ProjectItem from '@/components/admin/ProjectItem';
 import * as Sentry from '@sentry/vue';
 
 /**
@@ -21,6 +22,9 @@ import * as Sentry from '@sentry/vue';
  */
 export default {
   name: 'ArtistProjects',
+  components: {
+    ProjectItem,
+  },
   data() {
     return {
       projects: []

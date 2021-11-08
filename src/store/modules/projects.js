@@ -48,7 +48,7 @@ export default {
       try {
         const { id } = await projectsCollection.add({
           ...payload,
-          createdAt: new Date(),
+          createdAt: new Date().toString(),
         });
         console.log(id);
 
