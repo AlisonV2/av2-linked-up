@@ -11,6 +11,9 @@ import ArtistProfile from '../views/ArtistProfile';
 import Admin from '../views/Admin';
 import AdminProfile from '../components/admin/AdminProfile';
 import AdminGallery from '../components/admin/AdminGallery';
+import AdminInbox from '../components/admin/AdminInbox';
+import AdminProjects from '../components/admin/AdminProjects';
+import AdminEvents from '../components/admin/AdminEvents';
 import ClientProfile from '../views/ClientProfile';
 
 const routes = [
@@ -76,7 +79,22 @@ const routes = [
         path: 'gallery',
         name: 'AdminGallery',
         component: AdminGallery,
-      }
+      },
+      {
+        path: 'inbox',
+        name: 'AdminInbox',
+        component: AdminInbox,
+      },
+      {
+        path: 'projects',
+        name: 'AdminProjects',
+        component: AdminProjects,
+      },
+      {
+        path: 'events',
+        name: 'AdminEvents',
+        component: AdminEvents,
+      },
     ]
   },
   {

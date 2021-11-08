@@ -7,7 +7,7 @@ import {
 } from '@/utils/firebase';
 
 /**
- * Vuex module for artists' gallery
+ * Vuex module for authentication
  * @module auth
  * @requires firebase
  */

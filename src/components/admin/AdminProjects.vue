@@ -1,14 +1,14 @@
 <template>
-  <ArtistDashboard v-if="role === 'artist'"/>
-  <ClientDashboard v-if="role === 'client'"/>
+  <ArtistProjects v-if="role === 'artist'"/>
+  <ClientProjects v-if="role === 'client'"/>
 </template>
 
 <script>
-import ArtistDashboard from '@/components/artists/ArtistDashboard.vue';
-import ClientDashboard from '@/components/clients/ClientDashboard.vue';
+import ArtistProjects from '@/components/artists/ArtistProjects.vue';
+import ClientProjects from '@/components/clients/ClientProjects.vue';
 
 /**
- * @exports AdminProfile
+ * @exports AdminProjects
  * @type {Component}
  * @vue-data{string} role
  * @vue-event {number} getUserRole on created hook
@@ -16,8 +16,8 @@ import ClientDashboard from '@/components/clients/ClientDashboard.vue';
 export default {
   name: 'AdminProfile',
   components: {
-    ArtistDashboard,
-    ClientDashboard,
+    ArtistProjects,
+    ClientProjects,
   },
   data() {
     return {
