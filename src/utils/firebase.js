@@ -32,7 +32,7 @@ const artistsCollection = db.collection('artists');
 const clientsCollection = db.collection('clients');
 const organizersCollection = db.collection('organizers');
 const galleriesCollection = db.collection('galleries');
-const thumbnailsCollection = db.collection('thumbnails');
+const messagesCollection = db.collection('messages');
 const projectsCollection = db.collection('projects');
 
 export {
@@ -44,7 +44,7 @@ export {
   clientsCollection,
   organizersCollection,
   galleriesCollection,
-  thumbnailsCollection,
+  messagesCollection,
   projectsCollection,
   analytics
 };

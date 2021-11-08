@@ -50,16 +50,15 @@ export default {
    */
   actions: {
     async setNewProject({ commit, dispatch }, payload) {
-      const client = payload.clientId;
-      const artist = payload.artistId;
       try {
-        const { docId } = await projectsCollection.add({
+        const { id } = await projectsCollection.add({
           ...payload,
           createdAt: new Date(),
         });
+        console.log(id)
+
         commit('setNewProject', payload);
-        dispatch('addClientProject', { projectId: docId, clientId: client });
-        dispatch('addArtistProject', { projectId: docId, artistId: artist });
+        dispatch('updateProject', id);
       } catch (err) {
         Sentry.captureException(err);
         return;
@@ -99,58 +98,15 @@ export default {
         return;
       }
     },
-    async addClientProject(_, payload) {
-      const client = payload.clientId;
-      const project = payload.projectId;
-
-      const updatedProjects = [];
-      const doc = await clientsCollection.doc(client).get();
-      const clientProjects = doc.data().projects;
-
-      if (clientProjects) {
-        for (let i = 0; i < clientProjects.length; i++) {
-          updatedProjects.push(clientProjects[i]);
-        }
-        updatedProjects.push(project);
-      } else {
-        updatedProjects.push(project);
-      }
-
+    async updateProject(_, payload) {
+      console.log(payload);
       try {
-        await clientsCollection
-          .doc(client)
-          .update({ project: updatedProjects });
+        await projectsCollection.doc(payload).update({ id: payload});
       } catch (err) {
         Sentry.captureException(err);
         return;
       }
-    },
-    async addArtistProject(_, payload) {
-      const artist = payload.artistId;
-      const project = payload.projectId;
-
-      const updatedProjects = [];
-      const doc = await artistsCollection.doc(artist).get();
-      const artistProjects = doc.data().projects;
-
-      if (artistProjects) {
-        for (let i = 0; i < artistProjects.length; i++) {
-          updatedProjects.push(artistProjects[i]);
-        }
-        updatedProjects.push(project);
-      } else {
-        updatedProjects.push(project);
-      }
-
-      try {
-        await artistsCollection
-          .doc(artist)
-          .update({ project: updatedProjects });
-      } catch (err) {
-        Sentry.captureException(err);
-        return;
-      }
-    },
+    }
   },
   /**
    * @name Getters
