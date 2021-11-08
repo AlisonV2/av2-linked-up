@@ -15,6 +15,7 @@ import AdminInbox from '../components/admin/AdminInbox';
 import AdminProjects from '../components/admin/AdminProjects';
 import AdminEvents from '../components/admin/AdminEvents';
 import ClientProfile from '../views/ClientProfile';
+import ArtistContact from '../views/ArtistContact';
 
 const routes = [
   {
@@ -31,6 +32,11 @@ const routes = [
     path: '/artist/:id',
     name: 'Profile',
     component: ArtistProfile,
+  },
+  {
+    path: '/artist/contact',
+    name: 'ArtistContact',
+    component: ArtistContact,
   },
   {
     path: '/client/:id',

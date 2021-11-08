@@ -19,7 +19,8 @@ export default {
    */
   state: {
     userLoggedIn: false,
-    userRole: ''
+    userRole: '',
+    currentUser: '',
   },
   /**
    * @name Mutations
@@ -32,7 +33,10 @@ export default {
     },
     setUserRole(state, payload) {
       state.userRole = payload;
-      },
+    },
+    setCurrentUser(state, payload) {
+      state.currentUser = payload;
+    },
   },
   /**
    * @name Actions
@@ -41,6 +45,7 @@ export default {
    * @property {boolean} login - Logs a user in with firebase authentication
    * @property {boolean} initLogin - Checks if a user is already logged in
    * @property {boolean} logout - Logs a user out
+   * @property {object} getCurrentUser
    */
   actions: {
     /**
@@ -136,15 +141,22 @@ export default {
         commit('setUserRole', role);
       }
     },
+    getCurrentUser({ commit }) {
+      const user = auth.currentUser;
+      commit('setCurrentUser', user.uid);
+    },
   },
-    /**
+  /**
    * @name Getters
    * @type {object}
    * @property {string} getUserRole - Access state userRole
    */
-     getters: {
-      getUserRole(state) {
-        return state.userRole;
-      },
+  getters: {
+    getUserRole(state) {
+      return state.userRole;
     },
+    getCurrentUser(state) {
+      return state.currentUser;
+    },
+  },
 };
