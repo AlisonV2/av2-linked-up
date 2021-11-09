@@ -48,6 +48,7 @@ What I've implemented:
 - Preview URL generation with firebase
 - Sentry monitoring
 - Better Uptime monitoring
+- Status page : <a href="https://alison-vandromme.betteruptime.com"> Here </a>
 - Google Analytics
 
 ## Stack <a name="stack"></a>
@@ -211,6 +212,7 @@ For now, test mode is enable so it doesn't block any PRs.
 
 ### Better Uptime <a name="better-uptime"></a>
 
+Status page can be found <a href="https://alison-vandromme.betteruptime.com"> here </a>
 Better Uptime is configured to : 
 - Call
 - Send an SMS
