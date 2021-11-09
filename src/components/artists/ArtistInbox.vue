@@ -1,5 +1,9 @@
 <template>
-  <div class="row artist-inbox"></div>
+  <div class="row artist-inbox">
+    <!-- Single chat : Find messages where project === project.id 
+    Inbox: Find messages where artistId === user.id 
+    Display client name -->
+  </div>
 </template>
 
 <script>

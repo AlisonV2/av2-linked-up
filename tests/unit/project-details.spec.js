@@ -20,8 +20,9 @@ const config = {
   data() {
     return {
       project: {},
-      showForm: false,
+      showForm: true,
       message: '',
+      isArtist: true
     };
   },
   global: {
@@ -46,14 +47,7 @@ describe('ProjectDetails.vue', () => {
     expect(getters.getProjectById).toHaveBeenCalled;
   });
   it('getProjectByIdaction should have been called', async () => {
-    const component = shallowMount(ProjectDetails, {
-      ...config,
-      data() {
-        return {
-          showForm: true,
-        };
-      },
-    });
+    const component = shallowMount(ProjectDetails, config);
     component.find('form').trigger('submit.prevent');
     await component.vm.$nextTick();
     expect(actions.startChat).toHaveBeenCalled;
