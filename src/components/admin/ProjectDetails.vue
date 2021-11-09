@@ -1,33 +1,52 @@
 <template>
   <div class="container" v-if="project">
-    {{ project.title }}
-    {{ project.artistName }}
-    {{ project.clientName }}
-    {{ project.description }}
-    <!-- if project.status == pending -->
-    <div class="btn-wrapper" @click="showForm = !showForm">
-      <app-button>Contact {{ project.clientName }}</app-button>
-    </div>
-  </div>
-  <div class="row" v-if="showForm">
-    <form @submit.prevent="handleSubmit">
-      <div class="form-floating mb-3" @submit.prevent="handleSubmit">
-        <input
-          class="form-control"
-          type="textarea"
-          v-model="message"
-          placeholder="Message"
-        />
-        <label>Message</label>
-        <div class="btn-wrapper">
-          <app-button>Send message</app-button>
+    <div class="row">
+      <div class="col-12 project-details text-center">
+        <h2 class="project-title">{{ project.title }}</h2>
+        <h3 class="project-subtitle" v-if="isArtist">
+          Project requested by : <span>{{ project.clientName }}</span>
+        </h3>
+        <h3 v-if="!isArtist">
+          Project sent to : <span>{{ project.artistName }}</span>
+        </h3>
+        <p>Sent: {{ date }}</p>
+        <div class="project-description mt-4">
+          <p>
+            {{ project.description }}
+          </p>
         </div>
       </div>
-    </form>
+      <!-- if project.status == pending -->
+      <div
+        class="btn-wrapper btn-center mt-4"
+        @click="showForm = !showForm"
+        v-if="isArtist"
+      >
+        <app-button>Contact {{ project.clientName }}</app-button>
+      </div>
+    </div>
+    <div class="row" v-if="showForm && isArtist">
+      <form @submit.prevent="handleSubmit">
+        <div class="form-floating mb-3" @submit.prevent="handleSubmit">
+          <input
+            class="form-control"
+            type="textarea"
+            v-model="message"
+            placeholder="Message"
+          />
+          <label>Message</label>
+          <div class="btn-wrapper">
+            <app-button>Send message</app-button>
+          </div>
+        </div>
+      </form>
+    </div>
   </div>
 </template>
 
 <script>
+import { format } from 'date-fns';
+
 /**
  * @exports ProjectDetails
  * @type {Page}
@@ -43,12 +62,16 @@ export default {
     return {
       project: {},
       showForm: false,
-      message: ''
+      message: '',
+      isArtist: false,
+      date: ''
     };
   },
   async created() {
     await this.$store.dispatch('getProjectById', this.$route.params.id);
     this.project = this.$store.getters.getProjectById;
+    this.isArtist = this.$route.params.isArtist;
+    this.formatDate();
   },
   methods: {
     handleSubmit() {
@@ -58,6 +81,19 @@ export default {
       };
       this.$store.dispatch('startChat', chat);
     },
+      formatDate() {
+    const date = this.project.createdAt;
+    this.date = format(date.toDate(), 'dd/MM/yyyy');
+  },
   },
 };
 </script>
+
+<style lang="scss">
+.project-title {
+  font-size: 2rem;
+  font-family: $accent-font;
+  color: $primary;
+  margin-bottom: 2rem;
+}
+</style>

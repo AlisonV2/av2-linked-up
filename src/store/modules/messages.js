@@ -45,12 +45,19 @@ export default {
       const user = auth.currentUser;
       const projectId = payload.id;
       const message = {
-        fromId: user.uid,
-        toId: payload.clientId,
-        from: user.displayName,
-        to: payload.clientName,
-        message: payload.message,
-        createdAt: new Date().toString(),
+        project: projectId,
+        artist: payload.artistName,
+        client: payload.clientName,
+        artistId: payload.artistId,
+        clientId: payload.clientId,
+        messages: [
+          {
+            sender: user.uid,
+            senderName: user.displayName,
+            message: payload.message,
+            date: new Date(),
+          },
+        ],
       };
       try {
         await messagesCollection.doc(projectId).set({ ...message });

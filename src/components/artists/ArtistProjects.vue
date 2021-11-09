@@ -1,8 +1,8 @@
 <template>
   <div class="row" v-if="projects.length">
     <div class="col-12 col-lg-4" v-for="project in projects" :key="project">
-      <router-link :to="{ name: 'ProjectDetails', params: { id: project.id } }">
-        <ProjectItem :project="project" :time="project.createdAt" />
+      <router-link :to="{ name: 'ProjectDetails', params: { id: project.id, isArtist: true } }">
+        <ProjectItem :project="project" :time="project.createdAt"/>
       </router-link>
     </div>
   </div>

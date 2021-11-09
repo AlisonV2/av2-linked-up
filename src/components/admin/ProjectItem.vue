@@ -2,9 +2,9 @@
   <div class="card text-center">
     <div class="card-header title">
       {{ project.title }}
-    </div>
-    <h6 class="card-subtitle mb-2 text-muted" v-if="role === 'client'">{{ project.artistName }}</h6>
-    <h6 class="card-subtitle mb-2 text-muted" v-if="role === 'artist'">{{ project.clientName }}</h6>
+    <h6 class="card-subtitle mb-2 text-muted" v-if="role === 'client'">Project sent to {{ project.artistName }}</h6>
+    <h6 class="card-subtitle mb-2 text-muted" v-if="role === 'artist'">Project requested by {{ project.clientName }}</h6>
+        </div>
     <p class="card-text">{{ project.description }}</p>
     <div class="card-footer text-muted">
       {{ createdAt }}
@@ -23,7 +23,7 @@ import { format } from 'date-fns';
  */
 export default {
   name: 'ProjectItem',
-  props: ['project', 'time'],
+  props: ['project', 'time', 'isArtist'],
   data() {
     return {
       createdAt: '',
@@ -46,3 +46,18 @@ export default {
   },
 };
 </script>
+
+<style lang="scss" scoped>
+.card-text {
+  color: $dark!important;
+}
+
+.card-subtitle {
+  font-family: $default-font!important;
+  margin-top: 1rem;
+}
+
+.card-header {
+  margin-bottom: 1rem;
+}
+</style>
