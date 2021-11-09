@@ -7,7 +7,7 @@
     </div>
     <div class="col-12 col-lg-4 mt-4">
       <div class="mt-3">
-        <input type="file" @change="setPreviewImage($event)" />
+        <input type="file" data-test="file-upload" @change="setPreviewImage($event)" />
         <div class="error">{{ fileErr }}</div>
       </div>
       <img

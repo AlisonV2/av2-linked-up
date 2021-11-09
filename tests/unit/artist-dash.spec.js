@@ -93,4 +93,17 @@ describe('ArtistDashboard.vue', () => {
     await component.vm.$nextTick();
     expect(actions.setArtistThumbnail).toHaveBeenCalled;
   });
+  it('Check if toastError component is visible', async () => {
+    const component = shallowMount(ArtistDashboard, {
+      ...config,
+      data() {
+        return {
+          showSuccessToast: false,
+          showErrorToast: true,
+        }
+      }
+    });
+    const error = component.find('.toast-error');
+    expect(error.exists()).toBe(true);
+  });
 });

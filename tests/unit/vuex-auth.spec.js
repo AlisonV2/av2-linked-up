@@ -5,13 +5,14 @@ import { cloneDeep } from 'lodash';
 jest.mock('@/utils/firebase', () => ({
   auth: {
     signInWithEmailAndPassword: () => Promise.resolve(),
+    createUserWithEmailAndPassword: () => Promise.resolve(),
   },
 }));
 
+/**
+ * @module AuthModuleTest
+ */
 describe('Vuex - Auth module', () => {
-  /**
-   * ToggleAuth mutation
-   */
   it('toggleAuth mutation, sets userLoggedIn to true', () => {
     const clonedAuth = cloneDeep(auth);
 
@@ -26,9 +27,6 @@ describe('Vuex - Auth module', () => {
     expect(store.state.auth.userLoggedIn).toBe(true);
   });
 
-  /**
-   * Login action
-   */
   it('login action, sets userLoggedIn to true', async () => {
     const clonedAuth = cloneDeep(auth);
 
