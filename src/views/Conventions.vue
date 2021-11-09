@@ -1,5 +1,5 @@
 <template>
-  <div class="row">
+  <div class="row" data-test="conventions">
       <app-title mode="title-img">Upcoming events</app-title>
   </div>
 </template>
