@@ -15,6 +15,7 @@ export default {
     newProject: {},
     artistProjects: [],
     clientProjects: [],
+    projectById: {}
   },
   /**
    * @name Mutations
@@ -22,6 +23,7 @@ export default {
    * @property {object} setNewProject
    * @property {object} setArtistProjects
    * @property {object} setClientProjects
+   * @property {object} setProjectById
    */
   mutations: {
     setNewProject(state, payload) {
@@ -33,6 +35,9 @@ export default {
     setClientProjects(state, payload) {
       state.clientProjects = payload;
     },
+    setProjectById(state, payload) {
+      state.projectById = payload;
+    },
   },
   /**
    * @name Actions
@@ -42,15 +47,16 @@ export default {
    * @property {array} getClientProjects
    * @property {void} addClientProject
    * @property {void} addArtistProject
+   * @property {object} getProjectById
    */
   actions: {
     async setNewProject({ commit, dispatch }, payload) {
       try {
         const { id } = await projectsCollection.add({
           ...payload,
-          createdAt: new Date().toString(),
+          createdAt: new Date(),
+          status: 'Pending'
         });
-        console.log(id);
 
         commit('setNewProject', payload);
         dispatch('updateProject', id);
@@ -102,6 +108,16 @@ export default {
         return;
       }
     },
+    async getProjectById({ commit }, payload) {
+      try {
+        const doc = await projectsCollection.doc(payload).get();
+        const project = doc.data();
+        commit('setProjectById', project)
+      } catch (err){
+        Sentry.captureException(err);
+        return;
+      }
+    }
   },
   /**
    * @name Getters
@@ -116,5 +132,8 @@ export default {
     getArtistProjects(state) {
       return state.artistProjects;
     },
+    getProjectById(state) {
+      return state.projectById;
+    }
   },
 };

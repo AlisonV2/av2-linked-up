@@ -143,7 +143,7 @@ export default {
     },
     getCurrentUser({ commit }) {
       const user = auth.currentUser;
-      commit('setCurrentUser', user.uid);
+      commit('setCurrentUser', user);
     },
   },
   /**

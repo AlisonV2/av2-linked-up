@@ -1,11 +1,9 @@
 <template>
   <div class="row" v-if="projects.length">
-    <div
-      class="col-12 col-lg-4"
-      v-for="project in projects"
-      :key="project"
-    >
-      <ProjectItem :project="project" :time="project.createdAt"/>
+    <div class="col-12 col-lg-4" v-for="project in projects" :key="project">
+      <router-link :to="{ name: 'ProjectDetails', params: { id: project.id } }">
+        <ProjectItem :project="project" :time="project.createdAt" />
+      </router-link>
     </div>
   </div>
 </template>
@@ -27,16 +25,18 @@ export default {
   },
   data() {
     return {
-      projects: []
+      projects: [],
     };
   },
   created() {
-    this.$store.dispatch('getArtistProjects')
-    .then(() => {
-      this.projects = this.$store.getters.getArtistProjects;
-    }).catch((err) => {
-      Sentry.captureException(err);
-    });
+    this.$store
+      .dispatch('getArtistProjects')
+      .then(() => {
+        this.projects = this.$store.getters.getArtistProjects;
+      })
+      .catch((err) => {
+        Sentry.captureException(err);
+      });
   },
 };
 </script>
