@@ -1,5 +1,5 @@
 <template>
-  <div class="row"></div>
+  <div class="row artist-inbox"></div>
 </template>
 
 <script>
@@ -12,10 +12,6 @@
  */
 export default {
   name: 'ArtistInbox',
-  data() {
-    return {};
-  },
-  methods: {},
 };
 </script>
 

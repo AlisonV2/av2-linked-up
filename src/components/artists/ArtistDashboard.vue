@@ -20,7 +20,7 @@
         height="250"
         class="img-fluid"
       />
-      <div class="btn-center mt-3" @click="setArtistThumbnail">
+      <div class="btn-center mt-3 thumbnail-button" @click="setArtistThumbnail">
         <app-button mode="save-btn">Save</app-button>
       </div>
       <!-- <div class="error">{{ fileError }}</div> -->
@@ -141,6 +141,7 @@ export default {
         socialLink: '',
         insta: '',
         description: '',
+        thumbnail: ''
       },
       showSuccessToast: false,
       showErrorToast: false,

@@ -1,5 +1,5 @@
 <template>
-  <div class="row"></div>
+  <div class="row artist-events"></div>
 </template>
 
 <script>

@@ -1,5 +1,5 @@
 <template>
-  <div class="row"></div>
+  <div class="row client-inbox"></div>
 </template>
 
 <script>
