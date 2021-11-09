@@ -6,12 +6,13 @@
     <h6 class="card-subtitle mb-2 text-muted">{{ project.artistName }}</h6>
     <p class="card-text">{{ project.description }}</p>
     <div class="card-footer text-muted">
-      {{ project.createdAt}}
+      {{ createdAt }}
     </div>
   </div>
 </template>
 
 <script>
+import { format } from 'date-fns';
 
 /**
  * @exports ProjectItem
@@ -21,6 +22,19 @@
  */
 export default {
   name: 'ProjectItem',
-  props: ['project', 'createdAt'],
+  props: ['project', 'time'],
+  data() {
+    return {
+      createdAt: '',
+    };
+  },
+  created() {
+    this.formatDate();
+  },
+  methods: {
+    formatDate() {
+      this.createdAt = format(this.time.toDate(), 'dd/MM/yyyy');
+    },
+  },
 };
 </script>
