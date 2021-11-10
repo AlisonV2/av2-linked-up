@@ -48,6 +48,7 @@ What I've implemented:
 - Preview URL generation with firebase
 - Sentry monitoring
 - Better Uptime monitoring
+- Status page : <a href="https://alison-vandromme.betteruptime.com"> Here </a>
 - Google Analytics
 
 ## Stack <a name="stack"></a>
@@ -98,6 +99,7 @@ npm run docs
 ### Tests <a name="tests"></a>
 
 Unit tests are made with Jest.
+Snapshot tests are also made with Jest. Each test suite starts with a snapshot test. 
 E2E tests are made with Cypress.
 
 To avoid requireContext errors with Jest, we can install the plugin and add this snippet to babel.config.js :
@@ -211,6 +213,7 @@ For now, test mode is enable so it doesn't block any PRs.
 
 ### Better Uptime <a name="better-uptime"></a>
 
+Status page can be found <a href="https://alison-vandromme.betteruptime.com"> here </a>
 Better Uptime is configured to : 
 - Call
 - Send an SMS

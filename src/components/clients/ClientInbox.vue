@@ -1,0 +1,40 @@
+<template>
+  <div class="row client-inbox">
+    <div class="col-12" v-for="message in messages" :key="message.project">
+      <router-link
+        :to="{ name: 'MessageDetails', params: { id: message.project } }"
+      >
+        <div class="message-item">Conversation with : {{ message.artist }}</div>
+      </router-link>
+    </div>
+  </div>
+</template>
+
+<script>
+import * as Sentry from '@sentry/vue';
+
+/**
+ * @exports ClientInbox
+ * @type {Component}
+ * @requires Sentry
+ */
+export default {
+  name: 'ClientInbox',
+  data() {
+    return {
+      messages: [],
+    };
+  },
+  created() {
+    this.$store
+      .dispatch('getClientMessages')
+      .then(() => {
+        this.messages = this.$store.getters.getClientMessages;
+      })
+      .catch((err) => {
+        Sentry.captureException(err);
+      });
+  },
+  methods: {},
+};
+</script>

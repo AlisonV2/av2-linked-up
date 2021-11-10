@@ -27,7 +27,7 @@
             <p><span class="accent-text">Style:</span> {{ artist.style }}</p>
           </div>
         </div>
-        <div class="mt-4 btn-center">
+        <div class="mt-4 btn-center" @click="handleContact">
           <app-button>Contact {{ artist.name }}</app-button>
         </div>
       </div>
@@ -47,6 +47,12 @@
       </div>
     </div>
   </div>
+  <AppModal :show="open" @hide="open = false">
+    <template #title>Contact {{ artist.name }}</template>
+    <template #content>
+        You must have a client account to contact {{ artist.name }}
+    </template>
+  </AppModal>
 </template>
 
 <script>
@@ -66,6 +72,9 @@ export default {
     return {
       gallery: [],
       artist: {},
+      role: '',
+      open: false,
+      name: ''
     };
   },
   async created() {
@@ -74,6 +83,7 @@ export default {
       .then(() => {
         this.gallery = this.$store.getters.getGalleryFromId;
         this.artist = this.$store.getters.getArtistProfile;
+        this.name = this.artist.name;
       })
       .catch((err) => Sentry.captureException(err));
 
@@ -83,7 +93,26 @@ export default {
         this.gallery = this.$store.getters.getGalleryFromId;
       })
       .catch((err) => Sentry.captureException(err));
+
+    await this.$store
+      .dispatch('getUserRole')
+      .then(() => {
+        this.role = this.$store.getters.getUserRole;
+      })
+      .catch((err) => Sentry.captureException(err));
   },
+  methods: {
+    handleContact() {
+      const id = this.$route.params.id;
+      const artist = this.name;
+      console.log(artist)
+      if (this.role === 'client') {
+        this.$router.push({ name : 'ArtistContact', params: { artist: artist, id: id } });
+      } else {
+        this.open = true;
+      }
+    },
+  }
 };
 </script>
 

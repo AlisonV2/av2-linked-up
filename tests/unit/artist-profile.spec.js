@@ -3,15 +3,18 @@ import { createStore } from 'vuex';
 import ArtistProfile from '@/views/ArtistProfile';
 import AppTitle from '@/components/app/Title';
 import AppButton from '@/components/app/Button';
+import AppModal from '@/components/app/Modal';
 
 const actions = {
   getArtistById: jest.fn(),
   getGalleryFromId: jest.fn(),
+  getUserRole: jest.fn(),
 };
 
 const getters = {
-  getGalleryFromId: jest.fn(),
   getArtistById: jest.fn(),
+  getGalleryFromId: jest.fn(),
+  getUserRole: jest.fn(),
 };
 
 const store = createStore({
@@ -47,6 +50,9 @@ const config = {
         'https://via.placeholder.com/150',
         'https://via.placeholder.com/150',
       ],
+      role: 'client',
+      open: false,
+      name: 'Artist',
     };
   },
   global: {
@@ -54,6 +60,7 @@ const config = {
     stubs: {
       'app-title': AppTitle,
       'app-button': AppButton,
+      AppModal: AppModal,
     },
     mocks: {
       $router,
@@ -66,28 +73,74 @@ const config = {
  * @module ArtistProfileTest
  */
 describe('ArtistProfile.vue', () => {
-  it('getArtistById should be called', async () => {
+  it('ArtistProfile Snapshot', () => {
+    const component = shallowMount(ArtistProfile, config);
+    expect(component.element).toMatchSnapshot();
+  });
+
+  it('getArtistById action should be called', async () => {
     const component = shallowMount(ArtistProfile, config);
     ArtistProfile.created.call(component.vm);
     await component.vm.$nextTick();
     expect(actions.getArtistById).toHaveBeenCalled;
   });
-  it('getGalleryFromId should be called', async () => {
+
+  it('getGalleryFromId action should be called', async () => {
     const component = shallowMount(ArtistProfile, config);
     ArtistProfile.created.call(component.vm);
     await component.vm.$nextTick();
     expect(actions.getGalleryFromId).toHaveBeenCalled;
   });
-  it('getArtistProfile should be called', async () => {
+
+  it('getUserRole action should be called', async () => {
+    const component = shallowMount(ArtistProfile, config);
+    ArtistProfile.created.call(component.vm);
+    await component.vm.$nextTick();
+    expect(actions.getUserRole).toHaveBeenCalled;
+  });
+
+  it('getArtistProfile getter should be called', async () => {
     const component = shallowMount(ArtistProfile, config);
     ArtistProfile.created.call(component.vm);
     await component.vm.$nextTick();
     expect(getters.getArtistProfile).toHaveBeenCalled;
   });
-  it('getGalleryFromId should be called', async () => {
+
+  it('getGalleryFromId getter should be called', async () => {
     const component = shallowMount(ArtistProfile, config);
     ArtistProfile.created.call(component.vm);
     await component.vm.$nextTick();
     expect(getters.getGalleryFromId).toHaveBeenCalled;
+  });
+
+  it('getUserRole getter should be called', async () => {
+    const component = shallowMount(ArtistProfile, config);
+    ArtistProfile.created.call(component.vm);
+    await component.vm.$nextTick();
+    expect(getters.getUserRole).toHaveBeenCalled;
+  });
+
+  it('handleContact should be called with correct route params', async () => {
+    const component = shallowMount(ArtistProfile, config);
+    component.find('.btn-center').trigger('click');
+    await component.vm.$nextTick();
+    expect($router.push).toHaveBeenCalledWith({
+      name: 'ArtistContact',
+      params: { artist: 'Artist', id: '1' },
+    });
+  });
+
+  it('Modal should open', async () => {
+    const component = shallowMount(ArtistProfile, {
+      ...config,
+      data() {
+        return {
+          open: true,
+        };
+      },
+    });
+    component.find('.btn-center').trigger('click');
+    await component.vm.$nextTick();
+    expect(component.find('.modal').isVisible()).toBe(true);
   });
 });

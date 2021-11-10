@@ -22,9 +22,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">25% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>1/4</span>
+                <span class='fraction'>4/4</span>
             </div>
         
             
@@ -36,16 +36,16 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/3</span>
+                <span class='fraction'>3/3</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">25% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>1/4</span>
+                <span class='fraction'>4/4</span>
             </div>
         
             
@@ -54,7 +54,7 @@
             Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
         </p>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line high'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -251,16 +251,16 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -342,23 +342,23 @@
         &lt;/li&gt;
         &lt;hr class="dropdown-divider" v-if="role === 'artist'"/&gt;
         &lt;li&gt;
-          &lt;a href="#" class="nav-link align-middle px-0"&gt;
+          &lt;router-link :to="{ name: 'AdminInbox' }" class="nav-link align-middle px-0"&gt;
             &lt;i class="fs-4 bi-envelope"&gt;&lt;/i&gt;
-            &lt;span class="ms-3 d-none d-sm-inline"&gt;Messages&lt;/span&gt;&lt;/a
+            &lt;span class="ms-3 d-none d-sm-inline"&gt;Messages&lt;/span&gt;&lt;/router-link
           &gt;
         &lt;/li&gt;
         &lt;hr class="dropdown-divider" /&gt;
         &lt;li&gt;
-          &lt;a href="#" class="nav-link align-middle px-0"&gt;
+          &lt;router-link :to="{ name: 'AdminProjects' }" class="nav-link align-middle px-0"&gt;
             &lt;i class="fs-4 bi-card-checklist"&gt;&lt;/i&gt;
-            &lt;span class="ms-3 d-none d-sm-inline"&gt;Projects&lt;/span&gt;&lt;/a
+            &lt;span class="ms-3 d-none d-sm-inline"&gt;Projects&lt;/span&gt;&lt;/router-link
           &gt;
         &lt;/li&gt;
         &lt;hr class="dropdown-divider" /&gt;
         &lt;li&gt;
-          &lt;a href="#" class="nav-link align-middle px-0"&gt;
+          &lt;router-link :to="{ name: 'AdminEvents' }" class="nav-link align-middle px-0"&gt;
             &lt;i class="fs-4 bi-calendar-date"&gt;&lt;/i&gt;
-            &lt;span class="ms-3 d-none d-sm-inline"&gt;Events&lt;/span&gt;&lt;/a
+            &lt;span class="ms-3 d-none d-sm-inline"&gt;Events&lt;/span&gt;&lt;/router-link
           &gt;
         &lt;/li&gt;
       &lt;/ul&gt;
@@ -373,14 +373,14 @@
  */
 export default {
   name: 'Sidenav',
-<span class="fstat-no" title="function not covered" >  data(</span>) {
-<span class="cstat-no" title="statement not covered" >    return {</span>
+  data() {
+    return {
       role: '',
     };
   },
-<span class="fstat-no" title="function not covered" >  async c</span>reated() {
-<span class="cstat-no" title="statement not covered" >    await t</span>his.$store.dispatch('getUserRole').then(<span class="fstat-no" title="function not covered" >() =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >      this.r</span>ole = this.$store.getters.getUserRole;
+  async created() {
+    await this.$store.dispatch('getUserRole').then(() =&gt; {
+      this.role = this.$store.getters.getUserRole;
     });
   },
 };
@@ -423,7 +423,7 @@ a:active,
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Sat Nov 06 2021 14:49:54 GMT+0100 (Central European Standard Time)
+                at Wed Nov 10 2021 11:58:55 GMT+0100 (Central European Standard Time)
             </div>
         </div>
         <script src="..\..\..\prettify.js"></script>

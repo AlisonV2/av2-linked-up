@@ -7,7 +7,7 @@
     </div>
     <div class="col-12 col-lg-4 mt-4">
       <div class="mt-3">
-        <input type="file" @change="setPreviewImage($event)" />
+        <input type="file" data-test="file-upload" @change="setPreviewImage($event)" />
         <div class="error">{{ fileErr }}</div>
       </div>
       <img
@@ -20,7 +20,7 @@
         height="250"
         class="img-fluid"
       />
-      <div class="btn-center mt-3" @click="setArtistThumbnail">
+      <div class="btn-center mt-3 thumbnail-button" @click="setArtistThumbnail">
         <app-button mode="save-btn">Save</app-button>
       </div>
       <!-- <div class="error">{{ fileError }}</div> -->
@@ -141,6 +141,7 @@ export default {
         socialLink: '',
         insta: '',
         description: '',
+        thumbnail: ''
       },
       showSuccessToast: false,
       showErrorToast: false,

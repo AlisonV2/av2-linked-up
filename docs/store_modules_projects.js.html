@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>store/modules/projects.js - Documentation</title>
+
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav>
+    <li class="nav-link nav-home-link"><a href="index.html">Home</a></li><li class="nav-heading">Modules</li><li class="nav-heading"><span class="nav-item-type type-module">M</span><span class="nav-item-name"><a href="module-Admin.html">Admin</a></span></li><li class="nav-heading"><span class="nav-item-type type-module">M</span><span class="nav-item-name"><a href="module-AdminEvents.html">AdminEvents</a></span></li><li class="nav-heading"><span class="nav-item-type type-module">M</span><span class="nav-item-name"><a href="module-AdminGallery.html">AdminGallery</a></span></li><li class="nav-heading"><span class="nav-item-type type-module">M</span><span class="nav-item-name"><a href="module-AdminInbox.html">AdminInbox</a></span></li><li class="nav-heading"><span class="nav-item-type type-module">M</span><span class="nav-item-name"><a href="module-AdminNavbar.html">AdminNavbar</a></span></li><li class="nav-heading"><span class="nav-item-type type-module">M</span><span class="nav-item-name"><a href="module-AdminProfile.html">AdminProfile</a></span></li><li class="nav-heading"><span class="nav-item-type type-module">M</span><span class="nav-item-name"><a href="module-AdminProjects.html">AdminProjects</a></span></li><li class="nav-heading"><span class="nav-item-type type-module">M</span><span class="nav-item-name"><a href="module-App.html">App</a></span></li><li class="nav-heading"><span class="nav-item-type type-module">M</span><span class="nav-item-name"><a href="module-AppButton.html">AppButton</a></span></li><li class="nav-heading"><span class="nav-item-type type-module">M</span><span class="nav-item-name"><a href="module-AppFooter.html">AppFooter</a></span></li><li class="nav-heading"><span class="nav-item-type type-module">M</span><span class="nav-item-name"><a href="module-AppModal.html">AppModal</a></span></li><li class="nav-heading"><span class="nav-item-type type-module">M</span><span class="nav-item-name"><a href="module-AppNavbar.html">AppNavbar</a></span></li><li class="nav-heading"><span class="nav-item-type type-module">M</span><span class="nav-item-name"><a href="module-AppTitle.html">AppTitle</a></span></li><li class="nav-heading"><span class="nav-item-type type-module">M</span><span class="nav-item-name"><a href="module-ArtistDashboard.html">ArtistDashboard</a></span></li><li class="nav-heading"><span class="nav-item-type type-module">M</span><span class="nav-item-name"><a href="module-ArtistEvents.html">ArtistEvents</a></span></li><li class="nav-heading"><span class="nav-item-type type-module">M</span><span class="nav-item-name"><a href="module-ArtistInbox.html">ArtistInbox</a></span></li><li class="nav-heading"><span class="nav-item-type type-module">M</span><span class="nav-item-name"><a href="module-ArtistItem.html">ArtistItem</a></span></li><li class="nav-heading"><span class="nav-item-type type-module">M</span><span class="nav-item-name"><a href="module-ArtistList.html">ArtistList</a></span></li><li class="nav-heading"><span class="nav-item-type type-module">M</span><span class="nav-item-name"><a href="module-artistProfile.html">artistProfile</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="module-artistProfile.html#~getAllArtists">getAllArtists</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="module-artistProfile.html#~getArtistById">getArtistById</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="module-artistProfile.html#~getArtistProfile">getArtistProfile</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="module-artistProfile.html#~setArtistProfile">setArtistProfile</a></span></li><li class="nav-heading"><span class="nav-item-type type-module">M</span><span class="nav-item-name"><a href="module-ArtistProfile_.html">ArtistProfile</a></span></li><li class="nav-heading"><span class="nav-item-type type-module">M</span><span class="nav-item-name"><a href="module-ArtistProjects.html">ArtistProjects</a></span></li><li class="nav-heading"><span class="nav-item-type type-module">M</span><span class="nav-item-name"><a href="module-Artists.html">Artists</a></span></li><li class="nav-heading"><span class="nav-item-type type-module">M</span><span class="nav-item-name"><a href="module-auth.html">auth</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="module-auth.html#~getUserRole">getUserRole</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="module-auth.html#~initLogin">initLogin</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="module-auth.html#~login">login</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="module-auth.html#~logout">logout</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="module-auth.html#~register">register</a></span></li><li class="nav-heading"><span class="nav-item-type type-module">M</span><span class="nav-item-name"><a href="module-Categories.html">Categories</a></span></li><li class="nav-heading"><span class="nav-item-type type-module">M</span><span class="nav-item-name"><a href="module-CategoriesResults.html">CategoriesResults</a></span></li><li class="nav-heading"><span class="nav-item-type type-module">M</span><span class="nav-item-name"><a href="module-ClientDashboard.html">ClientDashboard</a></span></li><li class="nav-heading"><span class="nav-item-type type-module">M</span><span class="nav-item-name"><a href="module-ClientEvents.html">ClientEvents</a></span></li><li class="nav-heading"><span class="nav-item-type type-module">M</span><span class="nav-item-name"><a href="module-ClientInbox.html">ClientInbox</a></span></li><li class="nav-heading"><span class="nav-item-type type-module">M</span><span class="nav-item-name"><a href="module-clientProfile.html">clientProfile</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="module-clientProfile.html#~getClientById">getClientById</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="module-clientProfile.html#~getClientProfile">getClientProfile</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="module-clientProfile.html#~setClientProfile">setClientProfile</a></span></li><li class="nav-heading"><span class="nav-item-type type-module">M</span><span class="nav-item-name"><a href="module-ClientProfile_.html">ClientProfile</a></span></li><li class="nav-heading"><span class="nav-item-type type-module">M</span><span class="nav-item-name"><a href="module-ClientProjects.html">ClientProjects</a></span></li><li class="nav-heading"><span class="nav-item-type type-module">M</span><span class="nav-item-name"><a href="module-Conventions.html">Conventions</a></span></li><li class="nav-heading"><span class="nav-item-type type-module">M</span><span class="nav-item-name"><a href="module-firebase.html">firebase</a></span></li><li class="nav-heading"><span class="nav-item-type type-module">M</span><span class="nav-item-name"><a href="module-gallery.html">gallery</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="module-gallery.html#~deleteImage">deleteImage</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="module-gallery.html#~getArtistGallery">getArtistGallery</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="module-gallery.html#~getGalleryFromId">getGalleryFromId</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="module-gallery.html#~setArtistGallery">setArtistGallery</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="module-gallery.html#~updateArtistGallery">updateArtistGallery</a></span></li><li class="nav-heading"><span class="nav-item-type type-module">M</span><span class="nav-item-name"><a href="module-GalleryItem.html">GalleryItem</a></span></li><li class="nav-heading"><span class="nav-item-type type-module">M</span><span class="nav-item-name"><a href="module-GeoResults.html">GeoResults</a></span></li><li class="nav-heading"><span class="nav-item-type type-module">M</span><span class="nav-item-name"><a href="module-GlobalComponents.html">GlobalComponents</a></span></li><li class="nav-heading"><span class="nav-item-type type-module">M</span><span class="nav-item-name"><a href="module-Home.html">Home</a></span></li><li class="nav-heading"><span class="nav-item-type type-module">M</span><span class="nav-item-name"><a href="module-HomeCategories.html">HomeCategories</a></span></li><li class="nav-heading"><span class="nav-item-type type-module">M</span><span class="nav-item-name"><a href="module-HomeGeoloc.html">HomeGeoloc</a></span></li><li class="nav-heading"><span class="nav-item-type type-module">M</span><span class="nav-item-name"><a href="module-Login.html">Login</a></span></li><li class="nav-heading"><span class="nav-item-type type-module">M</span><span class="nav-item-name"><a href="module-LoginForm.html">LoginForm</a></span></li><li class="nav-heading"><span class="nav-item-type type-module">M</span><span class="nav-item-name"><a href="module-messages.html">messages</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="module-messages.html#~getMessages">getMessages</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="module-messages.html#~sendMessage">sendMessage</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="module-messages.html#~startChat">startChat</a></span></li><li class="nav-heading"><span class="nav-item-type type-module">M</span><span class="nav-item-name"><a href="module-modules.html">modules</a></span></li><li class="nav-heading"><span class="nav-item-type type-module">M</span><span class="nav-item-name"><a href="module-NavBrand.html">NavBrand</a></span></li><li class="nav-heading"><span class="nav-item-type type-module">M</span><span class="nav-item-name"><a href="module-PreviewItem.html">PreviewItem</a></span></li><li class="nav-heading"><span class="nav-item-type type-module">M</span><span class="nav-item-name"><a href="module-ProjectDetails.html">ProjectDetails</a></span></li><li class="nav-heading"><span class="nav-item-type type-module">M</span><span class="nav-item-name"><a href="module-ProjectItem.html">ProjectItem</a></span></li><li class="nav-heading"><span class="nav-item-type type-module">M</span><span class="nav-item-name"><a href="module-projects.html">projects</a></span></li><li class="nav-heading"><span class="nav-item-type type-module">M</span><span class="nav-item-name"><a href="module-RegisterForm.html">RegisterForm</a></span></li><li class="nav-heading"><span class="nav-item-type type-module">M</span><span class="nav-item-name"><a href="module-search.html">search</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="module-search.html#~getArtistsByCity">getArtistsByCity</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="module-search.html#~getArtistsByStyle">getArtistsByStyle</a></span></li><li class="nav-heading"><span class="nav-item-type type-module">M</span><span class="nav-item-name"><a href="module-Sidenav.html">Sidenav</a></span></li><li class="nav-heading"><span class="nav-item-type type-module">M</span><span class="nav-item-name"><a href="module-thumbnail.html">thumbnail</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="module-thumbnail.html#~setArtistThumbnail">setArtistThumbnail</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="module-thumbnail.html#~setClientThumbnail">setClientThumbnail</a></span></li>
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">store/modules/projects.js</h1>
+    
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import { auth, projectsCollection } from '@/utils/firebase';
+import * as Sentry from '@sentry/vue';
+
+/**
+ * Vuex module for Projects
+ * @module projects
+ * @requires firebase
+ */
+export default {
+  /**
+   * @name State
+   * @type {object}
+   */
+  state: {
+    newProject: {},
+    artistProjects: [],
+    clientProjects: [],
+    projectById: {}
+  },
+  /**
+   * @name Mutations
+   * @type {object}
+   * @property {object} setNewProject
+   * @property {object} setArtistProjects
+   * @property {object} setClientProjects
+   * @property {object} setProjectById
+   */
+  mutations: {
+    setNewProject(state, payload) {
+      state.newProject = payload;
+    },
+    setArtistProjects(state, payload) {
+      state.artistProjects = payload;
+    },
+    setClientProjects(state, payload) {
+      state.clientProjects = payload;
+    },
+    setProjectById(state, payload) {
+      state.projectById = payload;
+    },
+  },
+  /**
+   * @name Actions
+   * @type {object}
+   * @property {object} setNewProject
+   * @property {array} getArtistProjects
+   * @property {array} getClientProjects
+   * @property {void} addClientProject
+   * @property {void} addArtistProject
+   * @property {object} getProjectById
+   */
+  actions: {
+    async setNewProject({ commit, dispatch }, payload) {
+      try {
+        const { id } = await projectsCollection.add({
+          ...payload,
+          createdAt: new Date(),
+          status: 'Pending'
+        });
+
+        commit('setNewProject', payload);
+        dispatch('updateProject', id);
+      } catch (err) {
+        Sentry.captureException(err);
+        return;
+      }
+    },
+    async getArtistProjects({ commit }) {
+      const projects = [];
+      const user = auth.currentUser.uid;
+      try {
+        const docs = await projectsCollection
+          .where('artistId', '==', user)
+          .get();
+        docs.forEach((doc) => {
+          const project = { ...doc.data() };
+          projects.push(project);
+        });
+        commit('setArtistProjects', projects);
+      } catch (err) {
+        Sentry.captureException(err);
+        return;
+      }
+    },
+    async getClientProjects({ commit }) {
+      const projects = [];
+      const user = auth.currentUser.uid;
+      try {
+        const docs = await projectsCollection
+          .where('clientId', '==', user)
+          .get();
+        docs.forEach((doc) => {
+          const project = { ...doc.data() };
+          projects.push(project);
+        });
+        commit('setClientProjects', projects);
+      } catch (err) {
+        Sentry.captureException(err);
+        return;
+      }
+    },
+    async updateProject(_, payload) {
+      console.log(payload);
+      try {
+        await projectsCollection.doc(payload).update({ id: payload });
+      } catch (err) {
+        Sentry.captureException(err);
+        return;
+      }
+    },
+    async getProjectById({ commit }, payload) {
+      try {
+        const doc = await projectsCollection.doc(payload).get();
+        const project = doc.data();
+        commit('setProjectById', project)
+      } catch (err){
+        Sentry.captureException(err);
+        return;
+      }
+    }
+  },
+  /**
+   * @name Getters
+   * @type {object}
+   * @property {array} getClientProjects
+   * @property {array} getArtistProjects
+   */
+  getters: {
+    getClientProjects(state) {
+      return state.clientProjects;
+    },
+    getArtistProjects(state) {
+      return state.artistProjects;
+    },
+    getProjectById(state) {
+      return state.projectById;
+    }
+  },
+};
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<br class="clear">
+
+<footer>
+    Generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.7</a> on Tue Nov 09 2021 13:24:58 GMT+0100 (Central European Standard Time) using the Minami theme.
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/linenumber.js"></script>
+</body>
+</html>

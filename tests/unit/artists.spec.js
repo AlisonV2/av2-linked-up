@@ -3,22 +3,26 @@ import Artists from '@/views/Artists.vue';
 import ArtistList from '@/components/artists/ArtistList.vue';
 import AppTitle from '@/components/app/Title.vue';
 
+const config = {
+  global: {
+    components: {
+      ArtistList,
+      'app-title': AppTitle,
+    },
+  },
+};
+
 /**
  * @module ArtistPageTest
  */
 describe('Artists.vue', () => {
-  /**
-   * Check if ArtistList is rendered
-   */
+  it('Artists Snapshot', () => {
+    const component = shallowMount(Artists, config);
+    expect(component.element).toMatchSnapshot();
+  });
+
   it('Check if ArtistList is rendered', () => {
-    const component = shallowMount(Artists, {
-      global: {
-        components: {
-          ArtistList,
-          'app-title': AppTitle,
-        },
-      },
-    });
+    const component = shallowMount(Artists, config);
     const geoloc = component.findComponent(ArtistList);
     expect(geoloc.exists()).toBe(true);
   });

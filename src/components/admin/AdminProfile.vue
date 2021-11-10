@@ -4,9 +4,15 @@
 </template>
 
 <script>
-import ArtistDashboard from '@/components/admin/ArtistDashboard.vue';
-import ClientDashboard from '@/components/admin/ClientDashboard.vue';
+import ArtistDashboard from '@/components/artists/ArtistDashboard.vue';
+import ClientDashboard from '@/components/clients/ClientDashboard.vue';
 
+/**
+ * @exports AdminProfile
+ * @type {Component}
+ * @vue-data{string} role
+ * @vue-event {number} getUserRole on created hook
+ */
 export default {
   name: 'AdminProfile',
   components: {
