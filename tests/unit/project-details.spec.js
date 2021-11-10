@@ -1,6 +1,7 @@
 import { shallowMount } from '@vue/test-utils';
 import { createStore } from 'vuex';
 import ProjectDetails from '@/components/admin/ProjectDetails.vue';
+import AppButton from '@/components/app/Button';
 
 const actions = {
   getProjectById: jest.fn(),
@@ -27,6 +28,9 @@ const config = {
   },
   global: {
     plugins: [store],
+    components: {
+      'app-button': AppButton
+    }
   },
 };
 

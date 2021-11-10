@@ -68,7 +68,7 @@ const config = {
  * @module ClientDashboardTest
  */
 describe('Categories.vue', () => {
-  it('Check if CategoriesGeoloc is rendered', async () => {
+  it('Check if getClientProfile action is called', async () => {
     const component = shallowMount(ClientDashboard, config);
     ClientDashboard.created.call(component.vm);
     await component.vm.$nextTick();
