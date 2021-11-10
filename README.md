@@ -99,6 +99,7 @@ npm run docs
 ### Tests <a name="tests"></a>
 
 Unit tests are made with Jest.
+Snapshot tests are also made with Jest. Each test suite starts with a snapshot test. 
 E2E tests are made with Cypress.
 
 To avoid requireContext errors with Jest, we can install the plugin and add this snippet to babel.config.js :
