@@ -5,6 +5,11 @@ import GalleryItem from '@/components/admin/GalleryItem';
  * @module GalleryItemTest
  */
 describe('GalleryItem.vue', () => {
+  it('GalleryItem Snapshot', () => {
+    const component = shallowMount(GalleryItem);
+    expect(component.element).toMatchSnapshot();
+  });
+
   it('Checks if removeImg event is called', () => {
     const component = shallowMount(GalleryItem, {
       props: {

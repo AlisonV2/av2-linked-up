@@ -36,23 +36,31 @@ const config = {
  * @module AdminEventsTest
  */
 describe('AdminEvents.vue', () => {
+  it('AdminEvents Snapshot', () => {
+    const component = shallowMount(AdminEvents, config);
+    expect(component.element).toMatchSnapshot();
+  });
+
   it('getUserRole action should have been called', async () => {
     const component = shallowMount(AdminEvents, config);
     AdminEvents.created.call(component.vm);
     await component.vm.$nextTick();
     expect(actions.getUserRole).toHaveBeenCalled;
   });
+
   it('getUserRole getter should have been called', async () => {
     const component = shallowMount(AdminEvents, config);
     AdminEvents.created.call(component.vm);
     await component.vm.$nextTick();
     expect(getters.getUserRole).toHaveBeenCalled;
   });
+
   it('ArtistEvents should exist', () => {
     const component = shallowMount(AdminEvents, config);
     const item = component.findComponent(ArtistEvents);
     expect(item.exists()).toBe(true);
   });
+
   it('ClientEvents should exist', () => {
     const component = shallowMount(AdminEvents, {
       ...config,

@@ -73,42 +73,53 @@ const config = {
  * @module ArtistProfileTest
  */
 describe('ArtistProfile.vue', () => {
+  it('ArtistProfile Snapshot', () => {
+    const component = shallowMount(ArtistProfile, config);
+    expect(component.element).toMatchSnapshot();
+  });
+
   it('getArtistById action should be called', async () => {
     const component = shallowMount(ArtistProfile, config);
     ArtistProfile.created.call(component.vm);
     await component.vm.$nextTick();
     expect(actions.getArtistById).toHaveBeenCalled;
   });
+
   it('getGalleryFromId action should be called', async () => {
     const component = shallowMount(ArtistProfile, config);
     ArtistProfile.created.call(component.vm);
     await component.vm.$nextTick();
     expect(actions.getGalleryFromId).toHaveBeenCalled;
   });
+
   it('getUserRole action should be called', async () => {
     const component = shallowMount(ArtistProfile, config);
     ArtistProfile.created.call(component.vm);
     await component.vm.$nextTick();
     expect(actions.getUserRole).toHaveBeenCalled;
   });
+
   it('getArtistProfile getter should be called', async () => {
     const component = shallowMount(ArtistProfile, config);
     ArtistProfile.created.call(component.vm);
     await component.vm.$nextTick();
     expect(getters.getArtistProfile).toHaveBeenCalled;
   });
+
   it('getGalleryFromId getter should be called', async () => {
     const component = shallowMount(ArtistProfile, config);
     ArtistProfile.created.call(component.vm);
     await component.vm.$nextTick();
     expect(getters.getGalleryFromId).toHaveBeenCalled;
   });
+
   it('getUserRole getter should be called', async () => {
     const component = shallowMount(ArtistProfile, config);
     ArtistProfile.created.call(component.vm);
     await component.vm.$nextTick();
     expect(getters.getUserRole).toHaveBeenCalled;
   });
+
   it('handleContact should be called with correct route params', async () => {
     const component = shallowMount(ArtistProfile, config);
     component.find('.btn-center').trigger('click');
@@ -118,6 +129,7 @@ describe('ArtistProfile.vue', () => {
       params: { artist: 'Artist', id: '1' },
     });
   });
+
   it('Modal should open', async () => {
     const component = shallowMount(ArtistProfile, {
       ...config,

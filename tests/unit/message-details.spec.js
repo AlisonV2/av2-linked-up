@@ -35,12 +35,18 @@ const config = {
  * @module MessageDetailsTest
  */
 describe('MessageDetails.vue', () => {
+  it('MessageDetails Snapshot', () => {
+    const component = shallowMount(MessageDetails, config);
+    expect(component.element).toMatchSnapshot();
+  });
+
   it('getMessages action should have been called', async () => {
     const component = shallowMount(MessageDetails, config);
     MessageDetails.created.call(component.vm);
     await component.vm.$nextTick();
     expect(actions.getMessages).toHaveBeenCalled;
   });
+
   it('getMessages getter should have been called', async () => {
     const component = shallowMount(MessageDetails, config);
     MessageDetails.created.call(component.vm);

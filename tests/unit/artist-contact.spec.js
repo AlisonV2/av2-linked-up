@@ -67,24 +67,32 @@ const config = {
  * @module ArtistContactTest
  */
 describe('ArtistContact.vue', () => {
+  it('ArtistContact Snapshot', () => {
+    const component = shallowMount(ArtistContact, config);
+    expect(component.element).toMatchSnapshot();
+  });
+
   it('getCurrentUser action should be called', async () => {
     const component = shallowMount(ArtistContact, config);
     ArtistContact.created.call(component.vm);
     await component.vm.$nextTick();
     expect(actions.getCurrentUser).toHaveBeenCalled;
   });
+
   it('getCurrentUser getter should be called', async () => {
     const component = shallowMount(ArtistContact, config);
     ArtistContact.created.call(component.vm);
     await component.vm.$nextTick();
     expect(getters.getCurrentUser).toHaveBeenCalled;
   });
+
   it('handleSubmit should be called with correct route params', async () => {
     const component = shallowMount(ArtistContact, config);
     component.find('form').trigger('submit.prevent');
     await component.vm.$nextTick();
     expect($router.push).toHaveBeenCalled;
   });
+
   it('handleSubmit should trigger setNewProject action', async () => {
     const component = shallowMount(ArtistContact, config);
     component.find('form').trigger('submit.prevent');

@@ -12,38 +12,45 @@ const getters = {
 
 const store = createStore({
   actions,
-  getters
+  getters,
 });
 
 const config = {
   data() {
     return {
-      messages: []
-    }
+      messages: [],
+    };
   },
   global: {
     plugins: [store],
     stubs: {
       'router-link': RouterLinkStub,
-    }
-  }
-}
+    },
+  },
+};
 
 /**
  * @module ArtistInboxTest
  */
 describe('ArtistInbox.vue', () => {
+  it('ArtistInbox Snapshot', () => {
+    const component = shallowMount(ArtistInbox, config);
+    expect(component.element).toMatchSnapshot();
+  });
+
   it('Check if row class is relevant', () => {
     const component = shallowMount(ArtistInbox, config);
-    const row = component.find('.artist-inbox')
+    const row = component.find('.artist-inbox');
     expect(row.exists()).toBe(true);
   });
+
   it('Check if getArtistMessages action is called', async () => {
     const component = shallowMount(ArtistInbox, config);
     ArtistInbox.created.call(component.vm);
     await component.vm.$nextTick();
     expect(actions.getArtistMessages).toHaveBeenCalled;
   });
+
   it('Check if getArtistMessages getter is called', async () => {
     const component = shallowMount(ArtistInbox, config);
     ArtistInbox.created.call(component.vm);

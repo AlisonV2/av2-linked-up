@@ -16,24 +16,31 @@ const $router = {
   push: jest.fn(),
 };
 
+const config = {
+  global: {
+    plugins: [store],
+    stubs: {
+      RouterLink: RouterLinkStub,
+      'app-title': AppTitle,
+      'app-button': AppButton,
+    },
+    mocks: {
+      $router,
+    },
+  },
+};
+
 /**
  * @module HomeGeolocTest
  */
 describe('HomeGeoloc.vue', () => {
+  it('HomeGeoloc Snapshot', () => {
+    const component = shallowMount(HomeGeoloc, config);
+    expect(component.element).toMatchSnapshot();
+  });
+
   it('handleSubmit should be called', async () => {
-    const component = shallowMount(HomeGeoloc, {
-      global: {
-        plugins: [store],
-        stubs: {
-          RouterLink: RouterLinkStub,
-          'app-title': AppTitle,
-          'app-button': AppButton
-        },
-        mocks: {
-          $router,
-        },
-      },
-    });
+    const component = shallowMount(HomeGeoloc, config);
     component.find('form').trigger('submit.prevent');
     await component.vm.$nextTick();
     expect(component.emitted().handleSubmit).toHaveBeenCalled;

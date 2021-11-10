@@ -12,37 +12,44 @@ const getters = {
 
 const store = createStore({
   actions,
-  getters
+  getters,
 });
 
 const config = {
   data() {
     return {
-      messages: []
-    }
+      messages: [],
+    };
   },
   global: {
     plugins: [store],
     stubs: {
       'router-link': RouterLinkStub,
-    }
-  }
-}
+    },
+  },
+};
 /**
  * @module ClientInboxTest
  */
 describe('ClientInbox.vue', () => {
+  it('ClientInbox Snapshot', () => {
+    const component = shallowMount(ClientInbox, config);
+    expect(component.element).toMatchSnapshot();
+  });
+
   it('Check if row class is relevant', () => {
     const component = shallowMount(ClientInbox, config);
-    const row = component.find('.client-inbox')
+    const row = component.find('.client-inbox');
     expect(row.exists()).toBe(true);
   });
+
   it('Check if getClientMessages action is called', async () => {
     const component = shallowMount(ClientInbox, config);
     ClientInbox.created.call(component.vm);
     await component.vm.$nextTick();
     expect(actions.getClientMessages).toHaveBeenCalled;
   });
+
   it('Check if getClientMessages getter is called', async () => {
     const component = shallowMount(ClientInbox, config);
     ClientInbox.created.call(component.vm);

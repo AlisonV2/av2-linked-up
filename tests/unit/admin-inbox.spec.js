@@ -36,23 +36,31 @@ const config = {
  * @module AdminInboxTest
  */
 describe('AdminInbox.vue', () => {
+  it('AdminInbox Snapshot', () => {
+    const component = shallowMount(AdminInbox, config);
+    expect(component.element).toMatchSnapshot();
+  });
+
   it('getUserRole action should have been called', async () => {
     const component = shallowMount(AdminInbox, config);
     AdminInbox.created.call(component.vm);
     await component.vm.$nextTick();
     expect(actions.getUserRole).toHaveBeenCalled;
   });
+
   it('getUserRole getter should have been called', async () => {
     const component = shallowMount(AdminInbox, config);
     AdminInbox.created.call(component.vm);
     await component.vm.$nextTick();
     expect(getters.getUserRole).toHaveBeenCalled;
   });
+
   it('ArtistInbox should exist', () => {
     const component = shallowMount(AdminInbox, config);
     const item = component.findComponent(ArtistInbox);
     expect(item.exists()).toBe(true);
   });
+
   it('ClientInbox should exist', () => {
     const component = shallowMount(AdminInbox, {
       ...config,

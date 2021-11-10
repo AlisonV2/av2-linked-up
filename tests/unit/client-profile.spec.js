@@ -9,12 +9,12 @@ const actions = {
 };
 
 const getters = {
-    getClientProfile: jest.fn(),
-}
+  getClientProfile: jest.fn(),
+};
 
 const store = createStore({
   actions,
-  getters
+  getters,
 });
 
 const $router = {
@@ -56,12 +56,18 @@ const config = {
  * @module ClientProfileTest
  */
 describe('ClientProfile.vue', () => {
+  it('ClientProfile Snapshot', () => {
+    const component = shallowMount(ClientProfile, config);
+    expect(component.element).toMatchSnapshot();
+  });
+
   it('getClientById should be called', async () => {
     const component = shallowMount(ClientProfile, config);
     ClientProfile.created.call(component.vm);
     await component.vm.$nextTick();
     expect(actions.getClientById).toHaveBeenCalled;
   });
+
   it('Computed client should call getters', async () => {
     const component = shallowMount(ClientProfile, config);
     ClientProfile.created.call(component.vm);

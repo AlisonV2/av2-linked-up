@@ -33,12 +33,18 @@ const config = {
  * @module SidenavTest
  */
 describe('Sidenav.vue', () => {
+  it('Sidenav Snapshot', () => {
+    const component = shallowMount(Sidenav, config);
+    expect(component.element).toMatchSnapshot();
+  });
+
   it('getProjectById action should have been called', async () => {
     const component = shallowMount(Sidenav, config);
     Sidenav.created.call(component.vm);
     await component.vm.$nextTick();
     expect(actions.getUserRole).toHaveBeenCalled;
   });
+
   it('getUserRole getter should have been called', async () => {
     const component = shallowMount(Sidenav, config);
     Sidenav.created.call(component.vm);

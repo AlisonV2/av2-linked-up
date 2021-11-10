@@ -31,7 +31,7 @@ const config = {
       AppNavbar,
       AppFooter,
       AdminNav,
-      AppModal
+      AppModal,
     },
     stubs: ['router-view'],
     mocks: {
@@ -49,6 +49,11 @@ const config = {
  * @module AppTest
  */
 describe('App.vue', () => {
+  it('ArtistInbox Snapshot', () => {
+    const component = shallowMount(App, config);
+    expect(component.element).toMatchSnapshot();
+  });
+
   it('Renders child component via routing', () => {
     const component = shallowMount(App, {
       data() {
@@ -62,7 +67,7 @@ describe('App.vue', () => {
           AppNavbar,
           AppFooter,
           AdminNav,
-          AppModal
+          AppModal,
         },
         stubs: ['router-view'],
         mocks: {
@@ -73,28 +78,31 @@ describe('App.vue', () => {
           },
           $router,
           methods: {
-            getEgg: jest.fn()
-          }
+            getEgg: jest.fn(),
+          },
         },
       },
     });
     App.created.call(component.vm);
     expect(actions.initLogin).toHaveBeenCalled();
   });
+
   it('Renders child component via routing', () => {
     const component = shallowMount(App, config);
     const adminNav = component.findComponent(AdminNav);
     expect(adminNav.exists()).toBe(true);
   });
+
   it('Modal is not visible', () => {
     const component = shallowMount(App, config);
     const modal = component.findComponent(AppModal);
     expect(modal).not.toBeVisible;
   });
+
   it('getEgg is triggered', () => {
     const component = shallowMount(App, config);
     component.get('.easter-egg').trigger('mouseover', {
-      ctrlKey: true
+      ctrlKey: true,
     });
     expect(component.vm.open).toBe(true);
   });

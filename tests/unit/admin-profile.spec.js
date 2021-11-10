@@ -35,24 +35,32 @@ const config = {
 /**
  * @module AdminProfileTest
  */
-describe('AdminDashboard.vue', () => {
+describe('AdminProfile.vue', () => {
+  it('AdminProfile Snapshot', () => {
+    const component = shallowMount(AdminProfile, config);
+    expect(component.element).toMatchSnapshot();
+  });
+
   it('getUserRole action should have been called', async () => {
     const component = shallowMount(AdminProfile, config);
     AdminProfile.created.call(component.vm);
     await component.vm.$nextTick();
     expect(actions.getUserRole).toHaveBeenCalled;
   });
+
   it('getUserRole getter should have been called', async () => {
     const component = shallowMount(AdminProfile, config);
     AdminProfile.created.call(component.vm);
     await component.vm.$nextTick();
     expect(getters.getUserRole).toHaveBeenCalled;
   });
+
   it('ArtistDashboard should exist', () => {
     const component = shallowMount(AdminProfile, config);
     const item = component.findComponent(ArtistDashboard);
     expect(item.exists()).toBe(true);
   });
+
   it('ClientDashboard should exist', () => {
     const component = shallowMount(AdminProfile, {
       ...config,

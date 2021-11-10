@@ -10,17 +10,17 @@ const actions = {
 };
 
 const state = {
+  artistProfile: {
     artistProfile: {
-    artistProfile: {
-        name: '',
-        city: '',
-        zip: '',
-        shop: '',
-        style: '',
-        socialLink: '',
-        insta: '',
-        description: '',
-      },
+      name: '',
+      city: '',
+      zip: '',
+      shop: '',
+      style: '',
+      socialLink: '',
+      insta: '',
+      description: '',
+    },
   },
 };
 
@@ -58,7 +58,7 @@ const config = {
     };
   },
   methods: {
-      setPreviewImage: jest.fn(),
+    setPreviewImage: jest.fn(),
   },
   global: {
     plugins: [store],
@@ -75,24 +75,32 @@ const config = {
  * @module ArtistDashboardTest
  */
 describe('ArtistDashboard.vue', () => {
+  it('ArtistDashboard Snapshot', () => {
+    const component = shallowMount(ArtistDashboard, config);
+    expect(component.element).toMatchSnapshot();
+  });
+
   it('Check if getArtistProfile action is called', async () => {
     const component = shallowMount(ArtistDashboard, config);
     ArtistDashboard.created.call(component.vm);
     await component.vm.$nextTick();
     expect(actions.getArtistProfile).toHaveBeenCalled;
   });
+
   it('Check if setArtistProfile action is called', async () => {
     const component = shallowMount(ArtistDashboard, config);
     component.find('form').trigger('submit.prevent');
     await component.vm.$nextTick();
     expect(actions.setArtistProfile).toHaveBeenCalled;
   });
+
   it('Check if setArtistThumbnail action is called', async () => {
     const component = shallowMount(ArtistDashboard, config);
     component.find('.thumbnail-button').trigger('click');
     await component.vm.$nextTick();
     expect(actions.setArtistThumbnail).toHaveBeenCalled;
   });
+
   it('Check if toastError component is visible', async () => {
     const component = shallowMount(ArtistDashboard, {
       ...config,
@@ -100,8 +108,8 @@ describe('ArtistDashboard.vue', () => {
         return {
           showSuccessToast: false,
           showErrorToast: true,
-        }
-      }
+        };
+      },
     });
     const error = component.find('.toast-error');
     expect(error.exists()).toBe(true);

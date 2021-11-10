@@ -23,14 +23,14 @@ const config = {
       project: {},
       showForm: true,
       message: '',
-      isArtist: true
+      isArtist: true,
     };
   },
   global: {
     plugins: [store],
     components: {
-      'app-button': AppButton
-    }
+      'app-button': AppButton,
+    },
   },
 };
 
@@ -38,18 +38,25 @@ const config = {
  * @module ProjectDetailsTest
  */
 describe('ProjectDetails.vue', () => {
+  it('ProjectDetails Snapshot', () => {
+    const component = shallowMount(ProjectDetails, config);
+    expect(component.element).toMatchSnapshot();
+  });
+
   it('getProjectById action should have been called', async () => {
     const component = shallowMount(ProjectDetails, config);
     ProjectDetails.created.call(component.vm);
     await component.vm.$nextTick();
     expect(actions.getProjectById).toHaveBeenCalled;
   });
+
   it('getProjectById getter should have been called', async () => {
     const component = shallowMount(ProjectDetails, config);
     ProjectDetails.created.call(component.vm);
     await component.vm.$nextTick();
     expect(getters.getProjectById).toHaveBeenCalled;
   });
+
   it('getProjectByIdaction should have been called', async () => {
     const component = shallowMount(ProjectDetails, config);
     component.find('form').trigger('submit.prevent');
