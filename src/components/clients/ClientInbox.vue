@@ -1,13 +1,17 @@
 <template>
   <div class="row client-inbox">
-    <!-- Single chat : Find messages where project === project.id 
-    Inbox: Find messages where clientId === user.id 
-    Display artist name -->
+    <div class="col-12" v-for="message in messages" :key="message.project">
+      <router-link
+        :to="{ name: 'MessageDetails', params: { id: message.project } }"
+      >
+        <div class="message-item">Conversation with : {{ message.artist }}</div>
+      </router-link>
+    </div>
   </div>
 </template>
 
 <script>
-// import * as Sentry from '@sentry/vue';
+import * as Sentry from '@sentry/vue';
 
 /**
  * @exports ClientInbox
@@ -17,10 +21,20 @@
 export default {
   name: 'ClientInbox',
   data() {
-    return {};
+    return {
+      messages: [],
+    };
+  },
+  created() {
+    this.$store
+      .dispatch('getClientMessages')
+      .then(() => {
+        this.messages = this.$store.getters.getClientMessages;
+      })
+      .catch((err) => {
+        Sentry.captureException(err);
+      });
   },
   methods: {},
 };
 </script>
-
-<style></style>

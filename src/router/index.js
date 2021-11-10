@@ -17,6 +17,7 @@ import AdminEvents from '../components/admin/AdminEvents';
 import ClientProfile from '../views/ClientProfile';
 import ArtistContact from '../views/ArtistContact';
 import ProjectDetails from '../components/admin/ProjectDetails';
+import MessageDetails from '../components/admin/MessageDetails';
 
 const routes = [
   {
@@ -74,7 +75,7 @@ const routes = [
     name: 'Admin',
     component: Admin,
     meta: {
-      requiresAuth: true
+      requiresAuth: true,
     },
     children: [
       {
@@ -93,6 +94,11 @@ const routes = [
         component: AdminInbox,
       },
       {
+        path: 'inbox/:id',
+        name: 'MessageDetails',
+        component: MessageDetails,
+      },
+      {
         path: 'projects',
         name: 'AdminProjects',
         component: AdminProjects,
@@ -107,7 +113,7 @@ const routes = [
         name: 'AdminEvents',
         component: AdminEvents,
       },
-    ]
+    ],
   },
   {
     path: '/:catchAll(.*)*',
@@ -131,6 +137,5 @@ router.beforeEach((to, from, next) => {
     next({ name: 'Home' });
   }
 });
-
 
 export default router;

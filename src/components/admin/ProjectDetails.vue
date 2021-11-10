@@ -60,11 +60,20 @@ export default {
   name: 'ProjectDetails',
   data() {
     return {
-      project: {},
+      project: {
+        artistId: '',
+        artistName: '',
+        clientId: '',
+        clientName: '',
+        createdAt: '',
+        description: '',
+        id: '',
+        title: '',
+      },
       showForm: false,
       message: '',
       isArtist: false,
-      date: ''
+      date: '',
     };
   },
   async created() {
@@ -81,10 +90,10 @@ export default {
       };
       this.$store.dispatch('startChat', chat);
     },
-      formatDate() {
-    const date = this.project.createdAt;
-    this.date = format(date.toDate(), 'dd/MM/yyyy');
-  },
+    formatDate() {
+      const date = this.project.createdAt;
+      this.date = format(date.toDate(), 'dd/MM/yyyy');
+    },
   },
 };
 </script>

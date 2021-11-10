@@ -15,15 +15,25 @@ export default {
    */
   state: {
     messages: [],
+    clientMessages: [],
+    artistMessages: [],
   },
   /**
    * @name Mutations
    * @type {object}
    * @property {array} setMessages
+   * @property {array} setClientMessages
+   * @property {array} setArtistMessages
    */
   mutations: {
     setMessages(state, payload) {
       state.messages = payload;
+    },
+    setClientMessages(state, payload) {
+      state.clientMessages = payload;
+    },
+    setArtistMessages(state, payload) {
+      state.artistMessages = payload;
     },
   },
   /**
@@ -31,6 +41,9 @@ export default {
    * @type {object}
    * @property {void} startChat
    * @property {void} sendMessage
+   * @property {array} getMessages
+   * @property {array} getClientMessages
+   * @property {array} getArtistMessages
    */
   actions: {
     /**
@@ -92,20 +105,78 @@ export default {
      */
     async getMessages({ commit }) {
       const user = auth.currentUser.uid;
-      const messages = await messagesCollection
-        .where('fromId', '==', user)
-        .get();
-      commit('setMessages', messages.data());
+      try {
+        const messages = await messagesCollection
+          .where('fromId', '==', user)
+          .get();
+        commit('setMessages', messages.data());
+      } catch (err) {
+        Sentry.captureException(err);
+      }
+    },
+    /**
+     * @description get client messages
+     * @method getClientMessages
+     * @returns {array}
+     * @async
+     */
+    async getClientMessages({ commit }) {
+      const user = auth.currentUser.uid;
+      const messages = [];
+      try {
+        const docs = await messagesCollection
+          .where('clientId', '==', user)
+          .get();
+
+        docs.forEach((doc) => {
+          const message = { ...doc.data() };
+          messages.push(message);
+        });
+        commit('setClientMessages', messages);
+      } catch (err) {
+        Sentry.captureException(err);
+      }
+    },
+    /**
+     * @description get artist messages
+     * @method getArtistMessages
+     * @returns {array}
+     * @async
+     */
+    async getArtistMessages({ commit }) {
+      const user = auth.currentUser.uid;
+      const messages = [];
+      try {
+        const docs = await messagesCollection
+          .where('artistId', '==', user)
+          .get();
+
+        docs.forEach((doc) => {
+          const message = { ...doc.data() };
+          messages.push(message);
+        });
+        commit('setArtistMessages', messages);
+      } catch (err) {
+        Sentry.captureException(err);
+      }
     },
   },
   /**
    * @name Getters
    * @type {object}
    * @property {array} getMessages
+   * @property {array} getClientMessages
+   * @property {array} getArtistMessages
    */
   getters: {
     getMessages(state) {
       return state.messages;
     },
+    getClientMessages(state) {
+      return state.clientMessages;
+    },
+    getArtistMessages(state) {
+      return state.artistMessages;
+    }
   },
 };
