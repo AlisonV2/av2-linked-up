@@ -103,13 +103,17 @@ export default {
      * @returns {array}
      * @async
      */
-    async getMessages({ commit }) {
-      const user = auth.currentUser.uid;
+    async getMessages({ commit }, payload) {
       try {
-        const messages = await messagesCollection
-          .where('fromId', '==', user)
+        const messages = [];
+        const docs = await messagesCollection
+          .where('project', '==', payload)
           .get();
-        commit('setMessages', messages.data());
+          docs.forEach((doc) => {
+            const message = doc.data().messages;
+            messages.push(message);
+          });
+        commit('setMessages', messages);
       } catch (err) {
         Sentry.captureException(err);
       }
@@ -132,6 +136,7 @@ export default {
           const message = { ...doc.data() };
           messages.push(message);
         });
+
         commit('setClientMessages', messages);
       } catch (err) {
         Sentry.captureException(err);

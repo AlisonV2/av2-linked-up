@@ -6,6 +6,7 @@ import AppButton from '@/components/app/Button';
 const actions = {
   getProjectById: jest.fn(),
   startChat: jest.fn(),
+  setProjectStatus: jest.fn(),
 };
 
 const getters = {
@@ -62,5 +63,12 @@ describe('ProjectDetails.vue', () => {
     component.find('form').trigger('submit.prevent');
     await component.vm.$nextTick();
     expect(actions.startChat).toHaveBeenCalled;
+  });
+
+  it('getProjectStatus action should have been called', async () => {
+    const component = shallowMount(ProjectDetails, config);
+    component.find('form').trigger('submit.prevent');
+    await component.vm.$nextTick();
+    expect(actions.setProjectStatus).toHaveBeenCalled;
   });
 });

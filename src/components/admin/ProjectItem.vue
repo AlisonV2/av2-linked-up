@@ -1,10 +1,23 @@
 <template>
-  <div class="card text-center">
+  <div class="card text-center" :class="{'client-card': !isArtist}">
     <div class="card-header title">
       {{ project.title }}
-    <h6 class="card-subtitle mb-2 text-muted" v-if="role === 'client'">Project sent to {{ project.artistName }}</h6>
-    <h6 class="card-subtitle mb-2 text-muted" v-if="role === 'artist'">Project requested by {{ project.clientName }}</h6>
-        </div>
+      <span class="project-bullet"
+        :class="{
+          'project-pending': status === 'Pending',
+          'project-progress': status === 'In progress',
+          'project-accepted': status === 'Accepted',
+          'project-denied': status === 'Denied',
+        }"
+        >&#9673;</span
+      >
+      <h6 class="card-subtitle mb-2 text-muted" v-if="role === 'client'">
+        Project sent to {{ project.artistName }}
+      </h6>
+      <h6 class="card-subtitle mb-2 text-muted" v-if="role === 'artist'">
+        Project requested by {{ project.clientName }}
+      </h6>
+    </div>
     <p class="card-text">{{ project.description }}</p>
     <div class="card-footer text-muted">
       {{ createdAt }}
@@ -30,6 +43,11 @@ export default {
       role: '',
     };
   },
+  computed: {
+    status() {
+      return this.project.status;
+    },
+  },
   created() {
     this.formatDate();
     this.getUserRole();
@@ -49,15 +67,43 @@ export default {
 
 <style lang="scss" scoped>
 .card-text {
-  color: $dark!important;
+  color: $dark !important;
 }
 
 .card-subtitle {
-  font-family: $default-font!important;
+  font-family: $default-font !important;
   margin-top: 1rem;
 }
 
 .card-header {
   margin-bottom: 1rem;
 }
+
+.project-bullet {
+  position: relative;
+  transform: translate( -3rem);
+}
+
+.project-pending {
+  color: $secondary;
+}
+
+.project-progress {
+  color: orange
+}
+
+.project-accepted {
+  color: green;
+}
+
+.project-denied {
+  color: red;
+}
+
+.tooltip {
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px dotted black;
+}
+
 </style>

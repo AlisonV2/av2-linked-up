@@ -1,6 +1,11 @@
 <template>
   <div class="container" v-if="project">
-    <div class="row">
+    <div class="row mb-4">
+      <div class="col-12 text-end" v-if="project.status === 'Pending' ||'In progress'">
+        <span class="project-status px-4" @click="setProjectStatus('Accepted')">Accept project</span>
+        <span class="project-status" @click="setProjectStatus('Denied')">Refuse project</span></div>
+    </div>
+    <div class="row mb-4">
       <div class="col-12 project-details text-center">
         <h2 class="project-title">{{ project.title }}</h2>
         <h3 class="project-subtitle" v-if="isArtist">
@@ -16,17 +21,16 @@
           </p>
         </div>
       </div>
-      <!-- if project.status == pending -->
       <div
         class="btn-wrapper btn-center mt-4"
         @click="showForm = !showForm"
-        v-if="isArtist"
+        v-if="isArtist && (project.status === 'Pending' || 'Accepted') && !showForm"
       >
         <app-button>Contact {{ project.clientName }}</app-button>
       </div>
     </div>
     <div class="row" v-if="showForm && isArtist">
-      <form @submit.prevent="handleSubmit">
+      <form class="col-12" @submit.prevent="handleSubmit">
         <div class="form-floating mb-3" @submit.prevent="handleSubmit">
           <input
             class="form-control"
@@ -35,7 +39,7 @@
             placeholder="Message"
           />
           <label>Message</label>
-          <div class="btn-wrapper">
+          <div class="btn-wrapper btn-center mt-4">
             <app-button>Send message</app-button>
           </div>
         </div>
@@ -81,6 +85,7 @@ export default {
     this.project = this.$store.getters.getProjectById;
     this.isArtist = this.$route.params.isArtist;
     this.formatDate();
+    this.setProjectStatus('In progress');
   },
   methods: {
     handleSubmit() {
@@ -94,6 +99,13 @@ export default {
       const date = this.project.createdAt;
       this.date = format(date.toDate(), 'dd/MM/yyyy');
     },
+    setProjectStatus(status) {
+      const project = {
+        id: this.$route.params.id,
+        status: status,
+      };
+      this.$store.dispatch('setProjectStatus', project);
+    },
   },
 };
 </script>
@@ -104,5 +116,9 @@ export default {
   font-family: $accent-font;
   color: $primary;
   margin-bottom: 2rem;
+}
+
+.project-status {
+  cursor: pointer;
 }
 </style>

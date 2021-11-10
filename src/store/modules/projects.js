@@ -117,6 +117,14 @@ export default {
         Sentry.captureException(err);
         return;
       }
+    },
+    async setProjectStatus(_, payload) {
+      try {
+        await projectsCollection.doc(payload.id).update({ status: payload.status });
+      } catch (err) {
+        Sentry.captureException(err);
+        return;
+      }
     }
   },
   /**
