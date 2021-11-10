@@ -14,13 +14,49 @@ const $router = {
   push: jest.fn(),
 };
 
+const config = {
+  data() {
+    return {
+      isActive: false,
+    };
+  },
+  global: {
+    plugins: [store],
+    mocks: {
+      $route: {
+        meta: {
+          requiresAuth: true,
+        },
+      },
+      $router,
+    },
+  },
+};
+
 /**
  * @module AdminNavTest
  */
 describe('AdminNav.vue', () => {
-  /**
-   * Checks if logout action is called on click
-   */
+  it('AdminNav Snapshot', () => {
+    const component = shallowMount(AdminNav, config);
+    expect(component.element).toMatchSnapshot();
+  });
+
+  it('Check requiresAuth check redirection', async () => {
+    const component = shallowMount(AdminNav, config);
+    component.find('.test-logout').trigger('click');
+    await component.vm.$nextTick();
+    expect($router.push).toHaveBeenCalled();
+  });
+
+  it('Check requiresAuth check redirection', async () => {
+    const component = shallowMount(AdminNav, config);
+
+    component.find('.test-logout').trigger('click');
+    await component.vm.$nextTick();
+    expect($router.push).toHaveBeenCalledWith({ name: 'Home' });
+  });
+
   it('Dispatch an action on click', async () => {
     const component = shallowMount(AdminNav, {
       data() {
@@ -44,61 +80,5 @@ describe('AdminNav.vue', () => {
     component.find('.test-logout').trigger('click');
     await component.vm.$nextTick();
     expect(actions.logout).toHaveBeenCalled();
-  });
-
-  /**
-   * Checks if router push is called when meta requireAuth is true
-   */
-  it('Check requiresAuth check redirection', async () => {
-    const component = shallowMount(AdminNav, {
-      data() {
-        return {
-          isActive: false,
-        };
-      },
-      global: {
-        plugins: [store],
-        mocks: {
-          $route: {
-            meta: {
-              requiresAuth: true,
-            },
-          },
-          $router,
-        },
-      },
-    });
-
-    component.find('.test-logout').trigger('click');
-    await component.vm.$nextTick();
-    expect($router.push).toHaveBeenCalled();
-  });
-
-  /**
-   * Checks router params on push
-   */
-  it('Check requiresAuth check redirection', async () => {
-    const component = shallowMount(AdminNav, {
-      data() {
-        return {
-          isActive: false,
-        };
-      },
-      global: {
-        plugins: [store],
-        mocks: {
-          $route: {
-            meta: {
-              requiresAuth: true,
-            },
-          },
-          $router,
-        },
-      },
-    });
-
-    component.find('.test-logout').trigger('click');
-    await component.vm.$nextTick();
-    expect($router.push).toHaveBeenCalledWith({ name: 'Home' });
   });
 });

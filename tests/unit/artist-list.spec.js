@@ -4,8 +4,9 @@ import ArtistList from '@/components/artists/ArtistList';
 import ArtistItem from '@/components/artists/ArtistItem';
 
 const actions = {
-    getAllArtists: jest.fn(),
-}
+  getAllArtists: jest.fn(),
+};
+
 const store = createStore({
   state: {
     artists: [
@@ -26,23 +27,30 @@ const store = createStore({
   },
 });
 
+const config = {
+  data() {
+    return { artists: [] };
+  },
+  global: {
+    plugins: [store],
+    components: {
+      'router-link': RouterLinkStub,
+      ArtistItem: ArtistItem,
+    },
+  },
+};
+
 /**
  * @module ArtistListTest
  */
 describe('ArtistList.vue', () => {
+  it('ArtistList Snapshot', () => {
+    const component = shallowMount(ArtistList, config);
+    expect(component.element).toMatchSnapshot();
+  });
+
   it('Tests if dispatch action is called on created', () => {
-    const component = shallowMount(ArtistList, {
-      data() {
-        return { artists: [] };
-      },
-      global: {
-        plugins: [store],
-        components: {
-          'router-link': RouterLinkStub,
-          ArtistItem: ArtistItem,
-        },
-      },
-    });
+    const component = shallowMount(ArtistList, config);
     ArtistList.created.call(component.vm);
     expect(actions.getAllArtists).toHaveBeenCalled();
   });

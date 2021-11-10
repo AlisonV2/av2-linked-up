@@ -29,10 +29,16 @@ const config = {
  * @module AdminGalleryTest
  */
 describe('AdminGallery.vue', () => {
+  it('AdminGallery Snapshot', () => {
+    const component = shallowMount(AdminGallery, config);
+    expect(component.element).toMatchSnapshot();
+  });
+
   it('Toast Success should not be visible', () => {
     const component = shallowMount(AdminGallery, config);
     expect(component.find('.toast-success')).not.toBeVisible;
   });
+
   it('Toast Error should not be visible', () => {
     const component = shallowMount(AdminGallery, config);
     expect(component.find('.toast-error')).not.toBeVisible;

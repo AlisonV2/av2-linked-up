@@ -42,26 +42,31 @@ const config = {
  * @module RegisterFormTest
  */
 describe('RegisterForm.vue', () => {
-  /**
-   * Check if RegisterForm is rendered
-   */
+  it('RegisterForm Snapshot', () => {
+    const component = shallowMount(RegisterForm, config);
+    expect(component.element).toMatchSnapshot();
+  });
+
   it('Dispatches "register" action on submit', async () => {
     const component = shallowMount(RegisterForm, config);
     component.find('form').trigger('submit.prevent');
     await component.vm.$nextTick();
     expect(actions.register).toHaveBeenCalled();
   });
+
   it('Expects router push to have been called with AdminProfile params', async () => {
     const component = shallowMount(RegisterForm, config);
     component.find('form').trigger('submit.prevent');
     await component.vm.$nextTick();
     expect($router.push).toHaveBeenCalledWith({ name: 'AdminProfile' });
   });
+
   it('Expects error message to be empty', () => {
     const component = shallowMount(RegisterForm, config);
     const error = component.find('.error');
     expect(error.text()).toBeFalsy();
   });
+
   it('Checks if error message is correctly rendered', () => {
     let data = {
       email: '',
@@ -77,33 +82,24 @@ describe('RegisterForm.vue', () => {
     const error = component.find('.error');
     expect(error.text()).toBe(data.error);
   });
+
   it('Expects an error to be thrown', async () => {
-    
     actions = {
-        register: () => {
-            throw new Error('Error')
-        }
-    }
+      register: () => {
+        throw new Error('Error');
+      },
+    };
     const component = shallowMount(RegisterForm, {
-        data() {
-            return {
-              name: '',
-              email: '',
-              password: '',
-              role: '',
-              error: null,
-            };
-          },
-          global: {
-            plugins: [store],
-            mocks: {
-              $router,
-            },
-            components: {
-              'app-title': AppTitle,
-              'app-button': AppButton,
-            },
-          },
+      ...config,
+      data() {
+        return {
+          name: '',
+          email: '',
+          password: '',
+          role: '',
+          error: null,
+        };
+      },
     });
     component.find('form').trigger('submit.prevent');
     await component.vm.$nextTick();

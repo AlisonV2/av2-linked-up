@@ -11,6 +11,13 @@ import ArtistProfile from '../views/ArtistProfile';
 import Admin from '../views/Admin';
 import AdminProfile from '../components/admin/AdminProfile';
 import AdminGallery from '../components/admin/AdminGallery';
+import AdminInbox from '../components/admin/AdminInbox';
+import AdminProjects from '../components/admin/AdminProjects';
+import AdminEvents from '../components/admin/AdminEvents';
+import ClientProfile from '../views/ClientProfile';
+import ArtistContact from '../views/ArtistContact';
+import ProjectDetails from '../components/admin/ProjectDetails';
+import MessageDetails from '../components/admin/MessageDetails';
 
 const routes = [
   {
@@ -27,6 +34,16 @@ const routes = [
     path: '/artist/:id',
     name: 'Profile',
     component: ArtistProfile,
+  },
+  {
+    path: '/artist/contact',
+    name: 'ArtistContact',
+    component: ArtistContact,
+  },
+  {
+    path: '/client/:id',
+    name: 'ClientProfile',
+    component: ClientProfile,
   },
   {
     path: '/conventions',
@@ -58,7 +75,7 @@ const routes = [
     name: 'Admin',
     component: Admin,
     meta: {
-      requiresAuth: true
+      requiresAuth: true,
     },
     children: [
       {
@@ -70,8 +87,33 @@ const routes = [
         path: 'gallery',
         name: 'AdminGallery',
         component: AdminGallery,
-      }
-    ]
+      },
+      {
+        path: 'inbox',
+        name: 'AdminInbox',
+        component: AdminInbox,
+      },
+      {
+        path: 'inbox/:id',
+        name: 'MessageDetails',
+        component: MessageDetails,
+      },
+      {
+        path: 'projects',
+        name: 'AdminProjects',
+        component: AdminProjects,
+      },
+      {
+        path: 'projects/:id',
+        name: 'ProjectDetails',
+        component: ProjectDetails,
+      },
+      {
+        path: 'events',
+        name: 'AdminEvents',
+        component: AdminEvents,
+      },
+    ],
   },
   {
     path: '/:catchAll(.*)*',
@@ -95,6 +137,5 @@ router.beforeEach((to, from, next) => {
     next({ name: 'Home' });
   }
 });
-
 
 export default router;

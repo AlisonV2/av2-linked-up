@@ -1,4 +1,4 @@
-name: Lint, Test, Build & Deploy to Preview Channel on PR
+name: Deploy to Preview Channel on PR
 on:
   pull_request:
     branches: [ staging ]
