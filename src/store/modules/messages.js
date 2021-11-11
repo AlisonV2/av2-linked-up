@@ -86,9 +86,17 @@ export default {
      * @async
      */
     async sendMessage(_, payload) {
-      const projectId = '';
-      const message = payload;
+      console.log('messageSent')
+      const user = auth.currentUser;
+      const projectId = payload.projectId;
+      const message = {
+        sender: user.uid,
+        senderName: user.displayName,
+        message: payload.message,
+        date: new Date(),
+      }
       const chat = await messagesCollection.doc(projectId).get();
+      console.log(chat.data())
       try {
         await messagesCollection.doc(projectId).update({
           messages: [...chat.data().messages, message],
