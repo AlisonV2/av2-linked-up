@@ -6,8 +6,7 @@ exports[`MessageDetails.vue MessageDetails Snapshot 1`] = `
 >
   
   <div
-    class="row chat-window"
-    id="chatWindow"
+    id="chat-window"
   >
     
     

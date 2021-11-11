@@ -22,9 +22,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">87.5% </span>
+                <span class="strong">88.89% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>14/16</span>
+                <span class='fraction'>16/18</span>
             </div>
         
             
@@ -36,16 +36,16 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">81.82% </span>
+                <span class="strong">83.33% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>9/11</span>
+                <span class='fraction'>10/12</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">87.5% </span>
+                <span class="strong">88.89% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>14/16</span>
+                <span class='fraction'>16/18</span>
             </div>
         
             
@@ -216,7 +216,20 @@
 <a name='L158'></a><a href='#L158'>158</a>
 <a name='L159'></a><a href='#L159'>159</a>
 <a name='L160'></a><a href='#L160'>160</a>
-<a name='L161'></a><a href='#L161'>161</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L161'></a><a href='#L161'>161</a>
+<a name='L162'></a><a href='#L162'>162</a>
+<a name='L163'></a><a href='#L163'>163</a>
+<a name='L164'></a><a href='#L164'>164</a>
+<a name='L165'></a><a href='#L165'>165</a>
+<a name='L166'></a><a href='#L166'>166</a>
+<a name='L167'></a><a href='#L167'>167</a>
+<a name='L168'></a><a href='#L168'>168</a>
+<a name='L169'></a><a href='#L169'>169</a>
+<a name='L170'></a><a href='#L170'>170</a>
+<a name='L171'></a><a href='#L171'>171</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -304,6 +317,13 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -377,16 +397,19 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">&lt;template&gt;
-  &lt;div class="row chat-window" id="chatWindow"&gt;
-    &lt;div
-      v-for="message in messages"
-      :key="message.sender"
-      :class="[userId == message.sender ? 'container darker' : 'container']"
-    &gt;
+  &lt;div id="chat-window"&gt;
+    &lt;div class="col-12 mb-4" v-for="message in messages" :key="message.sender"&gt;
+      &lt;div
+        class="chat-container mb-0"
+        :class="[userId == message.sender ? 'darker' : '']"
+      &gt;
+        &lt;div :class="[userId == message.sender ? 'text-end' : '']"&gt;
+          &lt;span class="name"&gt;{{ message.senderName }}&lt;/span&gt;
+          &lt;p class="message"&gt;{{ message.message }}&lt;/p&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
       &lt;div :class="[userId == message.sender ? 'text-end' : '']"&gt;
-        &lt;span class="name"&gt;{{ message.senderName }}&lt;/span&gt;
-        &lt;p class="message"&gt;{{ message.message }}&lt;/p&gt;
-        &lt;small class="text-muted"&gt;{{ message.date.toDate() }}&lt;/small&gt;
+        &lt;small class="text-muted px-3"&gt;{{ message.date }}&lt;/small&gt;
       &lt;/div&gt;
     &lt;/div&gt;
   &lt;/div&gt;
@@ -460,7 +483,11 @@ export default {
       this.$store
         .dispatch('getMessages', this.$route.params.id)
         .then(() =&gt; {
-          this.messages = this.$store.getters.getMessages[0];
+          this.messages = this.$store.getters.getMessages;
+        })
+        .then(() =&gt; {
+          const element = document.querySelector('#chat-window');
+          element.scrollTop = element.scrollHeight;
         })
         .catch((err) =&gt; {
           Sentry.captureException(err);
@@ -471,17 +498,20 @@ export default {
 &lt;/script&gt;
 &nbsp;
 &lt;style lang="scss" scoped&gt;
-.chat-window {
-  overflow: auto;
-  max-height: 70vh;
+#chat-window {
+  overflow-y: scroll;
+  height: 70vh;
 }
 .name {
   font-weight: bold;
   margin-right: 6px;
 }
 &nbsp;
+.message {
+  margin-bottom: 0;
+}
 /* Chat containers */
-.container {
+.chat-container {
   border: 2px solid #dedede;
   background-color: #f1f1f1;
   border-radius: 5px;
@@ -533,7 +563,7 @@ export default {
 .chat-row {
   position: absolute;
   bottom: 2rem;
-  width: 80%;
+  width: 70%;
 }
 &lt;/style&gt;
 &nbsp;</pre></td></tr></table></pre>
@@ -543,7 +573,7 @@ export default {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Thu Nov 11 2021 10:25:37 GMT+0100 (Central European Standard Time)
+                at Thu Nov 11 2021 14:26:38 GMT+0100 (Central European Standard Time)
             </div>
         </div>
         <script src="..\..\..\prettify.js"></script>

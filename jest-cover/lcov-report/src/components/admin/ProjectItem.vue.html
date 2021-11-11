@@ -22,9 +22,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">22.22% </span>
+                <span class="strong">16.67% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>2/9</span>
+                <span class='fraction'>1/6</span>
             </div>
         
             
@@ -38,14 +38,14 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/6</span>
+                <span class='fraction'>0/5</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">22.22% </span>
+                <span class="strong">16.67% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>2/9</span>
+                <span class='fraction'>1/6</span>
             </div>
         
             
@@ -193,18 +193,18 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -216,12 +216,12 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -296,13 +296,13 @@
     &lt;/div&gt;
     &lt;p class="card-text"&gt;{{ project.description }}&lt;/p&gt;
     &lt;div class="card-footer text-muted"&gt;
-      {{ createdAt }}
+      {{ project.createdAt }}
     &lt;/div&gt;
   &lt;/div&gt;
 &lt;/template&gt;
 &nbsp;
 &lt;script&gt;
-import { format } from 'date-fns';
+// import { format } from 'date-fns';
 &nbsp;
 /**
  * @exports ProjectItem
@@ -312,7 +312,7 @@ import { format } from 'date-fns';
  */
 export default {
   name: 'ProjectItem',
-  props: ['project', 'time', 'isArtist'],
+  props: ['project', 'isArtist'],
 <span class="fstat-no" title="function not covered" >  data(</span>) {
 <span class="cstat-no" title="statement not covered" >    return {</span>
       createdAt: '',
@@ -325,13 +325,13 @@ export default {
     },
   },
 <span class="fstat-no" title="function not covered" >  created(</span>) {
-<span class="cstat-no" title="statement not covered" >    this.f</span>ormatDate();
+    // this.formatDate();
 <span class="cstat-no" title="statement not covered" >    this.g</span>etUserRole();
   },
   methods: {
-<span class="fstat-no" title="function not covered" >    formatDate(</span>) {
-<span class="cstat-no" title="statement not covered" >      this.c</span>reatedAt = format(this.time.toDate(), 'dd/MM/yyyy');
-    },
+    // formatDate() {
+    //   this.createdAt = format(this.time.toDate(), 'dd/MM/yyyy');
+    // },
 <span class="fstat-no" title="function not covered" >    async g</span>etUserRole() {
 <span class="cstat-no" title="statement not covered" >      await t</span>his.$store.dispatch('getUserRole').then(<span class="fstat-no" title="function not covered" >() =&gt; {</span>
 <span class="cstat-no" title="statement not covered" >        this.r</span>ole = this.$store.getters.getUserRole;
@@ -390,7 +390,7 @@ export default {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Thu Nov 11 2021 10:25:37 GMT+0100 (Central European Standard Time)
+                at Thu Nov 11 2021 14:26:38 GMT+0100 (Central European Standard Time)
             </div>
         </div>
         <script src="..\..\..\prettify.js"></script>
