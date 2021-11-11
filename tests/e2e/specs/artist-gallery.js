@@ -1,7 +1,7 @@
 describe('Check artist gallery', () => {
   it('Test artist gallery', () => {
     cy.visit('/');
-    cy.get('#logout-link').click({force: true})
+    // cy.get('#logout-link').click({force: true})
     cy.get('#login-link').click({ force: true });
     cy.get('input[type="email"]').type('test@test.com');
     cy.get('input[type="password"]').type('test123');

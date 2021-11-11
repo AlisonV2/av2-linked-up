@@ -21,3 +21,7 @@ a {
 .router-link-exact-active {
   color: $primary!important;
 }
+
+.card, .card-img-top {
+  border-radius: 0!important;
+}

@@ -12,7 +12,7 @@
     "dev": "npm run docs && npm run lint && npm -s run test:unit",
     "cover": "cross-env NODE_ENV=e2e nyc --silent npm run test:e2e",
     "build-report": "vue-cli-service build --report",
-    "cover:merge": "node mergeCover.js",
+    "cover:merge": "npx cypress-jest-coverage-merge",
     "docker": "docker-compose --env-file .env.local up --build"
   },
   "dependencies": {
@@ -45,6 +45,7 @@
     "cross-env": "^7.0.3",
     "cypress-browser-permissions": "^1.0.5",
     "cypress-file-upload": "^5.0.8",
+    "cypress-jest-coverage-merge": "^1.0.2",
     "date-fns": "^2.25.0",
     "eslint": "^6.7.2",
     "eslint-plugin-vue": "^7.0.0",
@@ -100,7 +101,7 @@
     "collectCoverageFrom": [
       "src/**/*.{js,vue}"
     ],
-    "coverageDirectory": "./jest-cover/",
+    "coverageDirectory": "./tests/coverage/jest",
     "coveragePathIgnorePatterns": [
       "/node_modules/",
       "/lib/",
@@ -110,6 +111,10 @@
     ]
   },
   "nyc": {
-    "report-dir": "cypress-cover"
+    "report-dir": "./tests/coverage/cypress",
+    "extension": [
+      ".js",
+      ".vue"
+  ]
   }
 }

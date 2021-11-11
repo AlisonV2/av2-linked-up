@@ -117,8 +117,9 @@ module.exports = {
 
 ### Code coverage <a name="coverage"></a>
 
-- Jest : Tests coverage can be found in jest-cover/index.html
-- Cypress: Tests coverage can be found in cypress-cover/index.html
+- Jest : Tests coverage can be found in tests/coverage/jest
+- Cypress: Tests coverage can be found in tests/coverage/cypress
+- Merge report can be found in tests/coverage/reports
 
 For Jest to be able to collect coverage, we must pass the --collectCoverage flag.
 
@@ -170,6 +171,12 @@ npm run cover
 
 # The full command : 
 cross-env NODE_ENV=e2e nyc --silent npm run test:e2e
+```
+
+To generate the global coverage report, run: 
+
+```sh
+npm run cover:merge
 ```
 
 ### Linter <a name="linter"></a>

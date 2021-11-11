@@ -1,0 +1,69 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ClientProfile.vue ClientProfile Snapshot 1`] = `
+<div
+  class="container"
+>
+  <div
+    class="row mb-3"
+  >
+    <div
+      class="col-12 text-center mb-4 app-title"
+    >
+      <h2
+        class="title"
+      >
+        <img
+          class="profile-title-img"
+          src="/img/title-bg.png"
+        />
+        <span>
+          
+          Client
+          
+        </span>
+      </h2>
+    </div>
+  </div>
+  <div
+    class="row"
+  >
+    <div
+      class="col-12 col-lg-5 img-center"
+    >
+      <img
+        class="img-fluid"
+        src="Thumbnail"
+      />
+    </div>
+    <div
+      class="col-12 col-lg-7 text-center"
+    >
+      <p
+        class="accent-text"
+      >
+        About
+      </p>
+      <p>
+        Description
+      </p>
+      <p>
+        <span
+          class="accent-text"
+        >
+          Location:
+        </span>
+         City (Zip) 
+      </p>
+      <p>
+        <span
+          class="accent-text"
+        >
+          Tattooed?
+        </span>
+         yes
+      </p>
+    </div>
+  </div>
+</div>
+`;

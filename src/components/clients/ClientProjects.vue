@@ -5,7 +5,7 @@
       v-for="project in projects"
       :key="project"
     >
-      <ProjectItem :project="project" :time="project.createdAt"/>
+      <ProjectItem :project="project"/>
     </div>
   </div>
 </template>
