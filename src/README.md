@@ -119,7 +119,7 @@ module.exports = {
 
 - Jest : Tests coverage can be found in tests/coverage/jest
 - Cypress: Tests coverage can be found in tests/coverage/cypress
-- Merge report can be found in tests/coverage/reports (NB: Still needs to take Vue Files into consideration)
+- Merge report can be found in tests/coverage/reports
 
 For Jest to be able to collect coverage, we must pass the --collectCoverage flag.
 
@@ -191,10 +191,6 @@ npm run lint
 ```
 
 ## Automation <a name="automation"></a>
-
-### Schema <a name="schema"></a>
-
-<img src="./.img/app-schema.jpg">
 
 ### Jira <a name="jira"></a>
 
