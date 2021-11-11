@@ -38,4 +38,16 @@ export default {
 };
 </script>
 
-<style></style>
+<style lang="scss">
+.artist-inbox {
+  border: 2px solid #dedede;
+  background-color: #f1f1f1;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 10px 0;
+}
+
+.message-item {
+  color: $dark;
+}
+</style>

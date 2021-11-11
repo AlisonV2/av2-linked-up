@@ -71,6 +71,9 @@ export default {
         .then(() => {
           this.getMessages();
         })
+        .then(() => {
+          this.newMessage = '';
+        })
         .catch((err) => {
           Sentry.captureException(err);
         });
