@@ -1,0 +1,38 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MessageDetails.vue MessageDetails Snapshot 1`] = `
+<div
+  data-v-app=""
+>
+  
+  <div
+    class="row chat-window"
+    id="chatWindow"
+  >
+    
+    
+  </div>
+  <div
+    class="row chat-row"
+  >
+    <form>
+      <div
+        class="input-group mb-3"
+      >
+        <input
+          class="form-control"
+          placeholder="Your message"
+          type="textarea"
+        />
+        <button
+          class="btn btn-outline-secondary"
+          type="submit"
+        >
+          Send
+        </button>
+      </div>
+    </form>
+  </div>
+  
+</div>
+`;

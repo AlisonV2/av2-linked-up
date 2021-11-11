@@ -6,7 +6,6 @@
       :class="[userId == message.sender ? 'container darker' : 'container']"
     >
       <div :class="[userId == message.sender ? 'text-end' : '']">
-        <!-- <img src="https://i.pravatar.cc/300" alt="Avatar" :class="[ userId == message[i].sender ? 'right' : '']" /> -->
         <span class="name">{{ message.senderName }}</span>
         <p class="message">{{ message.message }}</p>
         <small class="text-muted">{{ message.date.toDate() }}</small>
@@ -36,6 +35,8 @@ import * as Sentry from '@sentry/vue';
  * @type {Page}
  * @requires Sentry
  * @vue-data {array} messages
+ * @vue-data {string} newMessage
+ * @vue-data {string} userId
  */
 export default {
   name: 'MessageDetails',
@@ -57,9 +58,6 @@ export default {
       });
 
     this.getMessages();
-  },
-  mounted() {
-    this.scrollToEnd();
   },
   methods: {
     sendMessage() {
@@ -86,10 +84,6 @@ export default {
         .catch((err) => {
           Sentry.captureException(err);
         });
-    },
-    scrollToEnd() {
-      const chatWindow = document.getElementById('chatWindow');
-      chatWindow.scrollTop = chatWindow.scrollHeight;
     },
   },
 };
