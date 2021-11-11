@@ -1,0 +1,8 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AppBrand.vue AppFooter Snapshot 1`] = `
+<img
+  class="navbar-brand"
+  src="/img/logo.png"
+/>
+`;
