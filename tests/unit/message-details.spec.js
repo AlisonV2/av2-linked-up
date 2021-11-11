@@ -4,10 +4,13 @@ import MessageDetails from '@/components/admin/MessageDetails.vue';
 
 const actions = {
   getMessages: jest.fn(),
+  getCurrentUser: jest.fn(),
+  sendMessage: jest.fn(),
 };
 
 const getters = {
   getMessages: jest.fn(),
+  getCurrentUser: jest.fn(),
 };
 
 const store = createStore({
@@ -23,6 +26,8 @@ const config = {
   data() {
     return {
       messages: [],
+      userId: '',
+      newMessage: ''
     };
   },
   global: {
@@ -52,5 +57,17 @@ describe('MessageDetails.vue', () => {
     MessageDetails.created.call(component.vm);
     await component.vm.$nextTick();
     expect(getters.getMessages).toHaveBeenCalled;
+  });
+  it('Dispatches sendMessage action on submit', async () => {
+    const component = shallowMount(MessageDetails, config);
+    component.find('form').trigger('submit.prevent');
+    await component.vm.$nextTick();
+    expect(actions.sendMessage).toHaveBeenCalled();
+  });
+  it('getMessages action should be called on submit', async () => {
+    const component = shallowMount(MessageDetails, config);
+    component.find('form').trigger('submit.prevent');
+    await component.vm.$nextTick();
+    expect(actions.getMessages).toHaveBeenCalled();
   });
 });

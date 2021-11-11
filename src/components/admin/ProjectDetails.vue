@@ -1,15 +1,27 @@
 <template>
   <div class="container" v-if="project">
-    <div class="row mb-4">
-      <div class="col-12 text-end" v-if="project.status === 'Pending' ||'In progress'">
-        <span class="project-status px-4" @click="setProjectStatus('Accepted')">Accept project</span>
-        <span class="project-status" @click="setProjectStatus('Denied')">Refuse project</span></div>
+    <div class="row mb-4" v-if="isArtist">
+      <div
+        class="col-12 text-end"
+        v-if="project.status === 'Pending' || 'In progress'"
+      >
+        <span class="project-status px-4" @click="setProjectStatus('Accepted')"
+          >Accept project</span
+        >
+        <span class="project-status" @click="setProjectStatus('Denied')"
+          >Refuse project</span
+        >
+      </div>
     </div>
     <div class="row mb-4">
       <div class="col-12 project-details text-center">
         <h2 class="project-title">{{ project.title }}</h2>
         <h3 class="project-subtitle" v-if="isArtist">
-          Project requested by : <span>{{ project.clientName }}</span>
+          Project requested by :
+          <router-link
+            :to="{ name: 'ClientProfile', params: { id: project.clientId } }"
+            ><span>{{ project.clientName }}</span></router-link
+          >
         </h3>
         <h3 v-if="!isArtist">
           Project sent to : <span>{{ project.artistName }}</span>
@@ -24,7 +36,9 @@
       <div
         class="btn-wrapper btn-center mt-4"
         @click="showForm = !showForm"
-        v-if="isArtist && (project.status === 'Pending' || 'Accepted') && !showForm"
+        v-if="
+          isArtist && (project.status === 'Pending' || 'Accepted') && !showForm
+        "
       >
         <app-button>Contact {{ project.clientName }}</app-button>
       </div>
