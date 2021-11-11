@@ -1,14 +1,17 @@
 <template>
-  <div class="row chat-window" id="chatWindow">
-    <div
-      v-for="message in messages"
-      :key="message.sender"
-      :class="[userId == message.sender ? 'container darker' : 'container']"
-    >
+  <div id="chat-window">
+    <div class="col-12 mb-4" v-for="message in messages" :key="message.sender">
+      <div
+        class="chat-container mb-0"
+        :class="[userId == message.sender ? 'darker' : '']"
+      >
+        <div :class="[userId == message.sender ? 'text-end' : '']">
+          <span class="name">{{ message.senderName }}</span>
+          <p class="message">{{ message.message }}</p>
+        </div>
+      </div>
       <div :class="[userId == message.sender ? 'text-end' : '']">
-        <span class="name">{{ message.senderName }}</span>
-        <p class="message">{{ message.message }}</p>
-        <small class="text-muted">{{ message.date.toDate() }}</small>
+        <small class="text-muted px-3">{{ message.date }}</small>
       </div>
     </div>
   </div>
@@ -82,7 +85,11 @@ export default {
       this.$store
         .dispatch('getMessages', this.$route.params.id)
         .then(() => {
-          this.messages = this.$store.getters.getMessages[0];
+          this.messages = this.$store.getters.getMessages;
+        })
+        .then(() => {
+          const element = document.querySelector('#chat-window');
+          element.scrollTop = element.scrollHeight;
         })
         .catch((err) => {
           Sentry.captureException(err);
@@ -93,17 +100,20 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.chat-window {
-  overflow: auto;
-  max-height: 70vh;
+#chat-window {
+  overflow-y: scroll;
+  height: 70vh;
 }
 .name {
   font-weight: bold;
   margin-right: 6px;
 }
 
+.message {
+  margin-bottom: 0;
+}
 /* Chat containers */
-.container {
+.chat-container {
   border: 2px solid #dedede;
   background-color: #f1f1f1;
   border-radius: 5px;
@@ -155,6 +165,6 @@ export default {
 .chat-row {
   position: absolute;
   bottom: 2rem;
-  width: 80%;
+  width: 70%;
 }
 </style>

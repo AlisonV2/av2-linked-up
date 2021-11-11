@@ -20,13 +20,13 @@
     </div>
     <p class="card-text">{{ project.description }}</p>
     <div class="card-footer text-muted">
-      {{ createdAt }}
+      {{ project.createdAt }}
     </div>
   </div>
 </template>
 
 <script>
-import { format } from 'date-fns';
+// import { format } from 'date-fns';
 
 /**
  * @exports ProjectItem
@@ -36,7 +36,7 @@ import { format } from 'date-fns';
  */
 export default {
   name: 'ProjectItem',
-  props: ['project', 'time', 'isArtist'],
+  props: ['project', 'isArtist'],
   data() {
     return {
       createdAt: '',
@@ -49,13 +49,13 @@ export default {
     },
   },
   created() {
-    this.formatDate();
+    // this.formatDate();
     this.getUserRole();
   },
   methods: {
-    formatDate() {
-      this.createdAt = format(this.time.toDate(), 'dd/MM/yyyy');
-    },
+    // formatDate() {
+    //   this.createdAt = format(this.time.toDate(), 'dd/MM/yyyy');
+    // },
     async getUserRole() {
       await this.$store.dispatch('getUserRole').then(() => {
         this.role = this.$store.getters.getUserRole;

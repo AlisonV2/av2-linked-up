@@ -1,5 +1,6 @@
 import { auth, projectsCollection } from '@/utils/firebase';
 import * as Sentry from '@sentry/vue';
+import { format } from 'date-fns';
 
 /**
  * Vuex module for Projects
@@ -72,8 +73,10 @@ export default {
         const docs = await projectsCollection
           .where('artistId', '==', user)
           .get();
+
         docs.forEach((doc) => {
-          const project = { ...doc.data() };
+          const date = doc.data().createdAt;
+          const project = { ...doc.data(), createdAt: format(date.toDate(), 'dd/MM/yyyy') };
           projects.push(project);
         });
         commit('setArtistProjects', projects);

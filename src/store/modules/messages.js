@@ -1,5 +1,6 @@
 import { messagesCollection, auth } from '@/utils/firebase';
 import * as Sentry from '@sentry/vue';
+import { formatDistanceToNow } from 'date-fns'
 
 /**
  * Vuex module for messages
@@ -86,7 +87,7 @@ export default {
      * @async
      */
     async sendMessage(_, payload) {
-      console.log('messageSent')
+      console.log('messageSent');
       const user = auth.currentUser;
       const projectId = payload.projectId;
       const message = {
@@ -94,9 +95,9 @@ export default {
         senderName: user.displayName,
         message: payload.message,
         date: new Date(),
-      }
+      };
       const chat = await messagesCollection.doc(projectId).get();
-      console.log(chat.data())
+      console.log(chat.data());
       try {
         await messagesCollection.doc(projectId).update({
           messages: [...chat.data().messages, message],
@@ -117,10 +118,15 @@ export default {
         const docs = await messagesCollection
           .where('project', '==', payload)
           .get();
-          docs.forEach((doc) => {
-            const message = doc.data().messages;
+
+        docs.forEach((doc) => {
+          const chat = doc.data().messages;
+          chat.forEach((msg) => {
+            const time = msg.date.toDate();
+            const message = {...msg, date: formatDistanceToNow(time)};
             messages.push(message);
-          });
+          })
+        });
         commit('setMessages', messages);
       } catch (err) {
         Sentry.captureException(err);
@@ -190,6 +196,6 @@ export default {
     },
     getArtistMessages(state) {
       return state.artistMessages;
-    }
+    },
   },
 };
