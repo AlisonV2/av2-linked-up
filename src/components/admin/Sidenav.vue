@@ -42,23 +42,32 @@
             <span class="ms-3 d-none d-sm-inline">Gallery</span>
           </router-link>
         </li>
-                <hr class="dropdown-divider" />
+        <hr class="dropdown-divider" v-if="role === 'artist'" />
         <li>
-          <router-link :to="{ name: 'AdminProjects' }" class="nav-link align-middle px-0">
+          <router-link
+            :to="{ name: 'AdminProjects' }"
+            class="nav-link align-middle px-0"
+          >
             <i class="fs-4 bi-card-checklist"></i>
             <span class="ms-3 d-none d-sm-inline">Projects</span></router-link
           >
         </li>
-        <hr class="dropdown-divider" v-if="role === 'artist'"/>
+        <hr class="dropdown-divider" />
         <li>
-          <router-link :to="{ name: 'AdminInbox' }" class="nav-link align-middle px-0">
+          <router-link
+            :to="{ name: 'AdminInbox' }"
+            class="nav-link align-middle px-0"
+          >
             <i class="fs-4 bi-envelope"></i>
             <span class="ms-3 d-none d-sm-inline">Messages</span></router-link
           >
         </li>
         <hr class="dropdown-divider" />
         <li>
-          <router-link :to="{ name: 'AdminEvents' }" class="nav-link align-middle px-0">
+          <router-link
+            :to="{ name: 'AdminEvents' }"
+            class="nav-link align-middle px-0"
+          >
             <i class="fs-4 bi-calendar-date"></i>
             <span class="ms-3 d-none d-sm-inline">Events</span></router-link
           >
