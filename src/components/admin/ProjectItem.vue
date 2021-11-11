@@ -26,7 +26,6 @@
 </template>
 
 <script>
-// import { format } from 'date-fns';
 
 /**
  * @exports ProjectItem
@@ -49,13 +48,9 @@ export default {
     },
   },
   created() {
-    // this.formatDate();
     this.getUserRole();
   },
   methods: {
-    // formatDate() {
-    //   this.createdAt = format(this.time.toDate(), 'dd/MM/yyyy');
-    // },
     async getUserRole() {
       await this.$store.dispatch('getUserRole').then(() => {
         this.role = this.$store.getters.getUserRole;

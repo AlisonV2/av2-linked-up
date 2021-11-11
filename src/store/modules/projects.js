@@ -93,7 +93,8 @@ export default {
           .where('clientId', '==', user)
           .get();
         docs.forEach((doc) => {
-          const project = { ...doc.data() };
+          const date = doc.data().createdAt;
+          const project = { ...doc.data(), createdAt: format(date.toDate(), 'dd/MM/yyyy') };
           projects.push(project);
         });
         commit('setClientProjects', projects);
