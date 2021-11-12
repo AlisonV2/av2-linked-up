@@ -1,7 +1,7 @@
 describe('Client dashboard test', () => {
     it('Test client dashboard', () => {
       cy.visit('/');
-      // cy.get('#logout-link').click({force: true})
+      // cy.get('#logout-link').click({force: true});
       cy.get('#login-link').click({ force: true });
       cy.get('input[type="email"]').type('alison@test.com');
       cy.get('input[type="password"]').type('alison123');
@@ -22,6 +22,8 @@ describe('Client dashboard test', () => {
       cy.get('.message-item').eq(0).click({force: true});
       cy.get('input[type="textarea"]').type('Hello from cypress');
       cy.get('.btn-outline-secondary').click();
+      cy.wait(1000);
+      cy.get('.bi-card-checklist').click();
       cy.get('.bi-box-arrow-right').click();
       cy.get('#logout-link').should('not.exist');
     });  
