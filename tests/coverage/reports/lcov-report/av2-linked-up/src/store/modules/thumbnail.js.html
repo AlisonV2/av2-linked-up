@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">38.46% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/26</span>
+                <span class='fraction'>10/26</span>
             </div>
         
             
@@ -37,16 +37,16 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">33.33% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/6</span>
+                <span class='fraction'>2/6</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">38.46% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>0/26</span>
+                <span class='fraction'>10/26</span>
             </div>
         
             
@@ -206,7 +206,7 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -249,18 +249,18 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -317,8 +317,8 @@ export default {
 <span class="fstat-no" title="function not covered" >    se</span>tArtistThumbnail(state, payload) {
 <span class="cstat-no" title="statement not covered" >      state.artistThumbnail = payload;</span>
     },
-<span class="fstat-no" title="function not covered" >    se</span>tClientThumbnail(state, payload) {
-<span class="cstat-no" title="statement not covered" >      state.clientThumbnail = payload;</span>
+    setClientThumbnail(state, payload) {
+      state.clientThumbnail = payload;
     },
   },
   /**
@@ -360,19 +360,19 @@ export default {
      * @param {object} payload
      * @returns {string}
      */
-<span class="fstat-no" title="function not covered" >    as</span>ync setClientThumbnail({ commit }, payload) {
-      const user = <span class="cstat-no" title="statement not covered" >auth.currentUser.uid;</span>
-      const file = <span class="cstat-no" title="statement not covered" >payload;</span>
-      const storageRef = <span class="cstat-no" title="statement not covered" >storage.ref();</span>
-      const clientsRef = <span class="cstat-no" title="statement not covered" >storageRef.child(`clients/${user}/${file.name}`);</span>
+    async setClientThumbnail({ commit }, payload) {
+      const user = auth.currentUser.uid;
+      const file = payload;
+      const storageRef = storage.ref();
+      const clientsRef = storageRef.child(`clients/${user}/${file.name}`);
 &nbsp;
-      const task = <span class="cstat-no" title="statement not covered" >await clientsRef.put(file);</span>
-      const link = <span class="cstat-no" title="statement not covered" >await task.ref.getDownloadURL();</span>
-<span class="cstat-no" title="statement not covered" >      try {</span>
-<span class="cstat-no" title="statement not covered" >        await clientsCollection.doc(user).update({</span>
+      const task = await clientsRef.put(file);
+      const link = await task.ref.getDownloadURL();
+      try {
+        await clientsCollection.doc(user).update({
           thumbnail: link,
         });
-<span class="cstat-no" title="statement not covered" >        commit('setClientThumbnail', link);</span>
+        commit('setClientThumbnail', link);
       } catch (err) {
 <span class="cstat-no" title="statement not covered" >        Sentry.captureException(err);</span>
 <span class="cstat-no" title="statement not covered" >        return;</span>
@@ -400,7 +400,7 @@ export default {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Thu Nov 11 2021 16:10:47 GMT+0100 (Central European Standard Time)
+                at Fri Nov 12 2021 08:07:04 GMT+0100 (Central European Standard Time)
             </div>
         </div>
         <script src="../../../../prettify.js"></script>
