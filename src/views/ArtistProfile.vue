@@ -91,7 +91,6 @@ export default {
     await this.$store
       .dispatch('getArtistById', this.$route.params.id)
       .then(() => {
-        this.gallery = this.$store.getters.getGalleryFromId;
         this.artist = this.$store.getters.getArtistProfile;
         this.name = this.artist.name;
       })

@@ -1,4 +1,4 @@
-import { shallowMount } from '@vue/test-utils';
+import { shallowMount, RouterLinkStub } from '@vue/test-utils';
 import { createStore } from 'vuex';
 import ProjectDetails from '@/components/admin/ProjectDetails.vue';
 import AppButton from '@/components/app/Button';
@@ -32,6 +32,9 @@ const config = {
     components: {
       'app-button': AppButton,
     },
+    stubs: {
+      RouterLink: RouterLinkStub,
+    }
   },
 };
 

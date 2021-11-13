@@ -1,0 +1,80 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ProjectDetails.vue ProjectDetails Snapshot 1`] = `
+<div
+  class="container"
+>
+  <div
+    class="row mb-4"
+  >
+    <div
+      class="col-12 text-end"
+    >
+      <span
+        class="project-status px-4"
+      >
+        Accept project
+      </span>
+      <span
+        class="project-status"
+      >
+        Refuse project
+      </span>
+    </div>
+  </div>
+  <div
+    class="row mb-4"
+  >
+    <div
+      class="col-12 project-details text-center"
+    >
+      <h2
+        class="project-title"
+      />
+      <h3
+        class="project-subtitle"
+      >
+         Project requested by : 
+        <a>
+          <span />
+        </a>
+      </h3>
+      <!--v-if-->
+      <p>
+        Sent: 
+      </p>
+      <div
+        class="project-description mt-4"
+      >
+        <p />
+      </div>
+    </div>
+    <!--v-if-->
+  </div>
+  <div
+    class="row"
+  >
+    <form
+      class="col-12"
+    >
+      <div
+        class="form-floating mb-3"
+      >
+        <input
+          class="form-control"
+          placeholder="Message"
+          type="textarea"
+        />
+        <label>
+          Message
+        </label>
+        <div
+          class="btn-wrapper btn-center mt-4"
+        >
+          <app-button-stub />
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+`;

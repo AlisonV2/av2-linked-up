@@ -1,5 +1,3 @@
-<img src="./.img/lkd-banner.png" />
-
 # Linked Up - Alison Vandromme
 
 Ynov M1 Majeure - Coordination Front/Back
