@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1636793829050" clover="3.2.0">
-  <project timestamp="1636793829052" name="All files">
-    <metrics statements="647" coveredstatements="240" conditionals="62" coveredconditionals="11" methods="251" coveredmethods="107" elements="960" coveredelements="358" complexity="0" loc="647" ncloc="647" packages="12" files="55" classes="55"/>
+<coverage generated="1636794478540" clover="3.2.0">
+  <project timestamp="1636794478540" name="All files">
+    <metrics statements="655" coveredstatements="239" conditionals="62" coveredconditionals="11" methods="251" coveredmethods="107" elements="968" coveredelements="357" complexity="0" loc="655" ncloc="655" packages="12" files="55" classes="55"/>
     <package name="src">
       <metrics statements="10" coveredstatements="10" conditionals="2" coveredconditionals="2" methods="4" coveredmethods="4"/>
       <file name="App.vue" path="C:\xampp\htdocs\Ynov\av2-linked-up\src\App.vue">
@@ -457,9 +457,9 @@
       </file>
     </package>
     <package name="src.store.modules">
-      <metrics statements="268" coveredstatements="3" conditionals="28" coveredconditionals="0" methods="77" coveredmethods="2"/>
+      <metrics statements="277" coveredstatements="3" conditionals="28" coveredconditionals="0" methods="77" coveredmethods="2"/>
       <file name="artistProfile.js" path="C:\xampp\htdocs\Ynov\av2-linked-up\src\store\modules\artistProfile.js">
-        <metrics statements="24" coveredstatements="0" conditionals="4" coveredconditionals="0" methods="9" coveredmethods="0"/>
+        <metrics statements="33" coveredstatements="0" conditionals="4" coveredconditionals="0" methods="9" coveredmethods="0"/>
         <line num="30" count="0" type="stmt"/>
         <line num="33" count="0" type="stmt"/>
         <line num="52" count="0" type="stmt"/>
@@ -469,21 +469,30 @@
         <line num="69" count="0" type="stmt"/>
         <line num="70" count="0" type="stmt"/>
         <line num="80" count="0" type="stmt"/>
-        <line num="81" count="0" type="stmt"/>
-        <line num="82" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="82" count="0" type="stmt"/>
         <line num="83" count="0" type="stmt"/>
+        <line num="84" count="0" type="cond" truecount="0" falsecount="2"/>
         <line num="85" count="0" type="stmt"/>
-        <line num="94" count="0" type="stmt"/>
-        <line num="95" count="0" type="stmt"/>
-        <line num="96" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="97" count="0" type="stmt"/>
-        <line num="99" count="0" type="stmt"/>
-        <line num="107" count="0" type="stmt"/>
+        <line num="87" count="0" type="stmt"/>
+        <line num="89" count="0" type="stmt"/>
+        <line num="90" count="0" type="stmt"/>
+        <line num="100" count="0" type="stmt"/>
+        <line num="101" count="0" type="stmt"/>
+        <line num="102" count="0" type="stmt"/>
+        <line num="103" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="104" count="0" type="stmt"/>
+        <line num="106" count="0" type="stmt"/>
         <line num="108" count="0" type="stmt"/>
         <line num="109" count="0" type="stmt"/>
-        <line num="115" count="0" type="stmt"/>
-        <line num="126" count="0" type="stmt"/>
+        <line num="118" count="0" type="stmt"/>
+        <line num="119" count="0" type="stmt"/>
+        <line num="120" count="0" type="stmt"/>
+        <line num="121" count="0" type="stmt"/>
+        <line num="127" count="0" type="stmt"/>
         <line num="129" count="0" type="stmt"/>
+        <line num="130" count="0" type="stmt"/>
+        <line num="142" count="0" type="stmt"/>
+        <line num="145" count="0" type="stmt"/>
       </file>
       <file name="auth.js" path="C:\xampp\htdocs\Ynov\av2-linked-up\src\store\modules\auth.js">
         <metrics statements="29" coveredstatements="3" conditionals="10" coveredconditionals="0" methods="11" coveredmethods="2"/>
@@ -755,7 +764,7 @@
       </file>
     </package>
     <package name="src.views">
-      <metrics statements="60" coveredstatements="56" conditionals="2" coveredconditionals="2" methods="23" coveredmethods="19"/>
+      <metrics statements="59" coveredstatements="55" conditionals="2" coveredconditionals="2" methods="23" coveredmethods="19"/>
       <file name="Admin.vue" path="C:\xampp\htdocs\Ynov\av2-linked-up\src\views\Admin.vue">
         <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <line num="15" count="1" type="stmt"/>
@@ -777,27 +786,26 @@
         <line num="65" count="0" type="stmt"/>
       </file>
       <file name="ArtistProfile.vue" path="C:\xampp\htdocs\Ynov\av2-linked-up\src\views\ArtistProfile.vue">
-        <metrics statements="20" coveredstatements="18" conditionals="2" coveredconditionals="2" methods="9" coveredmethods="7"/>
+        <metrics statements="19" coveredstatements="17" conditionals="2" coveredconditionals="2" methods="9" coveredmethods="7"/>
         <line num="59" count="1" type="stmt"/>
         <line num="69" count="1" type="stmt"/>
         <line num="72" count="9" type="stmt"/>
-        <line num="81" count="15" type="stmt"/>
-        <line num="84" count="15" type="stmt"/>
-        <line num="85" count="15" type="stmt"/>
-        <line num="86" count="15" type="stmt"/>
-        <line num="88" count="15" type="stmt"/>
-        <line num="90" count="15" type="stmt"/>
-        <line num="93" count="15" type="stmt"/>
-        <line num="95" count="0" type="stmt"/>
-        <line num="97" count="15" type="stmt"/>
+        <line num="91" count="15" type="stmt"/>
+        <line num="94" count="15" type="stmt"/>
+        <line num="95" count="15" type="stmt"/>
+        <line num="96" count="15" type="stmt"/>
+        <line num="98" count="15" type="stmt"/>
         <line num="100" count="15" type="stmt"/>
-        <line num="102" count="0" type="stmt"/>
-        <line num="106" count="2" type="stmt"/>
-        <line num="107" count="2" type="stmt"/>
-        <line num="108" count="2" type="stmt"/>
-        <line num="109" count="2" type="cond" truecount="2" falsecount="0"/>
-        <line num="110" count="1" type="stmt"/>
-        <line num="112" count="1" type="stmt"/>
+        <line num="103" count="15" type="stmt"/>
+        <line num="105" count="0" type="stmt"/>
+        <line num="107" count="15" type="stmt"/>
+        <line num="110" count="15" type="stmt"/>
+        <line num="112" count="0" type="stmt"/>
+        <line num="116" count="2" type="stmt"/>
+        <line num="117" count="2" type="stmt"/>
+        <line num="118" count="2" type="cond" truecount="2" falsecount="0"/>
+        <line num="119" count="1" type="stmt"/>
+        <line num="121" count="1" type="stmt"/>
       </file>
       <file name="Artists.vue" path="C:\xampp\htdocs\Ynov\av2-linked-up\src\views\Artists.vue">
         <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>

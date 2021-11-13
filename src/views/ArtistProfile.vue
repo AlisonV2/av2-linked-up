@@ -71,7 +71,17 @@ export default {
   data() {
     return {
       gallery: [],
-      artist: {},
+      artist: {
+        name: '',
+        description: '',
+        thumbnail: '',
+        insta: '',
+        shop: '',
+        city: '',
+        zip: '',
+        style: '',
+        socialLink: '',
+      },
       role: '',
       open: false,
       name: ''
@@ -105,7 +115,6 @@ export default {
     handleContact() {
       const id = this.$route.params.id;
       const artist = this.name;
-      console.log(artist)
       if (this.role === 'client') {
         this.$router.push({ name : 'ArtistContact', params: { artist: artist, id: id } });
       } else {
