@@ -1,6 +1,6 @@
 import { messagesCollection, auth } from '@/utils/firebase';
 import * as Sentry from '@sentry/vue';
-import { formatDistanceToNow } from 'date-fns'
+import { formatDistanceToNow } from 'date-fns';
 
 /**
  * Vuex module for messages
@@ -114,20 +114,23 @@ export default {
      */
     async getMessages({ commit }, payload) {
       try {
-        const messages = [];
-        const docs = await messagesCollection
-          .where('project', '==', payload)
-          .get();
+        let messages = [];
+        const ref = await messagesCollection.where('project', '==', payload);
 
-        docs.forEach((doc) => {
-          const chat = doc.data().messages;
-          chat.forEach((msg) => {
-            const time = msg.date.toDate();
-            const message = {...msg, date: formatDistanceToNow(time)};
-            messages.push(message);
-          })
+        ref.onSnapshot((snapshot) => {
+          snapshot.docChanges().forEach((change) => {
+            if (change.type === 'added') {
+              let doc = change.doc;
+              let chat = doc.data().messages;
+              chat.forEach((msg) => {
+                const time = msg.date.toDate();
+                const message = { ...msg, date: formatDistanceToNow(time) };
+                messages.push(message);
+              });
+            }
+            commit('setMessages', messages);
+          });
         });
-        commit('setMessages', messages);
       } catch (err) {
         Sentry.captureException(err);
       }

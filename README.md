@@ -46,7 +46,7 @@ What I've implemented:
 - Build reports with webpack
 - E2E tests with Cypress
 - Cypress coverage generation with Istanbul
-- Cypress records (uploaded to Cypress Dashboard)
+- Cypress runs records (uploaded to Cypress Dashboard)
 - Global html page for development purposes, with links to all the reports and documentation
 - CI/CD pipeline with Github Actions
 - Preview URL generation with firebase
