@@ -148,9 +148,8 @@ export default {
     right: -100%;
     top: 5rem;
     flex-direction: column;
-    background-color: white;
+    background-color: $light;
     width: 100%;
-    border-radius: 0.5rem;
     text-align: center;
     transition: 0.3s;
     box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);

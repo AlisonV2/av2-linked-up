@@ -54,8 +54,6 @@ export default {
      * @async
      */
     async startChat(_, payload) {
-      // needed : receiver uid, project id, receiver name, sender name, message
-      console.log(payload);
       const user = auth.currentUser;
       const projectId = payload.id;
       const message = {
@@ -87,7 +85,6 @@ export default {
      * @async
      */
     async sendMessage(_, payload) {
-      console.log('messageSent');
       const user = auth.currentUser;
       const projectId = payload.projectId;
       const message = {
@@ -97,7 +94,6 @@ export default {
         date: new Date(),
       };
       const chat = await messagesCollection.doc(projectId).get();
-      console.log(chat.data());
       try {
         await messagesCollection.doc(projectId).update({
           messages: [...chat.data().messages, message],
@@ -114,23 +110,20 @@ export default {
      */
     async getMessages({ commit }, payload) {
       try {
-        let messages = [];
-        const ref = await messagesCollection.where('project', '==', payload);
+        const messages = [];
+        const docs = await messagesCollection
+          .where('project', '==', payload)
+          .get();
 
-        ref.onSnapshot((snapshot) => {
-          snapshot.docChanges().forEach((change) => {
-            if (change.type === 'added') {
-              let doc = change.doc;
-              let chat = doc.data().messages;
-              chat.forEach((msg) => {
-                const time = msg.date.toDate();
-                const message = { ...msg, date: formatDistanceToNow(time) };
-                messages.push(message);
-              });
-            }
-            commit('setMessages', messages);
-          });
+        docs.forEach((doc) => {
+          const chat = doc.data().messages;
+          chat.forEach((msg) => {
+            const time = msg.date.toDate();
+            const message = {...msg, date: formatDistanceToNow(time)};
+            messages.push(message);
+          })
         });
+        commit('setMessages', messages);
       } catch (err) {
         Sentry.captureException(err);
       }

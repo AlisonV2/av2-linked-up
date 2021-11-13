@@ -13,7 +13,9 @@
     "cover": "cross-env NODE_ENV=e2e nyc --silent npm run test:e2e",
     "build-report": "vue-cli-service build --report",
     "cover:merge": "npx cypress-jest-coverage-merge",
-    "docker": "docker-compose --env-file .env.local up --build"
+    "docker": "docker-compose --env-file .env.local up --build",
+    "preview": "npm run build && serve -s dist",
+    "lh": "lighthouse http://localhost:3000 --screenEmulation.disabled --throttling-method=provided --no-emulated-user-agent --output html --output-path ./lighthouse/report.html --save-assets"
   },
   "dependencies": {
     "@sentry/tracing": "^6.14.0",

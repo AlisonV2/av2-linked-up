@@ -17,6 +17,8 @@ Ynov M1 Majeure - Coordination Front/Back
    5. [Tests Records](#record)
    6. [Coverage](#coverage)
    7. [Linter](#linter)
+   8. [Production Preview](#production-preview)
+   9. [Lighthouse](#lighthouse)
 4. [Automation](#automation)
    1. [Schema](#schema)
    2. [Jira](#jira)
@@ -48,6 +50,7 @@ What I've implemented:
 - Cypress coverage generation with Istanbul
 - Cypress runs records (uploaded to Cypress Dashboard)
 - Global html page for development purposes, with links to all the reports and documentation
+- Lighthouse reports
 - CI/CD pipeline with Github Actions
 - Preview URL generation with firebase
 - Sentry monitoring
@@ -64,7 +67,13 @@ What I've implemented:
 ### Useful resources <a name="useful-resources"></a>
 
 dev.html can be found in the root directory.
-This file links to documentation, e2e report and unit report, as well as a build report.
+This file links to : 
+- Documentation
+- Jest coverage
+- Cypress coverage
+- Jest & Cypress merged coverage
+- Build reports
+- Lighthouse reports
 
 ### Docker <a name="docker"></a>
 
@@ -208,7 +217,37 @@ To run the linter:
 
 ```sh
 npm run lint
-````
+```
+
+### Local production preview <a href="production-preview"></a>
+
+The dist directory being meant to be served by an HTTP server, opening dist/index.html in a browser will not work.
+A workaround is to use a Node static file server, as [serve](https://www.npmjs.com/package/serve) does.
+
+```sh
+# Install serve
+npm install -g serve
+
+# Serve the dist directory
+serve -s dist
+```
+
+### Lighthouse Reports<a name="lighthouse"></a>
+
+Lighthouse reports are located in ./lighthouse folder.
+
+```sh
+# To install lighthouse CLI
+npm i -g lighthouse
+
+# Build app and launch server
+npm run preview
+
+# Run audit
+npm run lh:audit
+```
+
+The --view flag can be used to automatically open the report in a browser.
 
 ## Automation <a name="automation"></a>
 

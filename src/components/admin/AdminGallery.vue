@@ -152,3 +152,11 @@ export default {
   },
 };
 </script>
+
+<style lang="scss" scoped>
+@include bp-down(md) {
+  .row {
+    max-width: 90%;
+  }
+}
+</style>

@@ -109,7 +109,7 @@ export default {
         city: '',
         zip: '',
         tattooed: '',
-        thumbnail: ''
+        thumbnail: '',
       },
       showSuccessToast: false,
       showErrorToast: false,
@@ -159,7 +159,7 @@ export default {
         description: this.profile.description,
         city: this.profile.city,
         zip: this.profile.zip,
-        tattooed: this.profile.tattooed
+        tattooed: this.profile.tattooed,
       };
       await this.$store
         .dispatch('setClientProfile', profileData)
@@ -189,3 +189,11 @@ export default {
   },
 };
 </script>
+
+<style lang="scss" scoped>
+@include bp-down(md) {
+  form {
+    max-width: 90%;
+  }
+}
+</style>
