@@ -1,6 +1,6 @@
 <template>
   <div class="row">
-    <app-title mode="title-img">Your profile</app-title>
+    <app-title>Your profile</app-title>
     <div class="toast-success" v-if="showSuccessToast">Update successful</div>
     <div class="toast-error" v-if="showErrorToast">
       Oops... Something went wrong :(

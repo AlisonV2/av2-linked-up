@@ -7,9 +7,7 @@ exports[`RegisterForm.vue RegisterForm Snapshot 1`] = `
   <div
     class="row"
   >
-    <app-title-stub
-      mode="title-img"
-    />
+    <app-title-stub />
   </div>
   <div
     class="form-floating mb-3"
@@ -72,6 +70,7 @@ exports[`RegisterForm.vue RegisterForm Snapshot 1`] = `
         A (future) client
       </option>
       <!-- &lt;option value="organizer"&gt;An organizer&lt;/option&gt; -->
+      <!-- &lt;option value="admin"&gt;Admin&lt;/option&gt; -->
     </select>
   </div>
   <div

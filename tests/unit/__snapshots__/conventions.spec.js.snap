@@ -5,8 +5,6 @@ exports[`Conventions.vue Conventions Snapshot 1`] = `
   class="row"
   data-test="conventions"
 >
-  <app-title-stub
-    mode="title-img"
-  />
+  <app-title-stub />
 </div>
 `;

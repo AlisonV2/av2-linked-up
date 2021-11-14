@@ -1,39 +1,62 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`HomeGeoloc.vue HomeGeoloc Snapshot 1`] = `
-<div
-  class="row geoloc-row"
+<form
+  class="col-12 col-md-6 geoloc"
 >
-  <form
-    class="col-12 geoloc"
+  <div
+    class="col-12 text-center mb-4 app-title"
   >
-    <div
-      class="input-group mb-3"
+    <h2
+      class="title"
     >
-      <input
-        autocomplete=""
-        class="form-control"
-        id="autocomplete"
-        placeholder="Enter your city"
-        type="text"
-      />
-      <span
-        class="input-group-text material-icons"
-      >
-        place
-      </span>
-    </div>
-    <div
-      class="btn-center"
+      
+      Looking for an artist? 
+      
+    </h2>
+  </div>
+  <div
+    class="input-group mb-3"
+  >
+    <input
+      autocomplete=""
+      class="form-control"
+      id="autocomplete"
+      placeholder="Enter your city"
+      type="text"
+    />
+    <span
+      class="input-group-text material-icons"
     >
-      <button
-        class="btn"
+      place
+    </span>
+  </div>
+  <div
+    class="btn-center"
+  >
+    <button
+      class="btn"
+    >
+      
+      Search
+      
+    </button>
+  </div>
+  <a>
+    <div
+      class="col-12 text-center mb-4 app-title"
+    >
+      <h2
+        class="title"
       >
         
-        Search
+        Or search by styles 
+        <i
+          class="bi bi-arrow-right"
+        />
         
-      </button>
+      </h2>
     </div>
-  </form>
-</div>
+  </a>
+</form>
 `;

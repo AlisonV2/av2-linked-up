@@ -249,9 +249,9 @@ The --view flag can be used to automatically open the report in a browser.
 
 ## Automation <a name="automation"></a>
 
-### Schema <a name="schema"></a>
+<!-- ### Schema <a name="schema"></a>
 
-<img src="./.img/app-schema.jpg">
+<img src="./.img/app-schema.jpg"> -->
 
 ### Jira <a name="jira"></a>
 

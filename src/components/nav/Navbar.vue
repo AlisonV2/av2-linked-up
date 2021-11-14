@@ -111,9 +111,9 @@ export default {
 
 .bar {
   display: block;
-  width: 1.25rem;
+  width: 2rem;
   height: 3px;
-  margin: 0.25rem auto;
+  margin: 0.5rem auto;
   -webkit-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
   background-color: $dark;
@@ -121,7 +121,7 @@ export default {
 
 .navbar-menu {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   margin-bottom: 0;
   align-items: center;
 }
@@ -142,14 +142,15 @@ export default {
   }
 }
 
-@include bp-down(lg) {
+@include bp-down(xl) {
   .navbar-menu {
     position: fixed;
     right: -100%;
-    top: 5rem;
+    top: 6rem;
     flex-direction: column;
     background-color: $light;
     width: 100%;
+    height: 70%;
     text-align: center;
     transition: 0.3s;
     box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
@@ -164,17 +165,17 @@ export default {
   .hamburger {
     display: block;
     cursor: pointer;
-    margin-top: 1rem;
+    margin-top: 3rem;
     margin-right: 0.5rem;
   }
   .hamburger.active .bar:nth-child(2) {
     opacity: 0;
   }
   .hamburger.active .bar:nth-child(1) {
-    transform: translateY(8px) rotate(45deg);
+    transform: translateY(10px) rotate(45deg);
   }
   .hamburger.active .bar:nth-child(3) {
-    transform: translateY(-8px) rotate(-45deg);
+    transform: translateY(-16px) rotate(-45deg);
   }
 }
 </style>

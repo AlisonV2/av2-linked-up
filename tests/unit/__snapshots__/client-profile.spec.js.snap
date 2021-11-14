@@ -13,15 +13,9 @@ exports[`ClientProfile.vue ClientProfile Snapshot 1`] = `
       <h2
         class="title"
       >
-        <img
-          class="profile-title-img"
-          src="/img/title-bg.png"
-        />
-        <span>
-          
-          Client
-          
-        </span>
+        
+        Client
+        
       </h2>
     </div>
   </div>

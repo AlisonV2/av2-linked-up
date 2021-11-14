@@ -1,7 +1,7 @@
 <template>
   <div class="row">
     <div class="col-12 mb-4">
-      <app-title mode="title-img">Your gallery</app-title>
+      <app-title>Your gallery</app-title>
       <div class="toast-success" v-if="showSuccessToast">Update successful</div>
       <div class="toast-error" v-if="showErrorToast">
         Oops... Something went wrong :(

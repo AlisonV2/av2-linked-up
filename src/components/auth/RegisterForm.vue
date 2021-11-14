@@ -1,7 +1,7 @@
 <template>
   <form class="auth-form" @submit.prevent="register">
     <div class="row">
-      <app-title mode="title-img">Glad you join us!</app-title>
+      <app-title>Glad you join us!</app-title>
     </div>
     <div class="form-floating mb-3">
       <input
@@ -39,6 +39,7 @@
         <option value="artist">An artist</option>
         <option value="client">A (future) client</option>
         <!-- <option value="organizer">An organizer</option> -->
+        <!-- <option value="admin">Admin</option> -->
       </select>
     </div>
     <div class="error mb-3 mt-3">{{ error }}</div>

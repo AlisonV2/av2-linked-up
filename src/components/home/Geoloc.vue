@@ -1,24 +1,24 @@
 <template>
-  <div class="row geoloc-row">
-    <form class="col-12 geoloc" @submit.prevent="handleSubmit">
-      <div class="input-group mb-3">
-        <input
-          type="text"
-          class="form-control"
-          placeholder="Enter your city"
-          id="autocomplete"
-          v-model="location"
-          autocomplete
-        />
-        <span class="input-group-text material-icons" @click="getGeoloc"
-          >place</span
-        >
-      </div>
-      <div class="btn-center">
-        <app-button>Search</app-button>
-      </div>
-    </form>
-  </div>
+  <form class="col-12 col-md-6 geoloc" @submit.prevent="handleSubmit">
+    <app-title>Looking for an artist? </app-title>
+    <div class="input-group mb-3">
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Enter your city"
+        id="autocomplete"
+        v-model="location"
+        autocomplete
+      />
+      <span class="input-group-text material-icons" @click="getGeoloc"
+        >place</span
+      >
+    </div>
+    <div class="btn-center">
+      <app-button>Search</app-button>
+    </div>
+    <router-link :to="{name: 'Categories'}"><app-title>Or search by styles <i class="bi bi-arrow-right"></i></app-title></router-link>
+  </form>
 </template>
 
 <script>
@@ -66,7 +66,7 @@ export default {
           lng: position.coords.longitude,
         };
         this.setGeoloc(this.coords);
-        console.log('geoloc called')
+        console.log('geoloc called');
       });
     },
     /**
@@ -78,7 +78,9 @@ export default {
      */
     async setGeoloc(coords) {
       let response;
-      await fetch(process.env.VUE_APP_MAPQUEST_API + coords.lat + ',' + coords.lng)
+      await fetch(
+        process.env.VUE_APP_MAPQUEST_API + coords.lat + ',' + coords.lng
+      )
         .then((res) => res.json())
         .then((data) => (response = data))
         .catch((err) => Sentry.captureException(err));
@@ -140,7 +142,6 @@ export default {
 @include bp-up(md) {
   .geoloc {
     max-width: 80% !important;
-    margin: 0 auto;
   }
 }
 .geoloc-row {
