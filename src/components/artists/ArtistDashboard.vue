@@ -1,13 +1,17 @@
 <template>
   <div class="row">
-    <app-title mode="title-img">Your profile</app-title>
+    <app-title>Your profile</app-title>
     <div class="toast-success" v-if="showSuccessToast">Update successful</div>
     <div class="toast-error" v-if="showErrorToast">
       Oops... Something went wrong :(
     </div>
     <div class="col-12 col-lg-4 mt-4">
       <div class="mt-3">
-        <input type="file" data-test="file-upload" @change="setPreviewImage($event)" />
+        <input
+          type="file"
+          data-test="file-upload"
+          @change="setPreviewImage($event)"
+        />
         <div class="error">{{ fileErr }}</div>
       </div>
       <img
@@ -141,7 +145,7 @@ export default {
         socialLink: '',
         insta: '',
         description: '',
-        thumbnail: ''
+        thumbnail: '',
       },
       showSuccessToast: false,
       showErrorToast: false,
@@ -224,3 +228,11 @@ export default {
   },
 };
 </script>
+
+<style lang="scss" scoped>
+@include bp-down(md) {
+  form {
+    max-width: 90%;
+  }
+}
+</style>

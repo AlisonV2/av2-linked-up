@@ -2,7 +2,7 @@
 
 exports[`ArtistContact.vue ArtistContact Snapshot 1`] = `
 <div
-  class="container"
+  class="container col-8 home"
 >
   <form
     class="auth-form"

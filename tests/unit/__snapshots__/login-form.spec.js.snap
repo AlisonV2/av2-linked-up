@@ -7,9 +7,7 @@ exports[`LoginForm.vue LoginForm Snapshot 1`] = `
   <div
     class="row"
   >
-    <app-title-stub
-      mode="title-img"
-    />
+    <app-title-stub />
   </div>
   <div
     class="form-floating mb-3"

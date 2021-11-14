@@ -1,5 +1,5 @@
 <template>
-  <footer class="container">
+  <footer class="container-fluid">
     <div class="row">
       <div class="col-12">
         <div class="footer-copyright">
@@ -50,7 +50,7 @@ export default {
 
 <style lang="scss">
 footer {
-  text-align: center;
+  text-align: end;
   font-family: $accent-font;
   font-size: 0.75rem;
   font-weight: 500;

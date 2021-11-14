@@ -19,21 +19,22 @@ export default {
     artistGallery: [],
     gallery: [],
     galleryFromId: [],
+    profileGallery: [],
   },
 
   /**
    * @name Mutations
    * @type {object}
    * @property {array} setArtistGallery - Mutates artistGallery
-   * @property {array} setGallery - Mutates gallery
+   * @property {array} setProfileGallery - Mutates gallery
    * @property {array} setGalleryFromId - Mutates galleryFromId
    */
   mutations: {
     setArtistGallery(state, payload) {
       state.artistGallery = payload;
     },
-    setGallery(state, payload) {
-      state.gallery = payload;
+    setProfileGallery(state, payload) {
+      state.profileGallery = payload;
     },
     setGalleryFromId(state, payload) {
       state.galleryFromId = payload;
@@ -90,12 +91,15 @@ export default {
      */
     async getArtistGallery({ commit }) {
       const user = auth.currentUser.uid;
-      await galleriesCollection.doc(user).get();
-      const doc = await galleriesCollection.doc(user).get();
-      if (!doc.exists) {
+
+      try {
+        const docs = await galleriesCollection.doc(user).get();
+        const gallery = docs.data().gallery;
+        commit('setProfileGallery', gallery);
+      } catch (err) {
+        Sentry.captureException(err);
         return;
       }
-      commit('setGallery', doc.data());
     },
     /**
      * @description Admin part - Get gallery from current user's id
@@ -182,6 +186,9 @@ export default {
   getters: {
     getGalleryFromId(state) {
       return state.galleryFromId;
+    },
+    getProfileGallery(state) {
+      return state.profileGallery;
     },
   },
 };

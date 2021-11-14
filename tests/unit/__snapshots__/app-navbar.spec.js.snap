@@ -29,6 +29,7 @@ exports[`AppNavbar.vue AppNavbar Snapshot 1`] = `
           class="navbar-item"
         >
           <router-link-stub
+            id="conventions-link"
             to="[object Object]"
           />
         </li>

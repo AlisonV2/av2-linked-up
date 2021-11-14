@@ -1,4 +1,4 @@
-import { shallowMount } from '@vue/test-utils';
+import { shallowMount, RouterLinkStub } from '@vue/test-utils';
 import { createStore } from 'vuex';
 import ArtistContact from '@/views/ArtistContact';
 import AppButton from '@/components/app/Button';
@@ -55,6 +55,7 @@ const config = {
     plugins: [store],
     stubs: {
       'app-button': AppButton,
+      'router-link': RouterLinkStub
     },
     mocks: {
       $router,

@@ -7,9 +7,7 @@ exports[`Artists.vue Artists Snapshot 1`] = `
   <div
     class="row"
   >
-    <app-title-stub
-      mode="title-img"
-    />
+    <app-title-stub />
   </div>
   <artist-list-stub />
 </div>

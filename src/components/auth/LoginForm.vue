@@ -1,7 +1,7 @@
 <template>
   <form class="auth-form" @submit.prevent="login">
     <div class="row">
-      <app-title mode="title-img">Welcome back!</app-title>
+      <app-title>Welcome back!</app-title>
     </div>
     <div class="form-floating mb-3">
       <input

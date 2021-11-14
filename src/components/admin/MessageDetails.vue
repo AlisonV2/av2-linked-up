@@ -167,4 +167,17 @@ export default {
   bottom: 2rem;
   width: 70%;
 }
+
+@include bp-down(md) {
+  .input-group {
+    display: flex;
+    flex-direction: column;
+  }
+
+  input {
+    width: 100%!important;
+    margin-bottom: 1rem;
+  }
+
+}
 </style>

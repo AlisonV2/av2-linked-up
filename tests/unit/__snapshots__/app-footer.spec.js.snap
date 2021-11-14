@@ -2,7 +2,7 @@
 
 exports[`AppFooter.vue AppFooter Snapshot 1`] = `
 <footer
-  class="container"
+  class="container-fluid"
 >
   <div
     class="row"

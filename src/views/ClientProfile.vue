@@ -1,7 +1,7 @@
 <template>
-  <div class="container">
+  <div class="container profile-container">
     <div class="row mb-3">
-      <app-title mode="profile-title-img">{{ client.name }}</app-title>
+      <app-title>{{ client.name }}</app-title>
     </div>
     <div class="row">
       <div class="col-12 col-lg-5 img-center">
@@ -35,7 +35,14 @@ export default {
   name: 'clientProfile',
   data() {
     return {
-      client: {},
+      client: {
+        name: '',
+        thumbnail: '',
+        description: '',
+        city: '',
+        zip: '',
+        tattooed: '',
+      },
     };
   },
   async created() {

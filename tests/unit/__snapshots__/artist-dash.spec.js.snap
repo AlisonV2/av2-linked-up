@@ -4,9 +4,7 @@ exports[`ArtistDashboard.vue ArtistDashboard Snapshot 1`] = `
 <div
   class="row"
 >
-  <app-title-stub
-    mode="title-img"
-  />
+  <app-title-stub />
   <!--v-if-->
   <!--v-if-->
   <div

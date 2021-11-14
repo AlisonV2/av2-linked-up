@@ -51,12 +51,12 @@ const routes = [
     component: Conventions,
   },
   {
-    path: '/categories',
+    path: '/styles',
     name: 'Categories',
     component: Categories,
   },
   {
-    path: '/search/categories',
+    path: '/search/styles',
     name: 'CategoriesResults',
     component: CategoriesResults,
   },

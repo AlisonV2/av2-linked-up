@@ -1,7 +1,7 @@
 <template>
   <div class="row">
     <div class="col-12 mb-4">
-      <app-title mode="title-img">Your gallery</app-title>
+      <app-title>Your gallery</app-title>
       <div class="toast-success" v-if="showSuccessToast">Update successful</div>
       <div class="toast-error" v-if="showErrorToast">
         Oops... Something went wrong :(
@@ -13,7 +13,7 @@
       </div>
     </div>
     <div class="col-12 btn-right mt-3" v-else>
-      <div class="btn-group mb-3" @click="setArtistGallery">
+      <div class="btn-group mb-3" data-test="set" @click="setArtistGallery">
         <app-button>Save</app-button>
       </div>
     </div>
@@ -85,11 +85,10 @@ export default {
       showErrorToast: false,
     };
   },
-  async created() {
-    await this.$store.dispatch('getArtistGallery')
+  created() {
+    this.$store.dispatch('getArtistGallery')
     .then(() => {
-      const gallery = this.$store.state.gallery.gallery;
-      this.profileGallery = gallery.gallery;
+      this.profileGallery = this.$store.getters.getProfileGallery;
     })
     .catch((err) => {
       Sentry.captureException(err);
@@ -152,3 +151,11 @@ export default {
   },
 };
 </script>
+
+<style lang="scss" scoped>
+@include bp-down(md) {
+  .row {
+    max-width: 90%;
+  }
+}
+</style>

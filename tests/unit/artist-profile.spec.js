@@ -38,7 +38,7 @@ const config = {
         name: 'Artist',
         description: 'Description',
         thumbnail: 'Thumbnail',
-        socialLink: 'Social',
+        socialLink: 'https://via.placeholder.com/150',
         shop: 'Shop',
         insta: 'Insta',
         city: 'City',

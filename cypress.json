@@ -1,5 +1,9 @@
 {
   "pluginsFile": "tests/e2e/plugins/index.js",
+  "baseUrl": "http://localhost:8080/",
+  "projectId": "wjjbah",
+  "viewportWidth": 1200,
+  "viewportHeight": 800,
   "env": {
     "e2e": {
       "browserPermissions": {
@@ -12,8 +16,7 @@
         "popups": "ask",
         "plugins": "ask",
         "cookies": "allow"
-      },
-      "projectId": "a7bq2k"
+      }
     }
   }
 }
