@@ -9,6 +9,7 @@ export default {
   /**
    * @name State
    * @type {object}
+   * @property {object} geoloc
    */
   state: {
     geoloc: {},
@@ -17,6 +18,7 @@ export default {
   /**
    * @name Mutations
    * @type {object}
+   * @property {object} setGeoloc
    */
   mutations: {
     setGeoloc(state, payload) {
@@ -26,8 +28,16 @@ export default {
   /**
    * @name Actions
    * @type {object}
+   * @property {object} getGeoloc Gets geoloc from navigator getCurrentPosition
+   * @property {object} setGeoloc Reverse geocode from API and commits mutation
    */
   actions: {
+    /**
+     * @description Gets geoloc from navigator getCurrentPosition
+     * @method getGeoloc
+     * @returns {object}
+     * @async
+     */
     getGeoloc({ dispatch }) {
       let coords = {
         lat: '',
@@ -42,6 +52,12 @@ export default {
         dispatch('setGeoloc', coords);
       });
     },
+    /**
+     * @description Reverse geocode from API
+     * @method setGeoloc
+     * @returns {object}
+     * @async
+     */
     async setGeoloc({ commit }, payload) {
       let response;
       await fetch(
@@ -65,6 +81,7 @@ export default {
   /**
    * @name Getters
    * @type {object}
+   * @property {object} getGeoloc
    */
   getters: {
     getGeoloc(state) {
