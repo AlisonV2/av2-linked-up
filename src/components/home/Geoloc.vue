@@ -10,8 +10,8 @@
         v-model="location"
         autocomplete
       />
-      <span class="input-group-text material-icons" @click="getGeoloc"
-        >place</span
+      <span class="input-group-text" @click="getGeoloc"
+        ><i class="fs-4 bi bi-geo-alt-fill"></i></span
       >
     </div>
     <div class="btn-center">
@@ -148,7 +148,7 @@ export default {
   margin-bottom: 3rem;
 }
 
-.material-icons {
+.bi-geo-alt-fill {
   font-size: 1.5rem !important;
   cursor: pointer;
 }

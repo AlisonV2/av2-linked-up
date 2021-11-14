@@ -1,7 +1,7 @@
 <template>
-  <div class="row">
+  <div class="row artists-list">
     <div
-      class="col-8 col-md-6 col-lg-4 col-xl-3 artists-list"
+      class="col-12 col-md-6 col-lg-4 col-xl-3"
       v-for="artist in artists"
       :key="artist.name"
     >
@@ -49,3 +49,13 @@ export default {
   },
 };
 </script>
+
+<style lang="scss">
+
+@include bp-down(md) {
+.artists-list {
+  padding-right: 1rem;
+  padding-left: 1rem;
+}
+}
+</style>

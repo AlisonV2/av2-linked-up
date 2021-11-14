@@ -8,14 +8,14 @@
     "test:unit": "vue-cli-service test:unit",
     "test:e2e": "vue-cli-service test:e2e",
     "lint": "vue-cli-service lint",
-    "docs": "jsdoc -c jsdoc.json",
-    "dev": "npm run docs && npm run lint && npm -s run test:unit",
-    "cover": "cross-env NODE_ENV=e2e nyc --silent npm run test:e2e",
     "build-report": "vue-cli-service build --report",
+    "cover": "cross-env NODE_ENV=e2e nyc --silent npm run test:e2e",
     "cover:merge": "npx cypress-jest-coverage-merge",
+    "dev": "npm run docs && npm run lint && npm -s run test:unit",
     "docker": "docker-compose --env-file .env.local up --build",
-    "preview": "npm run build && serve -s dist",
-    "lh": "lighthouse http://localhost:3000 --screenEmulation.disabled --throttling-method=provided --no-emulated-user-agent --output html --output-path ./lighthouse/report.html --save-assets"
+    "docs": "jsdoc -c jsdoc.json",
+    "lh": "lighthouse http://localhost:3000 --screenEmulation.disabled --throttling-method=provided --no-emulated-user-agent --output html --output-path ./lighthouse/report.html --save-assets",
+    "preview": "npm run build && serve -s dist"
   },
   "dependencies": {
     "@sentry/tracing": "^6.14.0",
@@ -23,6 +23,7 @@
     "bootstrap-icons": "^1.6.1",
     "core-js": "^3.6.5",
     "firebase": "^8.9.1",
+    "register-service-worker": "^1.7.1",
     "vue": "^3.0.0",
     "vue-router": "^4.0.0-0",
     "vuex": "^4.0.0-0"
@@ -33,6 +34,7 @@
     "@vue/cli-plugin-babel": "~4.5.0",
     "@vue/cli-plugin-e2e-cypress": "~4.5.0",
     "@vue/cli-plugin-eslint": "~4.5.0",
+    "@vue/cli-plugin-pwa": "~4.5.0",
     "@vue/cli-plugin-router": "~4.5.0",
     "@vue/cli-plugin-unit-jest": "~4.5.0",
     "@vue/cli-plugin-vuex": "~4.5.0",
