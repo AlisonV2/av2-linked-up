@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">40% </span>
+                <span class="strong">80% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>2/5</span>
+                <span class='fraction'>4/5</span>
             </div>
         
             
@@ -37,16 +37,16 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">66.67% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>2/3</span>
+                <span class='fraction'>3/3</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">40% </span>
+                <span class="strong">80% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>2/5</span>
+                <span class='fraction'>4/5</span>
             </div>
         
             
@@ -55,7 +55,7 @@
             Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
         </p>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line high'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -309,23 +309,23 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">46x</span>
+<span class="cline-any cline-yes">45x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">29x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">28x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -433,7 +433,7 @@
             &lt;/router-link&gt;
           &lt;/li&gt;
           &lt;li class="navbar-item"&gt;
-            &lt;router-link :to="{ name: 'Conventions' }"&gt;
+            &lt;router-link :to="{ name: 'Conventions' }" id="conventions-link"&gt;
               Conventions
             &lt;/router-link&gt;
           &lt;/li&gt;
@@ -504,9 +504,9 @@ export default {
    * @method logout
    */
   methods: {
-<span class="fstat-no" title="function not covered" >    lo</span>gout() {
-<span class="cstat-no" title="statement not covered" >      this.$store.dispatch('logout');</span>
-<span class="cstat-no" title="statement not covered" >      <span class="missing-if-branch" title="if path not taken" >I</span>if (this.$route.meta.requiresAuth) {</span>
+    logout() {
+      this.$store.dispatch('logout');
+      <span class="missing-if-branch" title="if path not taken" >I</span>if (this.$route.meta.requiresAuth) {
 <span class="cstat-no" title="statement not covered" >        this.$router.push({ name: 'Home' });</span>
       }
     },
@@ -532,9 +532,9 @@ export default {
 &nbsp;
 .bar {
   display: block;
-  width: 1.25rem;
+  width: 2rem;
   height: 3px;
-  margin: 0.25rem auto;
+  margin: 0.5rem auto;
   -webkit-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
   background-color: $dark;
@@ -542,7 +542,7 @@ export default {
 &nbsp;
 .navbar-menu {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   margin-bottom: 0;
   align-items: center;
 }
@@ -563,15 +563,15 @@ export default {
   }
 }
 &nbsp;
-@include bp-down(lg) {
+@include bp-down(xl) {
   .navbar-menu {
     position: fixed;
     right: -100%;
-    top: 5rem;
+    top: 6rem;
     flex-direction: column;
-    background-color: white;
+    background-color: $light;
     width: 100%;
-    border-radius: 0.5rem;
+    height: 70%;
     text-align: center;
     transition: 0.3s;
     box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
@@ -586,17 +586,17 @@ export default {
   .hamburger {
     display: block;
     cursor: pointer;
-    margin-top: 1rem;
+    margin-top: 3rem;
     margin-right: 0.5rem;
   }
   .hamburger.active .bar:nth-child(2) {
     opacity: 0;
   }
   .hamburger.active .bar:nth-child(1) {
-    transform: translateY(8px) rotate(45deg);
+    transform: translateY(10px) rotate(45deg);
   }
   .hamburger.active .bar:nth-child(3) {
-    transform: translateY(-8px) rotate(-45deg);
+    transform: translateY(-16px) rotate(-45deg);
   }
 }
 &lt;/style&gt;
@@ -607,7 +607,7 @@ export default {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Fri Nov 12 2021 08:06:40 GMT+0100 (Central European Standard Time)
+                at Sun Nov 14 2021 14:15:55 GMT+0100 (Central European Standard Time)
             </div>
         </div>
         <script src="../../../prettify.js"></script>

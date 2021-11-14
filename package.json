@@ -110,7 +110,9 @@
       "/lib/",
       "/test/",
       "/utils/",
-      "main.js"
+      "main.js",
+      "/store/",
+      "/router/"
     ]
   },
   "nyc": {

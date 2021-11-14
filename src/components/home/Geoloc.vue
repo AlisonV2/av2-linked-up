@@ -28,23 +28,16 @@ import * as Sentry from '@sentry/vue';
  * @exports HomeGeoloc
  * @type {Component}
  * @requires Sentry
- * @vue-data {object} coords - Stores current location
  * @vue-data {string} location - v-model
  * @vue-data {string} city - stores user's city from geoloc
  * @vue-data {string} address - stores user's address from geoloc
- * @vue-event {object} getGeoloc - get current location
- * @vue-event {string} setGeoloc - sets current location as input value
+ * @vue-event {object} getGeoloc - dispatch getGeoloc action
  * @vue-event {string} searchByGeoloc - dispatch store action
- * @vue-event {string} setGeoloc - sets current location as input value
  * @vue-event handleSubmit - dispatches store action and redirects to results page
  */
 export default {
   data() {
     return {
-      coords: {
-        lat: '',
-        lng: '',
-      },
       location: '',
       city: '',
       address: '',
@@ -53,43 +46,17 @@ export default {
     };
   },
   methods: {
-    /**
-     * @description Dispatch getArtistsByStyle action
-     * Redirect to CategoriesResults Page
-     * @method getGeoloc
-     * @returns {object}
-     */
     getGeoloc() {
-      navigator.geolocation.getCurrentPosition((position) => {
-        this.coords = {
-          lat: position.coords.latitude,
-          lng: position.coords.longitude,
-        };
-        this.setGeoloc(this.coords);
-        console.log('geoloc called');
-      });
-    },
-    /**
-     * @description Set current location as input value
-     * @method setGeoloc
-     * @param {object} coords
-     * @returns {string}
-     * @async
-     */
-    async setGeoloc(coords) {
-      let response;
-      await fetch(
-        process.env.VUE_APP_MAPQUEST_API + coords.lat + ',' + coords.lng
-      )
-        .then((res) => res.json())
-        .then((data) => (response = data))
-        .catch((err) => Sentry.captureException(err));
-
-      const res = response.results[0].locations[0];
-      this.location = res.adminArea5;
-      const zip = res.postalCode;
-      this.loc = zip.substring(0, 2);
-      this.geoloc = true;
+      this.$store.dispatch('getGeoloc')
+      .then(() => {
+        const data = this.$store.getters.getGeoloc;
+        this.location = data.location;
+        this.loc = data.loc;
+      })
+      .then(() => {
+        this.geoloc = true;
+      })
+      .catch((err) => Sentry.captureException(err));
     },
     /**
      * @description Dispatch store action

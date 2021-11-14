@@ -18,14 +18,29 @@ const store = createStore({
   getters,
 });
 
+const $route = {
+  name: 'ClientProfile',
+  params: { id: 1 },
+};
+
 const config = {
   data() {
     return {
-      project: {},
+      project: {
+        artistId: '',
+        artistName: '',
+        clientId: '',
+        clientName: '',
+        createdAt: '',
+        description: '',
+        id: '',
+        title: '',
+        status: 'Pending',
+      },
       showForm: true,
       message: '',
       isArtist: true,
-    };
+    }
   },
   global: {
     plugins: [store],
@@ -34,7 +49,10 @@ const config = {
     },
     stubs: {
       RouterLink: RouterLinkStub,
-    }
+    },
+    mocks: {
+      $route,
+    },
   },
 };
 
@@ -59,19 +77,5 @@ describe('ProjectDetails.vue', () => {
     ProjectDetails.created.call(component.vm);
     await component.vm.$nextTick();
     expect(getters.getProjectById).toHaveBeenCalled;
-  });
-
-  it('getProjectByIdaction should have been called', async () => {
-    const component = shallowMount(ProjectDetails, config);
-    component.find('form').trigger('submit.prevent');
-    await component.vm.$nextTick();
-    expect(actions.startChat).toHaveBeenCalled;
-  });
-
-  it('getProjectStatus action should have been called', async () => {
-    const component = shallowMount(ProjectDetails, config);
-    component.find('form').trigger('submit.prevent');
-    await component.vm.$nextTick();
-    expect(actions.setProjectStatus).toHaveBeenCalled;
   });
 });

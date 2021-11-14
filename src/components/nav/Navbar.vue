@@ -12,7 +12,7 @@
             </router-link>
           </li>
           <li class="navbar-item">
-            <router-link :to="{ name: 'Conventions' }">
+            <router-link :to="{ name: 'Conventions' }" id="conventions-link">
               Conventions
             </router-link>
           </li>

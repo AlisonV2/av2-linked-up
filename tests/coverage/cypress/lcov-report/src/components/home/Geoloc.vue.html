@@ -211,7 +211,8 @@
 <a name='L152'></a><a href='#L152'>152</a>
 <a name='L153'></a><a href='#L153'>153</a>
 <a name='L154'></a><a href='#L154'>154</a>
-<a name='L155'></a><a href='#L155'>155</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L155'></a><a href='#L155'>155</a>
+<a name='L156'></a><a href='#L156'>156</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -253,7 +254,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">27x</span>
+<span class="cline-any cline-yes">24x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -292,6 +293,8 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -343,7 +346,6 @@
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -366,26 +368,26 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">&lt;template&gt;
-  &lt;div class="row geoloc-row"&gt;
-    &lt;form class="col-12 geoloc" @submit.prevent="handleSubmit"&gt;
-      &lt;div class="input-group mb-3"&gt;
-        &lt;input
-          type="text"
-          class="form-control"
-          placeholder="Enter your city"
-          id="autocomplete"
-          v-model="location"
-          autocomplete
-        /&gt;
-        &lt;span class="input-group-text material-icons" @click="getGeoloc"
-          &gt;place&lt;/span
-        &gt;
-      &lt;/div&gt;
-      &lt;div class="btn-center"&gt;
-        &lt;app-button&gt;Search&lt;/app-button&gt;
-      &lt;/div&gt;
-    &lt;/form&gt;
-  &lt;/div&gt;
+  &lt;form class="col-12 col-md-6 geoloc" @submit.prevent="handleSubmit"&gt;
+    &lt;app-title&gt;Looking for an artist? &lt;/app-title&gt;
+    &lt;div class="input-group mb-3"&gt;
+      &lt;input
+        type="text"
+        class="form-control"
+        placeholder="Enter your city"
+        id="autocomplete"
+        v-model="location"
+        autocomplete
+      /&gt;
+      &lt;span class="input-group-text" @click="getGeoloc"
+        &gt;&lt;i class="fs-4 bi bi-geo-alt-fill"&gt;&lt;/i&gt;&lt;/span
+      &gt;
+    &lt;/div&gt;
+    &lt;div class="btn-center"&gt;
+      &lt;app-button&gt;Search&lt;/app-button&gt;
+    &lt;/div&gt;
+    &lt;router-link :to="{name: 'Categories'}"&gt;&lt;app-title&gt;Or search by styles &lt;i class="bi bi-arrow-right"&gt;&lt;/i&gt;&lt;/app-title&gt;&lt;/router-link&gt;
+  &lt;/form&gt;
 &lt;/template&gt;
 &nbsp;
 &lt;script&gt;
@@ -433,7 +435,7 @@ export default {
           lng: position.coords.longitude,
         };
 <span class="cstat-no" title="statement not covered" >        this.setGeoloc(this.coords);</span>
-<span class="cstat-no" title="statement not covered" >        console.log('geoloc called')</span>
+<span class="cstat-no" title="statement not covered" >        console.log('geoloc called');</span>
       });
     },
     /**
@@ -445,7 +447,9 @@ export default {
      */
 <span class="fstat-no" title="function not covered" >    as</span>ync setGeoloc(coords) {
       let response;
-<span class="cstat-no" title="statement not covered" >      await fetch(process.env.VUE_APP_MAPQUEST_API + coords.lat + ',' + coords.lng)</span>
+<span class="cstat-no" title="statement not covered" >      await fetch(</span>
+        process.env.VUE_APP_MAPQUEST_API + coords.lat + ',' + coords.lng
+      )
         .then(<span class="fstat-no" title="function not covered" >(r</span>es) =&gt; <span class="cstat-no" title="statement not covered" >res.json())</span>
         .then(<span class="fstat-no" title="function not covered" >(d</span>ata) =&gt; (<span class="cstat-no" title="statement not covered" >response = data)</span>)
         .catch(<span class="fstat-no" title="function not covered" >(e</span>rr) =&gt; <span class="cstat-no" title="statement not covered" >Sentry.captureException(err))</span>;
@@ -507,14 +511,13 @@ export default {
 @include bp-up(md) {
   .geoloc {
     max-width: 80% !important;
-    margin: 0 auto;
   }
 }
 .geoloc-row {
   margin-bottom: 3rem;
 }
 &nbsp;
-.material-icons {
+.bi-geo-alt-fill {
   font-size: 1.5rem !important;
   cursor: pointer;
 }
@@ -526,7 +529,7 @@ export default {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Fri Nov 12 2021 08:06:40 GMT+0100 (Central European Standard Time)
+                at Sun Nov 14 2021 14:15:55 GMT+0100 (Central European Standard Time)
             </div>
         </div>
         <script src="../../../prettify.js"></script>
