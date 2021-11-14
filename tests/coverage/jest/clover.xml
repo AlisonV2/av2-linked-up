@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1636880410881" clover="3.2.0">
-  <project timestamp="1636880410881" name="All files">
-    <metrics statements="653" coveredstatements="237" conditionals="62" coveredconditionals="11" methods="251" coveredmethods="107" elements="966" coveredelements="355" complexity="0" loc="653" ncloc="653" packages="12" files="55" classes="55"/>
+<coverage generated="1636884784970" clover="3.2.0">
+  <project timestamp="1636884784970" name="All files">
+    <metrics statements="662" coveredstatements="237" conditionals="64" coveredconditionals="11" methods="258" coveredmethods="107" elements="984" coveredelements="355" complexity="0" loc="662" ncloc="662" packages="12" files="56" classes="56"/>
     <package name="src">
-      <metrics statements="10" coveredstatements="10" conditionals="2" coveredconditionals="2" methods="4" coveredmethods="4"/>
+      <metrics statements="19" coveredstatements="10" conditionals="4" coveredconditionals="2" methods="11" coveredmethods="4"/>
       <file name="App.vue" path="C:\xampp\htdocs\Ynov\av2-linked-up\src\App.vue">
         <metrics statements="10" coveredstatements="10" conditionals="2" coveredconditionals="2" methods="4" coveredmethods="4"/>
         <line num="23" count="1" type="stmt"/>
@@ -16,6 +16,18 @@
         <line num="54" count="1" type="stmt"/>
         <line num="58" count="6" type="stmt"/>
         <line num="62" count="1" type="stmt"/>
+      </file>
+      <file name="registerServiceWorker.js" path="C:\xampp\htdocs\Ynov\av2-linked-up\src\registerServiceWorker.js">
+        <metrics statements="9" coveredstatements="0" conditionals="2" coveredconditionals="0" methods="7" coveredmethods="0"/>
+        <line num="5" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="6" count="0" type="stmt"/>
+        <line num="8" count="0" type="stmt"/>
+        <line num="14" count="0" type="stmt"/>
+        <line num="17" count="0" type="stmt"/>
+        <line num="20" count="0" type="stmt"/>
+        <line num="23" count="0" type="stmt"/>
+        <line num="26" count="0" type="stmt"/>
+        <line num="29" count="0" type="stmt"/>
       </file>
     </package>
     <package name="src.components.admin">
@@ -828,9 +840,9 @@
         <line num="25" count="1" type="stmt"/>
         <line num="34" count="1" type="stmt"/>
         <line num="37" count="3" type="stmt"/>
-        <line num="42" count="5" type="stmt"/>
-        <line num="45" count="5" type="stmt"/>
-        <line num="47" count="0" type="stmt"/>
+        <line num="49" count="5" type="stmt"/>
+        <line num="52" count="5" type="stmt"/>
+        <line num="54" count="0" type="stmt"/>
       </file>
       <file name="Conventions.vue" path="C:\xampp\htdocs\Ynov\av2-linked-up\src\views\Conventions.vue">
         <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
