@@ -11,6 +11,9 @@ html {
 body {
   font-family: $default-font;
   background-color: $light;
+  background-image: url('../../img/bg.jpg');
+  background-size: cover;
+  background-position: center;
 }
 
 a {

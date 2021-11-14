@@ -7,6 +7,7 @@ import GlobalComponents from './utils/globals';
 import * as Sentry from '@sentry/vue';
 import { Integrations } from '@sentry/tracing';
 import './utils/styles';
+import './registerServiceWorker'
 
 let app;
 

@@ -1,25 +1,24 @@
 <template>
   <div class="container">
-    <HomeGeoloc />
-    <HomeCategories />
+    <div class="row">
+      <HomeGeoloc />
+    </div>
   </div>
 </template>
 
 <script>
 import HomeGeoloc from '@/components/home/Geoloc';
-import HomeCategories from '@/components/home/Categories';
 
 /**
  * @exports Home
  * @requires HomeGeoloc
- * @requires HomeCategories
+ * @requires HomeStyles
  * @type {Page}
  */
 export default {
   name: 'Home',
   components: {
-    HomeCategories,
-    HomeGeoloc
+    HomeGeoloc,
   },
 };
 </script>

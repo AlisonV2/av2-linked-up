@@ -11,9 +11,7 @@ exports[`AdminGallery.vue AdminGallery Snapshot 1`] = `
     <div
       class="col-12 mb-4"
     >
-      <app-title-stub
-        mode="title-img"
-      />
+      <app-title-stub />
       <!--v-if-->
       <!--v-if-->
     </div>

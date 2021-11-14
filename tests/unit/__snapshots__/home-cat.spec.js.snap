@@ -6,23 +6,18 @@ exports[`HomeCategories.vue HomeCategories Snapshot 1`] = `
 >
   <div
     class="col-12 text-center mb-4 app-title"
+    mode="title-img"
   >
     <h2
       class="title"
     >
-      <img
-        class="title-img"
-        src="/img/title-bg.png"
-      />
-      <span>
-        
-        Search by style
-        
-      </span>
+      
+      Search by style
+      
     </h2>
   </div>
   <div
-    class="col-12 col-md-6 col-lg-3"
+    class="col-12 cold-md-6 col-lg-4 col-xl-3"
   >
     <div
       class="card"
@@ -45,7 +40,7 @@ exports[`HomeCategories.vue HomeCategories Snapshot 1`] = `
     </div>
   </div>
   <div
-    class="col-12 col-md-6 col-lg-3"
+    class="col-12 cold-md-6 col-lg-4 col-xl-3"
   >
     <div
       class="card"
@@ -67,7 +62,7 @@ exports[`HomeCategories.vue HomeCategories Snapshot 1`] = `
     </div>
   </div>
   <div
-    class="col-12 col-md-6 col-lg-3"
+    class="col-12 cold-md-6 col-lg-4 col-xl-3"
   >
     <div
       class="card"
@@ -89,7 +84,7 @@ exports[`HomeCategories.vue HomeCategories Snapshot 1`] = `
     </div>
   </div>
   <div
-    class="col-12 col-md-6 col-lg-3"
+    class="col-12 cold-md-6 col-lg-4 col-xl-3"
   >
     <div
       class="card"
@@ -109,17 +104,6 @@ exports[`HomeCategories.vue HomeCategories Snapshot 1`] = `
         </h5>
       </div>
     </div>
-  </div>
-  <div
-    class="col-12 text-end"
-  >
-    <a>
-      <p
-        class="link-text"
-      >
-        See all styles
-      </p>
-    </a>
   </div>
 </div>
 `;

@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="container col-8 home">
     <form class="auth-form" @submit.prevent="handleSubmit">
       <div class="form-floating mb-3">
         <input
@@ -36,8 +36,7 @@ export default {
   data() {
     return {
       id: '',
-      artist: {},
-      userId: '',
+      artist: '',
       description: '',
       title: '',
     };
@@ -45,25 +44,22 @@ export default {
   created() {
     this.$store.dispatch('getCurrentUser');
     this.id = this.$route.params.id;
-    this.userId = this.$store.getters.getCurrentUser.uid;
-    this.userName = this.$store.getters.getCurrentUser.displayName;
     this.artist = this.$route.params.artist;
   },
   methods: {
     handleSubmit() {
       const project = {
-        clientId: this.userId,
-        clientName: this.userName,
         artistId: this.id,
         artistName: this.artist,
         title: this.title,
         description: this.description,
       };
-      this.$store.dispatch('setNewProject', project).then(() => {
-        this.$router
-          .push({ name: 'AdminProjects' })
-          .catch((err) => Sentry.captureException(err));
-      });
+      this.$store
+        .dispatch('setNewProject', project)
+        .then(() => {
+          this.$router.push({ name: 'AdminProjects' });
+        })
+        .catch((err) => Sentry.captureException(err));
     },
   },
 };

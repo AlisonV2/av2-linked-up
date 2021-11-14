@@ -1,6 +1,6 @@
 /**
  * Bootstrap & stylesheets imports
- * @file Styles 
+ * @module Styles 
  * @requires Bootstrap
  */
 

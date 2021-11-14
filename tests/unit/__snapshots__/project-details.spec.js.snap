@@ -2,26 +2,9 @@
 
 exports[`ProjectDetails.vue ProjectDetails Snapshot 1`] = `
 <div
-  class="container"
+  class="container profile-container py-4"
 >
-  <div
-    class="row mb-4"
-  >
-    <div
-      class="col-12 text-end"
-    >
-      <span
-        class="project-status px-4"
-      >
-        Accept project
-      </span>
-      <span
-        class="project-status"
-      >
-        Refuse project
-      </span>
-    </div>
-  </div>
+  <!--v-if-->
   <div
     class="row mb-4"
   >
@@ -31,17 +14,11 @@ exports[`ProjectDetails.vue ProjectDetails Snapshot 1`] = `
       <h2
         class="project-title"
       />
-      <h3
-        class="project-subtitle"
-      >
-         Project requested by : 
-        <router-link
-          to="[object Object]"
-        >
-          <span />
-        </router-link>
-      </h3>
       <!--v-if-->
+      <h3>
+         Project sent to : 
+        <span />
+      </h3>
       <p>
         Sent: 
       </p>
@@ -53,30 +30,6 @@ exports[`ProjectDetails.vue ProjectDetails Snapshot 1`] = `
     </div>
     <!--v-if-->
   </div>
-  <div
-    class="row"
-  >
-    <form
-      class="col-12"
-    >
-      <div
-        class="form-floating mb-3"
-      >
-        <input
-          class="form-control"
-          placeholder="Message"
-          type="textarea"
-        />
-        <label>
-          Message
-        </label>
-        <div
-          class="btn-wrapper btn-center mt-4"
-        >
-          <app-button-stub />
-        </div>
-      </div>
-    </form>
-  </div>
+  <!--v-if-->
 </div>
 `;

@@ -52,12 +52,17 @@ export default {
    */
   actions: {
     async setNewProject({ commit, dispatch }, payload) {
+      const userId = auth.currentUser.uid;
+      const userName = auth.currentUser.displayName;
       try {
         const { id } = await projectsCollection.add({
           ...payload,
+          clientId: userId,
+          clientName: userName,
           createdAt: new Date(),
           status: 'Pending'
         });
+        console.log('Project created', id)
 
         commit('setNewProject', payload);
         dispatch('updateProject', id);
@@ -115,7 +120,8 @@ export default {
     async getProjectById({ commit }, payload) {
       try {
         const doc = await projectsCollection.doc(payload).get();
-        const project = doc.data();
+        const date = doc.data().createdAt;
+        const project = { ...doc.data(), createdAt: format(date.toDate(), 'dd/MM/yyyy') };
         commit('setProjectById', project)
       } catch (err){
         Sentry.captureException(err);

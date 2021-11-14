@@ -12,7 +12,7 @@
     "recurse": true,
     "destination": "./docs/",
     "template": "node_modules/minami",
-    "readme": "./src/README.md"
+    "readme": "./README.md"
   },
   "templates": {
     "cleverLinks": false,

@@ -1,5 +1,5 @@
 <template>
-  <div class="container" v-if="project">
+  <div class="container profile-container py-4" v-if="project">
     <div class="row mb-4" v-if="isArtist">
       <div
         class="col-12 text-end"
@@ -26,7 +26,7 @@
         <h3 v-if="!isArtist">
           Project sent to : <span>{{ project.artistName }}</span>
         </h3>
-        <p>Sent: {{ date }}</p>
+        <p>Sent: {{ project.createdAt }}</p>
         <div class="project-description mt-4">
           <p>
             {{ project.description }}
@@ -63,7 +63,7 @@
 </template>
 
 <script>
-import { format } from 'date-fns';
+import * as Sentry from '@sentry/vue';
 
 /**
  * @exports ProjectDetails
@@ -87,19 +87,28 @@ export default {
         description: '',
         id: '',
         title: '',
+        status: ''
       },
       showForm: false,
       message: '',
       isArtist: false,
-      date: '',
     };
   },
-  async created() {
-    await this.$store.dispatch('getProjectById', this.$route.params.id);
-    this.project = this.$store.getters.getProjectById;
+  created() {
     this.isArtist = this.$route.params.isArtist;
-    this.formatDate();
-    this.setProjectStatus('In progress');
+    this.$store
+      .dispatch('getProjectById', this.$route.params.id)
+      .then(() => {
+        this.project = this.$store.getters.getProjectById;
+      })
+      .then(() => {
+        if (this.project.status === 'Pending') {
+          this.setProjectStatus('In progress');
+        }
+      })
+      .catch((err) => {
+        Sentry.captureException(err);
+      });
   },
   methods: {
     handleSubmit() {
@@ -108,10 +117,6 @@ export default {
         message: this.message,
       };
       this.$store.dispatch('startChat', chat);
-    },
-    formatDate() {
-      const date = this.project.createdAt;
-      this.date = format(date.toDate(), 'dd/MM/yyyy');
     },
     setProjectStatus(status) {
       const project = {

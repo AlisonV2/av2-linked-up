@@ -4,7 +4,10 @@ exports[`Home.vue HomePage Snapshot 1`] = `
 <div
   class="container"
 >
-  <home-geoloc-stub />
-  <home-categories-stub />
+  <div
+    class="row"
+  >
+    <home-geoloc-stub />
+  </div>
 </div>
 `;

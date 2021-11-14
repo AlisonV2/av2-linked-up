@@ -2,7 +2,7 @@
 
 exports[`ArtistList.vue ArtistList Snapshot 1`] = `
 <div
-  class="row"
+  class="row artists-list"
 >
   
   

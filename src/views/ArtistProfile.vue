@@ -1,7 +1,7 @@
 <template>
-  <div class="container">
+  <div class="container profile-container">
     <div class="row mb-3">
-      <app-title mode="profile-title-img">{{ artist.name }}</app-title>
+      <app-title>{{ artist.name }}</app-title>
     </div>
     <div class="row">
       <div class="col-12 col-lg-5 img-center">
@@ -71,7 +71,17 @@ export default {
   data() {
     return {
       gallery: [],
-      artist: {},
+      artist: {
+        name: '',
+        description: '',
+        thumbnail: '',
+        insta: '',
+        shop: '',
+        city: '',
+        zip: '',
+        style: '',
+        socialLink: '',
+      },
       role: '',
       open: false,
       name: ''
@@ -81,7 +91,6 @@ export default {
     await this.$store
       .dispatch('getArtistById', this.$route.params.id)
       .then(() => {
-        this.gallery = this.$store.getters.getGalleryFromId;
         this.artist = this.$store.getters.getArtistProfile;
         this.name = this.artist.name;
       })
@@ -105,7 +114,6 @@ export default {
     handleContact() {
       const id = this.$route.params.id;
       const artist = this.name;
-      console.log(artist)
       if (this.role === 'client') {
         this.$router.push({ name : 'ArtistContact', params: { artist: artist, id: id } });
       } else {

@@ -63,7 +63,7 @@ export default {
           socialLink: payload.socialLink,
           insta: payload.insta,
           description: payload.description,
-          loc: loc
+          loc: loc,
         });
       } catch (err) {
         Sentry.captureException(err);
@@ -78,11 +78,17 @@ export default {
      */
     async getArtistProfile({ commit }) {
       const user = auth.currentUser.uid;
-      const doc = await artistsCollection.doc(user).get();
-      if (!doc.exists) {
+
+      try {
+        const doc = await artistsCollection.doc(user).get();
+        if (!doc.exists) {
+          return;
+        }
+        commit('setArtistProfile', doc.data());
+      } catch (err) {
+        Sentry.captureException(err);
         return;
       }
-      commit('setArtistProfile', doc.data());
     },
     /** Public part
      * @description Get artist by id
@@ -92,11 +98,16 @@ export default {
      */
     async getArtistById({ commit }, payload) {
       const user = payload;
-      const doc = await artistsCollection.doc(user).get();
-      if (!doc.exists) {
+      try {
+        const doc = await artistsCollection.doc(user).get();
+        if (!doc.exists) {
+          return;
+        }
+        commit('setArtistProfile', doc.data());
+      } catch (err) {
+        Sentry.captureException(err);
         return;
       }
-      commit('setArtistProfile', doc.data());
     },
     /** Public part
      * @description Get artist by id
@@ -104,15 +115,20 @@ export default {
      * @returns {array}
      */
     async getAllArtists({ commit }) {
-      const snap = await artistsCollection.get();
-      const artists = [];
-      snap.forEach((doc) => [
-        artists.push({
-          id: doc.id,
-          ...doc.data(),
-        }),
-      ]);
-      commit('setAllArtists', artists);
+      try {
+        const snap = await artistsCollection.get();
+        const artists = [];
+        snap.forEach((doc) => [
+          artists.push({
+            id: doc.id,
+            ...doc.data(),
+          }),
+        ]);
+        commit('setAllArtists', artists);
+      } catch (err) {
+        Sentry.captureException(err);
+        return;
+      }
     },
   },
   /**

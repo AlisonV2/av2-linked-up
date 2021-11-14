@@ -6,7 +6,7 @@ exports[`ArtistProfile.vue ArtistProfile Snapshot 1`] = `
 >
   
   <div
-    class="container"
+    class="container profile-container"
   >
     <div
       class="row mb-3"
@@ -17,15 +17,9 @@ exports[`ArtistProfile.vue ArtistProfile Snapshot 1`] = `
         <h2
           class="title"
         >
-          <img
-            class="profile-title-img"
-            src="/img/title-bg.png"
-          />
-          <span>
-            
-            Artist
-            
-          </span>
+          
+          Artist
+          
         </h2>
       </div>
     </div>
@@ -36,7 +30,7 @@ exports[`ArtistProfile.vue ArtistProfile Snapshot 1`] = `
         class="col-12 col-lg-5 img-center"
       >
         <a
-          href="Social"
+          href="https://via.placeholder.com/150"
           target="blank"
         >
           <img
@@ -113,19 +107,14 @@ exports[`ArtistProfile.vue ArtistProfile Snapshot 1`] = `
     >
       <div
         class="col-12 text-center mb-4 app-title"
+        mode="profile-title-img"
       >
         <h2
           class="title"
         >
-          <img
-            class="profile-title-img"
-            src="/img/title-bg.png"
-          />
-          <span>
-            
-            Gallery
-            
-          </span>
+          
+          Gallery
+          
         </h2>
       </div>
     </div>
