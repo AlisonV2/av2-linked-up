@@ -1,6 +1,6 @@
 <template>
-  <div class="row" data-test="conventions">
-      <app-title>Upcoming events</app-title>
+  <div class="row convention-row" data-test="conventions">
+    <app-title>Upcoming events</app-title>
   </div>
 </template>
 
@@ -9,11 +9,11 @@
  * @exports Conventions
  * @type {Page}
  */
-export default {
-
-}
+export default {};
 </script>
 
-<style>
-
+<style lang="scss">
+.convention-row {
+  width: 100%;
+}
 </style>

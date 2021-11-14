@@ -1,6 +1,6 @@
 <template>
-  <img src="/img/logo-light.png" class="navbar-brand desktop-logo"/>
-  <img src="/img/logo.png" class="navbar-brand mobile-logo"/>
+  <img src="/img/logo-light.png" class="navbar-brand desktop-logo" alt="Brand Logo"/>
+  <img src="/img/logo.png" class="navbar-brand mobile-logo" alt="Brand Logo"/>
   <h1 class="tablet-logo">Linked Up</h1>
 </template>
 

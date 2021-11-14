@@ -26,6 +26,9 @@ Ynov M1 Majeure - Coordination Front/Back
    6. [Better Uptime](#better-uptime)
 5. [API Used](#api-used)
 6. [Performance](#performance)
+   1. [Sentry](#perf-sentry)
+   2. [FOIT](#foit)
+   3. [PWA](#pwa)
 7. [Deployment](#deployment)
 
 ## Introduction <a name="introduction"></a>
@@ -293,6 +296,7 @@ On incident. An incident form is also automatically generated.
 
 ## Performance <a name="performance"></a>
 
+### Sentry <a name="perf-sentry"></a>
 Sentry is implemented for monitoring and includes performance data.
 A build report can also be viewed in dist/report.html.
 To generate a new report, run :
@@ -306,6 +310,29 @@ If you have Vue CLI globally installed, the data is also available with
 ```sh
 vue ui
 ```
+
+### FOIT <a name="foit"></a>
+
+To fix "Ensure text remains visible during webfont load": 
+- Google fonts are loaded through the link tag in the head
+- 'display: swap' is added to bootstrap-icons scss file
+
+
+### PWA <a name="pwa"></a>
+
+PWA assets are generated with [vue-pwa-asset-generator]('https://www.npmjs.com/package/vue-pwa-asset-generator').
+To regenerate files, add logo.png in the root directory then run:
+
+```sh
+npx vue-pwa-asset-generator -a logo.png
+```
+
+Or if the package is installed globally, run :
+
+```sh
+vue-asset-generate -a logo.png
+```
+
 
 ## Deployment <a name="deployment"></a>
 

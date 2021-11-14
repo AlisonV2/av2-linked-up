@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="container profile-container">
     <div class="row mb-3">
       <app-title>{{ client.name }}</app-title>
     </div>
@@ -35,7 +35,14 @@ export default {
   name: 'clientProfile',
   data() {
     return {
-      client: {},
+      client: {
+        name: '',
+        thumbnail: '',
+        description: '',
+        city: '',
+        zip: '',
+        tattooed: '',
+      },
     };
   },
   async created() {
