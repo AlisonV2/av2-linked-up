@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>ProjectItem - Documentation</title>
+    <title>components/app/Title.vue - Documentation</title>
 
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
@@ -29,147 +29,47 @@
 
 <div id="main">
     
-    <h1 class="page-title">ProjectItem</h1>
+    <h1 class="page-title">components/app/Title.vue</h1>
     
 
     
 
 
 
-
-<section>
-
-<header>
     
-        
-            
-        
-    
-</header>
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>&lt;template>
+  &lt;div class="col-12 text-center mb-4 app-title">
+    &lt;h2 class="title">
+      &lt;slot />
+    &lt;/h2>
+  &lt;/div>
+&lt;/template>
 
-<article>
-    <div class="container-overview">
-    
-        
-            <div class="description"></p></div></div> 
-<h3 class="subsection-title" style="margin-top: 1em" data-jsdoc-vuejs="section-data">Data</h3>
-<table class="params" data-jsdoc-vuejs="table-data">
-    <thead>
-    <tr>
-        <th>Name</th>
-        <th>Type</th>
-        <th>Default value</th>
-        <th>Description</th>
-    </tr>
-    </thead>
-    <tbody><tr>
-        <td class="name"><code>projects</code></td>
-        <td><code>array</code></td>
-        <td>-</td>
-        <td>-</td>
-    </tr></tbody>
-</table>
-<div class="container-overview"><div><p></div>
-        
+&lt;script>
+/**
+ * @exports AppTitle
+ * @type {GlobalComponent}
+ */
+export default {
+};
+&lt;/script>
 
-        
-            
-<div class="section-method">
+&lt;style lang="scss">
+@include bp-up(md) {
+  .app-title {
+    margin-top: 1rem;
+  }
+}
 
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-</div>
-        
-    
-    </div>
-
-    
-
-    
-        <h3 class="subsection-title">Requires</h3>
-
-        <ul>
-            <li>module:Sentry</li>
-        </ul>
-    
-
-    
-
-     
-
-    
-
-    
-
-    
-
-    
-
-    
-</article>
-
-</section>
+.app-title {
+  margin-top: 2rem;
+}
+&lt;/style>
+</code></pre>
+        </article>
+    </section>
 
 
 
