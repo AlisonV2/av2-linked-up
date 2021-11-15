@@ -28,6 +28,8 @@ Ynov M1 Majeure - Coordination Front/Back
    1. [Sentry](#perf-sentry)
    2. [FOIT](#foit)
    3. [PWA](#pwa)
+   4. [Firebase Performance](#firebase-perf)
+   5. [Cloud Logging](#cloud-logging)
 7. [Deployment](#deployment)
 
 ## Introduction <a name="introduction"></a>
@@ -54,6 +56,7 @@ What I've implemented:
 - CI/CD pipeline with Github Actions
 - Preview URL generation with firebase
 - Sentry monitoring
+- Google Cloud Logging
 - Better Uptime monitoring
 - Status page : <a href="https://alison-vandromme.betteruptime.com"> Here </a>
 - Google Analytics
@@ -332,6 +335,13 @@ Or if the package is installed globally, run :
 vue-asset-generate -a logo.png
 ```
 
+### Firebase Performance <a name="firebase-perf"></a>
+
+Firebase performance is configured to monitor performance and log traces.
+
+### Cloud Logging <a name="cloud-logging"></a>
+
+Google Cloud Logging is configured to listen and log the requests from the deployed app (both production and preview urls).
 
 ## Deployment <a name="deployment"></a>
 

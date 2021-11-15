@@ -3,6 +3,7 @@ import 'firebase/auth';
 import 'firebase/firestore';
 import 'firebase/storage';
 import 'firebase/analytics';
+import 'firebase/performance';
 
 /**
  * Firebase configuration - Firestore, Storage, Authentication
@@ -17,7 +18,7 @@ const firebaseConfig = {
   storageBucket: process.env.VUE_APP_FIREBASE_STORAGE,
   messagingSenderId: process.env.VUE_APP_FIREBASE_SENDER_ID,
   appId: process.env.VUE_APP_FIREBASE_APP_ID,
-  measurementId: process.env.VUE_APP_FIREBASE_MEASUREMENT
+  measurementId: process.env.VUE_APP_FIREBASE_MEASUREMENT,
 };
 
 firebase.initializeApp(firebaseConfig);
@@ -26,6 +27,7 @@ const auth = firebase.auth();
 const db = firebase.firestore();
 const storage = firebase.storage();
 const analytics = firebase.analytics();
+const perf = firebase.performance();
 
 const usersCollection = db.collection('users');
 const artistsCollection = db.collection('artists');
@@ -46,5 +48,6 @@ export {
   galleriesCollection,
   messagesCollection,
   projectsCollection,
-  analytics
+  analytics,
+  perf
 };
