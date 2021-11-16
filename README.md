@@ -54,6 +54,7 @@ What I've implemented:
 - Cypress coverage generation with Istanbul
 - Cypress runs records (uploaded to Cypress Dashboard)
 - Global html page for development purposes, with links to all the reports and documentation
+- Local SonarQube project for code quality metrics generation
 - Lighthouse reports
 - CI/CD pipeline with Github Actions
 - Preview URL generation with Firebase
