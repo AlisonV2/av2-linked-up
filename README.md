@@ -17,6 +17,7 @@ Ynov M1 Majeure - Coordination Front/Back
    7. [Linter](#linter)
    8. [Production Preview](#production-preview)
    9. [Lighthouse](#lighthouse)
+   10. [SonarQube](#sonar)
 4. [Automation](#automation)
    1. [Jira](#jira)
    2. [Github Actions](#github-actions)
@@ -24,12 +25,13 @@ Ynov M1 Majeure - Coordination Front/Back
    4. [Sider](#sider)
    5. [Better Uptime](#better-uptime)
 5. [API Used](#api-used)
-6. [Performance](#performance)
+6. [Performance & Monitoring](#performance)
    1. [Sentry](#perf-sentry)
    2. [FOIT](#foit)
    3. [PWA](#pwa)
    4. [Firebase Performance](#firebase-perf)
-   5. [Cloud Logging](#cloud-logging)
+   5. [Cloud Monitoring](#cloud-monitoring)
+   6. [Cloud Logging](#cloud-logging)
 7. [Deployment](#deployment)
 
 ## Introduction <a name="introduction"></a>
@@ -54,8 +56,10 @@ What I've implemented:
 - Global html page for development purposes, with links to all the reports and documentation
 - Lighthouse reports
 - CI/CD pipeline with Github Actions
-- Preview URL generation with firebase
+- Preview URL generation with Firebase
 - Sentry monitoring
+- Firebase Performance
+- Google Cloud Monitoring
 - Google Cloud Logging
 - Better Uptime monitoring
 - Status page : <a href="https://alison-vandromme.betteruptime.com"> Here </a>
@@ -93,10 +97,17 @@ npm run docker
 
 ### Build report <a name="build-report"></a>
 
-To regenerate the build report, run:
+A build report can also be viewed in dist/report.html.
+To generate a new report, run :
 
 ```sh
 npm run build-report
+```
+
+If you have Vue CLI globally installed, the data is also available with
+
+```sh
+vue ui
 ```
 
 ### Documentation <a name="documentation"></a>
@@ -252,6 +263,19 @@ npm run lh:audit
 
 The --view flag can be used to automatically open the report in a browser.
 
+### SonarQube <a name="sonar"></a>
+
+[SonarQube](https://docs.sonarqube.org/latest/setup/get-started-2-minutes/) is installed and ran locally through docker image. 
+Sonar Scanner is configured to use SonarQube server (launched with docker).
+
+From the projet root, run: 
+
+```sh
+sonar-scanner.bat -D"sonar.projectKey=[projectName]" -D"sonar.sources=./src" -D"sonar.host.url=http://localhost:9000" -D"sonar.login=[projectKey]"
+```
+
+The analysis' output is visible on localhost:9000.
+
 ## Automation <a name="automation"></a>
 
 <!-- ### Schema <a name="schema"></a>
@@ -296,22 +320,11 @@ On incident. An incident form is also automatically generated.
 - Reverse Geocode (MapQuest)
 - Geo API Gouv
 
-## Performance <a name="performance"></a>
+## Performance & Monitoring <a name="performance"></a>
 
 ### Sentry <a name="perf-sentry"></a>
+
 Sentry is implemented for monitoring and includes performance data.
-A build report can also be viewed in dist/report.html.
-To generate a new report, run :
-
-```sh
-npm run build-report
-```
-
-If you have Vue CLI globally installed, the data is also available with
-
-```sh
-vue ui
-```
 
 ### FOIT <a name="foit"></a>
 
@@ -338,6 +351,17 @@ vue-asset-generate -a logo.png
 ### Firebase Performance <a name="firebase-perf"></a>
 
 Firebase performance is configured to monitor performance and log traces.
+
+### Cloud Monitoring <a name="cloud-monitoring"></a>
+
+Monitoring is configured as followed:
+
+- Security rules
+- Database usage
+- Storage usage
+- App Engine Daily quotas
+- Usage alerts
+- Uptime checks
 
 ### Cloud Logging <a name="cloud-logging"></a>
 

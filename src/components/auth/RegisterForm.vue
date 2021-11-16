@@ -1,7 +1,11 @@
 <template>
   <form class="auth-form" @submit.prevent="register">
     <div class="row">
-      <app-title>Glad you join us!</app-title>
+      <div class="col-12 text-center mb-4">
+        <h2 class="title">
+          Glad you join us !
+        </h2>
+      </div>
     </div>
     <div class="form-floating mb-3">
       <input
@@ -46,6 +50,7 @@
     <div class="btn-center">
       <app-button mode="signup-btn">Sign up</app-button>
     </div>
+    <slot/>
   </form>
 </template>
 
@@ -101,3 +106,11 @@ export default {
   },
 };
 </script>
+
+<style lang="scss" scoped>
+.title {
+  color: $dark;
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+}
+</style>

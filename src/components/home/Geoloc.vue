@@ -1,6 +1,6 @@
 <template>
   <form class="col-12 col-md-6 geoloc" @submit.prevent="handleSubmit">
-    <app-title>Looking for an artist? </app-title>
+    <app-title><span class="main-title">Looking for an artist?</span></app-title>
     <div class="input-group mb-3">
       <input
         type="text"
@@ -118,5 +118,9 @@ export default {
 .bi-geo-alt-fill {
   font-size: 1.5rem !important;
   cursor: pointer;
+}
+
+.main-title {
+  font-size: 1.8rem;
 }
 </style>

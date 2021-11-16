@@ -1,16 +1,26 @@
 <template>
-    <div class="container col-6 home">
+  <div class="container col-6 home">
     <div v-if="showLogin">
-      <LoginForm />
-      <p class="mt-3 text-center">
-        No account yet? <span class="toggle-form show-signup" @click="showLogin = false">Sign up</span> instead
-      </p>
+      <LoginForm>
+        <p class="mt-4 text-center">
+          No account yet?
+          <span class="toggle-form show-signup" @click="showLogin = false"
+            >Sign up</span
+          >
+          instead
+        </p>
+      </LoginForm>
     </div>
     <div v-else>
-      <RegisterForm />
-      <p class="mt-3 text-center">
-        Already registered? <span class="toggle-form show-login" @click="showLogin = true">Log in</span> instead
-      </p>
+      <RegisterForm>
+        <p class="mt-4 text-center">
+          Already registered?
+          <span class="toggle-form show-login" @click="showLogin = true"
+            >Log in</span
+          >
+          instead
+        </p>
+      </RegisterForm>
     </div>
   </div>
 </template>
@@ -30,14 +40,14 @@ export default {
   name: 'Home',
   components: {
     RegisterForm,
-    LoginForm
+    LoginForm,
   },
   data() {
     return {
       showLogin: true,
-    }
+    };
   },
-}
+};
 </script>
 
 <style lang="scss">
@@ -49,7 +59,7 @@ export default {
 }
 
 .toggle-form {
-    color: $primary;
-    cursor: pointer;
+  color: $primary;
+  cursor: pointer;
 }
 </style>
