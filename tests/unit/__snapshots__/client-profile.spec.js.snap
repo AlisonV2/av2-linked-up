@@ -26,6 +26,7 @@ exports[`ClientProfile.vue ClientProfile Snapshot 1`] = `
       class="col-12 col-lg-5 img-center"
     >
       <img
+        alt="Client"
         class="img-fluid"
         src="Thumbnail"
       />

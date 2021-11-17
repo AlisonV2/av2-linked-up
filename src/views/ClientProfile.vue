@@ -5,7 +5,7 @@
     </div>
     <div class="row">
       <div class="col-12 col-lg-5 img-center">
-        <img class="img-fluid" :src="client.thumbnail" />
+        <img class="img-fluid" :src="client.thumbnail" :alt="client.name"/>
       </div>
       <div class="col-12 col-lg-7 text-center">
         <p class="accent-text">About</p>

@@ -69,13 +69,11 @@ export default {
 }
 
 .artist-card:hover {
-  .card-details {
-    display: block;
-  }
   .card-overlay {
     opacity: 1;
   }
   .card-details {
+    display: block;
     top: 50%;
     left: 50%;
     opacity: 1;

@@ -47,7 +47,7 @@
   </div>
   <div class="row" v-if="!profileGallery">
     <div class="col-12 col-md-6 col-lg-4 col-xl-3">
-      <img :src="require('@/assets/img/default-placeholder.png')" />
+      <img :src="require('@/assets/img/default-placeholder.png')" alt="Placeholder Image"/>
     </div>
   </div>
 </template>

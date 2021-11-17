@@ -42,8 +42,6 @@
         <option disabled value="">You are...</option>
         <option value="artist">An artist</option>
         <option value="client">A (future) client</option>
-        <!-- <option value="organizer">An organizer</option> -->
-        <!-- <option value="admin">Admin</option> -->
       </select>
     </div>
     <div class="error mb-3 mt-3">{{ error }}</div>
