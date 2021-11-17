@@ -1,9 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`Categories.vue Categories Snapshot 1`] = `
-<div
-  class="container"
->
-  <home-categories-stub />
-</div>
-`;
