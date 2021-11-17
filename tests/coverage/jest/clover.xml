@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1637154836293" clover="3.2.0">
-  <project timestamp="1637154836294" name="All files">
+<coverage generated="1637155296127" clover="3.2.0">
+  <project timestamp="1637155296127" name="All files">
     <metrics statements="365" coveredstatements="239" conditionals="34" coveredconditionals="11" methods="179" coveredmethods="111" elements="578" coveredelements="361" complexity="0" loc="365" ncloc="365" packages="9" files="45" classes="45"/>
     <package name="src">
       <metrics statements="19" coveredstatements="10" conditionals="4" coveredconditionals="2" methods="11" coveredmethods="4"/>
@@ -186,7 +186,7 @@
       <metrics statements="12" coveredstatements="9" conditionals="8" coveredconditionals="4" methods="6" coveredmethods="4"/>
       <file name="Button.vue" path="C:\xampp\htdocs\Ynov\av2-linked-up\src\components\app\Button.vue">
         <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        <line num="13" count="8" type="stmt"/>
+        <line num="13" count="10" type="stmt"/>
       </file>
       <file name="Modal.vue" path="C:\xampp\htdocs\Ynov\av2-linked-up\src\components\app\Modal.vue">
         <metrics statements="10" coveredstatements="7" conditionals="8" coveredconditionals="4" methods="6" coveredmethods="4"/>
