@@ -2,6 +2,7 @@ import { shallowMount } from '@vue/test-utils';
 import { createStore } from 'vuex';
 import ArtistDashboard from '@/components/artists/ArtistDashboard';
 import AppTitle from '@/components/app/Title';
+import AppButton from '@/components/app/Button';
 
 const actions = {
   getArtistProfile: jest.fn(),
@@ -64,6 +65,7 @@ const config = {
     plugins: [store],
     components: {
       'app-title': AppTitle,
+      'app-button': AppButton
     },
     mocks: {
       $router,
