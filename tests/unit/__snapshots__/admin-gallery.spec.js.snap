@@ -1,0 +1,53 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AdminGallery.vue AdminGallery Snapshot 1`] = `
+<div
+  data-v-app=""
+>
+  
+  <div
+    class="row"
+  >
+    <div
+      class="col-12 mb-4"
+    >
+      <app-title-stub />
+      <!--v-if-->
+      <!--v-if-->
+    </div>
+    <div
+      class="col-12 btn-right mt-3"
+    >
+      <div
+        class="btn-group mb-3"
+        data-test="update"
+      >
+        <app-button-stub />
+      </div>
+    </div>
+    <div
+      class="col-12 mb-4"
+    >
+      <input
+        accept="image/*"
+        multiple=""
+        type="file"
+      />
+    </div>
+  </div>
+  <div
+    class="row mb-3"
+  >
+    
+    
+  </div>
+  <div
+    class="row"
+  >
+    
+    
+  </div>
+  <!--v-if-->
+  
+</div>
+`;

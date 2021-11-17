@@ -1,0 +1,57 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LoginForm.vue LoginForm Snapshot 1`] = `
+<form
+  class="auth-form"
+>
+  <div
+    class="row"
+  >
+    <div
+      class="col-12 text-center mb-4"
+    >
+      <h2
+        class="title"
+      >
+         Welcome back ! 
+      </h2>
+    </div>
+  </div>
+  <div
+    class="form-floating mb-3"
+  >
+    <input
+      class="form-control"
+      placeholder="name@example.com"
+      required=""
+      type="email"
+    />
+    <label>
+      Email
+    </label>
+  </div>
+  <div
+    class="form-floating mb-3"
+  >
+    <input
+      class="form-control"
+      placeholder="Password"
+      required=""
+      type="password"
+    />
+    <label>
+      Password
+    </label>
+  </div>
+  <div
+    class="error mb-3 mt-3"
+  />
+  <div
+    class="btn-center"
+  >
+    <app-button-stub />
+  </div>
+  
+  
+</form>
+`;
