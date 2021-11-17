@@ -2,6 +2,8 @@ import { shallowMount } from '@vue/test-utils';
 import { createStore } from 'vuex';
 import ClientDashboard from '@/components/clients/ClientDashboard';
 import AppTitle from '@/components/app/Title';
+import AppButton from '@/components/app/Button';
+
 
 const actions = {
   getClientProfile: jest.fn(),
@@ -57,6 +59,7 @@ const config = {
     plugins: [store],
     components: {
       'app-title': AppTitle,
+      'app-button': AppButton
     },
     mocks: {
       $router,

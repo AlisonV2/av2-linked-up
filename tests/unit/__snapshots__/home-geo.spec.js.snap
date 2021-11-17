@@ -11,7 +11,11 @@ exports[`HomeGeoloc.vue HomeGeoloc Snapshot 1`] = `
       class="title"
     >
       
-      Looking for an artist? 
+      <span
+        class="main-title"
+      >
+        Looking for an artist?
+      </span>
       
     </h2>
   </div>

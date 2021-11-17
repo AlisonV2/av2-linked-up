@@ -45,7 +45,7 @@ export default {
    * @property {boolean} login - Logs a user in with firebase authentication
    * @property {boolean} initLogin - Checks if a user is already logged in
    * @property {boolean} logout - Logs a user out
-   * @property {object} getCurrentUser
+   * @property {object} getCurrentUser - Get current user from firebase auth object
    */
   actions: {
     /**

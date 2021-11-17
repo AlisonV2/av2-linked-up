@@ -15,6 +15,7 @@ exports[`GalleryItem.vue GalleryItem Snapshot 1`] = `
     />
   </div>
   <img
+    alt="Gallery Item"
     class="card-img-top gallery-img-item"
   />
 </div>

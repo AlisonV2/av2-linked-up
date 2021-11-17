@@ -21,6 +21,7 @@ exports[`ClientDashboard.vue ClientDashboard Snapshot 1`] = `
       />
     </div>
     <img
+      alt="Profile Image"
       class="img-fluid"
       height="250"
       src=""
@@ -29,13 +30,13 @@ exports[`ClientDashboard.vue ClientDashboard Snapshot 1`] = `
     <div
       class="btn-center mt-3 thumbnail-button"
     >
-      <app-button
+      <app-button-stub
         mode="save-btn"
-      >
-        Save
-      </app-button>
+      />
     </div>
-    <!-- &lt;div class="error"&gt;{{ fileError }}&lt;/div&gt; -->
+    <div
+      class="error"
+    />
   </div>
   <form
     class="col-12 col-lg-8 mt-4"
@@ -120,9 +121,7 @@ exports[`ClientDashboard.vue ClientDashboard Snapshot 1`] = `
       <div
         class="btn-group mb-3"
       >
-        <app-button>
-          Save
-        </app-button>
+        <app-button-stub />
       </div>
     </div>
   </form>

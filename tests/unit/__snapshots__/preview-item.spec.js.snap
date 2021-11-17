@@ -15,6 +15,7 @@ exports[`PreviewItem.vue PreviewItem Snapshot 1`] = `
     />
   </div>
   <img
+    alt="Preview Item"
     class="card-img-top"
     src="https://via.placeholder.com/150"
   />

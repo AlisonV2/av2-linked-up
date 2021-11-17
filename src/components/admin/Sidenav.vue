@@ -12,7 +12,7 @@
       "
     >
       <router-link :to="{ name: 'Home' }" class="navbar-logo">
-        <img class="admin-brand" src="/img/logo-light.png" />
+        <img class="admin-brand" src="/img/logo-light.png" alt="Brand logo"/>
       </router-link>
       <ul
         class="

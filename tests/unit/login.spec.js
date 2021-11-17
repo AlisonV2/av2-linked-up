@@ -50,12 +50,4 @@ describe('Login.vue', () => {
     const loginForm = component.findComponent(LoginForm);
     expect(loginForm.exists()).toBe(false);
   });
-
-  it('Checks if RegisterForm is visible', async () => {
-    const component = shallowMount(Login, config);
-    component.find('.show-signup').trigger('click');
-    await component.vm.$nextTick();
-    const registerForm = component.findComponent(RegisterForm);
-    expect(registerForm.exists()).toBe(true);
-  });
 });

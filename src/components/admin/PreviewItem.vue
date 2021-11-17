@@ -2,9 +2,9 @@
   <div class="card gallery-card" @click="deletePreview">
     <div class="card-overlay"></div>
     <div class="card-details fade-in-top text-center">
-      <i class="bi bi-trash img-icon" ></i>
+      <i class="bi bi-trash img-icon"></i>
     </div>
-    <img :src="image" class="card-img-top" />
+    <img :src="image" class="card-img-top" alt="Preview Item" />
   </div>
 </template>
 
@@ -19,10 +19,10 @@
 export default {
   props: ['image', 'index'],
   methods: {
-      deletePreview() {
-          this.$emit('removePreview', this.index);
-      }
-  }
+    deletePreview() {
+      this.$emit('removePreview', this.index);
+    },
+  },
 };
 </script>
 
@@ -59,9 +59,6 @@ export default {
 }
 
 .gallery-card:hover {
-  .card-details {
-    display: block;
-  }
   .card-overlay {
     opacity: 1;
   }
@@ -69,6 +66,7 @@ export default {
     top: 50%;
     left: 50%;
     opacity: 1;
+    display: block;
   }
 }
 

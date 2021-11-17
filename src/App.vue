@@ -12,6 +12,7 @@
         <img
           :src="require('@/assets/img/easter-egg.png')"
           class="easter-egg-img"
+          alt="Easter Egg Image"
         />
       </template>
     </AppModal>
