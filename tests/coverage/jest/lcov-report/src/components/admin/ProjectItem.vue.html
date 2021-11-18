@@ -22,9 +22,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">16.67% </span>
+                <span class="strong">83.33% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>1/6</span>
+                <span class='fraction'>5/6</span>
             </div>
         
             
@@ -36,16 +36,16 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">80% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/5</span>
+                <span class='fraction'>4/5</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">16.67% </span>
+                <span class="strong">83.33% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>1/6</span>
+                <span class='fraction'>5/6</span>
             </div>
         
             
@@ -54,7 +54,7 @@
             Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
         </p>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line high'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -195,18 +195,14 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -214,8 +210,12 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-yes">7x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -296,15 +296,15 @@
 /**
  * @exports ProjectItem
  * @type {Component}
- * @requires Sentry
- * @vue-data {array} projects
+ * @vue-prop {object} project - Project object
+ * @vue-data {string} role - User role
+ * @vue-computed {string} status - Project status
  */
 export default {
   name: 'ProjectItem',
   props: ['project', 'isArtist'],
-<span class="fstat-no" title="function not covered" >  data(</span>) {
-<span class="cstat-no" title="statement not covered" >    return {</span>
-      createdAt: '',
+  data() {
+    return {
       role: '',
     };
   },
@@ -313,13 +313,13 @@ export default {
 <span class="cstat-no" title="statement not covered" >      return t</span>his.project.status;
     },
   },
-<span class="fstat-no" title="function not covered" >  created(</span>) {
-<span class="cstat-no" title="statement not covered" >    this.g</span>etUserRole();
+  created() {
+    this.getUserRole();
   },
   methods: {
-<span class="fstat-no" title="function not covered" >    async g</span>etUserRole() {
-<span class="cstat-no" title="statement not covered" >      await t</span>his.$store.dispatch('getUserRole').then(<span class="fstat-no" title="function not covered" >() =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >        this.r</span>ole = this.$store.getters.getUserRole;
+    async getUserRole() {
+      await this.$store.dispatch('getUserRole').then(() =&gt; {
+        this.role = this.$store.getters.getUserRole;
       });
     },
   },
@@ -375,7 +375,7 @@ export default {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Wed Nov 17 2021 14:21:35 GMT+0100 (Central European Standard Time)
+                at Thu Nov 18 2021 08:27:16 GMT+0100 (Central European Standard Time)
             </div>
         </div>
         <script src="..\..\..\prettify.js"></script>

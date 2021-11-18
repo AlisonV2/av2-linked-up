@@ -96,4 +96,11 @@ describe('ClientDashboard.vue', () => {
     await component.vm.$nextTick();
     expect(actions.setClientThumbnail).toHaveBeenCalled;
   });
+
+  it('setPreviewImage should be called', () => {
+    const component = shallowMount(ClientDashboard, config);
+    const file = component.find('input[type="file"]');
+    file.trigger('change');
+    expect(component.vm.setPreviewImage).toHaveBeenCalled;
+  });
 });

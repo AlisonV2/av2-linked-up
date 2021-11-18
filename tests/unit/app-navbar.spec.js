@@ -1,11 +1,26 @@
 import { shallowMount, RouterLinkStub } from '@vue/test-utils';
+import { createStore } from 'vuex';
 import AppNavbar from '@/components/nav/Navbar.vue';
+
+const state = {
+    auth: {
+      userLoggedIn: true,
+    },
+};
+
+const actions = {
+  logout: jest.fn(),
+}
+const store = createStore({
+  state,
+  actions,
+});
 
 const $router = {
   push: jest.fn(),
 };
 
-const $route = {
+let $route = {
   meta: {
     requireAuth: true,
   },
@@ -43,17 +58,13 @@ const userLoggedIn = {
     };
   },
   global: {
+    plugins: [store],
     components: {
       'router-link': RouterLinkStub,
     },
     mocks: {
-      $store: {
-        state: {
-          auth: {
-            userLoggedIn: true,
-          },
-        },
-      },
+      $router,
+      $route,
     },
   },
 };
@@ -65,17 +76,13 @@ const menuIsActive = {
     };
   },
   global: {
+    plugins: [store],
     components: {
       'router-link': RouterLinkStub,
     },
     mocks: {
-      $store: {
-        state: {
-          auth: {
-            userLoggedIn: true,
-          },
-        },
-      },
+      $router,
+      $route,
     },
   },
 };
@@ -122,6 +129,28 @@ describe('AppNavbar.vue', () => {
     const component = shallowMount(AppNavbar, userLoggedIn);
     const logoutLink = component.find('#logout-link');
     expect(logoutLink.exists()).toBe(true);
+  });
+
+  it('Logout action should be called', () => {
+    const component = shallowMount(AppNavbar, userLoggedIn);
+    const logoutLink = component.find('#logout-link');
+    logoutLink.trigger('click');
+    expect(actions.logout).toHaveBeenCalled;
+  });
+
+  it('Router push should be called', () => {
+    const component = shallowMount(AppNavbar, userLoggedIn);
+    const logoutLink = component.find('#logout-link');
+    logoutLink.trigger('click');
+    expect($router.push).toHaveBeenCalled;
+  });
+
+  it('Router push should not be called', () => {
+    $route.meta.requireAuth = false;
+    const component = shallowMount(AppNavbar, userLoggedIn);
+    const logoutLink = component.find('#logout-link');
+    logoutLink.trigger('click');
+    expect($router.push).not.toHaveBeenCalled;
   });
 
   it('Login link should not appear', () => {

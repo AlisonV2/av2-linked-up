@@ -30,15 +30,15 @@
 /**
  * @exports ProjectItem
  * @type {Component}
- * @requires Sentry
- * @vue-data {array} projects
+ * @vue-prop {object} project - Project object
+ * @vue-data {string} role - User role
+ * @vue-computed {string} status - Project status
  */
 export default {
   name: 'ProjectItem',
   props: ['project', 'isArtist'],
   data() {
     return {
-      createdAt: '',
       role: '',
     };
   },

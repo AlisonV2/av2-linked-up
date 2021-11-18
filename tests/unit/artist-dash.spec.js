@@ -116,4 +116,11 @@ describe('ArtistDashboard.vue', () => {
     const error = component.find('.toast-error');
     expect(error.exists()).toBe(true);
   });
+
+  it('setPreviewImage should be called', () => {
+    const component = shallowMount(ArtistDashboard, config);
+    const file = component.find('input[type="file"]');
+    file.trigger('change');
+    expect(component.vm.setPreviewImage).toHaveBeenCalled;
+  });
 });
