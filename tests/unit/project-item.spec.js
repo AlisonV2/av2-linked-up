@@ -39,11 +39,6 @@ const clientConfig = {
  * @module ProjectItemTest
  */
 describe('ProjectItem.vue', () => {
-  it('ProjectItem Snapshot', () => {
-    const component = shallowMount(ProjectItem, clientConfig);
-    expect(component.element).toMatchSnapshot();
-  });
-
   it('getUserRole method should be called', async () => {
     const component = shallowMount(ProjectItem, clientConfig);
     ProjectItem.created.call(component.vm);
