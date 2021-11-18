@@ -107,3 +107,26 @@
   background-color: $light;
   box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
 }
+
+/* Projects bullets */
+
+.project-bullet {
+  position: relative;
+  transform: translate( -3rem);
+}
+
+.project-pending {
+  color: $secondary;
+}
+
+.project-progress {
+  color: orange
+}
+
+.project-accepted {
+  color: green;
+}
+
+.project-denied {
+  color: red;
+}

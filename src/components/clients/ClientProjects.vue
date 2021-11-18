@@ -1,17 +1,15 @@
 <template>
+  <ProjectStatus />
   <div class="row" v-if="projects.length">
-    <div
-      class="col-12 col-lg-4"
-      v-for="project in projects"
-      :key="project"
-    >
-      <ProjectItem :project="project"/>
+    <div class="col-12 col-lg-4" v-for="project in projects" :key="project">
+      <ProjectItem :project="project" />
     </div>
   </div>
 </template>
 
 <script>
 import ProjectItem from '@/components/admin/ProjectItem';
+import ProjectStatus from '@/components/admin/ProjectStatus';
 import * as Sentry from '@sentry/vue';
 
 /**
@@ -24,6 +22,7 @@ export default {
   name: 'ClientProjects',
   components: {
     ProjectItem,
+    ProjectStatus,
   },
   data() {
     return {

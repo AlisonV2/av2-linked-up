@@ -1,3 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ClientProjects.vue ClientProjects Snapshot 1`] = `<!--v-if-->`;
+exports[`ClientProjects.vue ClientProjects Snapshot 1`] = `
+<div
+  data-v-app=""
+>
+  
+  <project-status-stub />
+  <!--v-if-->
+  
+</div>
+`;
