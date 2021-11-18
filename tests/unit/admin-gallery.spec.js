@@ -75,4 +75,32 @@ describe('AdminGallery.vue', () => {
     await component.vm.$nextTick();
     expect(getters.getProfileGallery).toHaveBeenCalled;
   });
+
+  it('handleChange should be called', () => {
+    const component = shallowMount(AdminGallery, config);
+    const file = component.find('input[type="file"]');
+    file.trigger('change');
+    expect(component.vm.handleChange).toHaveBeenCalled;
+  });
+
+  it('setArtistGallery action should have been called', async () => {
+    const component = shallowMount(AdminGallery, config);
+    const btn = component.find('[data-test="update"]');
+    btn.trigger('click');
+    expect(actions.updateArtistGallery).toHaveBeenCalled;
+  });
+
+  it('setArtistGallery action should have been called', async () => {
+    const component = shallowMount(AdminGallery, {
+      ...config,
+      data() {
+        return {
+          profileGallery: null
+        }
+      }
+    });
+    const btn = component.find('[data-test="set"]');
+    btn.trigger('click');
+    expect(actions.setArtistGallery).toHaveBeenCalled;
+  });
 });

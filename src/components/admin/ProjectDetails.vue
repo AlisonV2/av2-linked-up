@@ -5,10 +5,10 @@
         class="col-12 text-end"
         v-if="project.status === 'Pending' || 'In progress'"
       >
-        <span class="project-status px-4" @click="setProjectStatus('Accepted')"
+        <span class="project-status px-4" data-test="accept-project" @click="setProjectStatus('Accepted')"
           >Accept project</span
         >
-        <span class="project-status" @click="setProjectStatus('Denied')"
+        <span class="project-status" data-test="refuse-project" @click="setProjectStatus('Denied')"
           >Refuse project</span
         >
       </div>
