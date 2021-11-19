@@ -6,7 +6,7 @@
     <div class="row">
       <div class="col-12 col-lg-5 img-center">
         <a target="blank" :href="artist.socialLink"
-          ><img class="img-fluid" :src="artist.thumbnail"
+          ><img class="img-fluid" :src="artist.thumbnail" :alt="artist.name"
         /></a>
       </div>
       <div class="col-12 col-lg-7 text-center">
@@ -42,7 +42,7 @@
         :key="img"
       >
         <div class="card gallery-card">
-          <img :src="img" class="card-img-top" />
+          <img :src="img" class="card-img-top" alt="Gallery Image"/>
         </div>
       </div>
     </div>

@@ -2,6 +2,7 @@ import { shallowMount } from '@vue/test-utils';
 import { createStore } from 'vuex';
 import ArtistDashboard from '@/components/artists/ArtistDashboard';
 import AppTitle from '@/components/app/Title';
+import AppButton from '@/components/app/Button';
 
 const actions = {
   getArtistProfile: jest.fn(),
@@ -64,6 +65,7 @@ const config = {
     plugins: [store],
     components: {
       'app-title': AppTitle,
+      'app-button': AppButton
     },
     mocks: {
       $router,
@@ -113,5 +115,12 @@ describe('ArtistDashboard.vue', () => {
     });
     const error = component.find('.toast-error');
     expect(error.exists()).toBe(true);
+  });
+
+  it('setPreviewImage should be called', () => {
+    const component = shallowMount(ArtistDashboard, config);
+    const file = component.find('input[type="file"]');
+    file.trigger('change');
+    expect(component.vm.setPreviewImage).toHaveBeenCalled;
   });
 });

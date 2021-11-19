@@ -30,15 +30,15 @@
 /**
  * @exports ProjectItem
  * @type {Component}
- * @requires Sentry
- * @vue-data {array} projects
+ * @vue-prop {object} project - Project object
+ * @vue-data {string} role - User role
+ * @vue-computed {string} status - Project status
  */
 export default {
   name: 'ProjectItem',
   props: ['project', 'isArtist'],
   data() {
     return {
-      createdAt: '',
       role: '',
     };
   },
@@ -72,33 +72,11 @@ export default {
 
 .card-header {
   margin-bottom: 1rem;
+  background-color: $light;
 }
 
-.project-bullet {
-  position: relative;
-  transform: translate( -3rem);
-}
-
-.project-pending {
-  color: $secondary;
-}
-
-.project-progress {
-  color: orange
-}
-
-.project-accepted {
-  color: green;
-}
-
-.project-denied {
-  color: red;
-}
-
-.tooltip {
-    position: relative;
-    display: inline-block;
-    border-bottom: 1px dotted black;
+.card-footer {
+  background-color: $light;
 }
 
 </style>

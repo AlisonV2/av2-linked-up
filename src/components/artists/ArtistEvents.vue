@@ -3,12 +3,9 @@
 </template>
 
 <script>
-// import * as Sentry from '@sentry/vue';
-
 /**
  * @exports ArtistEvents
  * @type {Component}
- * @requires Sentry
  */
 export default {
   name: 'ArtistEvents',
@@ -18,5 +15,3 @@ export default {
   methods: {},
 };
 </script>
-
-<style></style>

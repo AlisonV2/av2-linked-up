@@ -7,7 +7,15 @@ exports[`RegisterForm.vue RegisterForm Snapshot 1`] = `
   <div
     class="row"
   >
-    <app-title-stub />
+    <div
+      class="col-12 text-center mb-4"
+    >
+      <h2
+        class="title"
+      >
+         Glad you join us ! 
+      </h2>
+    </div>
   </div>
   <div
     class="form-floating mb-3"
@@ -69,8 +77,6 @@ exports[`RegisterForm.vue RegisterForm Snapshot 1`] = `
       >
         A (future) client
       </option>
-      <!-- &lt;option value="organizer"&gt;An organizer&lt;/option&gt; -->
-      <!-- &lt;option value="admin"&gt;Admin&lt;/option&gt; -->
     </select>
   </div>
   <div
@@ -83,5 +89,7 @@ exports[`RegisterForm.vue RegisterForm Snapshot 1`] = `
       mode="signup-btn"
     />
   </div>
+  
+  
 </form>
 `;

@@ -4,7 +4,7 @@
     <div class="card-details fade-in-top text-center">
       <i class="bi bi-trash img-icon" ></i>
     </div>
-    <img :src="image" class="card-img-top gallery-img-item"/>
+    <img :src="image" class="card-img-top gallery-img-item" alt="Gallery Item"/>
   </div>
 </template>
 
@@ -60,13 +60,11 @@ export default {
 }
 
 .gallery-card:hover {
-  .card-details {
-    display: block;
-  }
   .card-overlay {
     opacity: 1;
   }
   .card-details {
+    display: block;
     top: 50%;
     left: 50%;
     opacity: 1;

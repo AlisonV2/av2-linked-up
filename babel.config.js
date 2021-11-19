@@ -6,6 +6,7 @@ if (process.env.NODE_ENV === 'e2e') {
       extension: ['.js', '.vue'],
       all: true,
       include: ['src'],
+      exclude: ['./src/registerServiceWorker.js']
     },
   ]);
 }

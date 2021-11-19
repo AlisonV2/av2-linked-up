@@ -2,6 +2,8 @@ import { shallowMount } from '@vue/test-utils';
 import { createStore } from 'vuex';
 import ClientDashboard from '@/components/clients/ClientDashboard';
 import AppTitle from '@/components/app/Title';
+import AppButton from '@/components/app/Button';
+
 
 const actions = {
   getClientProfile: jest.fn(),
@@ -57,6 +59,7 @@ const config = {
     plugins: [store],
     components: {
       'app-title': AppTitle,
+      'app-button': AppButton
     },
     mocks: {
       $router,
@@ -92,5 +95,12 @@ describe('ClientDashboard.vue', () => {
     component.find('.thumbnail-button').trigger('click');
     await component.vm.$nextTick();
     expect(actions.setClientThumbnail).toHaveBeenCalled;
+  });
+
+  it('setPreviewImage should be called', () => {
+    const component = shallowMount(ClientDashboard, config);
+    const file = component.find('input[type="file"]');
+    file.trigger('change');
+    expect(component.vm.setPreviewImage).toHaveBeenCalled;
   });
 });

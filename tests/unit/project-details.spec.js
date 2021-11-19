@@ -78,4 +78,5 @@ describe('ProjectDetails.vue', () => {
     await component.vm.$nextTick();
     expect(getters.getProjectById).toHaveBeenCalled;
   });
+
 });

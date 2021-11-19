@@ -8,7 +8,7 @@
     "test:unit": "vue-cli-service test:unit",
     "test:e2e": "vue-cli-service test:e2e",
     "lint": "vue-cli-service lint",
-    "build-report": "vue-cli-service build --report",
+    "build:report": "vue-cli-service build --report",
     "cover": "cross-env NODE_ENV=e2e nyc --silent npm run test:e2e",
     "cover:merge": "npx cypress-jest-coverage-merge",
     "dev": "npm run docs && npm run lint && npm -s run test:unit",
@@ -112,7 +112,8 @@
       "/utils/",
       "main.js",
       "/store/",
-      "/router/"
+      "/router/",
+      "registerServiceWorker.js"
     ]
   },
   "nyc": {
