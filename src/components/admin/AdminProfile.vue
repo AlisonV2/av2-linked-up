@@ -1,11 +1,13 @@
 <template>
   <ArtistDashboard v-if="role === 'artist'"/>
   <ClientDashboard v-if="role === 'client'"/>
+  <OrgaDashboard v-if="role === 'organizer'"/>
 </template>
 
 <script>
 import ArtistDashboard from '@/components/artists/ArtistDashboard.vue';
 import ClientDashboard from '@/components/clients/ClientDashboard.vue';
+import OrgaDashboard from '@/components/organizers/OrgaDashboard.vue';
 
 /**
  * @exports AdminProfile
@@ -18,6 +20,7 @@ export default {
   components: {
     ArtistDashboard,
     ClientDashboard,
+    OrgaDashboard
   },
   data() {
     return {

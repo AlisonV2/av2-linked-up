@@ -2,6 +2,7 @@ import {
   auth,
   artistsCollection,
   clientsCollection,
+  organizersCollection,
   storage,
 } from '@/utils/firebase';
 import * as Sentry from '@sentry/vue';
@@ -18,10 +19,12 @@ export default {
    * @type {object}
    * @property {string} artistThumbnail - Used for admin part of the website.
    * @property {string} clientThumbnail - Used for admin part of the website.
+   * @property {string} orgaThumbnail - Used for admin part of the website.
    */
   state: {
     artistThumbnail: '',
     clientThumbnail: '',
+    orgaThumbnail: '',
   },
 
   /**
@@ -29,6 +32,7 @@ export default {
    * @type {object}
    * @property {array} setArtistThumbnail - Mutates artistThumbnail
    * @property {array} setClientThumbnail - Mutates clientTumbnail
+   * @property {array} setOrgaThumbnail - Mutates orgaTumbnail
    */
   mutations: {
     setArtistThumbnail(state, payload) {
@@ -37,12 +41,16 @@ export default {
     setClientThumbnail(state, payload) {
       state.clientThumbnail = payload;
     },
+    setOrgaThumbnail(state, payload) {
+      state.orgaThumbnail = payload;
+    },
   },
   /**
    * @name Actions
    * @type {object}
-   * @property {void} setArtistThumbnail
-   * @property {void} setClientThumbnail
+   * @property {string} setArtistThumbnail
+   * @property {string} setClientThumbnail
+   * @property {string} setOrgaThumbnail
    */
   actions: {
     /**
@@ -95,11 +103,38 @@ export default {
         return;
       }
     },
+    /**
+     * Admin part
+     * Sends thumbnail file to firebase storage, Get file URL from storage, Update thumbnail field with file url
+     * @method setOrgaThumbnail
+     * @param {object} payload
+     * @returns {string}
+     */
+    async setOrgaThumbnail({ commit }, payload) {
+      const user = auth.currentUser.uid;
+      const file = payload;
+      const storageRef = storage.ref();
+      const orgaRef = storageRef.child(`orga/${user}/${file.name}`);
+
+      const task = await orgaRef.put(file);
+      const link = await task.ref.getDownloadURL();
+      try {
+        await organizersCollection.doc(user).update({
+          thumbnail: link,
+        });
+        commit('setOrgaThumbnail', link);
+      } catch (err) {
+        Sentry.captureException(err);
+        return;
+      }
+    },
   },
   /**
    * @name Getters
    * @type {object}
-   * @property {string} getThumbnail - Access state thumbnail
+   * @property {string} getArtistThumbnail - Access state artistThumbnail
+   * @property {string} getClientThumbnail - Access state clientThumbnail
+   * @property {string} getOrgaThumbnail - Access state orgaThumbnail
    */
   getters: {
     getArtistThumbnail(state) {
@@ -107,6 +142,9 @@ export default {
     },
     getClientThumbnail(state) {
       return state.clientThumbnail;
+    },
+    getOrgaThumbnail(state) {
+      return state.orgaThumbnail;
     },
   },
 };
