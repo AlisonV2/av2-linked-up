@@ -121,6 +121,7 @@
     "extension": [
       ".js",
       ".vue"
-    ]
+    ],
+    "exclude": ["./src/registerServiceWorker.js"]
   }
 }

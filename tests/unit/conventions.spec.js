@@ -1,17 +1,19 @@
 import { shallowMount } from '@vue/test-utils';
 import Conventions from '@/views/Conventions.vue';
 import AppTitle from '@/components/app/Title.vue';
+import EventList from '@/components/organizers/EventList';
 
 const config = {
   global: {
     components: {
+      EventList,
       'app-title': AppTitle,
     },
   },
 };
 
 /**
- * @module ConventionsPageTest
+ * @module ConventionPageTest
  */
 describe('Conventions.vue', () => {
   it('Conventions Snapshot', () => {
@@ -19,9 +21,9 @@ describe('Conventions.vue', () => {
     expect(component.element).toMatchSnapshot();
   });
 
-  it('Check if header is relevant', () => {
+  it('Check if EventList is rendered', () => {
     const component = shallowMount(Conventions, config);
-    const title = component.findComponent(AppTitle);
-    expect(title.exists()).toBe(true);
+    const conventions = component.findComponent(EventList);
+    expect(conventions.exists()).toBe(true);
   });
 });

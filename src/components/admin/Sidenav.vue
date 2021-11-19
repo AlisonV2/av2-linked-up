@@ -43,7 +43,7 @@
           </router-link>
         </li>
         <hr class="dropdown-divider" v-if="role === 'artist'" />
-        <li>
+        <li v-if="role === 'artist' || role === 'client'">
           <router-link
             :to="{ name: 'AdminProjects' }"
             class="nav-link align-middle px-0"
@@ -52,7 +52,7 @@
             <span class="ms-3 d-none d-sm-inline">Projects</span></router-link
           >
         </li>
-        <hr class="dropdown-divider" />
+        <hr class="dropdown-divider" v-if="role === 'artist' || role === 'client'" />
         <li>
           <router-link
             :to="{ name: 'AdminInbox' }"

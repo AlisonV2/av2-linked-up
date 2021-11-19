@@ -1,3 +1,15 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ArtistProjects.vue ArtistProjects Snapshot 1`] = `<!--v-if-->`;
+exports[`ArtistProjects.vue ArtistProjects Snapshot 1`] = `
+<div
+  class="row"
+>
+  <div
+    class="col-12 text-center"
+  >
+    <h2>
+      You don't have any project yet.
+    </h2>
+  </div>
+</div>
+`;

@@ -62,7 +62,6 @@ export default {
           createdAt: new Date(),
           status: 'Pending'
         });
-        console.log('Project created', id)
 
         commit('setNewProject', payload);
         dispatch('updateProject', id);
@@ -109,7 +108,6 @@ export default {
       }
     },
     async updateProject(_, payload) {
-      console.log(payload);
       try {
         await projectsCollection.doc(payload).update({ id: payload });
       } catch (err) {

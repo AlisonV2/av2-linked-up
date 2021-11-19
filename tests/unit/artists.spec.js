@@ -23,7 +23,7 @@ describe('Artists.vue', () => {
 
   it('Check if ArtistList is rendered', () => {
     const component = shallowMount(Artists, config);
-    const geoloc = component.findComponent(ArtistList);
-    expect(geoloc.exists()).toBe(true);
+    const artists = component.findComponent(ArtistList);
+    expect(artists.exists()).toBe(true);
   });
 });

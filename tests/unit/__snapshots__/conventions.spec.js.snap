@@ -2,9 +2,13 @@
 
 exports[`Conventions.vue Conventions Snapshot 1`] = `
 <div
-  class="row convention-row"
-  data-test="conventions"
+  class="container"
 >
-  <app-title-stub />
+  <div
+    class="row"
+  >
+    <app-title-stub />
+  </div>
+  <event-list-stub />
 </div>
 `;
