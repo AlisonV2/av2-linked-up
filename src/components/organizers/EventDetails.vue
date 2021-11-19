@@ -90,7 +90,7 @@ import * as Sentry from '@sentry/vue';
  * @vue-data {boolean} showErrorToast
  * @vue-data {array} fileSelected
  * @vue-data {string} fileErr
- * @vue-event {object} getOrgaEvent
+ * @vue-event {object} getEventById
  * @vue-event {string} setPreviewImage
  * @vue-event {string} updateOrgaEvent
  * @vue-event {string} setOrgaThumbnail
