@@ -1,6 +1,10 @@
 <template>
-  <div class="row mb-3">
-    <app-button>Create New Event</app-button>
+  <div class="row mb-4">
+    <div class="btn-wrapper btn-right">
+      <router-link :to="{ name: 'NewEvent' }">
+        <app-button>New Event</app-button></router-link
+      >
+    </div>
   </div>
   <div class="row" v-if="events.length">
     <div class="col-12 col-lg-4" v-for="event in events" :key="event.id">
@@ -35,9 +39,9 @@ export default {
   },
   created() {
     this.$store
-      .dispatch('getEvents')
+      .dispatch('getOrgaEvents')
       .then(() => {
-        this.events = this.$store.getters.getEvents;
+        this.events = this.$store.getters.getOrgaEvents;
       })
       .catch((err) => {
         Sentry.captureException(err);

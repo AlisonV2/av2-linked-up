@@ -2,9 +2,6 @@
   <div class="card text-center">
     <div class="card-header title">
       {{ event.name }}
-      <h6 class="card-subtitle mb-2 text-muted">
-        Event created by {{ event.orgaName }}
-      </h6>
     </div>
     <p class="card-text">{{ event.description }}</p>
     <p class="card-text">{{ event.localisation }}</p>

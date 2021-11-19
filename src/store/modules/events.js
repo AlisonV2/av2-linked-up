@@ -15,12 +15,14 @@ export default {
   state: {
     events: [],
     eventById: {},
+    orgaEvents: []
   },
   /**
    * @name Mutations
    * @type {object}
-   * @property {object} setEvents
+   * @property {array} setEvents
    * @property {object} setEventById
+   * @property {array} setOrgaEvents
    */
   mutations: {
     setEvents(state, payload) {
@@ -29,12 +31,18 @@ export default {
     setEventById(state, payload) {
       state.projectById = payload;
     },
+    setOrgaEvents(state, payload) {
+      state.orgaEvents = payload;
+    }
   },
   /**
    * @name Actions
    * @type {object}
    * @property {object} setNewEvent
    * @property {object} getEventById
+   * @property {object} updateEvent
+   * @property {array} getEvents
+   * @property {array} getOrgaEvents
    */
   actions: {
     async setNewEvent({ dispatch }, payload) {
@@ -53,7 +61,6 @@ export default {
         return;
       }
     },
-
     async updateEvent(_, payload) {
       try {
         await eventsCollection.doc(payload).update({ id: payload });
@@ -92,12 +99,32 @@ export default {
         return;
       }
     },
+    async getOrgaEvents({commit}) {
+        const events = [];
+        const user = auth.currentUser.uid;
+        try {
+          const docs = await eventsCollection
+            .where('orgaId', '==', user)
+            .get();
+  
+          docs.forEach((doc) => {
+            const date = doc.data().createdAt;
+            const event = { ...doc.data(), createdAt: format(date.toDate(), 'dd/MM/yyyy') };
+            events.push(event);
+          });
+          commit('setOrgaEvents', events);
+      } catch (err) {
+        Sentry.captureException(err);
+        return;
+      }
+    }
   },
   /**
    * @name Getters
    * @type {object}
    * @property {array} getEvents - Gets all events
    * @property {array} getEventById - Gets event by id
+   * @property {array} getOrgaEvents - Get all events created by user
    */
   getters: {
     getEvents(state) {
@@ -106,5 +133,8 @@ export default {
     getEventById(state) {
       return state.eventById;
     },
+    getOrgaEvents(state) {
+      return state.orgaEvents;
+    }
   },
 };

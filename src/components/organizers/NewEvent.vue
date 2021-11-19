@@ -1,7 +1,7 @@
 <template>
   <div class="row">
-    <app-title>Your profile</app-title>
-    <div class="toast-success" v-if="showSuccessToast">Update successful</div>
+    <app-title>Create a New Event</app-title>
+    <div class="toast-success" v-if="showSuccessToast">Event created!</div>
     <div class="toast-error" v-if="showErrorToast">
       Oops... Something went wrong :(
     </div>
@@ -19,22 +19,31 @@
         width="250"
         height="250"
         class="img-fluid"
-        alt="Profile Image"
+        alt="event Image"
       />
       <div class="btn-center mt-3 thumbnail-button" @click="setOrgaThumbnail">
         <app-button mode="save-btn">Save</app-button>
       </div>
       <div class="error">{{ fileErr }}</div>
     </div>
-    <form class="col-12 col-lg-8 mt-4" @submit.prevent="setOrgaProfile">
+    <form class="col-12 col-lg-8 mt-4" @submit.prevent="setNewEvent">
       <div class="form-floating mb-3">
         <input
           type="text"
           class="form-control"
           placeholder="Public Name"
-          v-model="profile.name"
+          v-model="event.name"
         />
         <label>Public Name</label>
+      </div>
+      <div class="form-floating mb-3">
+        <input
+          type="textarea"
+          class="form-control"
+          placeholder="Description "
+          v-model="event.description"
+        />
+        <label>Description</label>
       </div>
       <div class="input-group">
         <div class="form-floating mb-3 col-lg-6">
@@ -42,7 +51,7 @@
             type="text"
             class="form-control"
             placeholder="City"
-            v-model="profile.city"
+            v-model="event.city"
           />
           <label>City</label>
         </div>
@@ -51,9 +60,18 @@
             type="text"
             class="form-control"
             placeholder="Zip Code"
-            v-model="profile.zip"
+            v-model="event.zip"
           />
           <label>Zip Code</label>
+        </div>
+        <div class="form-floating mb-3">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Date"
+            v-model="event.date"
+          />
+          <label>Date</label>
         </div>
       </div>
       <div class="col-12 btn-right mt-3">
@@ -73,14 +91,13 @@ import * as Sentry from '@sentry/vue';
  * @type {Component}
  * @requires Sentry
  * @vue-data {array} previewImage
- * @vue-data {object} profile
+ * @vue-data {object} event
  * @vue-data {boolean} showSuccessToast
  * @vue-data {boolean} showErrorToast
  * @vue-data {array} fileSelected
  * @vue-data {string} fileErr
- * @vue-event {object} getOrgaProfile
  * @vue-event {string} setPreviewImage
- * @vue-event {string} setOrgaProfile
+ * @vue-event {string} setOrgaEvent
  * @vue-event {string} setOrgaThumbnail
  */
 export default {
@@ -88,10 +105,12 @@ export default {
   data() {
     return {
       previewImage: null,
-      profile: {
+      event: {
         name: '',
+        description: '',
         city: '',
         zip: '',
+        date: '',
         thumbnail: '',
       },
       showSuccessToast: false,
@@ -99,17 +118,6 @@ export default {
       fileSelected: null,
       fileErr: null,
     };
-  },
-  async created() {
-    await this.$store
-      .dispatch('getOrgaProfile')
-      .then(() => {
-        this.profile = this.$store.getters.getOrgaProfile;
-      })
-      .then(() => {
-        this.previewImage = this.profile.thumbnail;
-      })
-      .catch((err) => Sentry.captureException(err));
   },
   methods: {
     setPreviewImage($event) {
@@ -125,9 +133,9 @@ export default {
         this.fileErr = 'Please select an image file (png or jpeg).';
       }
     },
-    setOrgaThumbnail() {
+    setEventThumbnail() {
       this.$store
-        .dispatch('setOrgaThumbnail', this.fileSelected)
+        .dispatch('setEventThumbnail', this.fileSelected)
         .then(() => {
           this.showSuccess();
           window.location.reload();
@@ -136,17 +144,21 @@ export default {
           this.showError(err);
         });
     },
-    async setOrgaProfile() {
-      const profileData = {
-        name: this.profile.name,
-        city: this.profile.city,
-        zip: this.profile.zip,
+    async setNewEvent() {
+      const eventData = {
+        name: this.event.name,
+        description: this.event.description,
+        city: this.event.city,
+        zip: this.event.zip,
+        date: this.event.date,
       };
       await this.$store
-        .dispatch('setOrgaProfile', profileData)
+        .dispatch('setNewEvent', eventData)
         .then(() => {
           this.showSuccess();
-          window.location.reload();
+        })
+        .then(() => {
+            this.$router.push({name: 'AdminEvents'});
         })
         .catch((err) => {
           this.showError(err);

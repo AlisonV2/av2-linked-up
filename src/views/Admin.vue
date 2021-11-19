@@ -3,7 +3,7 @@
     <div class="row flex-nowrap">
         <Sidenav />
         <div class="col py-3">
-          <div class="container">
+          <div class="container profile-container py-4">
             <router-view></router-view>
           </div>
         </div>

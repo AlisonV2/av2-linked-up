@@ -18,6 +18,7 @@ import ClientProfile from '../views/ClientProfile';
 import ArtistContact from '../views/ArtistContact';
 import ProjectDetails from '../components/admin/ProjectDetails';
 import MessageDetails from '../components/admin/MessageDetails';
+import NewEvent from '../components/organizers/NewEvent';
 
 const routes = [
   {
@@ -112,6 +113,11 @@ const routes = [
         path: 'events',
         name: 'AdminEvents',
         component: AdminEvents,
+      },
+      {
+        path: 'new-event',
+        name: 'NewEvent',
+        component: NewEvent,
       },
     ],
   },
