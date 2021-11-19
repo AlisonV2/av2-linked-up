@@ -60,7 +60,7 @@ export default {
      * Admin part
      * @description Get orga profile from firebase
      * @method getOrgaProfile
-     * @returns {array}
+     * @returns {object}
      */
     async getOrgaProfile({ commit }) {
       const user = auth.currentUser.uid;
