@@ -7,6 +7,7 @@ exports[`AdminProfile.vue AdminProfile Snapshot 1`] = `
   
   <artist-dashboard-stub />
   <!--v-if-->
+  <!--v-if-->
   
 </div>
 `;

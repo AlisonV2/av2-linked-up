@@ -112,7 +112,8 @@
       "/utils/",
       "main.js",
       "/store/",
-      "/router/"
+      "/router/",
+      "registerServiceWorker.js"
     ]
   },
   "nyc": {
@@ -120,6 +121,7 @@
     "extension": [
       ".js",
       ".vue"
-    ]
+    ],
+    "exclude": ["./src/registerServiceWorker.js"]
   }
 }

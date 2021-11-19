@@ -3,6 +3,8 @@ import { createStore } from 'vuex';
 import AdminProfile from '@/components/admin/AdminProfile.vue';
 import ArtistDashboard from '@/components/artists/ArtistDashboard.vue';
 import ClientDashboard from '@/components/clients/ClientDashboard.vue';
+import OrgaDashboard from '@/components/organizers/OrgaDashboard.vue';
+
 
 const actions = {
   getUserRole: jest.fn(),
@@ -28,6 +30,7 @@ const config = {
     components: {
       ArtistDashboard,
       ClientDashboard,
+      OrgaDashboard,
     },
   },
 };
@@ -71,6 +74,19 @@ describe('AdminProfile.vue', () => {
       },
     });
     const item = component.findComponent(ClientDashboard);
+    expect(item.exists()).toBe(true);
+  });
+
+  it('ClientDashboard should exist', () => {
+    const component = shallowMount(AdminProfile, {
+      ...config,
+      data() {
+        return {
+          role: 'organizer',
+        };
+      },
+    });
+    const item = component.findComponent(OrgaDashboard);
     expect(item.exists()).toBe(true);
   });
 });
