@@ -87,7 +87,6 @@ export default {
     },
     async getEventById({ commit }, payload) {
       try {
-        console.log(payload)
         const doc = await eventsCollection.doc(payload).get();
         const date = doc.data().createdAt;
         const event = {

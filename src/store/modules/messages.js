@@ -73,7 +73,6 @@ export default {
       };
       try {
         await messagesCollection.doc(projectId).set({ ...message });
-        console.log('message sent!');
       } catch (err) {
         Sentry.captureException(err);
       }

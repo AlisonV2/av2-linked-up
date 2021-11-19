@@ -21,7 +21,7 @@
         class="img-fluid"
         alt="event Image"
       />
-      <div class="btn-center mt-3 thumbnail-button" @click="setOrgaThumbnail">
+      <div class="btn-center mt-3 thumbnail-button" @click="setEventThumbnail">
         <app-button mode="save-btn">Save</app-button>
       </div>
       <div class="error">{{ fileErr }}</div>
@@ -144,7 +144,7 @@ export default {
           this.showError(err);
         });
     },
-    async setNewEvent() {
+    setNewEvent() {
       const eventData = {
         name: this.event.name,
         description: this.event.description,
@@ -152,7 +152,7 @@ export default {
         zip: this.event.zip,
         date: this.event.date,
       };
-      await this.$store
+      this.$store
         .dispatch('setNewEvent', eventData)
         .then(() => {
           this.showSuccess();

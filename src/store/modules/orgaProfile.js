@@ -68,7 +68,6 @@ export default {
       if (!doc.exists) {
         return;
       }
-      console.log(doc.data());
       commit('setOrgaProfile', doc.data());
     },
     /** Public part

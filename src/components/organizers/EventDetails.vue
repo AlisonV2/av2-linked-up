@@ -119,7 +119,6 @@ export default {
       .dispatch('getEventById', this.$route.params.id)
       .then(() => {
         this.event = this.$store.getters.getEventById;
-        console.log(this.event)
       })
       .then(() => {
         this.previewImage = this.event.thumbnail;

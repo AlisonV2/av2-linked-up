@@ -75,4 +75,32 @@ describe('EventDetails.vue', () => {
     await component.vm.$nextTick();
     expect(getters.getEventById).toHaveBeenCalled;
   });
+
+  it('Check if setArtistProfile action is called', async () => {
+    const component = shallowMount(EventDetails, config);
+    component.find('form').trigger('submit.prevent');
+    await component.vm.$nextTick();
+    expect(actions.updateOrgaEvent).toHaveBeenCalled;
+  });
+
+  it('Check if toastError component is visible', async () => {
+    const component = shallowMount(EventDetails, {
+      ...config,
+      data() {
+        return {
+          showSuccessToast: false,
+          showErrorToast: true,
+        };
+      },
+    });
+    const error = component.find('.toast-error');
+    expect(error.exists()).toBe(true);
+  });
+
+  it('setPreviewImage should be called', () => {
+    const component = shallowMount(EventDetails, config);
+    const file = component.find('input[type="file"]');
+    file.trigger('change');
+    expect(component.vm.setPreviewImage).toHaveBeenCalled;
+  });
 });
