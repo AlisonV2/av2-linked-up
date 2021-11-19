@@ -25,7 +25,7 @@
         class="btn-center mt-3 thumbnail-button"
         @click="setEventThumbnail"
       >
-        <app-button mode="save-btn">Save</app-button>
+        <app-button mode="save-btn">Update</app-button>
       </div>
       <div class="error">{{ fileErr }}</div>
     </div>
