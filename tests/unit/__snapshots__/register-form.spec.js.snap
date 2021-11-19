@@ -77,6 +77,11 @@ exports[`RegisterForm.vue RegisterForm Snapshot 1`] = `
       >
         A (future) client
       </option>
+      <option
+        value="organizer"
+      >
+        An organizer
+      </option>
     </select>
   </div>
   <div

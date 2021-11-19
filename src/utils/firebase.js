@@ -36,6 +36,7 @@ const organizersCollection = db.collection('organizers');
 const galleriesCollection = db.collection('galleries');
 const messagesCollection = db.collection('messages');
 const projectsCollection = db.collection('projects');
+const eventsCollection = db.collection('events');
 
 export {
   auth,
@@ -48,6 +49,7 @@ export {
   galleriesCollection,
   messagesCollection,
   projectsCollection,
+  eventsCollection,
   analytics,
   perf
 };
