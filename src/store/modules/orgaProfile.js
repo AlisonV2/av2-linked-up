@@ -59,8 +59,8 @@ export default {
     /**
      * Admin part
      * @description Get orga profile from firebase
-     * @method getorgaProfile
-     * @returns {array}
+     * @method getOrgaProfile
+     * @returns {object}
      */
     async getOrgaProfile({ commit }) {
       const user = auth.currentUser.uid;
@@ -68,7 +68,6 @@ export default {
       if (!doc.exists) {
         return;
       }
-      console.log(doc.data());
       commit('setOrgaProfile', doc.data());
     },
     /** Public part

@@ -12,7 +12,7 @@ exports[`Admin.vue AdminPage Snapshot 1`] = `
       class="col py-3"
     >
       <div
-        class="container"
+        class="container profile-container py-4"
       >
         <router-view-stub />
       </div>

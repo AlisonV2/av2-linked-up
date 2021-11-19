@@ -10,24 +10,13 @@ const actions = {
   setArtistProfile: jest.fn(),
 };
 
-const state = {
-  artistProfile: {
-    artistProfile: {
-      name: '',
-      city: '',
-      zip: '',
-      shop: '',
-      style: '',
-      socialLink: '',
-      insta: '',
-      description: '',
-    },
-  },
-};
+const getters = {
+  getArtistProfile: jest.fn(),
+}
 
 const store = createStore({
-  state,
   actions,
+  getters
 });
 
 const $router = {

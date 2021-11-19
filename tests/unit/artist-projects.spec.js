@@ -1,4 +1,4 @@
-import { shallowMount } from '@vue/test-utils';
+import { shallowMount, RouterLinkStub } from '@vue/test-utils';
 import { createStore } from 'vuex';
 import ArtistProjects from '@/components/artists/ArtistProjects.vue';
 import ProjectItem from '@/components/admin/ProjectItem.vue';
@@ -26,6 +26,9 @@ const config = {
     plugins: [store],
     components: {
         ProjectItem,
+    },
+    stubs: {
+      RouterLink: RouterLinkStub,
     }
   },
 };

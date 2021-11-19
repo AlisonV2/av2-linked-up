@@ -1,8 +1,9 @@
 <template>
-  <div class="card text-center" :class="{'client-card': !isArtist}">
+  <div class="card text-center" :class="{ 'client-card': !isArtist }">
     <div class="card-header title">
       {{ project.title }}
-      <span class="project-bullet"
+      <span
+        class="project-bullet"
         :class="{
           'project-pending': status === 'Pending',
           'project-progress': status === 'In progress',
@@ -26,10 +27,12 @@
 </template>
 
 <script>
+import * as Sentry from '@sentry/vue';
 
 /**
  * @exports ProjectItem
  * @type {Component}
+ * @requires Sentry
  * @vue-prop {object} project - Project object
  * @vue-data {string} role - User role
  * @vue-computed {string} status - Project status
@@ -48,14 +51,14 @@ export default {
     },
   },
   created() {
-    this.getUserRole();
-  },
-  methods: {
-    async getUserRole() {
-      await this.$store.dispatch('getUserRole').then(() => {
+    this.$store
+      .dispatch('getUserRole')
+      .then(() => {
         this.role = this.$store.getters.getUserRole;
+      })
+      .catch((err) => {
+        Sentry.captureException(err);
       });
-    },
   },
 };
 </script>
@@ -78,5 +81,4 @@ export default {
 .card-footer {
   background-color: $light;
 }
-
 </style>

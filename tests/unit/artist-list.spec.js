@@ -7,24 +7,12 @@ const actions = {
   getAllArtists: jest.fn(),
 };
 
+const getters = {
+  getAllArtists: jest.fn(),
+};
 const store = createStore({
-  state: {
-    artists: [
-      {
-        id: 'mR9w90C9fMQfVHJWjGo1TrBxPuk1',
-        name: 'Dirty Jonz',
-        shop: 'Le Dernier Rituel',
-        city: 'Bègles',
-        zip: '33130',
-      },
-    ],
-  },
   actions,
-  getters: {
-    getAllArtists(state) {
-      return state.artists;
-    },
-  },
+  getters,
 });
 
 const config = {
@@ -49,9 +37,15 @@ describe('ArtistList.vue', () => {
     expect(component.element).toMatchSnapshot();
   });
 
-  it('Tests if dispatch action is called on created', () => {
+  it('getAllArtists action is called on created', () => {
     const component = shallowMount(ArtistList, config);
     ArtistList.created.call(component.vm);
     expect(actions.getAllArtists).toHaveBeenCalled();
+  });
+
+  it('getAllArtists getters is called on created', () => {
+    const component = shallowMount(ArtistList, config);
+    ArtistList.created.call(component.vm);
+    expect(getters.getAllArtists).toHaveBeenCalled();
   });
 });

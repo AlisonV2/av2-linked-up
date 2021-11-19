@@ -3,6 +3,7 @@ import { createStore } from 'vuex';
 import AdminEvents from '@/components/admin/AdminEvents.vue';
 import ArtistEvents from '@/components/artists/ArtistEvents.vue';
 import ClientEvents from '@/components/clients/ClientEvents.vue';
+import OrgaEvents from '@/components/organizers/OrgaEvents.vue';
 
 const actions = {
   getUserRole: jest.fn(),
@@ -28,6 +29,7 @@ const config = {
     components: {
       ArtistEvents,
       ClientEvents,
+      OrgaEvents
     },
   },
 };
@@ -71,6 +73,19 @@ describe('AdminEvents.vue', () => {
       },
     });
     const item = component.findComponent(ClientEvents);
+    expect(item.exists()).toBe(true);
+  });
+
+  it('OrgaEvents should exist', () => {
+    const component = shallowMount(AdminEvents, {
+      ...config,
+      data() {
+        return {
+          role: 'organizer',
+        };
+      },
+    });
+    const item = component.findComponent(OrgaEvents);
     expect(item.exists()).toBe(true);
   });
 });

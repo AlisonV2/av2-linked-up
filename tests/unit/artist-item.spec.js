@@ -7,6 +7,7 @@ const artist = {
   shop: 'Le Dernier Rituel',
   city: 'Bègles',
   zip: '33130',
+  thumbnail: 'https://via.placeholder.com/150'
 };
 
 const config = {
