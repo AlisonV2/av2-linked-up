@@ -59,7 +59,7 @@ export default {
     /**
      * Admin part
      * @description Get orga profile from firebase
-     * @method getorgaProfile
+     * @method getOrgaProfile
      * @returns {array}
      */
     async getOrgaProfile({ commit }) {

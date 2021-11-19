@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>utils/styles.js - Documentation</title>
+    <title>components/organizers/OrgaEvents.vue - Documentation</title>
 
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
@@ -29,7 +29,7 @@
 
 <div id="main">
     
-    <h1 class="page-title">utils/styles.js</h1>
+    <h1 class="page-title">components/organizers/OrgaEvents.vue</h1>
     
 
     
@@ -39,21 +39,60 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>/**
- * Bootstrap &amp; stylesheets imports
- * @module Styles 
- * @requires Bootstrap
+            <pre class="prettyprint source linenums"><code>&lt;template>
+  &lt;div class="row mb-4">
+    &lt;div class="btn-wrapper btn-right">
+      &lt;router-link :to="{ name: 'NewEvent' }">
+        &lt;app-button>New Event&lt;/app-button>&lt;/router-link
+      >
+    &lt;/div>
+  &lt;/div>
+  &lt;div class="row" v-if="events.length">
+    &lt;div class="col-12 col-lg-4" v-for="event in events" :key="event.id">
+      &lt;router-link :to="{ name: 'EventDetails', params: { id: event.id } }">
+        &lt;EventUpdate :event="event" />
+      &lt;/router-link>
+    &lt;/div>
+  &lt;/div>
+  &lt;div class="row" v-else>
+    &lt;div class="col-12 text-center">
+      &lt;h2>You don't have any event yet.&lt;/h2>
+    &lt;/div>
+  &lt;/div>
+&lt;/template>
+
+&lt;script>
+import EventUpdate from '@/components/admin/EventUpdate';
+import * as Sentry from '@sentry/vue';
+
+/**
+ * @exports OrgaEvents
+ * @type {Component}
+ * @requires Sentry
  */
-
-// JS
-
-import 'bootstrap';
-
-// CSS
-
-import 'bootstrap/scss/bootstrap.scss';
-import 'bootstrap-icons/font/bootstrap-icons.scss';
-import '../assets/styles/app/app.scss';</code></pre>
+export default {
+  name: 'OrgaEvents',
+  components: {
+    EventUpdate,
+  },
+  data() {
+    return {
+      events: [],
+    };
+  },
+  created() {
+    this.$store
+      .dispatch('getOrgaEvents')
+      .then(() => {
+        this.events = this.$store.getters.getOrgaEvents;
+      })
+      .catch((err) => {
+        Sentry.captureException(err);
+      });
+  },
+};
+&lt;/script>
+</code></pre>
         </article>
     </section>
 
