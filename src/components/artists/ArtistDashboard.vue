@@ -28,7 +28,7 @@
       <div class="btn-center mt-3 thumbnail-button" @click="setArtistThumbnail">
         <app-button mode="save-btn">Save</app-button>
       </div>
-      <div class="error">{{ fileError }}</div>
+      <div class="error">{{ fileErr }}</div>
     </div>
     <form class="col-12 col-lg-8 mt-4" @submit.prevent="setArtistProfile">
       <div class="form-floating mb-3">
@@ -158,7 +158,7 @@ export default {
     await this.$store
       .dispatch('getArtistProfile')
       .then(() => {
-        this.profile = this.$store.state.artistProfile.artistProfile;
+        this.profile = this.$store.getters.getArtistProfile;
       })
       .then(() => {
         this.previewImage = this.profile.thumbnail;

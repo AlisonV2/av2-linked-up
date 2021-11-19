@@ -11,22 +11,13 @@ const actions = {
   setClientProfile: jest.fn(),
 };
 
-const state = {
-  clientprofile: {
-    clientProfile: {
-      name: 'Alison',
-      description: 'Unicorn power',
-      city: 'Bordeaux',
-      zip: '33800',
-      tattooed: 'Yes',
-      thumbnail: 'url',
-    },
-  },
-};
+const getters = {
+  getClientProfile: jest.fn(),
+}
 
 const store = createStore({
-  state,
   actions,
+  getters
 });
 
 const $router = {
@@ -81,6 +72,13 @@ describe('ClientDashboard.vue', () => {
     ClientDashboard.created.call(component.vm);
     await component.vm.$nextTick();
     expect(actions.getClientProfile).toHaveBeenCalled;
+  });
+
+  it('Check if getClientProfile getter is called', async () => {
+    const component = shallowMount(ClientDashboard, config);
+    ClientDashboard.created.call(component.vm);
+    await component.vm.$nextTick();
+    expect(getters.getClientProfile).toHaveBeenCalled;
   });
 
   it('Check if setClientProfile action is called', async () => {

@@ -24,7 +24,7 @@
       <div class="btn-center mt-3 thumbnail-button" @click="setClientThumbnail">
         <app-button mode="save-btn">Save</app-button>
       </div>
-      <div class="error">{{ fileError }}</div>
+      <div class="error">{{ fileErr }}</div>
     </div>
     <form class="col-12 col-lg-8 mt-4" @submit.prevent="setClientProfile">
       <div class="form-floating mb-3">
@@ -122,7 +122,7 @@ export default {
     await this.$store
       .dispatch('getClientProfile')
       .then(() => {
-        this.profile = this.$store.state.clientProfile.clientProfile;
+        this.profile = this.$store.getters.getClientProfile;
       })
       .then(() => {
         this.previewImage = this.profile.thumbnail;
