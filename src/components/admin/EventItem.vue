@@ -1,61 +1,45 @@
 <template>
-  <div class="card text-center" :class="{'client-card': !isArtist}">
+  <div class="card text-center">
     <div class="card-header title">
-      {{ project.title }}
-      <span class="project-bullet"
-        :class="{
-          'project-pending': status === 'Pending',
-          'project-progress': status === 'In progress',
-          'project-accepted': status === 'Accepted',
-          'project-denied': status === 'Denied',
-        }"
-        >&#9673;</span
-      >
-      <h6 class="card-subtitle mb-2 text-muted" v-if="role === 'client'">
-        Project sent to {{ project.artistName }}
-      </h6>
-      <h6 class="card-subtitle mb-2 text-muted" v-if="role === 'artist'">
-        Project requested by {{ project.clientName }}
+      {{ event.name }}
+      <h6 class="card-subtitle mb-2 text-muted">
+        Event created by {{ event.orgaName }}
       </h6>
     </div>
-    <p class="card-text">{{ project.description }}</p>
+    <p class="card-text">{{ event.description }}</p>
+    <p class="card-text">{{ event.localisation }}</p>
     <div class="card-footer text-muted">
-      {{ project.createdAt }}
+      {{ event.date }}
     </div>
   </div>
 </template>
 
 <script>
+import * as Sentry from '@sentry/vue';
 
 /**
- * @exports ProjectItem
+ * @exports EventItem
  * @type {Component}
- * @vue-prop {object} project - Project object
+ * @vue-prop {object} event - event object
  * @vue-data {string} role - User role
- * @vue-computed {string} status - Project status
  */
 export default {
-  name: 'ProjectItem',
-  props: ['project', 'isArtist'],
+  name: 'eventItem',
+  props: ['event'],
   data() {
     return {
       role: '',
     };
   },
-  computed: {
-    status() {
-      return this.project.status;
-    },
-  },
   created() {
-    this.getUserRole();
-  },
-  methods: {
-    async getUserRole() {
-      await this.$store.dispatch('getUserRole').then(() => {
+    this.$store
+      .dispatch('getUserRole')
+      .then(() => {
         this.role = this.$store.getters.getUserRole;
+      })
+      .catch((err) => {
+        Sentry.captureException(err);
       });
-    },
   },
 };
 </script>
