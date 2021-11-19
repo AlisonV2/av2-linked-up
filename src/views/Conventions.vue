@@ -1,17 +1,14 @@
 <template>
-<div class="container">
-  <div class="row convention-row" data-test="conventions">
-    <app-title>Upcoming events</app-title>
-    <div class="col-12 col-lg-4" v-for="event in events" :key="event.id">
-      <EventItem :event="event" />
+  <div class="container">
+    <div class="row">
+      <app-title>Upcoming Events</app-title>
     </div>
+    <EventList />
   </div>
-</div>
 </template>
 
 <script>
-import EventItem from '@/components/admin/EventItem';
-import * as Sentry from '@sentry/vue';
+import EventList from '@/components/organizers/EventList';
 
 /**
  * @exports Conventions
@@ -20,28 +17,7 @@ import * as Sentry from '@sentry/vue';
 export default {
   name: 'Events',
   components: {
-    EventItem,
-  },
-  data() {
-    return {
-      events: [],
-    };
-  },
-  created() {
-    this.$store
-      .dispatch('getEvents')
-      .then(() => {
-        this.events = this.$store.getters.getEvents;
-      })
-      .catch((err) => {
-        Sentry.captureException(err);
-      });
+    EventList,
   },
 };
 </script>
-
-<style lang="scss">
-.convention-row {
-  width: 100%;
-}
-</style>

@@ -29,7 +29,7 @@ export default {
       state.events = payload;
     },
     setEventById(state, payload) {
-      state.projectById = payload;
+      state.eventById = payload;
     },
     setOrgaEvents(state, payload) {
       state.orgaEvents = payload;
@@ -87,6 +87,7 @@ export default {
     },
     async getEventById({ commit }, payload) {
       try {
+        console.log(payload)
         const doc = await eventsCollection.doc(payload).get();
         const date = doc.data().createdAt;
         const event = {
@@ -113,6 +114,15 @@ export default {
             events.push(event);
           });
           commit('setOrgaEvents', events);
+      } catch (err) {
+        Sentry.captureException(err);
+        return;
+      }
+    },
+    async updateOrgaEvent(_, payload) {
+      try {
+        const eventId = payload.id;
+        await eventsCollection.doc(eventId).update({ ...payload });
       } catch (err) {
         Sentry.captureException(err);
         return;

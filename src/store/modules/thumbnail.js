@@ -3,6 +3,7 @@ import {
   artistsCollection,
   clientsCollection,
   organizersCollection,
+  eventsCollection,
   storage,
 } from '@/utils/firebase';
 import * as Sentry from '@sentry/vue';
@@ -25,14 +26,16 @@ export default {
     artistThumbnail: '',
     clientThumbnail: '',
     orgaThumbnail: '',
+    eventThumbnail: ''
   },
 
   /**
    * @name Mutations
    * @type {object}
-   * @property {array} setArtistThumbnail - Mutates artistThumbnail
-   * @property {array} setClientThumbnail - Mutates clientTumbnail
-   * @property {array} setOrgaThumbnail - Mutates orgaTumbnail
+   * @property {string} setArtistThumbnail - Mutates artistThumbnail
+   * @property {string} setClientThumbnail - Mutates clientTumbnail
+   * @property {string} setOrgaThumbnail - Mutates orgaTumbnail
+   * @property {string} setEventThumbnail - Mutates eventThumbnail
    */
   mutations: {
     setArtistThumbnail(state, payload) {
@@ -44,6 +47,9 @@ export default {
     setOrgaThumbnail(state, payload) {
       state.orgaThumbnail = payload;
     },
+    setEventThumbnail(state, payload) {
+      state.eventThumbnail = payload;
+    }
   },
   /**
    * @name Actions
@@ -128,6 +134,31 @@ export default {
         return;
       }
     },
+     /**
+     * Admin part
+     * Sends thumbnail file to firebase storage, Get file URL from storage, Update thumbnail field with file url
+     * @method setEventThumbnail
+     * @param {object} payload
+     * @returns {string}
+     */
+      async setEventThumbnail({ commit }, payload) {
+        const eventId = payload.eventId;
+        const file = payload.file;
+        const storageRef = storage.ref();
+        const orgaRef = storageRef.child(`events/${eventId}/${file.name}`);
+  
+        const task = await orgaRef.put(file);
+        const link = await task.ref.getDownloadURL();
+        try {
+          await eventsCollection.doc(eventId).update({
+            thumbnail: link,
+          });
+          commit('setEventThumbnail', link);
+        } catch (err) {
+          Sentry.captureException(err);
+          return;
+        }
+      },
   },
   /**
    * @name Getters
@@ -135,6 +166,7 @@ export default {
    * @property {string} getArtistThumbnail - Access state artistThumbnail
    * @property {string} getClientThumbnail - Access state clientThumbnail
    * @property {string} getOrgaThumbnail - Access state orgaThumbnail
+   * @property {string} getEventThumbnail - Access state eventThumbnail
    */
   getters: {
     getArtistThumbnail(state) {
@@ -145,6 +177,9 @@ export default {
     },
     getOrgaThumbnail(state) {
       return state.orgaThumbnail;
+    },
+    getEventThumbnail(state) {
+      return state.eventThumbnail;
     },
   },
 };

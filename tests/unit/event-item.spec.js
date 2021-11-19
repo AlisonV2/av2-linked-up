@@ -1,60 +1,38 @@
-import { shallowMount } from '@vue/test-utils';
-import { createStore } from 'vuex';
-import EventItem from '@/components/admin/EventItem.vue';
+import { shallowMount, RouterLinkStub } from '@vue/test-utils';
+import EventItem from '@/components/organizers/EventItem';
 
-const actions = {
-  getUserRole: jest.fn(),
+const event = {
+  id: 'gTvQIqYFzXCLID4TIU5u',
+  name: 'Event',
+  city: 'Bègles',
+  zip: '33130',
+  thumbnail: 'https://via.placeholder.com/150'
 };
-
-const getters = {
-  getUserRole: jest.fn(),
-};
-
-const store = createStore({
-  actions,
-  getters,
-});
 
 const config = {
-  data() {
-    return {
-      role: 'organizer',
-      event: { 
-          name: '',
-          orgaName: '',
-          description: '',
-          localisation: '',
-          date: ''
-      }
-    };
+  propsData: {
+    event: event,
   },
-  global: {
-    plugins: [store],
+  globals: {
+    components: {
+      'router-link': RouterLinkStub,
+    },
   },
 };
-
 /**
  * @module EventItemTest
  */
 describe('EventItem.vue', () => {
-  it('getUserRole method should be called', async () => {
+  it('EventItem Snapshot', () => {
     const component = shallowMount(EventItem, config);
-    EventItem.created.call(component.vm);
-    await component.vm.$nextTick();
-    expect(component.vm.getUserRole).toHaveBeenCalled;
+    expect(component.element).toMatchSnapshot();
   });
 
-  it('getUserRole action should be called', async () => {
+  it('Should render true', () => {
     const component = shallowMount(EventItem, config);
-    EventItem.created.call(component.vm);
-    await component.vm.$nextTick();
-    expect(actions.getUserRole).toHaveBeenCalled;
-  });
-
-  it('getUserRole getter should be called', async () => {
-    const component = shallowMount(EventItem, config);
-    EventItem.created.call(component.vm);
-    await component.vm.$nextTick();
-    expect(getters.getUserRole).toHaveBeenCalled;
+    const eventItem = component.find(
+      '[data-test="gTvQIqYFzXCLID4TIU5u"]'
+    );
+    expect(eventItem.text()).toBe(event.name);
   });
 });

@@ -8,7 +8,9 @@
   </div>
   <div class="row" v-if="events.length">
     <div class="col-12 col-lg-4" v-for="event in events" :key="event.id">
-      <EventItem :event="event" />
+      <router-link :to="{ name: 'EventDetails', params: { id: event.id } }">
+        <EventUpdate :event="event" />
+      </router-link>
     </div>
   </div>
   <div class="row" v-else>
@@ -19,7 +21,7 @@
 </template>
 
 <script>
-import EventItem from '@/components/admin/EventItem';
+import EventUpdate from '@/components/admin/EventUpdate';
 import * as Sentry from '@sentry/vue';
 
 /**
@@ -30,7 +32,7 @@ import * as Sentry from '@sentry/vue';
 export default {
   name: 'OrgaEvents',
   components: {
-    EventItem,
+    EventUpdate,
   },
   data() {
     return {

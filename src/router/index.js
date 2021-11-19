@@ -19,6 +19,8 @@ import ArtistContact from '../views/ArtistContact';
 import ProjectDetails from '../components/admin/ProjectDetails';
 import MessageDetails from '../components/admin/MessageDetails';
 import NewEvent from '../components/organizers/NewEvent';
+import Event from '../views/Event';
+import EventDetails from '../components/organizers/EventDetails';
 
 const routes = [
   {
@@ -50,6 +52,11 @@ const routes = [
     path: '/conventions',
     name: 'Conventions',
     component: Conventions,
+  },
+  {
+    path: '/conventions/:id',
+    name: 'Event',
+    component: Event,
   },
   {
     path: '/styles',
@@ -113,6 +120,11 @@ const routes = [
         path: 'events',
         name: 'AdminEvents',
         component: AdminEvents,
+      },
+      {
+        path: 'events/:id',
+        name: 'EventDetails',
+        component: EventDetails,
       },
       {
         path: 'new-event',

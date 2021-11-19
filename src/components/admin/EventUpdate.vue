@@ -15,13 +15,13 @@
 import * as Sentry from '@sentry/vue';
 
 /**
- * @exports EventItem
+ * @exports EventUpdate
  * @type {Component}
  * @vue-prop {object} event - event object
  * @vue-data {string} role - User role
  */
 export default {
-  name: 'eventItem',
+  name: 'EventUpdate',
   props: ['event'],
   data() {
     return {

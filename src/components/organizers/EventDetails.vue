@@ -23,11 +23,11 @@
       />
       <div
         class="btn-center mt-3 thumbnail-button"
-        @click="updateOrgaThumbnail"
+        @click="setEventThumbnail"
       >
         <app-button mode="save-btn">Save</app-button>
       </div>
-      <div class="error">{{ fileError }}</div>
+      <div class="error">{{ fileErr }}</div>
     </div>
     <form class="col-12 col-lg-8 mt-4" @submit.prevent="updateOrgaEvent">
       <div class="form-floating mb-3">
@@ -114,11 +114,12 @@ export default {
       fileErr: null,
     };
   },
-  async created() {
-    await this.$store
-      .dispatch('getOrgaEvent')
+  created() {
+    this.$store
+      .dispatch('getEventById', this.$route.params.id)
       .then(() => {
-        this.event = this.$store.getters.getOrgaevent;
+        this.event = this.$store.getters.getEventById;
+        console.log(this.event)
       })
       .then(() => {
         this.previewImage = this.event.thumbnail;
@@ -141,7 +142,10 @@ export default {
     },
     setEventThumbnail() {
       this.$store
-        .dispatch('setEventThumbnail', this.fileSelected)
+        .dispatch('setEventThumbnail', {
+          file: this.fileSelected,
+          eventId: this.$route.params.id
+        })
         .then(() => {
           this.showSuccess();
           window.location.reload();
@@ -150,15 +154,16 @@ export default {
           this.showError(err);
         });
     },
-    async setNewEvent() {
+    updateOrgaEvent() {
       const eventData = {
+        id: this.$route.params.id,
         name: this.event.name,
         description: this.event.description,
         city: this.event.city,
         zip: this.event.zip,
         date: this.event.date,
       };
-      await this.$store
+      this.$store
         .dispatch('updateOrgaEvent', eventData)
         .then(() => {
           this.showSuccess();
