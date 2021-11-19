@@ -112,7 +112,8 @@
       "/utils/",
       "main.js",
       "/store/",
-      "/router/"
+      "/router/",
+      "registerServiceWorker.js"
     ]
   },
   "nyc": {

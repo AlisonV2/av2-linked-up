@@ -2,6 +2,7 @@ import { shallowMount } from '@vue/test-utils';
 import { createStore } from 'vuex';
 import ClientProjects from '@/components/clients/ClientProjects.vue';
 import ProjectItem from '@/components/admin/ProjectItem.vue';
+import ProjectStatus from '@/components/admin/ProjectStatus.vue';
 
 const actions = {
   getClientProjects: jest.fn(),
@@ -26,6 +27,7 @@ const config = {
     plugins: [store],
     components: {
         ProjectItem,
+        ProjectStatus,
     }
   },
 };

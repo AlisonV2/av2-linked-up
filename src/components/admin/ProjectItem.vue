@@ -72,33 +72,11 @@ export default {
 
 .card-header {
   margin-bottom: 1rem;
+  background-color: $light;
 }
 
-.project-bullet {
-  position: relative;
-  transform: translate( -3rem);
-}
-
-.project-pending {
-  color: $secondary;
-}
-
-.project-progress {
-  color: orange
-}
-
-.project-accepted {
-  color: green;
-}
-
-.project-denied {
-  color: red;
-}
-
-.tooltip {
-    position: relative;
-    display: inline-block;
-    border-bottom: 1px dotted black;
+.card-footer {
+  background-color: $light;
 }
 
 </style>
