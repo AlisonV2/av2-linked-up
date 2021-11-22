@@ -1,0 +1,44 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ParticipationForm.vue ParticipationForm Snapshot 1`] = `
+<form
+  class="auth-form"
+>
+  <div
+    class="row"
+  >
+    <div
+      class="col-12 text-center mb-4"
+    >
+      <h2
+        class="title"
+      >
+        Submit participation
+      </h2>
+    </div>
+  </div>
+  <div
+    class="form-floating mb-3"
+  >
+    <input
+      class="form-control"
+      placeholder="Please enter an amount of tickets"
+      required=""
+      type="number"
+    />
+    <label>
+      How many tickets do you want ?
+    </label>
+  </div>
+  <div
+    class="error mb-3 mt-3"
+  />
+  <div
+    class="btn-center"
+  >
+    <app-button-stub />
+  </div>
+  
+  
+</form>
+`;

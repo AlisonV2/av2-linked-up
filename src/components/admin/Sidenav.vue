@@ -12,7 +12,7 @@
       "
     >
       <router-link :to="{ name: 'Home' }" class="navbar-logo">
-        <img class="admin-brand" src="/img/logo-light.png" alt="Brand logo"/>
+        <img class="admin-brand" src="/img/logo-light.png" alt="Brand logo" />
       </router-link>
       <ul
         class="
@@ -52,7 +52,10 @@
             <span class="ms-3 d-none d-sm-inline">Projects</span></router-link
           >
         </li>
-        <hr class="dropdown-divider" v-if="role === 'artist' || role === 'client'" />
+        <hr
+          class="dropdown-divider"
+          v-if="role === 'artist' || role === 'client'"
+        />
         <li>
           <router-link
             :to="{ name: 'AdminInbox' }"
@@ -72,15 +75,40 @@
             <span class="ms-3 d-none d-sm-inline">Events</span></router-link
           >
         </li>
+        <template v-if="role === 'organizer'">
+          <hr class="dropdown-divider" />
+          <li v-if="role === 'organizer'">
+            <router-link
+              :to="{ name: 'ManageArtists' }"
+              class="nav-link align-middle px-0"
+            >
+              <i class="fs-4 bi bi-card-checklist"></i>
+              <span class="ms-3 d-none d-sm-inline">Artists</span></router-link
+            >
+          </li>
+          <hr class="dropdown-divider" />
+          <li>
+            <router-link
+              :to="{ name: 'ManageAttendees' }"
+              class="nav-link align-middle px-0"
+            >
+              <i class="fs-4 bi bi-list-ol"></i>
+              <span class="ms-3 d-none d-sm-inline">Attendees</span></router-link
+            >
+          </li>
+        </template>
       </ul>
     </div>
   </div>
 </template>
 
 <script>
+import * as Sentry from '@sentry/vue';
+
 /**
  * @exports Sidenav
  * @type {Component}
+ * @requires Sentry
  */
 export default {
   name: 'Sidenav',
@@ -89,10 +117,15 @@ export default {
       role: '',
     };
   },
-  async created() {
-    await this.$store.dispatch('getUserRole').then(() => {
-      this.role = this.$store.getters.getUserRole;
-    });
+  created() {
+    this.$store
+      .dispatch('getUserRole')
+      .then(() => {
+        this.role = this.$store.getters.getUserRole;
+      })
+      .catch((err) => {
+        Sentry.captureException(err);
+      });
   },
 };
 </script>

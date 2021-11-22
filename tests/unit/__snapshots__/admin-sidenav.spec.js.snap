@@ -59,6 +59,7 @@ exports[`Sidenav.vue Sidenav Snapshot 1`] = `
           to="[object Object]"
         />
       </li>
+      <!--v-if-->
     </ul>
   </div>
 </div>
