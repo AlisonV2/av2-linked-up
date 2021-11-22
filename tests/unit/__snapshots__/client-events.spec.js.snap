@@ -2,6 +2,18 @@
 
 exports[`ClientEvents.vue ClientEvents Snapshot 1`] = `
 <div
-  class="row client-events"
-/>
+  data-v-app=""
+>
+  
+  <app-title>
+    Events you plan to attend
+  </app-title>
+  <div
+    class="row client-events"
+  >
+    
+    
+  </div>
+  
+</div>
 `;
