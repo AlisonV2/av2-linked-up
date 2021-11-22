@@ -27,7 +27,7 @@
 import * as Sentry from '@sentry/vue';
 
 /**
- * @exports LoginForm
+ * @exports ParticipationForm
  * @type {Component}
  * @requires Sentry
  * @vue-data {string} email - v-model

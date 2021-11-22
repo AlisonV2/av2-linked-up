@@ -16,10 +16,36 @@
           }})
         </p>
         <div class="col-12">
-          <p>
-            <span class="accent-text">Date :</span> {{ event.date }}
-          </p>
+          <p><span class="accent-text">Date :</span> {{ event.date }}</p>
         </div>
+        <div
+          class="mt-4 btn-center"
+          @click="attendEvent"
+          v-if="role === 'client' || role === 'artist'"
+        >
+          <app-button>Attend Event</app-button>
+        </div>
+        <div
+          class="mt-4 btn-center"
+          @click="bookEvent"
+          v-if="role === 'artist'"
+        >
+          <app-button>Book a stand</app-button>
+        </div>
+      </div>
+    </div>
+        <div class="row mb-3">
+      <app-title>Participating artists</app-title>
+    </div>
+    <div class="row artists-list">
+      <div
+        class="col-12 col-md-6 col-lg-3 col-xl-3"
+        v-for="artist in artists"
+        :key="artist.name"
+      >
+        <router-link :to="{ name: 'Profile', params: { id: artist.uid } }">
+          <ArtistItem :artist="artist" />
+        </router-link>
       </div>
     </div>
   </div>
@@ -27,15 +53,24 @@
 
 <script>
 import * as Sentry from '@sentry/vue';
+import ArtistItem from '@/components/artists/ArtistItem';
 
 /**
  * @exports EventPage
  * @type {Page}
  * @requires Sentry
  * @vue-data {object} event
+ * @vue-data {boolean} attend
+ * @vue-data {boolean} book
+ * @vue-data {string} role
+ * @vue-data {string} tickets
+ * @vue-data {string} stands
  */
 export default {
   name: 'Event',
+  components: {
+    ArtistItem,
+  },
   data() {
     return {
       event: {
@@ -46,7 +81,11 @@ export default {
         zip: '',
         city: '',
         thumbnail: '',
+        attendees: [],
+        stands: [],
       },
+      role: '',
+      artists: [],
     };
   },
   created() {
@@ -56,6 +95,39 @@ export default {
         this.event = this.$store.getters.getEventById;
       })
       .catch((err) => Sentry.captureException(err));
+
+    this.$store
+      .dispatch('getUserRole')
+      .then(() => {
+        this.role = this.$store.getters.getUserRole;
+      })
+      .catch((err) => {
+        Sentry.captureException(err);
+      });
+
+    this.$store
+      .dispatch('getEventArtists', this.$route.params.id)
+      .then(() => {
+        this.artists = this.$store.getters.getEventArtists;
+        console.log(this.artists)
+      })
+      .catch((err) => {
+        Sentry.captureException(err);
+      });
+  },
+  methods: {
+    attendEvent() {
+      this.$router.push({
+        name: 'Participation',
+        params: { id: this.$route.params.id },
+      });
+    },
+    bookEvent() {
+      this.$router.push({
+        name: 'Booking',
+        params: { id: this.$route.params.id },
+      });
+    },
   },
 };
 </script>

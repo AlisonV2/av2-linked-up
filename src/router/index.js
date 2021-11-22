@@ -22,6 +22,10 @@ import MessageDetails from '../components/admin/MessageDetails';
 import NewEvent from '../components/organizers/NewEvent';
 import Event from '../views/Event';
 import EventDetails from '../components/organizers/EventDetails';
+import ManageArtists from '../components/organizers/ManageArtists';
+import ManageAttendees from '../components/organizers/ManageAttendees';
+import Booking from '../views/Booking';
+import Participation from '../views/Participation';
 
 const routes = [
   {
@@ -73,6 +77,16 @@ const routes = [
     path: '/search/city',
     name: 'GeoResults',
     component: GeoResults,
+  },
+  {
+    path: '/booking',
+    name: 'Booking',
+    component: Booking,
+  },
+  {
+    path: '/participation',
+    name: 'Participation',
+    component: Participation,
   },
   {
     path: '/login',
@@ -136,6 +150,16 @@ const routes = [
         path: 'new-event',
         name: 'NewEvent',
         component: NewEvent,
+      },
+      {
+        path: 'manage-artists',
+        name: 'ManageArtists',
+        component: ManageArtists,
+      },
+      {
+        path: 'manage-attendees',
+        name: 'ManageAttendees',
+        component: ManageAttendees,
       },
     ],
   },
