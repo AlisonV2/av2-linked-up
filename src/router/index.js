@@ -22,6 +22,8 @@ import MessageDetails from '../components/admin/MessageDetails';
 import NewEvent from '../components/organizers/NewEvent';
 import Event from '../views/Event';
 import EventDetails from '../components/organizers/EventDetails';
+import Booking from '../views/Booking';
+import Participation from '../views/Participation';
 
 const routes = [
   {
@@ -73,6 +75,16 @@ const routes = [
     path: '/search/city',
     name: 'GeoResults',
     component: GeoResults,
+  },
+  {
+    path: '/booking',
+    name: 'Booking',
+    component: Booking,
+  },
+  {
+    path: '/participation',
+    name: 'Participation',
+    component: Participation,
   },
   {
     path: '/login',

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1637574049113" clover="3.2.0">
-  <project timestamp="1637574049113" name="All files">
-    <metrics statements="500" coveredstatements="376" conditionals="44" coveredconditionals="23" methods="240" coveredmethods="173" elements="784" coveredelements="572" complexity="0" loc="500" ncloc="500" packages="10" files="55" classes="55"/>
+<coverage generated="1637579843013" clover="3.2.0">
+  <project timestamp="1637579843014" name="All files">
+    <metrics statements="531" coveredstatements="395" conditionals="44" coveredconditionals="23" methods="254" coveredmethods="179" elements="829" coveredelements="597" complexity="0" loc="531" ncloc="531" packages="10" files="59" classes="59"/>
     <package name="src">
       <metrics statements="10" coveredstatements="10" conditionals="2" coveredconditionals="2" methods="4" coveredmethods="4"/>
       <file name="App.vue" path="C:\xampp\htdocs\Ynov\av2-linked-up\src\App.vue">
@@ -19,7 +19,7 @@
       </file>
     </package>
     <package name="src.components.admin">
-      <metrics statements="129" coveredstatements="100" conditionals="8" coveredconditionals="3" methods="64" coveredmethods="48"/>
+      <metrics statements="131" coveredstatements="101" conditionals="8" coveredconditionals="3" methods="65" coveredmethods="48"/>
       <file name="AdminEvents.vue" path="C:\xampp\htdocs\Ynov\av2-linked-up\src\components\admin\AdminEvents.vue">
         <metrics statements="9" coveredstatements="8" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="3"/>
         <line num="8" count="1" type="stmt"/>
@@ -185,18 +185,20 @@
         <line num="13" count="3" type="stmt"/>
       </file>
       <file name="Sidenav.vue" path="C:\xampp\htdocs\Ynov\av2-linked-up\src\components\admin\Sidenav.vue">
-        <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
-        <line num="85" count="2" type="stmt"/>
-        <line num="88" count="3" type="stmt"/>
-        <line num="93" count="5" type="stmt"/>
-        <line num="94" count="5" type="stmt"/>
+        <metrics statements="6" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="3"/>
+        <line num="84" count="2" type="stmt"/>
+        <line num="91" count="2" type="stmt"/>
+        <line num="94" count="3" type="stmt"/>
+        <line num="99" count="5" type="stmt"/>
+        <line num="102" count="5" type="stmt"/>
+        <line num="105" count="0" type="stmt"/>
       </file>
     </package>
     <package name="src.components.app">
       <metrics statements="12" coveredstatements="9" conditionals="8" coveredconditionals="4" methods="6" coveredmethods="4"/>
       <file name="Button.vue" path="C:\xampp\htdocs\Ynov\av2-linked-up\src\components\app\Button.vue">
         <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        <line num="13" count="15" type="stmt"/>
+        <line num="13" count="17" type="stmt"/>
       </file>
       <file name="Modal.vue" path="C:\xampp\htdocs\Ynov\av2-linked-up\src\components\app\Modal.vue">
         <metrics statements="10" coveredstatements="7" conditionals="8" coveredconditionals="4" methods="6" coveredmethods="4"/>
@@ -213,7 +215,7 @@
       </file>
       <file name="Title.vue" path="C:\xampp\htdocs\Ynov\av2-linked-up\src\components\app\Title.vue">
         <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        <line num="14" count="16" type="stmt"/>
+        <line num="14" count="18" type="stmt"/>
       </file>
     </package>
     <package name="src.components.artists">
@@ -294,7 +296,18 @@
       </file>
     </package>
     <package name="src.components.auth">
-      <metrics statements="28" coveredstatements="19" conditionals="0" coveredconditionals="0" methods="8" coveredmethods="7"/>
+      <metrics statements="44" coveredstatements="29" conditionals="0" coveredconditionals="0" methods="14" coveredmethods="11"/>
+      <file name="BookingForm.vue" path="C:\xampp\htdocs\Ynov\av2-linked-up\src\components\auth\BookingForm.vue">
+        <metrics statements="8" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="2"/>
+        <line num="27" count="2" type="stmt"/>
+        <line num="36" count="2" type="stmt"/>
+        <line num="39" count="3" type="stmt"/>
+        <line num="46" count="2" type="stmt"/>
+        <line num="50" count="2" type="stmt"/>
+        <line num="56" count="0" type="stmt"/>
+        <line num="57" count="0" type="stmt"/>
+        <line num="58" count="0" type="stmt"/>
+      </file>
       <file name="LoginForm.vue" path="C:\xampp\htdocs\Ynov\av2-linked-up\src\components\auth\LoginForm.vue">
         <metrics statements="10" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
         <line num="42" count="2" type="stmt"/>
@@ -307,6 +320,17 @@
         <line num="78" count="0" type="stmt"/>
         <line num="79" count="0" type="stmt"/>
         <line num="81" count="3" type="stmt"/>
+      </file>
+      <file name="ParticipationForm.vue" path="C:\xampp\htdocs\Ynov\av2-linked-up\src\components\auth\ParticipationForm.vue">
+        <metrics statements="8" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="2"/>
+        <line num="27" count="2" type="stmt"/>
+        <line num="36" count="2" type="stmt"/>
+        <line num="39" count="3" type="stmt"/>
+        <line num="46" count="2" type="stmt"/>
+        <line num="50" count="2" type="stmt"/>
+        <line num="56" count="0" type="stmt"/>
+        <line num="57" count="0" type="stmt"/>
+        <line num="58" count="0" type="stmt"/>
       </file>
       <file name="RegisterForm.vue" path="C:\xampp\htdocs\Ynov\av2-linked-up\src\components\auth\RegisterForm.vue">
         <metrics statements="10" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
@@ -592,7 +616,7 @@
       </file>
     </package>
     <package name="src.views">
-      <metrics statements="64" coveredstatements="59" conditionals="2" coveredconditionals="2" methods="27" coveredmethods="22"/>
+      <metrics statements="77" coveredstatements="67" conditionals="2" coveredconditionals="2" methods="34" coveredmethods="24"/>
       <file name="Admin.vue" path="C:\xampp\htdocs\Ynov\av2-linked-up\src\views\Admin.vue">
         <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <line num="15" count="1" type="stmt"/>
@@ -637,6 +661,12 @@
         <line num="11" count="1" type="stmt"/>
         <line num="18" count="1" type="stmt"/>
       </file>
+      <file name="Booking.vue" path="C:\xampp\htdocs\Ynov\av2-linked-up\src\views\Booking.vue">
+        <metrics statements="3" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="10" count="1" type="stmt"/>
+        <line num="17" count="1" type="stmt"/>
+        <line num="24" count="0" type="stmt"/>
+      </file>
       <file name="Categories.vue" path="C:\xampp\htdocs\Ynov\av2-linked-up\src\views\Categories.vue">
         <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <line num="8" count="1" type="stmt"/>
@@ -664,13 +694,20 @@
         <line num="17" count="1" type="stmt"/>
       </file>
       <file name="Event.vue" path="C:\xampp\htdocs\Ynov\av2-linked-up\src\views\Event.vue">
-        <metrics statements="6" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="3"/>
-        <line num="29" count="1" type="stmt"/>
+        <metrics statements="13" coveredstatements="9" conditionals="0" coveredconditionals="0" methods="9" coveredmethods="5"/>
         <line num="37" count="1" type="stmt"/>
-        <line num="40" count="3" type="stmt"/>
-        <line num="53" count="5" type="stmt"/>
-        <line num="56" count="5" type="stmt"/>
-        <line num="58" count="0" type="stmt"/>
+        <line num="38" count="1" type="stmt"/>
+        <line num="51" count="1" type="stmt"/>
+        <line num="54" count="3" type="stmt"/>
+        <line num="69" count="3" type="stmt"/>
+        <line num="73" count="5" type="stmt"/>
+        <line num="76" count="5" type="stmt"/>
+        <line num="78" count="0" type="stmt"/>
+        <line num="80" count="5" type="stmt"/>
+        <line num="83" count="5" type="stmt"/>
+        <line num="86" count="0" type="stmt"/>
+        <line num="91" count="0" type="stmt"/>
+        <line num="97" count="0" type="stmt"/>
       </file>
       <file name="GeoResults.vue" path="C:\xampp\htdocs\Ynov\av2-linked-up\src\views\GeoResults.vue">
         <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
@@ -690,6 +727,12 @@
         <line num="30" count="1" type="stmt"/>
         <line num="39" count="1" type="stmt"/>
         <line num="46" count="4" type="stmt"/>
+      </file>
+      <file name="Participation.vue" path="C:\xampp\htdocs\Ynov\av2-linked-up\src\views\Participation.vue">
+        <metrics statements="3" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="10" count="1" type="stmt"/>
+        <line num="17" count="1" type="stmt"/>
+        <line num="24" count="0" type="stmt"/>
       </file>
       <file name="ResetPassword.vue" path="C:\xampp\htdocs\Ynov\av2-linked-up\src\views\ResetPassword.vue">
         <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>

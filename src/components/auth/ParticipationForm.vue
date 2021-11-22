@@ -1,23 +1,23 @@
 <template>
-  <form class="auth-form" @submit.prevent="resetPassword">
+  <form class="auth-form" @submit.prevent="setParticipation">
     <div class="row">
       <div class="col-12 text-center mb-4">
-        <h2 class="title">Reset Password</h2>
+        <h2 class="title">Submit participation</h2>
       </div>
     </div>
     <div class="form-floating mb-3">
       <input
-        type="email"
+        type="number"
         class="form-control"
-        placeholder="Please enter your email"
-        v-model="email"
+        placeholder="Please enter an amount of tickets"
+        v-model="tickets"
         required
       />
-      <label>Email</label>
+      <label>How many tickets do you want ?</label>
     </div>
     <div class="error mb-3 mt-3">{{ error }}</div>
     <div class="btn-center">
-      <app-button>Reset password</app-button>
+      <app-button>Confirm</app-button>
     </div>
     <slot />
   </form>
@@ -30,22 +30,27 @@ import * as Sentry from '@sentry/vue';
  * @exports ParticipationForm
  * @type {Component}
  * @requires Sentry
- * @vue-data {string} email - v-model
- * @vue-event resetPassword
+ * @vue-data {number} tickets - v-model
+ * @vue-event setParticipation
  */
 export default {
+  props: ['id'],
   data() {
     return {
-      email: '',
+      tickets: null,
       error: null,
     };
   },
   methods: {
-    resetPassword() {
+    setParticipation() {
+      const data = {
+        eventId: this.id,
+        tickets: this.tickets,
+      };
       this.$store
-        .dispatch('resetPassword', this.email)
+        .dispatch('setParticipation', data)
         .then(() => {
-          this.$router.push({ name: 'Login' });
+          this.$router.push({ name: 'AdminEvents' });
         })
         .catch((err) => {
           this.error = err.message;

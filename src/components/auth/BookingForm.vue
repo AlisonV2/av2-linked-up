@@ -1,23 +1,23 @@
 <template>
-  <form class="auth-form" @submit.prevent="resetPassword">
+  <form class="auth-form" @submit.prevent="setBooking">
     <div class="row">
       <div class="col-12 text-center mb-4">
-        <h2 class="title">Reset Password</h2>
+        <h2 class="title">Book a Stand</h2>
       </div>
     </div>
     <div class="form-floating mb-3">
       <input
         type="email"
         class="form-control"
-        placeholder="Please enter your email"
+        placeholder="Please confirm your email"
         v-model="email"
         required
       />
-      <label>Email</label>
+      <label>Please confirm your email</label>
     </div>
     <div class="error mb-3 mt-3">{{ error }}</div>
     <div class="btn-center">
-      <app-button>Reset password</app-button>
+      <app-button>Confirm</app-button>
     </div>
     <slot />
   </form>
@@ -27,13 +27,14 @@
 import * as Sentry from '@sentry/vue';
 
 /**
- * @exports ParticipationForm
+ * @exports BookingForm
  * @type {Component}
  * @requires Sentry
- * @vue-data {string} email - v-model
+ * @vue-data {number} emails - v-model
  * @vue-event resetPassword
  */
 export default {
+  props: ['id'],
   data() {
     return {
       email: '',
@@ -41,11 +42,15 @@ export default {
     };
   },
   methods: {
-    resetPassword() {
+    setBooking() {
+      const data = {
+        eventId: this.id,
+        email: this.email,
+      }
       this.$store
-        .dispatch('resetPassword', this.email)
+        .dispatch('setBooking', data)
         .then(() => {
-          this.$router.push({ name: 'Login' });
+          this.$router.push({ name: 'AdminEvents' });
         })
         .catch((err) => {
           this.error = err.message;

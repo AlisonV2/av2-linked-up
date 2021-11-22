@@ -5,13 +5,22 @@ import AppTitle from '@/components/app/Title';
 
 const actions = {
   getEventById: jest.fn(),
+  getUserRole: jest.fn(),
 };
 
 const getters = {
   getEventById: jest.fn(),
+  getUserRole: jest.fn(),
+};
+
+const state = {
+  auth: {
+    userLoggedIn: true
+  }
 };
 
 const store = createStore({
+  state,
   actions,
   getters,
 });
@@ -19,6 +28,10 @@ const store = createStore({
 const $route = {
   params: { id: 1 },
 };
+
+const $router = {
+  push: jest.fn(),
+}
 
 const config = {
   data() {
@@ -32,6 +45,7 @@ const config = {
         city: '',
         thumbnail: '',
       },
+      role: 'artist'
     };
   },
   global: {
@@ -41,6 +55,7 @@ const config = {
     },
     mocks: {
       $route,
+      $router
     },
   },
 };

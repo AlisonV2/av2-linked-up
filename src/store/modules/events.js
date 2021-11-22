@@ -126,6 +126,74 @@ export default {
         Sentry.captureException(err);
         return;
       }
+    },
+    async setParticipation(_, payload) {
+      const attendees = [];
+      const user = auth.currentUser.uid;
+      const eventId = payload.eventId;
+      const tickets = payload.tickets;
+
+      try {
+        const doc = await eventsCollection.doc(eventId).get();
+        const event = doc.data().attendees;
+        console.log(event)
+        if (event) {
+          event.forEach((attendee) => {
+            if (attendee.userId === user) {
+              attendees.push({
+                ...attendee,
+                tickets: tickets,
+              });
+            } else {
+              attendees.push(attendee);
+            }
+          });
+          eventsCollection.doc(eventId).update({ attendees: attendees });
+        } else {
+          console.log('updated')
+          const data = { 
+            userId: user,
+            tickets: tickets,
+          };
+          attendees.push(data);
+          console.log(attendees)
+          eventsCollection.doc(eventId).update({ attendees: attendees });
+        }
+      } catch (err) {
+        Sentry.captureException(err);
+        return;
+      }
+    },
+    async setBooking(_, payload) {
+      const stands = [];
+      const user = auth.currentUser.uid;
+      const eventId = payload.eventId;
+      const data = { 
+        userId: user,
+        email: payload.email,
+      };
+
+      try {
+        const doc = await eventsCollection.doc(eventId).get();
+        const event = doc.data().stands;
+        if (event) {
+          event.forEach((attendee) => {
+            if (attendee.userId === user) {
+              throw new Error('You already booked a stand');
+            } else {
+              stands.push(attendee);
+            }
+            stands.push(data);
+          });
+          eventsCollection.doc(eventId).update({ stands: stands });
+        } else {
+          stands.push(data);
+          eventsCollection.doc(eventId).update({ stands: stands });
+        }
+      } catch (err) {
+        Sentry.captureException(err);
+        return;
+      }
     }
   },
   /**
