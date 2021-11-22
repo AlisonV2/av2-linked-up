@@ -27,6 +27,9 @@
       />
       <label>Password</label>
     </div>
+    <div class="mb-3">
+      <router-link :to="{name: 'Reset'}">Forgot your password ? </router-link>
+    </div>
     <div class="error mb-3 mt-3">{{ error }}</div>
     <div class="btn-center">
       <app-button>Log in</app-button>
