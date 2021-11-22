@@ -16,7 +16,7 @@ export default {
     newProject: {},
     artistProjects: [],
     clientProjects: [],
-    projectById: {}
+    projectById: {},
   },
   /**
    * @name Mutations
@@ -51,6 +51,12 @@ export default {
    * @property {object} getProjectById
    */
   actions: {
+    /**
+     * @description Submits a new project to an artist
+     * @method setNewProject
+     * @returns {string}
+     * @async
+     */
     async setNewProject({ commit, dispatch }, payload) {
       const userId = auth.currentUser.uid;
       const userName = auth.currentUser.displayName;
@@ -60,7 +66,7 @@ export default {
           clientId: userId,
           clientName: userName,
           createdAt: new Date(),
-          status: 'Pending'
+          status: 'Pending',
         });
 
         commit('setNewProject', payload);
@@ -70,6 +76,12 @@ export default {
         return;
       }
     },
+    /**
+     * @description get all projects for an artist
+     * @method getArtistProjects
+     * @returns {array}
+     * @async
+     */
     async getArtistProjects({ commit }) {
       const projects = [];
       const user = auth.currentUser.uid;
@@ -80,7 +92,10 @@ export default {
 
         docs.forEach((doc) => {
           const date = doc.data().createdAt;
-          const project = { ...doc.data(), createdAt: format(date.toDate(), 'dd/MM/yyyy') };
+          const project = {
+            ...doc.data(),
+            createdAt: format(date.toDate(), 'dd/MM/yyyy'),
+          };
           projects.push(project);
         });
         commit('setArtistProjects', projects);
@@ -89,6 +104,12 @@ export default {
         return;
       }
     },
+    /**
+     * @description get all projects for a client
+     * @method getClientProjects
+     * @returns {array}
+     * @async
+     */
     async getClientProjects({ commit }) {
       const projects = [];
       const user = auth.currentUser.uid;
@@ -98,7 +119,10 @@ export default {
           .get();
         docs.forEach((doc) => {
           const date = doc.data().createdAt;
-          const project = { ...doc.data(), createdAt: format(date.toDate(), 'dd/MM/yyyy') };
+          const project = {
+            ...doc.data(),
+            createdAt: format(date.toDate(), 'dd/MM/yyyy'),
+          };
           projects.push(project);
         });
         commit('setClientProjects', projects);
@@ -107,6 +131,12 @@ export default {
         return;
       }
     },
+    /**
+     * @description updateProject
+     * @method updateProject
+     * @returns {void}
+     * @async
+     */
     async updateProject(_, payload) {
       try {
         await projectsCollection.doc(payload).update({ id: payload });
@@ -119,21 +149,32 @@ export default {
       try {
         const doc = await projectsCollection.doc(payload).get();
         const date = doc.data().createdAt;
-        const project = { ...doc.data(), createdAt: format(date.toDate(), 'dd/MM/yyyy') };
-        commit('setProjectById', project)
-      } catch (err){
-        Sentry.captureException(err);
-        return;
-      }
-    },
-    async setProjectStatus(_, payload) {
-      try {
-        await projectsCollection.doc(payload.id).update({ status: payload.status });
+        const project = {
+          ...doc.data(),
+          createdAt: format(date.toDate(), 'dd/MM/yyyy'),
+        };
+        commit('setProjectById', project);
       } catch (err) {
         Sentry.captureException(err);
         return;
       }
-    }
+    },
+    /**
+     * @description modifies project status
+     * @method setProjectStatus
+     * @returns {string}
+     * @async
+     */
+    async setProjectStatus(_, payload) {
+      try {
+        await projectsCollection
+          .doc(payload.id)
+          .update({ status: payload.status });
+      } catch (err) {
+        Sentry.captureException(err);
+        return;
+      }
+    },
   },
   /**
    * @name Getters
@@ -150,6 +191,6 @@ export default {
     },
     getProjectById(state) {
       return state.projectById;
-    }
+    },
   },
 };
