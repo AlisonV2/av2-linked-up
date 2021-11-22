@@ -7,6 +7,7 @@ import Categories from '../views/Categories';
 import CategoriesResults from '../views/CategoriesResults';
 import GeoResults from '../views/GeoResults';
 import Login from '../views/Login';
+import ResetPassword from '../views/ResetPassword';
 import ArtistProfile from '../views/ArtistProfile';
 import Admin from '../views/Admin';
 import AdminProfile from '../components/admin/AdminProfile';
@@ -77,6 +78,11 @@ const routes = [
     path: '/login',
     name: 'Login',
     component: Login,
+  },
+  {
+    path: '/reset',
+    name: 'Reset',
+    component: ResetPassword
   },
   {
     path: '/admin',
