@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`GeoResults.vue GeoResults Snapshot 1`] = `
+<div
+  class="container"
+>
+  <div
+    class="row"
+  >
+    
+    <div
+      class="col-8 col-md-6 col-lg-4 col-xl-3 artists-list"
+    >
+      <router-link-stub
+        to="[object Object]"
+      />
+    </div>
+    
+  </div>
+</div>
+`;

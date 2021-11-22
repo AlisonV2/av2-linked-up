@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ManageAttendees.vue ManageAttendees Snapshot 1`] = `
+<div
+  class="row"
+>
+  
+  
+</div>
+`;

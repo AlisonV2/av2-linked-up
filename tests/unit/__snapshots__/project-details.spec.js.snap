@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ProjectDetails.vue ProjectDetails Snapshot 1`] = `
+<div
+  class="container profile-container py-4"
+>
+  <!--v-if-->
+  <div
+    class="row mb-4"
+  >
+    <div
+      class="col-12 project-details text-center"
+    >
+      <h2
+        class="project-title"
+      />
+      <!--v-if-->
+      <h3>
+         Project sent to : 
+        <span />
+      </h3>
+      <p>
+        Sent: 
+      </p>
+      <div
+        class="project-description mt-4"
+      >
+        <p />
+      </div>
+    </div>
+    <!--v-if-->
+  </div>
+  <!--v-if-->
+</div>
+`;

@@ -1,4 +1,4 @@
-import { auth, eventsCollection } from '@/utils/firebase';
+import { auth, eventsCollection, artistsCollection } from '@/utils/firebase';
 import * as Sentry from '@sentry/vue';
 import { format } from 'date-fns';
 
@@ -15,7 +15,8 @@ export default {
   state: {
     events: [],
     eventById: {},
-    orgaEvents: []
+    orgaEvents: [],
+    eventArtists: []
   },
   /**
    * @name Mutations
@@ -23,6 +24,7 @@ export default {
    * @property {array} setEvents
    * @property {object} setEventById
    * @property {array} setOrgaEvents
+   * @property {array} setEventArtists
    */
   mutations: {
     setEvents(state, payload) {
@@ -33,6 +35,9 @@ export default {
     },
     setOrgaEvents(state, payload) {
       state.orgaEvents = payload;
+    },
+    setEventArtists(state, payload) {
+      state.eventArtists = payload;
     }
   },
   /**
@@ -167,10 +172,12 @@ export default {
     async setBooking(_, payload) {
       const stands = [];
       const user = auth.currentUser.uid;
+      const userName = auth.currentUser.displayName;
       const eventId = payload.eventId;
       const data = { 
         userId: user,
         email: payload.email,
+        userName: userName
       };
 
       try {
@@ -194,6 +201,22 @@ export default {
         Sentry.captureException(err);
         return;
       }
+    },
+    async getEventArtists({ commit }, payload) {
+      try {
+        const eventArtists = [];
+        const doc = await eventsCollection.doc(payload).get();
+        const artists = doc.data().stands;
+        artists.forEach(async (artist) => {
+          const artistProfile = await artistsCollection.doc(artist.userId).get();
+          const data = artistProfile.data();
+          eventArtists.push(data);
+        })
+        commit('setEventArtists', eventArtists);
+      } catch (err) {
+        Sentry.captureException(err);
+        return;
+      }
     }
   },
   /**
@@ -212,6 +235,9 @@ export default {
     },
     getOrgaEvents(state) {
       return state.orgaEvents;
+    },
+    getEventArtists(state) {
+      return state.eventArtists;
     }
   },
 };

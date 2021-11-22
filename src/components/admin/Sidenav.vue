@@ -75,6 +75,28 @@
             <span class="ms-3 d-none d-sm-inline">Events</span></router-link
           >
         </li>
+        <template v-if="role === 'organizer'">
+          <hr class="dropdown-divider" />
+          <li v-if="role === 'organizer'">
+            <router-link
+              :to="{ name: 'ManageArtists' }"
+              class="nav-link align-middle px-0"
+            >
+              <i class="fs-4 bi bi-card-checklist"></i>
+              <span class="ms-3 d-none d-sm-inline">Artists</span></router-link
+            >
+          </li>
+          <hr class="dropdown-divider" />
+          <li>
+            <router-link
+              :to="{ name: 'ManageAttendees' }"
+              class="nav-link align-middle px-0"
+            >
+              <i class="fs-4 bi bi-list-ol"></i>
+              <span class="ms-3 d-none d-sm-inline">Attendees</span></router-link
+            >
+          </li>
+        </template>
       </ul>
     </div>
   </div>

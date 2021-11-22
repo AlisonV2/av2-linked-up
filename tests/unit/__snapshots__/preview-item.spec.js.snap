@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PreviewItem.vue PreviewItem Snapshot 1`] = `
+<div
+  class="card gallery-card"
+>
+  <div
+    class="card-overlay"
+  />
+  <div
+    class="card-details fade-in-top text-center"
+  >
+    <i
+      class="bi bi-trash img-icon"
+    />
+  </div>
+  <img
+    alt="Preview Item"
+    class="card-img-top"
+    src="https://via.placeholder.com/150"
+  />
+</div>
+`;
