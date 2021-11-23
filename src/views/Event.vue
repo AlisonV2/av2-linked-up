@@ -18,23 +18,25 @@
         <div class="col-12">
           <p><span class="accent-text">Date :</span> {{ event.date }}</p>
         </div>
-        <div
-          class="mt-4 btn-center"
-          @click="attendEvent"
-          v-if="role === 'client' || role === 'artist'"
-        >
-          <app-button>Attend Event</app-button>
-        </div>
-        <div
-          class="mt-4 btn-center"
-          @click="bookEvent"
-          v-if="role === 'artist'"
-        >
-          <app-button>Book a stand</app-button>
+        <div class="btn-group">
+          <div
+            class="mt-4 btn-center px-2"
+            @click="attendEvent"
+            v-if="role === 'client' || role === 'artist'"
+          >
+            <app-button>Attend Event</app-button>
+          </div>
+          <div
+            class="mt-4 btn-center"
+            @click="bookEvent"
+            v-if="role === 'artist'"
+          >
+            <app-button>Book a stand</app-button>
+          </div>
         </div>
       </div>
     </div>
-        <div class="row mb-3">
+    <div class="row mb-3">
       <app-title>Participating artists</app-title>
     </div>
     <div class="row artists-list">
@@ -109,7 +111,7 @@ export default {
       .dispatch('getEventArtists', this.$route.params.id)
       .then(() => {
         this.artists = this.$store.getters.getEventArtists;
-        console.log(this.artists)
+        console.log(this.artists);
       })
       .catch((err) => {
         Sentry.captureException(err);

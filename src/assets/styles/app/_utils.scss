@@ -1,6 +1,8 @@
 /* Typo utils */
 .main-title {
   font-size: 1.8rem;
+  font-family: $accent-font;
+  color: $primary;
 }
 
 @include bp-down(lg) {

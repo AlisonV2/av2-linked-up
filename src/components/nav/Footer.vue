@@ -54,8 +54,6 @@ export default {
 <style lang="scss">
 footer {
   text-align: center;
-  font-family: $accent-font;
-  font-size: 0.75rem;
   font-weight: 500;
   padding: 1.5rem 0;
   position: relative;

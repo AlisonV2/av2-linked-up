@@ -5,6 +5,7 @@ import BookingForm from '@/components/auth/BookingForm';
 const $route = {
   params: { id: '1' },
 };
+
 const config = {
   data() {
     return {

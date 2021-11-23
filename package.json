@@ -14,7 +14,7 @@
     "dev": "npm run docs && npm run lint && npm -s run test:unit",
     "docker": "docker-compose --env-file .env.local up --build",
     "docs": "jsdoc -c jsdoc.json",
-    "lh": "lighthouse http://localhost:3000 --screenEmulation.disabled --throttling-method=provided --no-emulated-user-agent --output html --output-path ./lighthouse/report.html --save-assets",
+    "lh": "lighthouse http://localhost:3000 --screenEmulation.disabled --throttling-method=provided --no-emulated-user-agent --output html --output-path ./lighthouse/report.html --save-assets --view",
     "preview": "npm run build && serve -s dist"
   },
   "dependencies": {

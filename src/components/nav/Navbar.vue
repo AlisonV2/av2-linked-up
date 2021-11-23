@@ -129,7 +129,7 @@ export default {
 }
 
 .navbar-item {
-  margin-left: 2.5rem;
+  margin-left: 2rem;
   list-style: none;
   a,
   #logout-link {
@@ -164,7 +164,7 @@ export default {
   }
   .navbar-item {
     margin: 1.5rem 0;
-    a { 
+    a, #logout-link { 
       color: $dark;
     }
   }
