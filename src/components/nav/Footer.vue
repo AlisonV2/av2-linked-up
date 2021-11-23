@@ -4,12 +4,15 @@
       <div class="col-12">
         <div class="footer-copyright">
           <p class="copyright">
-            <span data-test="copyright">
+            <span class="footer-left">
               &copy; Copyright {{ year }} -
-              <a target="_blank" rel="noopener" href="https://alisonvandromme.com"
+              <a
+                target="_blank"
+                rel="noopener"
+                href="https://alisonvandromme.com"
                 >Alison Vandromme</a
               >
-              - All rights reserved
+              <span class="footer-right"> - All rights reserved</span>
             </span>
           </p>
         </div>
@@ -29,8 +32,8 @@ export default {
   name: 'AppFooter',
   data() {
     return {
-      year: ''
-    }
+      year: '',
+    };
   },
   created() {
     this.getDate();
@@ -50,7 +53,7 @@ export default {
 
 <style lang="scss">
 footer {
-  text-align: end;
+  text-align: center;
   font-family: $accent-font;
   font-size: 0.75rem;
   font-weight: 500;
@@ -58,5 +61,8 @@ footer {
   position: relative;
   bottom: 0;
   margin-top: 3rem;
+  .footer-right {
+    color: $light;
+  }
 }
 </style>

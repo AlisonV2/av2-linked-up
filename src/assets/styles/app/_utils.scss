@@ -1,4 +1,13 @@
 /* Typo utils */
+.main-title {
+  font-size: 1.8rem;
+}
+
+@include bp-down(lg) {
+  .main-title {
+    font-size: 1.3rem;
+  }
+}
 
 .title {
   font-family: $accent-font;

@@ -17,7 +17,7 @@ describe('AppFooter.vue', () => {
 
   it('Checks year rendering', () => {
     const component = shallowMount(AppFooter, config);
-    const copyright = component.get('[data-test="copyright"]');
+    const copyright = component.get('.footer-right');
     expect(copyright.text()).toBe(
       '© Copyright 2021 - Alison Vandromme - All rights reserved'
     );

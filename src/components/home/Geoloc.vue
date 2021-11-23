@@ -1,6 +1,8 @@
 <template>
   <form class="col-12 col-md-6 geoloc" @submit.prevent="handleSubmit">
-    <app-title><span class="main-title">Looking for an artist?</span></app-title>
+    <app-title
+      ><span class="main-title">Looking for an artist?</span></app-title
+    >
     <div class="input-group mb-3">
       <input
         type="text"
@@ -11,13 +13,12 @@
         autocomplete
       />
       <span class="input-group-text" @click="getGeoloc"
-        ><i class="fs-4 bi bi-geo-alt-fill"></i></span
-      >
+        ><i class="fs-4 bi bi-geo-alt-fill"></i
+      ></span>
     </div>
     <div class="btn-center">
       <app-button>Search</app-button>
     </div>
-    <router-link :to="{name: 'Categories'}"><app-title>Or search by styles <i class="bi bi-arrow-right"></i></app-title></router-link>
   </form>
 </template>
 
@@ -47,16 +48,17 @@ export default {
   },
   methods: {
     getGeoloc() {
-      this.$store.dispatch('getGeoloc')
-      .then(() => {
-        const data = this.$store.getters.getGeoloc;
-        this.location = data.location;
-        this.loc = data.loc;
-      })
-      .then(() => {
-        this.geoloc = true;
-      })
-      .catch((err) => Sentry.captureException(err));
+      this.$store
+        .dispatch('getGeoloc')
+        .then(() => {
+          const data = this.$store.getters.getGeoloc;
+          this.location = data.location;
+          this.loc = data.loc;
+        })
+        .then(() => {
+          this.geoloc = true;
+        })
+        .catch((err) => Sentry.captureException(err));
     },
     /**
      * @description Dispatch store action
@@ -106,9 +108,18 @@ export default {
 </script>
 
 <style lang="scss">
-@include bp-up(md) {
+.geoloc {
+  .input-group {
+    max-width: 80%;
+    margin: 0 auto;
+  }
+}
+@include bp-up(xl) {
   .geoloc {
-    max-width: 80% !important;
+    .input-group {
+      max-width: 60%;
+      margin: 0 auto;
+    }
   }
 }
 .geoloc-row {
@@ -118,9 +129,5 @@ export default {
 .bi-geo-alt-fill {
   font-size: 1.5rem !important;
   cursor: pointer;
-}
-
-.main-title {
-  font-size: 1.8rem;
 }
 </style>
