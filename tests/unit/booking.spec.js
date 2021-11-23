@@ -16,7 +16,9 @@ const config = {
     components: {
       BookingForm,
     },
-    mocks: $route,
+    mocks: {
+      $route
+    },
   },
 };
 

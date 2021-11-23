@@ -101,4 +101,15 @@ describe('OrgaDashboard.vue', () => {
     file.trigger('change');
     expect(component.vm.setPreviewImage).toHaveBeenCalled;
   });
+
+  it('setPreviewImage should be called', () => {
+    const component = shallowMount(OrgaDashboard, config);
+    const file = component.find('input[type="file"]');
+    file.trigger('change');
+    try {
+      expect(component.vm.setPreviewImage).toHaveBeenCalled;
+    } catch (err) {
+      expect(component.vm.showError(err)).toBe(true);
+    }
+  });
 });

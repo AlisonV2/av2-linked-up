@@ -10,19 +10,19 @@
 import ParticipationForm from '@/components/auth/ParticipationForm';
 
 /**
- * @exports ParticipationPassword
+ * @exports Participation
  * @requires ParticipationForm
  * @type {Page}
  */
 export default {
-  name: 'ParticipationPassword',
+  name: 'Participation',
   components: {
     ParticipationForm,
   },
-  computed: {
-    id() {
-      return this.$route.params.id;
-    }
-  }
+  data() {
+    return {
+      id: this.$route.params.id,
+    };
+  },
 };
 </script>

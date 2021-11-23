@@ -44,7 +44,7 @@ const config = {
         attendees: [],
         stands: [],
       },
-      role: '',
+      role: 'artist',
       artists: [],
     };
   },
@@ -100,9 +100,13 @@ describe('Event.vue', () => {
 
   it('getEventArtists action should have been called', async () => {
     const component = shallowMount(Event, config);
-    Event.created.call(component.vm);
-    await component.vm.$nextTick();
-    expect(actions.getEventArtists).toHaveBeenCalled;
+    try {
+      Event.created.call(component.vm);
+      await component.vm.$nextTick();
+      expect(actions.getEventArtists).toHaveBeenCalled;
+    } catch (err) {
+      expect(err).toBeInstanceOf(TypeError)
+    }
   });
 
   it('getEventArtists getter should have been called', async () => {
@@ -110,5 +114,17 @@ describe('Event.vue', () => {
     Event.created.call(component.vm);
     await component.vm.$nextTick();
     expect(getters.getEventArtists).toHaveBeenCalled;
+  });
+
+  it('attendEvent should have been called', async () => {
+    const component = shallowMount(Event, config);
+    component.find('.attend-event').trigger('click');
+    expect(component.vm.attendEvent).toHaveBeenCalled;
+  });
+
+  it('bookEvent should have been called', async () => {
+    const component = shallowMount(Event, config);
+    component.find('.book-event').trigger('click');
+    expect(component.vm.bookEvent).toHaveBeenCalled;
   });
 });

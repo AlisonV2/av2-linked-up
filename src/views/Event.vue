@@ -20,14 +20,14 @@
         </div>
         <div class="btn-group">
           <div
-            class="mt-4 btn-center px-2"
+            class="mt-4 btn-center px-2 attend-event"
             @click="attendEvent"
             v-if="role === 'client' || role === 'artist'"
           >
             <app-button>Attend Event</app-button>
           </div>
           <div
-            class="mt-4 btn-center"
+            class="mt-4 btn-center book-event"
             @click="bookEvent"
             v-if="role === 'artist'"
           >
