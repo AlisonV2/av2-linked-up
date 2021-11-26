@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ArtistEvents.vue ArtistEvents Snapshot 1`] = `
+<div
+  data-v-app=""
+>
+  
+  <app-title>
+    Events you booked a stand for
+  </app-title>
+  <div
+    class="row client-events"
+  >
+    
+    
+  </div>
+  <app-title>
+    Events you plan to attend
+  </app-title>
+  <div
+    class="row client-events"
+  >
+    
+    
+  </div>
+  
+</div>
+`;

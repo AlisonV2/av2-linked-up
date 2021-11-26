@@ -1,0 +1,44 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AppModal.vue PreviewItem Snapshot 1`] = `
+<div
+  class="modal"
+  style="display: block;"
+>
+  <div
+    class="modal-dialog"
+    style="z-index: 2000;"
+  >
+    <div
+      class="modal-content"
+    >
+      <div
+        class="modal-header"
+      >
+        <h5
+          class="modal-title"
+        >
+          
+          
+        </h5>
+        <span
+          class="close-btn"
+        >
+          ×
+        </span>
+      </div>
+      <div
+        class="modal-body"
+      >
+        <p>
+          
+          
+        </p>
+      </div>
+    </div>
+  </div>
+  <div
+    class="modal-backdrop show"
+  />
+</div>
+`;
