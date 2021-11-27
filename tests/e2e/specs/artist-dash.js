@@ -1,7 +1,7 @@
 describe('Artist Dashboard Test', () => {
     it('Test login flow', () => {
       cy.visit('/');
-      cy.get('#logout-link').click({force: true})
+      // cy.get('#logout-link').click({force: true})
       cy.get('#login-link').click({ force: true });
       cy.get('.show-signup').click({ force: true });
       cy.get('.show-login').click({ force: true });
@@ -22,6 +22,12 @@ describe('Artist Dashboard Test', () => {
       cy.get('.bi-envelope').click({ force: true });
       cy.get('.bi-card-checklist').click({ force: true });
       cy.get('.bi-calendar-date').click({ force: true });
+      cy.get('.navbar-logo').click({ force: true });
+      cy.visit('/conventions');
+      cy.get('[data-test="gTvQIqYFzXCLID4TIU5u"]').click({ force: true });
+      cy.get('.book-event').click({force: true});
+      cy.get('input[type="email"]').type('artist@test.com');
+      cy.get('button').click();
       cy.get('.bi-gear').click({ force: true });
       cy.get('.bi-box-arrow-right').click({ force: true });
       cy.get('#logout-link').should('not.exist');

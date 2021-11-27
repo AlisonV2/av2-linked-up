@@ -49,13 +49,12 @@ export default {
       };
       this.$store
         .dispatch('setParticipation', data)
-        // .then(() => {
-        //   this.$router.push({ name: 'AdminEvents' });
-        // })
+        .then(() => {
+          this.$router.push({ name: 'AdminEvents' });
+        })
         .catch((err) => {
           this.error = err.message;
           Sentry.captureException(err);
-          return;
         });
     },
   },

@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">57.14% </span>
+                <span class="strong">75% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>28/49</span>
+                <span class='fraction'>36/48</span>
             </div>
         
             
@@ -37,16 +37,16 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">66.67% </span>
+                <span class="strong">86.67% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>10/15</span>
+                <span class='fraction'>13/15</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">57.14% </span>
+                <span class="strong">75% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>28/49</span>
+                <span class='fraction'>36/48</span>
             </div>
         
             
@@ -253,8 +253,7 @@
 <a name='L194'></a><a href='#L194'>194</a>
 <a name='L195'></a><a href='#L195'>195</a>
 <a name='L196'></a><a href='#L196'>196</a>
-<a name='L197'></a><a href='#L197'>197</a>
-<a name='L198'></a><a href='#L198'>198</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L197'></a><a href='#L197'>197</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -290,7 +289,7 @@
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -327,7 +326,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -374,9 +372,9 @@
 <span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">98x</span>
-<span class="cline-any cline-yes">98x</span>
-<span class="cline-any cline-yes">98x</span>
+<span class="cline-any cline-yes">122x</span>
+<span class="cline-any cline-yes">122x</span>
+<span class="cline-any cline-yes">122x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">4x</span>
@@ -415,18 +413,18 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -447,7 +445,7 @@
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -486,8 +484,8 @@ export default {
     setClientMessages(state, payload) {
       state.clientMessages = payload;
     },
-<span class="fstat-no" title="function not covered" >    se</span>tArtistMessages(state, payload) {
-<span class="cstat-no" title="statement not covered" >      state.artistMessages = payload;</span>
+    setArtistMessages(state, payload) {
+      state.artistMessages = payload;
     },
   },
   /**
@@ -526,7 +524,6 @@ export default {
       };
 <span class="cstat-no" title="statement not covered" >      try {</span>
 <span class="cstat-no" title="statement not covered" >        await messagesCollection.doc(projectId).set({ ...message });</span>
-<span class="cstat-no" title="statement not covered" >        console.log('message sent!');</span>
       } catch (err) {
 <span class="cstat-no" title="statement not covered" >        Sentry.captureException(err);</span>
       }
@@ -611,19 +608,19 @@ export default {
      * @returns {array}
      * @async
      */
-<span class="fstat-no" title="function not covered" >    as</span>ync getArtistMessages({ commit }) {
-      const user = <span class="cstat-no" title="statement not covered" >auth.currentUser.uid;</span>
-      const messages = <span class="cstat-no" title="statement not covered" >[];</span>
-<span class="cstat-no" title="statement not covered" >      try {</span>
-        const docs = <span class="cstat-no" title="statement not covered" >await messagesCollection</span>
+    async getArtistMessages({ commit }) {
+      const user = auth.currentUser.uid;
+      const messages = [];
+      try {
+        const docs = await messagesCollection
           .where('artistId', '==', user)
           .get();
 &nbsp;
-<span class="cstat-no" title="statement not covered" >        docs.forEach(<span class="fstat-no" title="function not covered" >(d</span>oc) =&gt; {</span>
+        docs.forEach(<span class="fstat-no" title="function not covered" >(d</span>oc) =&gt; {
           const message = <span class="cstat-no" title="statement not covered" >{ ...doc.data() };</span>
 <span class="cstat-no" title="statement not covered" >          messages.push(message);</span>
         });
-<span class="cstat-no" title="statement not covered" >        commit('setArtistMessages', messages);</span>
+        commit('setArtistMessages', messages);
       } catch (err) {
 <span class="cstat-no" title="statement not covered" >        Sentry.captureException(err);</span>
       }
@@ -643,8 +640,8 @@ export default {
     getClientMessages(state) {
       return state.clientMessages;
     },
-<span class="fstat-no" title="function not covered" >    ge</span>tArtistMessages(state) {
-<span class="cstat-no" title="statement not covered" >      return state.artistMessages;</span>
+    getArtistMessages(state) {
+      return state.artistMessages;
     },
   },
 };
@@ -655,7 +652,7 @@ export default {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Sun Nov 14 2021 14:15:55 GMT+0100 (Central European Standard Time)
+                at Sat Nov 27 2021 08:57:58 GMT+0100 (Central European Standard Time)
             </div>
         </div>
         <script src="../../../prettify.js"></script>

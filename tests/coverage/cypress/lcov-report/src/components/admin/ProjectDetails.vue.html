@@ -25,28 +25,28 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/12</span>
+                <span class='fraction'>0/11</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/0</span>
+                <span class='fraction'>0/1</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/5</span>
+                <span class='fraction'>0/7</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>0/12</span>
+                <span class='fraction'>0/11</span>
             </div>
         
             
@@ -195,7 +195,12 @@
 <a name='L136'></a><a href='#L136'>136</a>
 <a name='L137'></a><a href='#L137'>137</a>
 <a name='L138'></a><a href='#L138'>138</a>
-<a name='L139'></a><a href='#L139'>139</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L139'></a><a href='#L139'>139</a>
+<a name='L140'></a><a href='#L140'>140</a>
+<a name='L141'></a><a href='#L141'>141</a>
+<a name='L142'></a><a href='#L142'>142</a>
+<a name='L143'></a><a href='#L143'>143</a>
+<a name='L144'></a><a href='#L144'>144</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -294,20 +299,25 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -334,16 +344,16 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">&lt;template&gt;
-  &lt;div class="container" v-if="project"&gt;
+  &lt;div class="container profile-container py-4" v-if="project"&gt;
     &lt;div class="row mb-4" v-if="isArtist"&gt;
       &lt;div
         class="col-12 text-end"
         v-if="project.status === 'Pending' || 'In progress'"
       &gt;
-        &lt;span class="project-status px-4" @click="setProjectStatus('Accepted')"
+        &lt;span class="project-status px-4" data-test="accept-project" @click="setProjectStatus('Accepted')"
           &gt;Accept project&lt;/span
         &gt;
-        &lt;span class="project-status" @click="setProjectStatus('Denied')"
+        &lt;span class="project-status" data-test="refuse-project" @click="setProjectStatus('Denied')"
           &gt;Refuse project&lt;/span
         &gt;
       &lt;/div&gt;
@@ -361,7 +371,7 @@
         &lt;h3 v-if="!isArtist"&gt;
           Project sent to : &lt;span&gt;{{ project.artistName }}&lt;/span&gt;
         &lt;/h3&gt;
-        &lt;p&gt;Sent: {{ date }}&lt;/p&gt;
+        &lt;p&gt;Sent: {{ project.createdAt }}&lt;/p&gt;
         &lt;div class="project-description mt-4"&gt;
           &lt;p&gt;
             {{ project.description }}
@@ -398,7 +408,7 @@
 &lt;/template&gt;
 &nbsp;
 &lt;script&gt;
-import { format } from 'date-fns';
+import * as Sentry from '@sentry/vue';
 &nbsp;
 /**
  * @exports ProjectDetails
@@ -422,19 +432,28 @@ export default {
         description: '',
         id: '',
         title: '',
+        status: ''
       },
       showForm: false,
       message: '',
       isArtist: false,
-      date: '',
     };
   },
-<span class="fstat-no" title="function not covered" >  as</span>ync created() {
-<span class="cstat-no" title="statement not covered" >    await this.$store.dispatch('getProjectById', this.$route.params.id);</span>
-<span class="cstat-no" title="statement not covered" >    this.project = this.$store.getters.getProjectById;</span>
+<span class="fstat-no" title="function not covered" >  cr</span>eated() {
 <span class="cstat-no" title="statement not covered" >    this.isArtist = this.$route.params.isArtist;</span>
-<span class="cstat-no" title="statement not covered" >    this.formatDate();</span>
-<span class="cstat-no" title="statement not covered" >    this.setProjectStatus('In progress');</span>
+<span class="cstat-no" title="statement not covered" >    this.$store</span>
+      .dispatch('getProjectById', this.$route.params.id)
+      .then(<span class="fstat-no" title="function not covered" >()</span> =&gt; {
+<span class="cstat-no" title="statement not covered" >        this.project = this.$store.getters.getProjectById;</span>
+      })
+      .then(<span class="fstat-no" title="function not covered" >()</span> =&gt; {
+<span class="cstat-no" title="statement not covered" >        <span class="missing-if-branch" title="if path not taken" >I</span>if (this.project.status === 'Pending') {</span>
+<span class="cstat-no" title="statement not covered" >          this.setProjectStatus('In progress');</span>
+        }
+      })
+      .catch(<span class="fstat-no" title="function not covered" >(e</span>rr) =&gt; {
+<span class="cstat-no" title="statement not covered" >        Sentry.captureException(err);</span>
+      });
   },
   methods: {
 <span class="fstat-no" title="function not covered" >    ha</span>ndleSubmit() {
@@ -443,10 +462,6 @@ export default {
         message: this.message,
       };
 <span class="cstat-no" title="statement not covered" >      this.$store.dispatch('startChat', chat);</span>
-    },
-<span class="fstat-no" title="function not covered" >    fo</span>rmatDate() {
-      const date = <span class="cstat-no" title="statement not covered" >this.project.createdAt;</span>
-<span class="cstat-no" title="statement not covered" >      this.date = format(date.toDate(), 'dd/MM/yyyy');</span>
     },
 <span class="fstat-no" title="function not covered" >    se</span>tProjectStatus(status) {
       const project = <span class="cstat-no" title="statement not covered" >{</span>
@@ -478,7 +493,7 @@ export default {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Sun Nov 14 2021 14:15:55 GMT+0100 (Central European Standard Time)
+                at Sat Nov 27 2021 08:57:58 GMT+0100 (Central European Standard Time)
             </div>
         </div>
         <script src="../../../prettify.js"></script>

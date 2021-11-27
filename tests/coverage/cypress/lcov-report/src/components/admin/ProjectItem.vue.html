@@ -141,27 +141,11 @@
 <a name='L82'></a><a href='#L82'>82</a>
 <a name='L83'></a><a href='#L83'>83</a>
 <a name='L84'></a><a href='#L84'>84</a>
-<a name='L85'></a><a href='#L85'>85</a>
-<a name='L86'></a><a href='#L86'>86</a>
-<a name='L87'></a><a href='#L87'>87</a>
-<a name='L88'></a><a href='#L88'>88</a>
-<a name='L89'></a><a href='#L89'>89</a>
-<a name='L90'></a><a href='#L90'>90</a>
-<a name='L91'></a><a href='#L91'>91</a>
-<a name='L92'></a><a href='#L92'>92</a>
-<a name='L93'></a><a href='#L93'>93</a>
-<a name='L94'></a><a href='#L94'>94</a>
-<a name='L95'></a><a href='#L95'>95</a>
-<a name='L96'></a><a href='#L96'>96</a>
-<a name='L97'></a><a href='#L97'>97</a>
-<a name='L98'></a><a href='#L98'>98</a>
-<a name='L99'></a><a href='#L99'>99</a>
-<a name='L100'></a><a href='#L100'>100</a>
-<a name='L101'></a><a href='#L101'>101</a>
-<a name='L102'></a><a href='#L102'>102</a>
-<a name='L103'></a><a href='#L103'>103</a>
-<a name='L104'></a><a href='#L104'>104</a>
-<a name='L105'></a><a href='#L105'>105</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L85'></a><a href='#L85'>85</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -206,7 +190,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -214,33 +197,10 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -266,10 +226,11 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">&lt;template&gt;
-  &lt;div class="card text-center" :class="{'client-card': !isArtist}"&gt;
+  &lt;div class="card text-center" :class="{ 'client-card': !isArtist }"&gt;
     &lt;div class="card-header title"&gt;
       {{ project.title }}
-      &lt;span class="project-bullet"
+      &lt;span
+        class="project-bullet"
         :class="{
           'project-pending': status === 'Pending',
           'project-progress': status === 'In progress',
@@ -293,19 +254,21 @@
 &lt;/template&gt;
 &nbsp;
 &lt;script&gt;
+import * as Sentry from '@sentry/vue';
 &nbsp;
 /**
  * @exports ProjectItem
  * @type {Component}
  * @requires Sentry
- * @vue-data {array} projects
+ * @vue-prop {object} project - Project object
+ * @vue-data {string} role - User role
+ * @vue-computed {string} status - Project status
  */
 export default {
   name: 'ProjectItem',
   props: ['project', 'isArtist'],
 <span class="fstat-no" title="function not covered" >  da</span>ta() {
 <span class="cstat-no" title="statement not covered" >    return {</span>
-      createdAt: '',
       role: '',
     };
   },
@@ -315,14 +278,14 @@ export default {
     },
   },
 <span class="fstat-no" title="function not covered" >  cr</span>eated() {
-<span class="cstat-no" title="statement not covered" >    this.getUserRole();</span>
-  },
-  methods: {
-<span class="fstat-no" title="function not covered" >    as</span>ync getUserRole() {
-<span class="cstat-no" title="statement not covered" >      await this.$store.dispatch('getUserRole').then(<span class="fstat-no" title="function not covered" >()</span> =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >    this.$store</span>
+      .dispatch('getUserRole')
+      .then(<span class="fstat-no" title="function not covered" >()</span> =&gt; {
 <span class="cstat-no" title="statement not covered" >        this.role = this.$store.getters.getUserRole;</span>
+      })
+      .catch(<span class="fstat-no" title="function not covered" >(e</span>rr) =&gt; {
+<span class="cstat-no" title="statement not covered" >        Sentry.captureException(err);</span>
       });
-    },
   },
 };
 &lt;/script&gt;
@@ -339,35 +302,12 @@ export default {
 &nbsp;
 .card-header {
   margin-bottom: 1rem;
+  background-color: $light;
 }
 &nbsp;
-.project-bullet {
-  position: relative;
-  transform: translate( -3rem);
+.card-footer {
+  background-color: $light;
 }
-&nbsp;
-.project-pending {
-  color: $secondary;
-}
-&nbsp;
-.project-progress {
-  color: orange
-}
-&nbsp;
-.project-accepted {
-  color: green;
-}
-&nbsp;
-.project-denied {
-  color: red;
-}
-&nbsp;
-.tooltip {
-    position: relative;
-    display: inline-block;
-    border-bottom: 1px dotted black;
-}
-&nbsp;
 &lt;/style&gt;
 &nbsp;</pre></td></tr></table></pre>
 
@@ -376,7 +316,7 @@ export default {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Sun Nov 14 2021 14:15:55 GMT+0100 (Central European Standard Time)
+                at Sat Nov 27 2021 08:57:58 GMT+0100 (Central European Standard Time)
             </div>
         </div>
         <script src="../../../prettify.js"></script>
