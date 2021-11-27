@@ -55,7 +55,6 @@ export default {
         .catch((err) => {
           this.error = err.message;
           Sentry.captureException(err);
-          return;
         });
     },
   },

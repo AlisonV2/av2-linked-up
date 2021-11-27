@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for av2-linked-up/src/store/modules/clientProfile.js</title>
+    <title>Code coverage report for av2-linked-up/src/store/modules/orgaProfile.js</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../../../../prettify.css" />
     <link rel="stylesheet" href="../../../../base.css" />
@@ -19,7 +19,7 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="../../../../index.html">All files</a> / <a href="index.html">av2-linked-up/src/store/modules</a> clientProfile.js</h1>
+        <h1><a href="../../../../index.html">All files</a> / <a href="index.html">av2-linked-up/src/store/modules</a> orgaProfile.js</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
@@ -155,9 +155,7 @@
 <a name='L96'></a><a href='#L96'>96</a>
 <a name='L97'></a><a href='#L97'>97</a>
 <a name='L98'></a><a href='#L98'>98</a>
-<a name='L99'></a><a href='#L99'>99</a>
-<a name='L100'></a><a href='#L100'>100</a>
-<a name='L101'></a><a href='#L101'>101</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L99'></a><a href='#L99'>99</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -183,7 +181,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">12x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -211,8 +209,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -224,12 +220,12 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">12x</span>
-<span class="cline-any cline-yes">12x</span>
-<span class="cline-any cline-yes">12x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">12x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -257,12 +253,12 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { auth, clientsCollection } from '@/utils/firebase';
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { auth, organizersCollection } from '@/utils/firebase';
 import * as Sentry from '@sentry/vue';
 &nbsp;
 /**
- * Vuex module for clients' profiles
- * @module clientProfile
+ * Vuex module for organizers' profiles
+ * @module orgaProfile
  * @requires firebase
  * @requires Sentry
  */
@@ -270,47 +266,45 @@ export default {
   /**
    * @name State
    * @type {object}
-   * @property {object} clientProfile - Used for admin part of the website.
+   * @property {object} orgaProfile - Used for admin part of the website.
    */
   state: {
-    clientProfile: {},
+    orgaProfile: {},
   },
   /**
    * @name Mutations
    * @type {object}
-   * @property {object} setClientProfile - Mutates clientProfile
+   * @property {object} setOrgaProfile - Mutates orgaProfile
    */
   mutations: {
     // Used for admin part
-    setClientProfile(state, payload) {
-      state.clientProfile = payload;
+    setOrgaProfile(state, payload) {
+      state.orgaProfile = payload;
     },
   },
   /**
    * @name Actions
    * @type {object}
-   * @property {function} setClientProfile
-   * @property {function} getClientProfile
-   * @property {function} getClientById
+   * @property {function} setOrgaProfile
+   * @property {function} getOrgaProfile
+   * @property {function} getOrgaById
    */
   actions: {
     /**
-     * Admin part - Sets client's profile in firebase's clientsCollection
-     * @method setClientProfile
+     * Admin part - Sets orga's profile in firebase's organizersCollection
+     * @method setOrgaProfile
      * @param {object} payload
      * @returns {void}
      */
-<span class="fstat-no" title="function not covered" >    as</span>ync setClientProfile(_, payload) {
+<span class="fstat-no" title="function not covered" >    as</span>ync setOrgaProfile(_, payload) {
       const user = <span class="cstat-no" title="statement not covered" >auth.currentUser.uid;</span>
 &nbsp;
 <span class="cstat-no" title="statement not covered" >      try {</span>
-<span class="cstat-no" title="statement not covered" >        await clientsCollection.doc(user).update({</span>
+<span class="cstat-no" title="statement not covered" >        await organizersCollection.doc(user).update({</span>
           uid: user,
           name: payload.name,
-          description: payload.description,
           city: payload.city,
           zip: payload.zip,
-          tattooed: payload.tattooed,
         });
       } catch (err) {
 <span class="cstat-no" title="statement not covered" >        Sentry.captureException(err);</span>
@@ -319,41 +313,41 @@ export default {
     },
     /**
      * Admin part
-     * @description Get client profile from firebase
-     * @method getClientProfile
-     * @returns {array}
+     * @description Get orga profile from firebase
+     * @method getOrgaProfile
+     * @returns {object}
      */
-    async getClientProfile({ commit }) {
+    async getOrgaProfile({ commit }) {
       const user = auth.currentUser.uid;
-      const doc = await clientsCollection.doc(user).get();
+      const doc = await organizersCollection.doc(user).get();
       <span class="missing-if-branch" title="if path not taken" >I</span>if (!doc.exists) {
 <span class="cstat-no" title="statement not covered" >        return;</span>
       }
-      commit('setClientProfile', doc.data());
+      commit('setOrgaProfile', doc.data());
     },
     /** Public part
-     * @description Get client by id
-     * @method getClientById
+     * @description Get orga by id
+     * @method getOrgaById
      * @param {object} payload
      * @returns {array}
      */
-<span class="fstat-no" title="function not covered" >    as</span>ync getClientById({ commit }, payload) {
+<span class="fstat-no" title="function not covered" >    as</span>ync getOrgaById({ commit }, payload) {
       const user = <span class="cstat-no" title="statement not covered" >payload;</span>
-      const doc = <span class="cstat-no" title="statement not covered" >await clientsCollection.doc(user).get();</span>
+      const doc = <span class="cstat-no" title="statement not covered" >await organizersCollection.doc(user).get();</span>
 <span class="cstat-no" title="statement not covered" >      if (!doc.exists) {</span>
 <span class="cstat-no" title="statement not covered" >        return;</span>
       }
-<span class="cstat-no" title="statement not covered" >      commit('setClientProfile', doc.data());</span>
+<span class="cstat-no" title="statement not covered" >      commit('setOrgaProfile', doc.data());</span>
     },
   },
   /**
    * @name Getters
    * @type {object}
-   * @property {object} getClientProfile - Gets clientProfile
+   * @property {object} getOrgaProfile - Gets orgaProfile
    */
   getters: {
-    getClientProfile(state) {
-      return state.clientProfile;
+    getOrgaProfile(state) {
+      return state.orgaProfile;
     },
   },
 };
