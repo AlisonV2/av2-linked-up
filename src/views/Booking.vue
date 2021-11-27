@@ -1,7 +1,7 @@
 <template>
   <div class="container col-6 home">
     <div>
-      <BookingForm :id="id"/>
+      <BookingForm :id="id" />
     </div>
   </div>
 </template>
@@ -19,10 +19,10 @@ export default {
   components: {
     BookingForm,
   },
-  computed: {
-    id() {
-      return this.$route.params.id;
-    }
+  data() {
+    return {
+      id: this.$route.params.id,
+    };
   },
 };
 </script>

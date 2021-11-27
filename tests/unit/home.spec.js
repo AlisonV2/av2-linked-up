@@ -1,12 +1,18 @@
-import { shallowMount } from '@vue/test-utils';
+import { shallowMount, RouterLinkStub } from '@vue/test-utils';
 import Home from '@/views/Home.vue';
 import HomeGeoloc from '@/components/home/Geoloc';
+import AppTitle from '@/components/app/Title';
+
 
 const config = {
   global: {
     components: {
       HomeGeoloc,
+      AppTitle
     },
+    stubs: {
+      RouterLink: RouterLinkStub
+    }
   },
 };
 /**

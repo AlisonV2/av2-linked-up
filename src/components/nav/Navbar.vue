@@ -5,7 +5,11 @@
         <router-link :to="{ name: 'Home' }" class="navbar-logo">
           <NavBrand />
         </router-link>
-        <ul class="navbar-menu" :class="{ active: isActive }" @click="isActive = false">
+        <ul
+          class="navbar-menu"
+          :class="{ active: isActive }"
+          @click="isActive = false"
+        >
           <li class="navbar-item">
             <router-link :to="{ name: 'Artists' }" id="artists-link">
               Artists
@@ -16,21 +20,19 @@
               Conventions
             </router-link>
           </li>
-          <li class="navbar-item" v-if="!userLoggedIn" >
+          <li class="navbar-item" v-if="!userLoggedIn">
             <router-link :to="{ name: 'Login' }" id="login-link">
               Login
             </router-link>
           </li>
           <template v-else>
-            <li class="navbar-item" >
-              <router-link :to="{ name: 'AdminProfile' }" id="dashboard-link" >
+            <li class="navbar-item">
+              <router-link :to="{ name: 'AdminProfile' }" id="dashboard-link">
                 Dashboard
               </router-link>
             </li>
             <li class="navbar-item">
-              <a @click.prevent="logout" id="logout-link">
-                Logout
-              </a>
+              <a @click.prevent="logout" id="logout-link"> Logout </a>
             </li>
           </template>
         </ul>
@@ -116,7 +118,7 @@ export default {
   margin: 0.5rem auto;
   -webkit-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
-  background-color: $dark;
+  background-color: $light;
 }
 
 .navbar-menu {
@@ -127,10 +129,11 @@ export default {
 }
 
 .navbar-item {
-  margin-left: 2.5rem;
+  margin-left: 2rem;
   list-style: none;
-  a {
-    color: $dark;
+  a,
+  #logout-link {
+    color: $light;
     text-decoration: none;
     font-family: $accent-font;
     font-size: 1.2rem;
@@ -142,7 +145,7 @@ export default {
   }
 }
 
-@include bp-down(xl) {
+@include bp-down(xxl) {
   .navbar-menu {
     position: fixed;
     right: -100%;
@@ -161,6 +164,9 @@ export default {
   }
   .navbar-item {
     margin: 1.5rem 0;
+    a, #logout-link { 
+      color: $dark;
+    }
   }
   .hamburger {
     display: block;

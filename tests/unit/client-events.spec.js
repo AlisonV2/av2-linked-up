@@ -2,6 +2,7 @@ import { shallowMount, RouterLinkStub } from '@vue/test-utils';
 import { createStore } from 'vuex';
 import ClientEvents from '@/components/clients/ClientEvents.vue';
 import EventItem from '@/components/organizers/EventItem';
+import AppTitle from '@/components/app/Title';
 
 const actions = {
   getClientEvents: jest.fn(),
@@ -33,6 +34,7 @@ const config = {
     plugins: [store],
     components: {
       EventItem,
+      AppTitle
     },
     stubs: {
       RouterLink: RouterLinkStub,

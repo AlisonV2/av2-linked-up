@@ -9,6 +9,6 @@ describe('AppBrand.vue', () => {
 
   it('Checks brand image class', () => {
     const component = shallowMount(AppBrand);
-    expect(component.text()).toContain('Linked Up');
+    expect(component.classes()).toContain('navbar-brand');
   });
 });

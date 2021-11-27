@@ -17,7 +17,7 @@ exports[`AppFooter.vue AppFooter Snapshot 1`] = `
           class="copyright"
         >
           <span
-            data-test="copyright"
+            class="footer-left"
           >
              © Copyright 2021 - 
             <a
@@ -27,7 +27,11 @@ exports[`AppFooter.vue AppFooter Snapshot 1`] = `
             >
               Alison Vandromme
             </a>
-             - All rights reserved 
+            <span
+              class="footer-right"
+            >
+               - All rights reserved
+            </span>
           </span>
         </p>
       </div>

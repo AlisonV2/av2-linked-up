@@ -17,18 +17,17 @@ export default {
 
 <style lang="scss">
 .btn {
-    background-color: $dark;
-    padding: .75rem 1.5rem;
-    border-radius: 0;
+  background-color: $dark;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0;
+  color: $primary;
+  font-size: 1.2rem;
+  font-family: $accent-font;
+  transition: 0.5s;
+  &:hover {
+    color: $light;
+    box-shadow: inset 18em 0 0 0 $primary;
     border: 1px solid $primary;
-    color: $primary;
-    font-family: $accent-font;
-    font-size: 1.2rem;
-    // box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-    transition: 0.5s;
-    &:hover {
-        color: $light;
-        box-shadow: inset 18em 0 0 0 $primary;
-    }
+  }
 }
 </style>

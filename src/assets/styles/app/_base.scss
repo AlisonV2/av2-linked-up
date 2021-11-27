@@ -10,10 +10,13 @@ html {
 
 body {
   font-family: $default-font;
-  background-color: $light;
-  background-image: url('../../img/bg.jpg');
-  background-size: cover;
-  background-position: center;
+  background: linear-gradient(
+    to right, 
+    $light 0%, 
+    $light 50%, 
+    $dark 50%, 
+    $dark 100%
+  );
 }
 
 a {
