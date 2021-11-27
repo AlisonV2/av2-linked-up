@@ -7,10 +7,10 @@ describe('Artists page test', () => {
     cy.get('button').should('have.text', 'Contact Dirty Jonz');
     cy.get('button').click();
     cy.contains('p', 'You must have a client account to contact Dirty Jonz');
-    cy.get('.desktop-logo').click({force: true});
+    cy.get('.navbar-brand').click({force: true});
     cy.get('.bi-arrow-right').click({force: true});
     cy.contains('h2', 'Search by style');
-    cy.get('#conventions-link').click();
-    cy.contains('h2', 'Upcoming events');
+    cy.visit('/conventions');
+    cy.contains('h2', 'Upcoming Events');
   });
 });

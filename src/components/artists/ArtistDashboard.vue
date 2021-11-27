@@ -154,11 +154,12 @@ export default {
       fileErr: null,
     };
   },
-  async created() {
-    await this.$store
+  created() {
+    this.$store
       .dispatch('getArtistProfile')
       .then(() => {
         this.profile = this.$store.getters.getArtistProfile;
+        console.log(this.profile);
       })
       .then(() => {
         this.previewImage = this.profile.thumbnail;
