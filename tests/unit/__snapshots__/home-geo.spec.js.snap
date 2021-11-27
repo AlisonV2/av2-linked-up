@@ -8,7 +8,7 @@ exports[`HomeGeoloc.vue HomeGeoloc Snapshot 1`] = `
     class="col-12 text-center mb-4 app-title"
   >
     <h2
-      class="title"
+      class="main-title"
     >
       
       <span
@@ -48,21 +48,5 @@ exports[`HomeGeoloc.vue HomeGeoloc Snapshot 1`] = `
       
     </button>
   </div>
-  <a>
-    <div
-      class="col-12 text-center mb-4 app-title"
-    >
-      <h2
-        class="title"
-      >
-        
-        Or search by styles 
-        <i
-          class="bi bi-arrow-right"
-        />
-        
-      </h2>
-    </div>
-  </a>
 </form>
 `;

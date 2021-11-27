@@ -1,6 +1,6 @@
 <template>
   <div class="col-12 text-center mb-4 app-title">
-    <h2 class="title">
+    <h2 class="main-title">
       <slot />
     </h2>
   </div>

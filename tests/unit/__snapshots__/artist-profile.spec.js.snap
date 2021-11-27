@@ -15,7 +15,7 @@ exports[`ArtistProfile.vue ArtistProfile Snapshot 1`] = `
         class="col-12 text-center mb-4 app-title"
       >
         <h2
-          class="title"
+          class="main-title"
         >
           
           Artist
@@ -111,7 +111,7 @@ exports[`ArtistProfile.vue ArtistProfile Snapshot 1`] = `
         mode="profile-title-img"
       >
         <h2
-          class="title"
+          class="main-title"
         >
           
           Gallery

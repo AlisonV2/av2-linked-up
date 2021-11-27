@@ -50,8 +50,24 @@ exports[`Event.vue Event Snapshot 1`] = `
            
         </p>
       </div>
-      <!--v-if-->
-      <!--v-if-->
+      <div
+        class="btn-group"
+      >
+        <div
+          class="mt-4 btn-center px-2 attend-event"
+        >
+          <app-button>
+            Attend Event
+          </app-button>
+        </div>
+        <div
+          class="mt-4 btn-center book-event"
+        >
+          <app-button>
+            Book a stand
+          </app-button>
+        </div>
+      </div>
     </div>
   </div>
   <div

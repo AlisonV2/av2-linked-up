@@ -35,4 +35,10 @@ describe('Participation.vue', () => {
     const form = component.findComponent(ParticipationForm);
     expect(form.exists()).toBe(true);
   });
+
+  it('Check if ParticipationForm is rendered', () => {
+    const component = shallowMount(Participation, config);
+    const computed = component.vm.id;
+    expect(computed).toBe('1');
+  });
 });

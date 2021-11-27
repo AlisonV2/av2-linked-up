@@ -9,7 +9,7 @@ exports[`HomeCategories.vue HomeCategories Snapshot 1`] = `
     mode="title-img"
   >
     <h2
-      class="title"
+      class="main-title"
     >
       
       Search by style

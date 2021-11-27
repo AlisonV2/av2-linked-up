@@ -1,4 +1,4 @@
-import { shallowMount } from '@vue/test-utils';
+import { shallowMount, RouterLinkStub } from '@vue/test-utils';
 import { createStore } from 'vuex';
 import ManageArtists from '@/components/organizers/ManageArtists';
 
@@ -14,17 +14,28 @@ const store = createStore({
   getters,
 });
 
+const $route = {
+  name: 'Profile',
+  params: { id: '1' },
+};
+
 const config = {
   data() {
-    return { 
-        events: [], 
-        attendees: null 
+    return {
+      events: [],
+      attendees: null,
     };
   },
   global: {
     plugins: [store],
+    stubs: {
+      RouterLink: RouterLinkStub,
+    },
     components: {
       ManageArtists,
+    },
+    mocks: {
+      $route,
     },
   },
 };
