@@ -5,10 +5,16 @@
         class="col-12 text-end"
         v-if="project.status === 'Pending' || 'In progress'"
       >
-        <span class="project-status px-4" data-test="accept-project" @click="setProjectStatus('Accepted')"
+        <span
+          class="project-status px-4"
+          data-test="accept-project"
+          @click="setProjectStatus('Accepted')"
           >Accept project</span
         >
-        <span class="project-status" data-test="refuse-project" @click="setProjectStatus('Denied')"
+        <span
+          class="project-status"
+          data-test="refuse-project"
+          @click="setProjectStatus('Denied')"
           >Refuse project</span
         >
       </div>
@@ -63,8 +69,6 @@
 </template>
 
 <script>
-import * as Sentry from '@sentry/vue';
-
 /**
  * @exports ProjectDetails
  * @type {Page}
@@ -87,7 +91,7 @@ export default {
         description: '',
         id: '',
         title: '',
-        status: ''
+        status: '',
       },
       showForm: false,
       message: '',
@@ -105,9 +109,6 @@ export default {
         if (this.project.status === 'Pending') {
           this.setProjectStatus('In progress');
         }
-      })
-      .catch((err) => {
-        Sentry.captureException(err);
       });
   },
   methods: {

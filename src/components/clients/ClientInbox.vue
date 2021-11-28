@@ -11,12 +11,9 @@
 </template>
 
 <script>
-import * as Sentry from '@sentry/vue';
-
 /**
  * @exports ClientInbox
  * @type {Component}
- * @requires Sentry
  */
 export default {
   name: 'ClientInbox',
@@ -26,27 +23,20 @@ export default {
     };
   },
   created() {
-    this.$store
-      .dispatch('getClientMessages')
-      .then(() => {
-        this.messages = this.$store.getters.getClientMessages;
-      })
-      .catch((err) => {
-        Sentry.captureException(err);
-      });
+    this.$store.dispatch('getClientMessages').then(() => {
+      this.messages = this.$store.getters.getClientMessages;
+    });
   },
-  methods: {},
 };
 </script>
 
 <style lang="scss">
 .message-item {
   color: $dark;
-    border: 2px solid #dedede;
+  border: 2px solid #dedede;
   background-color: #f1f1f1;
   border-radius: 5px;
   padding: 10px;
   margin: 10px 0;
 }
 </style>
-

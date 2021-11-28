@@ -24,12 +24,9 @@
 </template>
 
 <script>
-import * as Sentry from '@sentry/vue';
-
 /**
  * @exports ParticipationForm
  * @type {Component}
- * @requires Sentry
  * @vue-data {number} tickets - v-model
  * @vue-event setParticipation
  */
@@ -54,7 +51,6 @@ export default {
         })
         .catch((err) => {
           this.error = err.message;
-          Sentry.captureException(err);
         });
     },
   },

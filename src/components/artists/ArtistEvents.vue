@@ -26,7 +26,6 @@
 </template>
 
 <script>
-import * as Sentry from '@sentry/vue';
 import EventItem from '@/components/organizers/EventItem';
 
 /**
@@ -45,17 +44,11 @@ export default {
     };
   },
   created() {
-    this.$store
-      .dispatch('getArtistEvents')
-      .then(() => {
-        const data = this.$store.getters.getArtistEvents;
-        this.stands = data.stands;
-        this.attendance = data.attendance;
-        console.log(this.stands)
-      })
-      .catch((err) => {
-        Sentry.captureException(err);
-      });
+    this.$store.dispatch('getArtistEvents').then(() => {
+      const data = this.$store.getters.getArtistEvents;
+      this.stands = data.stands;
+      this.attendance = data.attendance;
+    });
   },
 };
 </script>

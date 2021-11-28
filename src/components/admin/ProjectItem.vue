@@ -5,10 +5,10 @@
       <span
         class="project-bullet"
         :class="{
-          'project-pending': status === 'Pending',
-          'project-progress': status === 'In progress',
-          'project-accepted': status === 'Accepted',
-          'project-denied': status === 'Denied',
+          'project-pending': project.status === 'Pending',
+          'project-progress': project.status === 'In progress',
+          'project-accepted': project.status === 'Accepted',
+          'project-denied': project.status === 'Denied',
         }"
         >&#9673;</span
       >
@@ -27,15 +27,11 @@
 </template>
 
 <script>
-import * as Sentry from '@sentry/vue';
-
 /**
  * @exports ProjectItem
  * @type {Component}
- * @requires Sentry
  * @vue-prop {object} project - Project object
  * @vue-data {string} role - User role
- * @vue-computed {string} status - Project status
  */
 export default {
   name: 'ProjectItem',
@@ -45,20 +41,10 @@ export default {
       role: '',
     };
   },
-  computed: {
-    status() {
-      return this.project.status;
-    },
-  },
   created() {
-    this.$store
-      .dispatch('getUserRole')
-      .then(() => {
-        this.role = this.$store.getters.getUserRole;
-      })
-      .catch((err) => {
-        Sentry.captureException(err);
-      });
+    this.$store.dispatch('getUserRole').then(() => {
+      this.role = this.$store.getters.getUserRole;
+    });
   },
 };
 </script>

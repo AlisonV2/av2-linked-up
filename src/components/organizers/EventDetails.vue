@@ -21,10 +21,7 @@
         class="img-fluid"
         alt="event Image"
       />
-      <div
-        class="btn-center mt-3 thumbnail-button"
-        @click="setEventThumbnail"
-      >
+      <div class="btn-center mt-3 thumbnail-button" @click="setEventThumbnail">
         <app-button mode="save-btn">Update</app-button>
       </div>
       <div class="error">{{ fileErr }}</div>
@@ -78,12 +75,9 @@
 </template>
 
 <script>
-import * as Sentry from '@sentry/vue';
-
 /**
  * @exports OrgaDashboard
  * @type {Component}
- * @requires Sentry
  * @vue-data {array} previewImage
  * @vue-data {object} event
  * @vue-data {boolean} showSuccessToast
@@ -122,8 +116,7 @@ export default {
       })
       .then(() => {
         this.previewImage = this.event.thumbnail;
-      })
-      .catch((err) => Sentry.captureException(err));
+      });
   },
   methods: {
     setPreviewImage($event) {
@@ -143,7 +136,7 @@ export default {
       this.$store
         .dispatch('setEventThumbnail', {
           file: this.fileSelected,
-          eventId: this.$route.params.id
+          eventId: this.$route.params.id,
         })
         .then(() => {
           this.showSuccess();
@@ -179,10 +172,9 @@ export default {
         this.showSuccessToast = false;
       }, 3000);
     },
-    showError(err) {
+    showError() {
       this.showErrorToast = true;
       this.showSuccessToast = false;
-      Sentry.captureException(err);
       setTimeout(() => {
         this.showErrorToast = false;
       }, 3000);

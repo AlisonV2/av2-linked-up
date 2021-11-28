@@ -22,8 +22,6 @@
 </template>
 
 <script>
-import * as Sentry from '@sentry/vue';
-
 /**
  * @exports ClientProfile
  * @type {Page}
@@ -45,13 +43,12 @@ export default {
       },
     };
   },
-  async created() {
-    await this.$store
+  created() {
+    this.$store
       .dispatch('getClientById', this.$route.params.id)
       .then(() => {
         this.client = this.$store.getters.getClientProfile;
       })
-      .catch((err) => Sentry.captureException(err));
   },
 };
 </script>

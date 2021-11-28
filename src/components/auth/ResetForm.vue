@@ -24,12 +24,9 @@
 </template>
 
 <script>
-import * as Sentry from '@sentry/vue';
-
 /**
  * @exports ParticipationForm
  * @type {Component}
- * @requires Sentry
  * @vue-data {string} email - v-model
  * @vue-event resetPassword
  */
@@ -49,8 +46,6 @@ export default {
         })
         .catch((err) => {
           this.error = err.message;
-          Sentry.captureException(err);
-          return;
         });
     },
   },

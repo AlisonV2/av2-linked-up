@@ -8,7 +8,11 @@
       </div>
     </div>
     <div class="col-12 btn-right mt-3" v-if="profileGallery">
-      <div class="btn-group mb-3" data-test="update" @click="updateArtistGallery">
+      <div
+        class="btn-group mb-3"
+        data-test="update"
+        @click="updateArtistGallery"
+      >
         <app-button>Update</app-button>
       </div>
     </div>
@@ -47,7 +51,10 @@
   </div>
   <div class="row" v-if="!profileGallery">
     <div class="col-12 col-md-6 col-lg-4 col-xl-3">
-      <img :src="require('@/assets/img/default-placeholder.png')" alt="Placeholder Image"/>
+      <img
+        :src="require('@/assets/img/default-placeholder.png')"
+        alt="Placeholder Image"
+      />
     </div>
   </div>
 </template>
@@ -55,7 +62,6 @@
 <script>
 import GalleryItem from '@/components/admin/GalleryItem';
 import PreviewItem from '@/components/admin/PreviewItem';
-import * as Sentry from '@sentry/vue';
 
 /**
  * @exports AdminGallery
@@ -86,17 +92,12 @@ export default {
     };
   },
   created() {
-    this.$store.dispatch('getArtistGallery')
-    .then(() => {
+    this.$store.dispatch('getArtistGallery').then(() => {
       this.profileGallery = this.$store.getters.getProfileGallery;
-    })
-    .catch((err) => {
-      Sentry.captureException(err);
     });
   },
   methods: {
     handleChange($event) {
-      this.cleanCache();
       const files = $event.target.files;
       this.gallery = files;
       const previews = [];
@@ -106,14 +107,6 @@ export default {
           previews.push(pictureUrl);
         }
         this.images = previews;
-      }
-    },
-    cleanCache() {
-      const previews = this.images;
-      for (const i in previews) {
-        if (previews[i].startsWith('blob:')) {
-          URL.revokeObjectURL(previews[i]);
-        }
       }
     },
     async setArtistGallery() {
@@ -140,10 +133,9 @@ export default {
         this.showSuccessToast = false;
       }, 3000);
     },
-    showError(err) {
+    showError() {
       this.showErrorToast = true;
       this.showSuccessToast = false;
-      Sentry.captureException(err);
       setTimeout(() => {
         this.showErrorToast = false;
       }, 3000);

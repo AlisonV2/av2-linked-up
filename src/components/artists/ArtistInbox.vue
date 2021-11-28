@@ -11,12 +11,9 @@
 </template>
 
 <script>
-import * as Sentry from '@sentry/vue';
-
 /**
  * @exports ArtistInbox
  * @type {Component}
- * @requires Sentry
  */
 export default {
   name: 'ArtistInbox',
@@ -26,14 +23,9 @@ export default {
     };
   },
   created() {
-    this.$store
-      .dispatch('getArtistMessages')
-      .then(() => {
-        this.messages = this.$store.getters.getArtistMessages;
-      })
-      .catch((err) => {
-        Sentry.captureException(err);
-      });
+    this.$store.dispatch('getArtistMessages').then(() => {
+      this.messages = this.$store.getters.getArtistMessages;
+    });
   },
 };
 </script>

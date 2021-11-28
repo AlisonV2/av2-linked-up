@@ -1,9 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`AppBrand.vue AppBrand Snapshot 1`] = `
-<img
-  alt="Brand Logo"
-  class="navbar-brand"
-  src="/img/logo.png"
-/>
-`;

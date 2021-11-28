@@ -5,7 +5,6 @@
 </template>
 
 <script>
-import * as Sentry from '@sentry/vue';
 import ArtistEvents from '@/components/artists/ArtistEvents.vue';
 import ClientEvents from '@/components/clients/ClientEvents.vue';
 import OrgaEvents from '@/components/organizers/OrgaEvents.vue';
@@ -13,7 +12,6 @@ import OrgaEvents from '@/components/organizers/OrgaEvents.vue';
 /**
  * @exports AdminEvents
  * @type {Component}
- * @requires Sentry
  * @vue-data{string} role
  * @vue-event {number} getUserRole on created hook
  */
@@ -30,14 +28,9 @@ export default {
     };
   },
   created() {
-    this.$store
-      .dispatch('getUserRole')
-      .then(() => {
-        this.role = this.$store.getters.getUserRole;
-      })
-      .catch((err) => {
-        Sentry.captureException(err);
-      });
+    this.$store.dispatch('getUserRole').then(() => {
+      this.role = this.$store.getters.getUserRole;
+    });
   },
 };
 </script>

@@ -31,12 +31,9 @@
 </template>
 
 <script>
-import * as Sentry from '@sentry/vue';
-
 /**
  * @exports MessageDetails
  * @type {Page}
- * @requires Sentry
  * @vue-data {array} messages
  * @vue-data {string} newMessage
  * @vue-data {string} userId
@@ -51,14 +48,9 @@ export default {
     };
   },
   created() {
-    this.$store
-      .dispatch('getCurrentUser')
-      .then(() => {
-        this.userId = this.$store.getters.getCurrentUser;
-      })
-      .catch((err) => {
-        Sentry.captureException(err);
-      });
+    this.$store.dispatch('getCurrentUser').then(() => {
+      this.userId = this.$store.getters.getCurrentUser;
+    });
 
     this.getMessages();
   },
@@ -76,9 +68,6 @@ export default {
         })
         .then(() => {
           this.newMessage = '';
-        })
-        .catch((err) => {
-          Sentry.captureException(err);
         });
     },
     getMessages() {
@@ -90,9 +79,6 @@ export default {
         .then(() => {
           const element = document.querySelector('#chat-window');
           element.scrollTop = element.scrollHeight;
-        })
-        .catch((err) => {
-          Sentry.captureException(err);
         });
     },
   },
@@ -175,9 +161,8 @@ export default {
   }
 
   input {
-    width: 100%!important;
+    width: 100% !important;
     margin-bottom: 1rem;
   }
-
 }
 </style>

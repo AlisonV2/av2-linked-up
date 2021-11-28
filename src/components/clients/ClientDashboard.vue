@@ -82,12 +82,9 @@
 </template>
 
 <script>
-import * as Sentry from '@sentry/vue';
-
 /**
  * @exports ClientDashboard
  * @type {Component}
- * @requires Sentry
  * @vue-data {array} previewImage
  * @vue-data {object} profile
  * @vue-data {boolean} showSuccessToast
@@ -127,7 +124,6 @@ export default {
       .then(() => {
         this.previewImage = this.profile.thumbnail;
       })
-      .catch((err) => Sentry.captureException(err));
   },
   methods: {
     setPreviewImage($event) {
@@ -179,10 +175,9 @@ export default {
         this.showSuccessToast = false;
       }, 3000);
     },
-    showError(err) {
+    showError() {
       this.showErrorToast = true;
       this.showSuccessToast = false;
-      Sentry.captureException(err);
       setTimeout(() => {
         this.showErrorToast = false;
       }, 3000);
