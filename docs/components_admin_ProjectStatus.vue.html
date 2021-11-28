@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>views/ResetPassword.vue - Documentation</title>
+    <title>components/admin/ProjectStatus.vue - Documentation</title>
 
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
@@ -29,7 +29,7 @@
 
 <div id="main">
     
-    <h1 class="page-title">views/ResetPassword.vue</h1>
+    <h1 class="page-title">components/admin/ProjectStatus.vue</h1>
     
 
     
@@ -40,28 +40,31 @@
     <section>
         <article>
             <pre class="prettyprint source linenums"><code>&lt;template>
-  &lt;div class="container col-6 home">
-    &lt;div>
-      &lt;ResetForm />
+  &lt;div class="row mb-4">
+    &lt;div class="col-12 status-description">
+      &lt;span class="project-bullet project-pending">&amp;#9673;&lt;/span>&lt;span class="mx-2">Pending&lt;/span>
+      &lt;span class="project-bullet project-progress">&amp;#9673;&lt;/span>&lt;span class="mx-2">In progress&lt;/span>
+      &lt;span class="project-bullet project-accepted">&amp;#9673;&lt;/span>&lt;span class="mx-2">Accepted&lt;/span>
+      &lt;span class="project-bullet project-denied">&amp;#9673;&lt;/span>&lt;span class="mx-2">Denied&lt;/span>
     &lt;/div>
   &lt;/div>
 &lt;/template>
 
 &lt;script>
-import ResetForm from '@/components/auth/ResetForm';
-
 /**
- * @exports ResetPassword
- * @requires ResetForm
- * @type {Page}
+ * @exports ProjectStatus
+ * @type {Component}
  */
 export default {
-  name: 'ResetPassword',
-  components: {
-    ResetForm,
-  },
+    name: 'ProjectStatus'
 };
 &lt;/script>
+
+&lt;style lang="scss">
+.status-description {
+  text-align: center;
+}
+&lt;/style>
 </code></pre>
         </article>
     </section>
