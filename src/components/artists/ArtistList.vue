@@ -14,8 +14,12 @@
 
 <script>
 import ArtistItem from '@/components/artists/ArtistItem';
-import * as Sentry from '@sentry/vue';
 
+/**
+ * @exports ArtistList
+ * @type {Component}
+ * @vue-prop {array} artists
+ */
 export default {
   name: 'ArtistList',
   components: {
@@ -27,12 +31,9 @@ export default {
     };
   },
   created() {
-    this.$store
-      .dispatch('getAllArtists')
-      .then(() => {
-        this.artists = this.$store.getters.getAllArtists;
-      })
-      .catch((err) => Sentry.captureException(err));
+    this.$store.dispatch('getAllArtists').then(() => {
+      this.artists = this.$store.getters.getAllArtists;
+    });
   },
 };
 </script>

@@ -14,7 +14,6 @@
 </template>
 
 <script>
-import * as Sentry from '@sentry/vue';
 import EventItem from '@/components/organizers/EventItem';
 
 /**
@@ -32,15 +31,9 @@ export default {
     };
   },
   created() {
-    this.$store
-      .dispatch('getClientEvents')
-      .then(() => {
-        this.events = this.$store.getters.getClientEvents;
-        console.log(this.events)
-      })
-      .catch((err) => {
-        Sentry.captureException(err);
-      });
+    this.$store.dispatch('getClientEvents').then(() => {
+      this.events = this.$store.getters.getClientEvents;
+    });
   },
 };
 </script>

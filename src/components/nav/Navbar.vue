@@ -79,11 +79,6 @@ export default {
       isActive: false,
     };
   },
-  /**
-   * @description Dispatch logout store action
-   * Redirect to Home page if the current route requires authentication
-   * @method logout
-   */
   methods: {
     logout() {
       this.$store.dispatch('logout');

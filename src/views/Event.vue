@@ -54,13 +54,11 @@
 </template>
 
 <script>
-import * as Sentry from '@sentry/vue';
 import ArtistItem from '@/components/artists/ArtistItem';
 
 /**
  * @exports EventPage
  * @type {Page}
- * @requires Sentry
  * @vue-data {object} event
  * @vue-data {boolean} attend
  * @vue-data {boolean} book
@@ -91,31 +89,18 @@ export default {
     };
   },
   created() {
-    this.$store
-      .dispatch('getEventById', this.$route.params.id)
-      .then(() => {
-        this.event = this.$store.getters.getEventById;
-      })
-      .catch((err) => Sentry.captureException(err));
+    this.$store.dispatch('getEventById', this.$route.params.id).then(() => {
+      this.event = this.$store.getters.getEventById;
+    });
 
-    this.$store
-      .dispatch('getUserRole')
-      .then(() => {
-        this.role = this.$store.getters.getUserRole;
-      })
-      .catch((err) => {
-        Sentry.captureException(err);
-      });
+    this.$store.dispatch('getUserRole').then(() => {
+      this.role = this.$store.getters.getUserRole;
+    });
 
-    this.$store
-      .dispatch('getEventArtists', this.$route.params.id)
-      .then(() => {
-        this.artists = this.$store.getters.getEventArtists;
-        console.log(this.artists);
-      })
-      .catch((err) => {
-        Sentry.captureException(err);
-      });
+    this.$store.dispatch('getEventArtists', this.$route.params.id).then(() => {
+      this.artists = this.$store.getters.getEventArtists;
+      console.log(this.artists);
+    });
   },
   methods: {
     attendEvent() {

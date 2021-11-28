@@ -23,12 +23,9 @@
 </template>
 
 <script>
-import * as Sentry from '@sentry/vue';
-
 /**
  * @exports HomeGeoloc
  * @type {Component}
- * @requires Sentry
  * @vue-data {string} location - v-model
  * @vue-data {string} city - stores user's city from geoloc
  * @vue-data {string} address - stores user's address from geoloc
@@ -57,23 +54,11 @@ export default {
         })
         .then(() => {
           this.geoloc = true;
-        })
-        .catch((err) => Sentry.captureException(err));
+        });
     },
-    /**
-     * @description Dispatch store action
-     * @method searchByGeoloc
-     * @param {string} loc
-     * @async
-     */
     async searchByGeoloc() {
       await this.$store.dispatch('getArtistsByCity', this.loc);
     },
-    /**
-     * @description Dispatch store action
-     * @method searchByCity
-     * @async
-     */
     async searchByCity() {
       this.geoloc = false;
       let code;
@@ -82,25 +67,18 @@ export default {
         `https://geo.api.gouv.fr/communes?nom=${city}&fields=departement&limit=1`
       )
         .then((res) => res.json())
-        .then((data) => (code = data[0].departement.code))
-        .catch((err) => Sentry.captureException(err));
+        .then((data) => (code = data[0].departement.code));
       await this.$store.dispatch('getArtistsByCity', code);
     },
-    /**
-     * @description Checks if input value is from geoloc or manual input
-     * @method handleSubmit
-     * @param {boolean} geoloc
-     * @async
-     */
     handleSubmit() {
       if (this.geoloc) {
-        this.searchByGeoloc()
-          .then(() => this.$router.push({ name: 'GeoResults' }))
-          .catch((err) => Sentry.captureException(err));
+        this.searchByGeoloc().then(() =>
+          this.$router.push({ name: 'GeoResults' })
+        );
       } else {
-        this.searchByCity()
-          .then(() => this.$router.push({ name: 'GeoResults' }))
-          .catch((err) => Sentry.captureException(err));
+        this.searchByCity().then(() =>
+          this.$router.push({ name: 'GeoResults' })
+        );
       }
     },
   },

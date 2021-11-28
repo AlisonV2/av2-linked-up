@@ -93,7 +93,9 @@
               class="nav-link align-middle px-0"
             >
               <i class="fs-4 bi bi-list-ol"></i>
-              <span class="ms-3 d-none d-sm-inline">Attendees</span></router-link
+              <span class="ms-3 d-none d-sm-inline"
+                >Attendees</span
+              ></router-link
             >
           </li>
         </template>
@@ -103,12 +105,9 @@
 </template>
 
 <script>
-import * as Sentry from '@sentry/vue';
-
 /**
  * @exports Sidenav
  * @type {Component}
- * @requires Sentry
  */
 export default {
   name: 'Sidenav',
@@ -118,14 +117,9 @@ export default {
     };
   },
   created() {
-    this.$store
-      .dispatch('getUserRole')
-      .then(() => {
-        this.role = this.$store.getters.getUserRole;
-      })
-      .catch((err) => {
-        Sentry.captureException(err);
-      });
+    this.$store.dispatch('getUserRole').then(() => {
+      this.role = this.$store.getters.getUserRole;
+    });
   },
 };
 </script>

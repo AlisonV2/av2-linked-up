@@ -24,12 +24,9 @@
 </template>
 
 <script>
-import * as Sentry from '@sentry/vue';
-
 /**
  * @exports BookingForm
  * @type {Component}
- * @requires Sentry
  * @vue-data {number} emails - v-model
  * @vue-event resetPassword
  */
@@ -46,16 +43,10 @@ export default {
       const data = {
         eventId: this.id,
         email: this.email,
-      }
-      this.$store
-        .dispatch('setBooking', data)
-        .then(() => {
-          this.$router.push({ name: 'AdminEvents' });
-        })
-        .catch((err) => {
-          this.error = err.message;
-          Sentry.captureException(err);
-        });
+      };
+      this.$store.dispatch('setBooking', data).then(() => {
+        this.$router.push({ name: 'AdminEvents' });
+      });
     },
   },
 };

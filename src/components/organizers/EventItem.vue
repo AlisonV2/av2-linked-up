@@ -29,7 +29,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.Event-card {
+.event-card {
   .card-title {
     font-family: $accent-font;
     color: $primary;

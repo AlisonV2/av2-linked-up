@@ -22,9 +22,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">62.07% </span>
+                <span class="strong">75% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>18/29</span>
+                <span class='fraction'>15/20</span>
             </div>
         
             
@@ -36,16 +36,16 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">61.54% </span>
+                <span class="strong">77.78% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>8/13</span>
+                <span class='fraction'>7/9</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">62.07% </span>
+                <span class="strong">75% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>18/29</span>
+                <span class='fraction'>15/20</span>
             </div>
         
             
@@ -231,24 +231,7 @@
 <a name='L173'></a><a href='#L173'>173</a>
 <a name='L174'></a><a href='#L174'>174</a>
 <a name='L175'></a><a href='#L175'>175</a>
-<a name='L176'></a><a href='#L176'>176</a>
-<a name='L177'></a><a href='#L177'>177</a>
-<a name='L178'></a><a href='#L178'>178</a>
-<a name='L179'></a><a href='#L179'>179</a>
-<a name='L180'></a><a href='#L180'>180</a>
-<a name='L181'></a><a href='#L181'>181</a>
-<a name='L182'></a><a href='#L182'>182</a>
-<a name='L183'></a><a href='#L183'>183</a>
-<a name='L184'></a><a href='#L184'>184</a>
-<a name='L185'></a><a href='#L185'>185</a>
-<a name='L186'></a><a href='#L186'>186</a>
-<a name='L187'></a><a href='#L187'>187</a>
-<a name='L188'></a><a href='#L188'>188</a>
-<a name='L189'></a><a href='#L189'>189</a>
-<a name='L190'></a><a href='#L190'>190</a>
-<a name='L191'></a><a href='#L191'>191</a>
-<a name='L192'></a><a href='#L192'>192</a>
-<a name='L193'></a><a href='#L193'>193</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L176'></a><a href='#L176'>176</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -349,8 +332,8 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">5x</span>
@@ -369,8 +352,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -411,21 +392,6 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -526,12 +492,11 @@
 &lt;/template&gt;
 &nbsp;
 &lt;script&gt;
-import * as Sentry from '@sentry/vue';
+import toasts from '@/mixins/toasts';
 &nbsp;
 /**
  * @exports OrgaDashboard
  * @type {Component}
- * @requires Sentry
  * @vue-data {array} previewImage
  * @vue-data {object} event
  * @vue-data {boolean} showSuccessToast
@@ -544,6 +509,7 @@ import * as Sentry from '@sentry/vue';
  */
 export default {
   name: 'OrgaDashboard',
+  mixins: [toasts],
   data() {
     return {
       previewImage: null,
@@ -555,8 +521,6 @@ export default {
         date: '',
         thumbnail: '',
       },
-      showSuccessToast: false,
-      showErrorToast: false,
       fileSelected: null,
       fileErr: null,
     };
@@ -600,26 +564,11 @@ export default {
           this.showSuccess();
         })
         .then(() =&gt; {
-            this.$router.push({name: 'AdminEvents'});
+          this.$router.push({ name: 'AdminEvents' });
         })
         .catch((<span class="fstat-no" title="function not covered" >err) =&gt; {</span>
 <span class="cstat-no" title="statement not covered" >          this.s</span>howError(err);
         });
-    },
-    showSuccess() {
-      this.showSuccessToast = true;
-      this.showErrorToast = false;
-      setTimeout(<span class="fstat-no" title="function not covered" >() =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >        this.s</span>howSuccessToast = false;
-      }, 3000);
-    },
-<span class="fstat-no" title="function not covered" >    showError(</span>err) {
-<span class="cstat-no" title="statement not covered" >      this.s</span>howErrorToast = true;
-<span class="cstat-no" title="statement not covered" >      this.s</span>howSuccessToast = false;
-<span class="cstat-no" title="statement not covered" >      Sentry.</span>captureException(err);
-<span class="cstat-no" title="statement not covered" >      setTimeout(<span class="fstat-no" title="function not covered" ></span>() =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >        this.s</span>howErrorToast = false;
-      }, 3000);
     },
   },
 };
@@ -639,7 +588,7 @@ export default {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Fri Nov 26 2021 13:29:28 GMT+0100 (Central European Standard Time)
+                at Sun Nov 28 2021 12:07:10 GMT+0100 (Central European Standard Time)
             </div>
         </div>
         <script src="..\..\..\prettify.js"></script>

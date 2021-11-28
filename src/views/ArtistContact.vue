@@ -29,8 +29,6 @@
 </template>
 
 <script>
-import * as Sentry from '@sentry/vue';
-
 export default {
   name: 'ArtistContact',
   data() {
@@ -54,12 +52,9 @@ export default {
         title: this.title,
         description: this.description,
       };
-      this.$store
-        .dispatch('setNewProject', project)
-        .then(() => {
-          this.$router.push({ name: 'AdminProjects' });
-        })
-        .catch((err) => Sentry.captureException(err));
+      this.$store.dispatch('setNewProject', project).then(() => {
+        this.$router.push({ name: 'AdminProjects' });
+      });
     },
   },
 };

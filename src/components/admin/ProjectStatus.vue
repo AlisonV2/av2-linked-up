@@ -10,6 +10,10 @@
 </template>
 
 <script>
+/**
+ * @exports ProjectStatus
+ * @type {Component}
+ */
 export default {
     name: 'ProjectStatus'
 };

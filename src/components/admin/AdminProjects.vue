@@ -24,8 +24,8 @@ export default {
       role: '',
     };
   },
-  async created() {
-    await this.$store.dispatch('getUserRole').then(() => {
+  created() {
+    this.$store.dispatch('getUserRole').then(() => {
       this.role = this.$store.getters.getUserRole;
     });
   },

@@ -39,11 +39,6 @@ export default {
     this.getDate();
   },
   methods: {
-    /**
-     * @description Get current year
-     * @method getDate
-     * @returns {string} payload
-     */
     getDate() {
       this.year = new Date().getFullYear();
     },

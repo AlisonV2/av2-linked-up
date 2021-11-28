@@ -14,7 +14,6 @@
 
 <script>
 import EventItem from '@/components/organizers/EventItem';
-import * as Sentry from '@sentry/vue';
 
 /**
  * @exports ArtistList
@@ -33,14 +32,9 @@ export default {
     };
   },
   created() {
-    this.$store
-      .dispatch('getEvents')
-      .then(() => {
-        this.events = this.$store.getters.getEvents;
-      })
-      .catch((err) => {
-        Sentry.captureException(err);
-      });
+    this.$store.dispatch('getEvents').then(() => {
+      this.events = this.$store.getters.getEvents;
+    });
   },
 };
 </script>

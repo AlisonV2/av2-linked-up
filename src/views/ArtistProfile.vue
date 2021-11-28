@@ -42,7 +42,7 @@
         :key="img"
       >
         <div class="card gallery-card">
-          <img :src="img" class="card-img-top" alt="Gallery Image"/>
+          <img :src="img" class="card-img-top" alt="Gallery Image" />
         </div>
       </div>
     </div>
@@ -50,18 +50,15 @@
   <AppModal :show="open" @hide="open = false">
     <template #title>Contact {{ artist.name }}</template>
     <template #content>
-        You must have a client account to contact {{ artist.name }}
+      You must have a client account to contact {{ artist.name }}
     </template>
   </AppModal>
 </template>
 
 <script>
-import * as Sentry from '@sentry/vue';
-
 /**
  * @exports ArtistProfile
  * @type {Page}
- * @requires Sentry
  * @vue-computed {array} gallery - Returned from store
  * @vue-computed {object} artist - Returned from store
  * @vue-event created - Dispatch store action on created hook
@@ -84,7 +81,7 @@ export default {
       },
       role: '',
       open: false,
-      name: ''
+      name: '',
     };
   },
   async created() {
@@ -93,34 +90,32 @@ export default {
       .then(() => {
         this.artist = this.$store.getters.getArtistProfile;
         this.name = this.artist.name;
-      })
-      .catch((err) => Sentry.captureException(err));
+      });
 
     await this.$store
       .dispatch('getGalleryFromId', this.$route.params.id)
       .then(() => {
         this.gallery = this.$store.getters.getGalleryFromId;
-      })
-      .catch((err) => Sentry.captureException(err));
+      });
 
-    await this.$store
-      .dispatch('getUserRole')
-      .then(() => {
-        this.role = this.$store.getters.getUserRole;
-      })
-      .catch((err) => Sentry.captureException(err));
+    await this.$store.dispatch('getUserRole').then(() => {
+      this.role = this.$store.getters.getUserRole;
+    });
   },
   methods: {
     handleContact() {
       const id = this.$route.params.id;
       const artist = this.name;
       if (this.role === 'client') {
-        this.$router.push({ name : 'ArtistContact', params: { artist: artist, id: id } });
+        this.$router.push({
+          name: 'ArtistContact',
+          params: { artist: artist, id: id },
+        });
       } else {
         this.open = true;
       }
     },
-  }
+  },
 };
 </script>
 

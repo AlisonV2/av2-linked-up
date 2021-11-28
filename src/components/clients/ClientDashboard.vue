@@ -82,12 +82,11 @@
 </template>
 
 <script>
-import * as Sentry from '@sentry/vue';
+import toasts from '@/mixins/toasts';
 
 /**
  * @exports ClientDashboard
  * @type {Component}
- * @requires Sentry
  * @vue-data {array} previewImage
  * @vue-data {object} profile
  * @vue-data {boolean} showSuccessToast
@@ -101,6 +100,7 @@ import * as Sentry from '@sentry/vue';
  */
 export default {
   name: 'ClientDashboard',
+  mixins: [toasts],
   data() {
     return {
       previewImage: null,
@@ -112,8 +112,6 @@ export default {
         tattooed: '',
         thumbnail: '',
       },
-      showSuccessToast: false,
-      showErrorToast: false,
       fileSelected: null,
       fileErr: null,
     };
@@ -127,7 +125,6 @@ export default {
       .then(() => {
         this.previewImage = this.profile.thumbnail;
       })
-      .catch((err) => Sentry.captureException(err));
   },
   methods: {
     setPreviewImage($event) {
@@ -171,21 +168,6 @@ export default {
         .catch((err) => {
           this.showError(err);
         });
-    },
-    showSuccess() {
-      this.showSuccessToast = true;
-      this.showErrorToast = false;
-      setTimeout(() => {
-        this.showSuccessToast = false;
-      }, 3000);
-    },
-    showError(err) {
-      this.showErrorToast = true;
-      this.showSuccessToast = false;
-      Sentry.captureException(err);
-      setTimeout(() => {
-        this.showErrorToast = false;
-      }, 3000);
     },
   },
 };

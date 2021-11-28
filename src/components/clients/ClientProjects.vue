@@ -10,12 +10,10 @@
 <script>
 import ProjectItem from '@/components/admin/ProjectItem';
 import ProjectStatus from '@/components/admin/ProjectStatus';
-import * as Sentry from '@sentry/vue';
 
 /**
  * @exports ClientProjects
  * @type {Component}
- * @requires Sentry
  * @vue-data {array} projects
  */
 export default {
@@ -30,14 +28,9 @@ export default {
     };
   },
   created() {
-    this.$store
-      .dispatch('getClientProjects')
-      .then(() => {
-        this.projects = this.$store.getters.getClientProjects;
-      })
-      .catch((err) => {
-        Sentry.captureException(err);
-      });
+    this.$store.dispatch('getClientProjects').then(() => {
+      this.projects = this.$store.getters.getClientProjects;
+    });
   },
 };
 </script>

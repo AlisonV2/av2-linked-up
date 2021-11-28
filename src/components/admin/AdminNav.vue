@@ -32,11 +32,6 @@ export default {
     };
   },
   methods: {
-    /**
-     * @description Dispatch logout store action
-     * Redirect to Home page if the current route requires authentication
-     * @method logout
-     */
     logout() {
       this.$store.dispatch('logout');
       if (this.$route.meta.requiresAuth) {

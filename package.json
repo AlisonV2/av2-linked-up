@@ -113,7 +113,8 @@
       "main.js",
       "/store/",
       "/router/",
-      "registerServiceWorker.js"
+      "registerServiceWorker.js",
+      "/mixins/"
     ]
   },
   "nyc": {
@@ -121,7 +122,6 @@
     "extension": [
       ".js",
       ".vue"
-    ],
-    "exclude": ["./src/registerServiceWorker.js"]
+    ]
   }
 }

@@ -8,8 +8,6 @@
 </template>
 
 <script>
-import * as Sentry from '@sentry/vue';
-
 /**
  * @exports ManageAttendees
  * @type {Component}
@@ -25,14 +23,9 @@ export default {
     };
   },
   created() {
-    this.$store
-      .dispatch('getOrgaEvents')
-      .then(() => {
-        this.events = this.$store.getters.getOrgaEvents;
-      })
-      .catch((err) => {
-        Sentry.captureException(err);
-      });
+    this.$store.dispatch('getOrgaEvents').then(() => {
+      this.events = this.$store.getters.getOrgaEvents;
+    });
   },
 };
 </script>

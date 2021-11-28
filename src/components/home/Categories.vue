@@ -2,7 +2,11 @@
   <div class="row">
     <app-title mode="title-img">Search by style</app-title>
     <div class="col-12 cold-md-6 col-lg-4 col-xl-3">
-      <div class="card" data-test="black-work" @click="setCategory('Black Work')">
+      <div
+        class="card"
+        data-test="black-work"
+        @click="setCategory('Black Work')"
+      >
         <img src="/img/blackwork.jpg" class="card-img-top" alt="blackwork" />
         <div class="card-body">
           <h5 class="card-title">Black Work</h5>
@@ -37,28 +41,17 @@
 </template>
 
 <script>
-import * as Sentry from '@sentry/vue';
-
 /**
  * @exports HomeCategories
  * @type {Component}
- * @requires Sentry
  * @vue-event setCategory - Dispatch getArtistsByStyle store action
  */
 export default {
   methods: {
-    /**
-     * @description Dispatch getArtistsByStyle action
-     * Redirect to CategoriesResults Page
-     * @method setCategory
-     * @param {string} payload
-     * @async
-     */
     async setCategory(data) {
       await this.$store
         .dispatch('getArtistsByStyle', data)
-        .then(() => this.$router.push({ name: 'CategoriesResults' }))
-        .catch((err) => Sentry.captureException(err));
+        .then(() => this.$router.push({ name: 'CategoriesResults' }));
     },
   },
 };

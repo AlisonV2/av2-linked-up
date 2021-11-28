@@ -12,8 +12,6 @@
 </template>
 
 <script>
-import * as Sentry from '@sentry/vue';
-
 /**
  * @exports EventUpdate
  * @type {Component}
@@ -29,14 +27,9 @@ export default {
     };
   },
   created() {
-    this.$store
-      .dispatch('getUserRole')
-      .then(() => {
-        this.role = this.$store.getters.getUserRole;
-      })
-      .catch((err) => {
-        Sentry.captureException(err);
-      });
+    this.$store.dispatch('getUserRole').then(() => {
+      this.role = this.$store.getters.getUserRole;
+    });
   },
 };
 </script>

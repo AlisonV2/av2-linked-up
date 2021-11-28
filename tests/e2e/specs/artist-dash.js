@@ -1,7 +1,7 @@
 describe('Artist Dashboard Test', () => {
     it('Test login flow', () => {
       cy.visit('/');
-      // cy.get('#logout-link').click({force: true})
+      cy.get('#logout-link').click({force: true})
       cy.get('#login-link').click({ force: true });
       cy.get('.show-signup').click({ force: true });
       cy.get('.show-login').click({ force: true });

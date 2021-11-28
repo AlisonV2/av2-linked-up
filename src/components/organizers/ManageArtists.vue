@@ -4,15 +4,16 @@
       <h2 class="title">{{ event.name }}</h2>
       <p>Artists attending:</p>
       <div v-for="artist in event.stands" :key="artist.userId">
-        - <router-link :to="{ name: 'Profile', params: { id: artist.userId } }">{{ artist.userName }}</router-link>
+        -
+        <router-link :to="{ name: 'Profile', params: { id: artist.userId } }">{{
+          artist.userName
+        }}</router-link>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import * as Sentry from '@sentry/vue';
-
 /**
  * @exports ManageArtists
  * @type {Component}
@@ -27,14 +28,9 @@ export default {
     };
   },
   created() {
-    this.$store
-      .dispatch('getOrgaEvents')
-      .then(() => {
-        this.events = this.$store.getters.getOrgaEvents;
-      })
-      .catch((err) => {
-        Sentry.captureException(err);
-      });
+    this.$store.dispatch('getOrgaEvents').then(() => {
+      this.events = this.$store.getters.getOrgaEvents;
+    });
   },
 };
 </script>
