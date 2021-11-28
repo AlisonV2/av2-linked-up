@@ -115,6 +115,8 @@
 </template>
 
 <script>
+import toasts from '@/mixins/toasts';
+
 /**
  * @exports ArtistDashboard
  * @type {Component}
@@ -131,6 +133,7 @@
  */
 export default {
   name: 'ArtistDashboard',
+  mixins: [toasts],
   data() {
     return {
       previewImage: null,
@@ -145,8 +148,6 @@ export default {
         description: '',
         thumbnail: '',
       },
-      showSuccessToast: false,
-      showErrorToast: false,
       fileSelected: null,
       fileErr: null,
     };
@@ -156,7 +157,6 @@ export default {
       .dispatch('getArtistProfile')
       .then(() => {
         this.profile = this.$store.getters.getArtistProfile;
-        console.log(this.profile);
       })
       .then(() => {
         this.previewImage = this.profile.thumbnail;
@@ -183,8 +183,8 @@ export default {
           this.showSuccess();
           window.location.reload();
         })
-        .catch((err) => {
-          this.showError(err);
+        .catch(() => {
+          this.showError();
         });
     },
     async setArtistProfile() {
@@ -204,23 +204,9 @@ export default {
           this.showSuccess();
           window.location.reload();
         })
-        .catch((err) => {
-          this.showError(err);
+        .catch(() => {
+          this.showError();
         });
-    },
-    showSuccess() {
-      this.showSuccessToast = true;
-      this.showErrorToast = false;
-      setTimeout(() => {
-        this.showSuccessToast = false;
-      }, 3000);
-    },
-    showError() {
-      this.showErrorToast = true;
-      this.showSuccessToast = false;
-      setTimeout(() => {
-        this.showErrorToast = false;
-      }, 3000);
     },
   },
 };

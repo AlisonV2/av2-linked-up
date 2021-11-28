@@ -82,6 +82,8 @@
 </template>
 
 <script>
+import toasts from '@/mixins/toasts';
+
 /**
  * @exports ClientDashboard
  * @type {Component}
@@ -98,6 +100,7 @@
  */
 export default {
   name: 'ClientDashboard',
+  mixins: [toasts],
   data() {
     return {
       previewImage: null,
@@ -109,8 +112,6 @@ export default {
         tattooed: '',
         thumbnail: '',
       },
-      showSuccessToast: false,
-      showErrorToast: false,
       fileSelected: null,
       fileErr: null,
     };
@@ -167,20 +168,6 @@ export default {
         .catch((err) => {
           this.showError(err);
         });
-    },
-    showSuccess() {
-      this.showSuccessToast = true;
-      this.showErrorToast = false;
-      setTimeout(() => {
-        this.showSuccessToast = false;
-      }, 3000);
-    },
-    showError() {
-      this.showErrorToast = true;
-      this.showSuccessToast = false;
-      setTimeout(() => {
-        this.showErrorToast = false;
-      }, 3000);
     },
   },
 };

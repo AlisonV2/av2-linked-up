@@ -5,8 +5,7 @@ if (process.env.NODE_ENV === 'e2e') {
     {
       extension: ['.js', '.vue'],
       all: true,
-      include: ['src'],
-      exclude: ['registerServiceWorker.js']
+      include: ['src/views/', 'src/components/', 'src/router/'],
     },
   ]);
 }
@@ -16,7 +15,7 @@ module.exports = {
   plugins,
   env: {
     test: {
-      plugins: ['transform-require-context']
-    }
-  }
+      plugins: ['transform-require-context'],
+    },
+  },
 };

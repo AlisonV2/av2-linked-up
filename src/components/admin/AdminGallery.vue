@@ -60,6 +60,7 @@
 </template>
 
 <script>
+import toasts from '@/mixins/toasts';
 import GalleryItem from '@/components/admin/GalleryItem';
 import PreviewItem from '@/components/admin/PreviewItem';
 
@@ -82,13 +83,12 @@ export default {
     GalleryItem,
     PreviewItem,
   },
+  mixins: [toasts],
   data() {
     return {
       images: [],
       gallery: [],
       profileGallery: [],
-      showSuccessToast: false,
-      showErrorToast: false,
     };
   },
   created() {
@@ -125,20 +125,6 @@ export default {
     },
     removePreview(i) {
       this.images.splice(i, 1);
-    },
-    showSuccess() {
-      this.showSuccessToast = true;
-      this.showErrorToast = false;
-      setTimeout(() => {
-        this.showSuccessToast = false;
-      }, 3000);
-    },
-    showError() {
-      this.showErrorToast = true;
-      this.showSuccessToast = false;
-      setTimeout(() => {
-        this.showErrorToast = false;
-      }, 3000);
     },
   },
 };

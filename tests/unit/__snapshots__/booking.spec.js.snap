@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Booking.vue BookingPage Snapshot 1`] = `
+<div
+  class="container col-6 home"
+>
+  <div>
+    <booking-form-stub
+      id="1"
+    />
+  </div>
+</div>
+`;
