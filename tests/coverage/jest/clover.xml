@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1638097630392" clover="3.2.0">
-  <project timestamp="1638097630392" name="All files">
-    <metrics statements="420" coveredstatements="358" conditionals="42" coveredconditionals="23" methods="205" coveredmethods="177" elements="667" coveredelements="558" complexity="0" loc="420" ncloc="420" packages="10" files="61" classes="61"/>
+<coverage generated="1638347095637" clover="3.2.0">
+  <project timestamp="1638347095637" name="All files">
+    <metrics statements="418" coveredstatements="356" conditionals="42" coveredconditionals="23" methods="204" coveredmethods="176" elements="664" coveredelements="555" complexity="0" loc="418" ncloc="418" packages="10" files="61" classes="61"/>
     <package name="src">
       <metrics statements="10" coveredstatements="10" conditionals="2" coveredconditionals="2" methods="4" coveredmethods="4"/>
       <file name="App.vue" path="C:\xampp\htdocs\Ynov\av2-linked-up\src\App.vue">
@@ -520,7 +520,7 @@
       </file>
     </package>
     <package name="src.views">
-      <metrics statements="68" coveredstatements="64" conditionals="2" coveredconditionals="2" methods="27" coveredmethods="25"/>
+      <metrics statements="66" coveredstatements="62" conditionals="2" coveredconditionals="2" methods="26" coveredmethods="24"/>
       <file name="Admin.vue" path="C:\xampp\htdocs\Ynov\av2-linked-up\src\views\Admin.vue">
         <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <line num="15" count="1" type="stmt"/>
@@ -590,7 +590,7 @@
         <line num="17" count="1" type="stmt"/>
       </file>
       <file name="Event.vue" path="C:\xampp\htdocs\Ynov\av2-linked-up\src\views\Event.vue">
-        <metrics statements="12" coveredstatements="12" conditionals="0" coveredconditionals="0" methods="7" coveredmethods="7"/>
+        <metrics statements="10" coveredstatements="10" conditionals="0" coveredconditionals="0" methods="6" coveredmethods="6"/>
         <line num="57" count="1" type="stmt"/>
         <line num="69" count="1" type="stmt"/>
         <line num="75" count="9" type="stmt"/>
@@ -599,10 +599,8 @@
         <line num="96" count="15" type="stmt"/>
         <line num="97" count="15" type="stmt"/>
         <line num="100" count="15" type="stmt"/>
-        <line num="101" count="15" type="stmt"/>
-        <line num="102" count="15" type="stmt"/>
-        <line num="107" count="1" type="stmt"/>
-        <line num="113" count="1" type="stmt"/>
+        <line num="104" count="1" type="stmt"/>
+        <line num="110" count="1" type="stmt"/>
       </file>
       <file name="GeoResults.vue" path="C:\xampp\htdocs\Ynov\av2-linked-up\src\views\GeoResults.vue">
         <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
