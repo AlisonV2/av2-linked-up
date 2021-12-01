@@ -2,7 +2,7 @@
 
 exports[`EventItem.vue EventItem Snapshot 1`] = `
 <div
-  class="card Event-card"
+  class="card event-card"
 >
   <div
     class="card-overlay"

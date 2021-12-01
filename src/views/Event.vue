@@ -85,7 +85,7 @@ export default {
         stands: [],
       },
       role: '',
-      artists: [],
+      artists: this.$store.getters.getEventArtists
     };
   },
   created() {
@@ -97,10 +97,7 @@ export default {
       this.role = this.$store.getters.getUserRole;
     });
 
-    this.$store.dispatch('getEventArtists', this.$route.params.id).then(() => {
-      this.artists = this.$store.getters.getEventArtists;
-      console.log(this.artists);
-    });
+    this.$store.dispatch('getEventArtists', this.$route.params.id);
   },
   methods: {
     attendEvent() {

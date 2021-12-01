@@ -18,6 +18,8 @@ export default {
    * @name State
    * @type {object}
    * @property {boolean} userLoggedIn
+   * @property {string} userRole
+   * @property {object} currentUser
    */
   state: {
     userLoggedIn: false,
@@ -163,7 +165,7 @@ export default {
      * @returns {boolean}
      * @async
      */
-    async resetPassword(_, email) {
+    resetPassword(_, email) {
       try {
         auth.sendPasswordResetEmail(email).then((res) => {
           console.log(res);

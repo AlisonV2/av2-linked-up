@@ -1,5 +1,5 @@
 <template>
-  <div class="card Event-card">
+  <div class="card event-card">
     <div class="card-overlay"></div>
     <div class="card-details fade-in-top text-center">
       <h5 class="card-title" :data-test="event.id">{{ event.name }}</h5>
