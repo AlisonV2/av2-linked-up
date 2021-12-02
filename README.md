@@ -34,7 +34,7 @@ Ynov M1 Majeure - Coordination Front/Back
    6. [Cloud Logging](#cloud-logging)
 7. [Deployment](#deployment)
 
-## Introduction <a name="introduction"></a>
+# Introduction <a name="introduction"></a>
 
 This project was made for Bordeaux Ynov M1 Major Class - Front/Back Coordination.
 This course is organized around two main axes :
@@ -66,13 +66,13 @@ What I've implemented:
 - Status page : <a href="https://alison-vandromme.betteruptime.com"> Here </a>
 - Google Analytics
 
-## Stack <a name="stack"></a>
+# Stack <a name="stack"></a>
 
 <img src="https://img.shields.io/badge/Vue.js-35495E?style=for-the-badge&logo=vuedotjs&logoColor=4FC08D"/> <img src="https://img.shields.io/badge/firebase-ffca28?style=for-the-badge&logo=firebase&logoColor=black"/> <img src="https://img.shields.io/badge/Jest-C21325?style=for-the-badge&logo=jest&logoColor=white" /> <img src="https://img.shields.io/badge/Cypress-17202C?style=for-the-badge&logo=cypress&logoColor=white" /> <img src="https://img.shields.io/badge/Sass-CC6699?style=for-the-badge&logo=sass&logoColor=white"/> <img src="https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white"/> <img src="https://img.shields.io/badge/eslint-3A33D1?style=for-the-badge&logo=eslint&logoColor=white" /> <img src="https://img.shields.io/badge/prettier-1A2C34?style=for-the-badge&logo=prettier&logoColor=F7BA3E" /> <img src="https://img.shields.io/badge/Jira-0052CC?style=for-the-badge&logo=Jira&logoColor=white" /> <img src="https://img.shields.io/badge/GitHub_Actions-2088FF?style=for-the-badge&logo=github-actions&logoColor=white" /> <img src="https://img.shields.io/badge/Sentry-362D59?style=for-the-badge&logo=sentry&logoColor=white" />
 
-## Development tools <a name="development"></a>
+# Development tools <a name="development"></a>
 
-### Useful resources <a name="useful-resources"></a>
+## Useful resources <a name="useful-resources"></a>
 
 dev.html can be found in the root directory.
 This file links to : 
@@ -83,7 +83,7 @@ This file links to :
 - Build reports
 - Lighthouse reports
 
-### Docker <a name="docker"></a>
+## Docker <a name="docker"></a>
 
 - Uncomment the devServer config in vue.config.js
 - Create a .env.local with environment variables
@@ -96,7 +96,7 @@ docker-compose --env-file .env.local up --build
 npm run docker
 ```
 
-### Build report <a name="build-report"></a>
+## Build report <a name="build-report"></a>
 
 A build report can also be viewed in dist/report.html.
 To generate a new report, run :
@@ -111,7 +111,7 @@ If you have Vue CLI globally installed, the data is also available with
 vue ui
 ```
 
-### Documentation <a name="documentation"></a>
+## Documentation <a name="documentation"></a>
 
 Documentation is generated from jsDocs annotations.
 To see the documentation, open docs/index.html.
@@ -122,7 +122,7 @@ To generate or update docs, run :
 npm run docs
 ```
 
-### Tests <a name="tests"></a>
+## Tests <a name="tests"></a>
 
 Unit tests are made with Jest.
 Snapshot tests are also made with Jest. Each test suite starts with a snapshot test.
@@ -140,7 +140,7 @@ module.exports = {
 };
 ```
 
-### Tests records <a name="record"></a>
+## Tests records <a name="record"></a>
 
 Cypress tests can be recorded and uploaded to Cypress Dashboard. 
 To run tests (headless) with recording, run:
@@ -158,7 +158,8 @@ Note: cypress.json must be updated with the following config :
 }
 ```
 
-### Code coverage <a name="coverage"></a>
+## Code coverage <a name="coverage"></a>
+
 
 - Jest : Tests coverage can be found in tests/coverage/jest
 - Cypress: Tests coverage can be found in tests/coverage/cypress
@@ -223,7 +224,7 @@ npm run cover:merge
 ```
 
 
-### Linter <a name="linter"></a>
+## Linter <a name="linter"></a>
 
 Eslint is used to lint the code.
 The eslint:recommended preset from vue-cli is applied.
@@ -234,7 +235,7 @@ To run the linter:
 npm run lint
 ```
 
-### Local production preview <a href="production-preview"></a>
+## Local production preview <a href="production-preview"></a>
 
 The dist directory being meant to be served by an HTTP server, opening dist/index.html in a browser will not work.
 A workaround is to use a Node static file server, as [serve](https://www.npmjs.com/package/serve) does.
@@ -247,7 +248,7 @@ npm install -g serve
 serve -s dist
 ```
 
-### Lighthouse Reports<a name="lighthouse"></a>
+## Lighthouse Reports<a name="lighthouse"></a>
 
 Lighthouse reports are located in ./lighthouse folder.
 
@@ -264,7 +265,7 @@ npm run lh:audit
 
 The --view flag can be used to automatically open the report in a browser.
 
-### SonarQube <a name="sonar"></a>
+## SonarQube <a name="sonar"></a>
 
 [SonarQube](https://docs.sonarqube.org/latest/setup/get-started-2-minutes/) is installed and ran locally through docker image. 
 Sonar Scanner is configured to use SonarQube server (launched with docker).
@@ -277,35 +278,35 @@ sonar-scanner.bat -D"sonar.projectKey=[projectName]" -D"sonar.sources=./src" -D"
 
 The analysis' output is visible on localhost:9000.
 
-## Automation <a name="automation"></a>
+# Automation <a name="automation"></a>
 
 <!-- ### Schema <a name="schema"></a>
 
 <img src="./.img/app-schema.jpg"> -->
 
-### Jira <a name="jira"></a>
+## Jira <a name="jira"></a>
 
 Each feature/fix branch has Jira's ticket issue as a reference.
 As such, Jira can automatically update issue's status depending on push/PRs.
 
-### Github Actions <a name="github-actions"></a>
+## Github Actions <a name="github-actions"></a>
 
 - Open PR for every feature/_ or fix/_ branch
 - Build, test and deploy to preview url on PR
 - Open PR on merge from staging to prod
 - Build, test and deploy to live url on master merge
 
-### Sentry <a name="sentry"></a>
+## Sentry <a name="sentry"></a>
 
 Sentry is integrated in the app as well as in Github repo and Jira.
 A bidirectionnal flow is set between Sentry's issues and Jira's.
 
-### Sider <a name="sider"></a>
+## Sider <a name="sider"></a>
 
 Automated Code Review on each PR.
 For now, test mode is enable so it doesn't block any PRs.
 
-### Better Uptime <a name="better-uptime"></a>
+## Better Uptime <a name="better-uptime"></a>
 
 Status page can be found <a href="https://alison-vandromme.betteruptime.com"> here </a>
 Better Uptime is configured to :
@@ -316,25 +317,25 @@ Better Uptime is configured to :
 
 On incident. An incident form is also automatically generated.
 
-## APIs used <a name="api-used"></a>
+# APIs used <a name="api-used"></a>
 
 - Reverse Geocode (MapQuest)
 - Geo API Gouv
 
-## Performance & Monitoring <a name="performance"></a>
+# Performance & Monitoring <a name="performance"></a>
 
-### Sentry <a name="perf-sentry"></a>
+## Sentry <a name="perf-sentry"></a>
 
 Sentry is implemented for monitoring and includes performance data.
 
-### FOIT <a name="foit"></a>
+## FOIT <a name="foit"></a>
 
 To fix "Ensure text remains visible during webfont load": 
 - Google fonts are loaded through the link tag in the head
 - 'display: swap' is added to bootstrap-icons scss file
 
 
-### PWA <a name="pwa"></a>
+## PWA <a name="pwa"></a>
 
 PWA assets are generated with [vue-pwa-asset-generator]('https://www.npmjs.com/package/vue-pwa-asset-generator').
 To regenerate files, add logo.png in the root directory then run:
@@ -349,11 +350,11 @@ Or if the package is installed globally, run :
 vue-asset-generate -a logo.png
 ```
 
-### Firebase Performance <a name="firebase-perf"></a>
+## Firebase Performance <a name="firebase-perf"></a>
 
 Firebase performance is configured to monitor performance and log traces.
 
-### Cloud Monitoring <a name="cloud-monitoring"></a>
+## Cloud Monitoring <a name="cloud-monitoring"></a>
 
 Monitoring is configured as followed:
 
@@ -364,10 +365,10 @@ Monitoring is configured as followed:
 - Usage alerts
 - Uptime checks
 
-### Cloud Logging <a name="cloud-logging"></a>
+## Cloud Logging <a name="cloud-logging"></a>
 
 Google Cloud Logging is configured to listen and log the requests from the deployed app (both production and preview urls).
 
-## Deployment <a name="deployment"></a>
+# Deployment <a name="deployment"></a>
 
 The project is hosted on Firebase Hosting and deployed through Firebase-cli.
