@@ -5,18 +5,6 @@
   <main>
     <router-view />
   </main>
-  <teleport to="#modals">
-    <AppModal :show="open" @hide="open = false">
-      <template #title>Congrats! You found me 💗</template>
-      <template #content>
-        <img
-          :src="require('@/assets/img/easter-egg.png')"
-          class="easter-egg-img"
-          alt="Easter Egg Image"
-        />
-      </template>
-    </AppModal>
-  </teleport>
   <AppFooter />
 </template>
 

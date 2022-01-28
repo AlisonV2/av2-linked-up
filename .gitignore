@@ -29,3 +29,7 @@ pnpm-debug.log*
 .nyc_output
 /temp
 /reports
+/.scannerwork
+/.nyc_output
+/lighthouse
+/tests/coverage
